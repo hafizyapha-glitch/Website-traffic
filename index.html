@@ -111,7 +111,16 @@
     
     .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
 
-    /* Pyramid Funnel Styles */
+    .top-ads-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 16px; }
+    .top-ad-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 16px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: var(--shadow-sm); }
+    .top-ad-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--primary); }
+    .top-ad-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; background: var(--card); border: 1px solid var(--border); }
+    .top-ad-title { font-size: 14px; font-weight: 700; color: var(--text); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; min-height: 39px;}
+    .top-ad-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 8px; font-size: 11px; }
+    .top-ad-stat-item { display: flex; flex-direction: column; }
+    .top-ad-stat-label { color: var(--muted); margin-bottom: 2px; }
+    .top-ad-stat-value { font-weight: 600; color: var(--text); font-family: 'Inter', sans-serif; font-size: 12px; }
+
     .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
     .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
     .pyramid-step:hover { transform: translateY(-2px); }
@@ -139,7 +148,6 @@
 
     #statusBar { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
 
-    /* Settings Drawer */
     .drawer-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
     .drawer-overlay.show { opacity: 1; visibility: visible; }
     .drawer { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: var(--card); z-index: 1000; box-shadow: -4px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; display: flex; flex-direction: column; border-left: 1px solid var(--border); }
@@ -153,7 +161,6 @@
     .setting-label { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;}
     .setting-desc { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
     
-    /* Theme Switch */
     .theme-switch-wrapper { display: flex; align-items: center; justify-content: space-between; background: var(--surface); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); }
     .theme-switch-text { font-size: 13px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 8px; }
     .switch { position: relative; display: inline-block; width: 44px; height: 24px; flex-shrink: 0; }
@@ -165,6 +172,12 @@
     body.dark-mode .slider { background-color: #334155; }
     body.dark-mode input:checked + .slider { background-color: var(--primary); }
 
+  @media (max-width: 1400px) {
+    .top-ads-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 1100px) {
+    .kpi-grid.row6 { grid-template-columns: repeat(3,1fr); }
+  }
   @media (max-width: 900px) {
     .main { padding: 16px; gap: 16px; }
     .charts-grid { grid-template-columns: 1fr; }
@@ -175,11 +188,13 @@
     .platform-tabs { width: 100%; overflow-x: auto; gap: 16px; }
     .kpi-grid.row3, .kpi-grid.row4, .kpi-grid.row5, .kpi-grid.row6 { grid-template-columns: repeat(2,1fr); }
     .trend-grid { grid-template-columns: 1fr; }
+    .top-ads-grid { grid-template-columns: repeat(2, 1fr); }
     td, th { padding: 12px 16px; }
   }
   @media (max-width: 600px) {
     .kpi-grid.row3, .kpi-grid.row4, .kpi-grid.row5, .kpi-grid.row6 { grid-template-columns: 1fr; }
     .pyramid-step { width: 100% !important; }
+    .top-ads-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -217,7 +232,7 @@
         </div>
       </div>
       <button id="settingsBtn" class="btn-outline" style="padding:8px;display:flex;align-items:center;justify-content:center;border-radius:50%;width:36px;height:36px;" title="ตั้งค่า (Settings)">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       </button>
     </div>
   </div>
@@ -261,7 +276,7 @@
           <div class="chart-title" style="display: flex; align-items: center; gap: 8px;">
             Customer Journey Funnel
           </div>
-          <div class="chart-sub">พฤติกรรมลูกค้าและการร่วงหล่น (Drop-off Rate)</div>
+          <div class="chart-sub">พฤติกรรมลูกค้า (Conversion Rate)</div>
           <div id="funnelContainer">
             <!-- Funnel steps injected via JS -->
           </div>
@@ -319,6 +334,15 @@
                 <div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">4. Conversion Value vs. ROAS</div>
                 <div class="chart-wrap" style="height: 250px;"><canvas id="trendChart4"></canvas></div>
             </div>
+          </div>
+        </div>
+
+        <!-- Top Ads Performance -->
+        <div class="chart-card wide" style="grid-column: 1 / -1; padding-bottom: 32px;">
+          <div class="chart-title">Top Ads Performance</div>
+          <div class="chart-sub">โฆษณาที่มียอดใช้จ่ายสูงสุด (Top 5 by Spend)</div>
+          <div id="topAdsContainer" class="top-ads-grid">
+            <!-- Injected via JS -->
           </div>
         </div>
 
@@ -403,7 +427,8 @@
 </div>
 
 <script>
-const initialCSVData = `"Campaign name","Ad set name","Age","Gender","Amount spent (THB)","Reach","Impressions","Link clicks","Landing page views","Website adds to cart","Website purchases","Website purchases conversion value"`;
+// ─── DATA & INIT ──────────────────────────────
+const initialCSVData = `"Campaign name","Ad set name","Ad name","Age","Gender","Amount spent (THB)","Reach","Impressions","Link clicks","Landing page views","Website adds to cart","Website purchases","Website purchases conversion value","Image URL"`;
 
 let currentPlatform = 'facebook';
 
@@ -420,8 +445,8 @@ let monthCache = { facebook: {}, google: {} };
 let trendDataCache = { facebook: {}, google: {} };
 
 ALL_MONTHS.forEach(m => {
-    trendDataCache.facebook[m] = { spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0, lpViews:0 };
-    trendDataCache.google[m] = { spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0, lpViews:0 };
+    trendDataCache.facebook[m] = { spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0 };
+    trendDataCache.google[m] = { spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0 };
 });
 
 let allData = [];
@@ -435,8 +460,8 @@ window.updateDemoMetric = function() {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-    fetchAllMonthsForTrend(currentPlatform); // ดึงข้อมูลทุกเดือนของ Platform เริ่มต้น
-    switchMonth(currentMonth); // เลือกเดือนแรก
+    fetchAllMonthsForTrend(currentPlatform); 
+    switchMonth(currentMonth); 
 });
 
 // ฟังก์ชันสลับแพลตฟอร์ม
@@ -475,12 +500,9 @@ window.switchMonth = async function(month, forceRefresh = false) {
 
   showStatus(`กำลังตรวจสอบไฟล์ข้อมูล ${currentPlatform} เดือน ${month}...`);
 
-  // ลองดึงไฟล์จากโฟลเดอร์ data (รองรับทั้งไฟล์ที่มีชื่อ platform กำกับ และไม่มีกำกับ)
-  // สมมติฐาน: หากแยกโฟลเดอร์ ให้ดึง ./data/{platform}/{month}.csv แต่ถ้าใช้โฟลเดอร์เดียว ดึง ./data/{platform}-{month}.csv
-  let success = await tryFetchData(`./data/${currentPlatform}-${month}.csv`, 'csv', month);
-  if (!success) success = await tryFetchData(`./data/${currentPlatform}-${month}.xlsx`, 'xlsx', month);
-  if (!success) success = await tryFetchData(`./data/${month}.csv`, 'csv', month); // fallback สำหรับผู้ใช้ที่ไม่ได้ใส่ชื่อ platform
-  if (!success) success = await tryFetchData(`./data/${month}.xlsx`, 'xlsx', month);
+  // ดึงไฟล์แบบแยกโฟลเดอร์เด็ดขาด (Strict Path Fetching)
+  let success = await tryFetchData(`./data/${currentPlatform}/${currentPlatform}-${month}.csv`, 'csv', month);
+  if (!success) success = await tryFetchData(`./data/${currentPlatform}/${currentPlatform}-${month}.xlsx`, 'xlsx', month);
 
   // หากไม่เจอไฟล์เลย ให้สร้างตารางเปล่า
   if (!success) {
@@ -490,7 +512,7 @@ window.switchMonth = async function(month, forceRefresh = false) {
               loadData(results.data, true, ''); 
           }
       });
-      showStatus(`ℹ️ ไม่พบไฟล์อัตโนมัติ (กรุณาอัปโหลดลงโฟลเดอร์ ./data/${month}.csv)`);
+      showStatus(`ℹ️ ไม่พบไฟล์อัตโนมัติ (กรุณาอัปโหลดลงโฟลเดอร์ ./data/${currentPlatform}/)`);
   }
 };
 
@@ -528,16 +550,15 @@ async function tryFetchData(path, ext, month) {
 async function fetchAllMonthsForTrend(platform) {
     const promises = ALL_MONTHS.map(async (m) => {
         try {
-            let res = await fetch(`./data/${platform}-${m}.csv`);
-            if(!res.ok) res = await fetch(`./data/${m}.csv`); // fallback
+            // ดึงไฟล์แบบแยกโฟลเดอร์เด็ดขาด (Strict Path Fetching)
+            let res = await fetch(`./data/${platform}/${platform}-${m}.csv`);
             
             let rows = null;
             if(res.ok) {
                 let text = await res.text();
                 rows = Papa.parse(text, {header:true, skipEmptyLines:true}).data;
             } else {
-                res = await fetch(`./data/${platform}-${m}.xlsx`);
-                if(!res.ok) res = await fetch(`./data/${m}.xlsx`); // fallback
+                res = await fetch(`./data/${platform}/${platform}-${m}.xlsx`);
                 if(res.ok) {
                     let buf = await res.arrayBuffer();
                     let wb = XLSX.read(buf, {type:'array'});
@@ -551,8 +572,7 @@ async function fetchAllMonthsForTrend(platform) {
                     purchases: parseInt(r['Website purchases'] || r['Conversions'] || 0) || 0,
                     clicks: parseInt(r['Link clicks'] || r['Clicks'] || 0) || 0,
                     reach: parseInt(r['Reach'] || r['Unique users'] || 0) || 0,
-                    impressions: parseInt(r['Impressions'] || r['Impr.'] || 0) || 0,
-                    lpViews: parseInt(r['Landing page views'] || 0) || 0
+                    impressions: parseInt(r['Impressions'] || r['Impr.'] || 0) || 0
                 }));
                 updateTrendDataForMonth(m, parsedData, platform, false);
             }
@@ -563,7 +583,7 @@ async function fetchAllMonthsForTrend(platform) {
 }
 
 function updateTrendDataForMonth(month, parsedData, platform = currentPlatform, reRender = true) {
-    trendDataCache[platform][month] = { spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0, lpViews:0 };
+    trendDataCache[platform][month] = { spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0 };
     parsedData.forEach(r => {
         trendDataCache[platform][month].spend += r.spend || 0;
         trendDataCache[platform][month].convValue += r.convValue || 0;
@@ -571,7 +591,6 @@ function updateTrendDataForMonth(month, parsedData, platform = currentPlatform, 
         trendDataCache[platform][month].clicks += r.clicks || 0;
         trendDataCache[platform][month].reach += r.reach || 0;
         trendDataCache[platform][month].impressions += r.impressions || 0;
-        trendDataCache[platform][month].lpViews += r.lpViews || 0;
     });
     if(reRender) renderTrendCharts();
 }
@@ -583,7 +602,7 @@ function renderTrendCharts() {
     const spends = ALL_MONTHS.map(m => tCache[m].spend);
     const convVals = ALL_MONTHS.map(m => tCache[m].convValue);
     const purchases = ALL_MONTHS.map(m => tCache[m].purchases);
-    const clicks = ALL_MONTHS.map(m => tCache[m].clicks);
+    const clicks = ALL_MONTHS.map(m => tCache[m].clicks); 
     const cpcs = ALL_MONTHS.map(m => tCache[m].clicks > 0 ? tCache[m].spend / tCache[m].clicks : 0);
     const crs = ALL_MONTHS.map(m => tCache[m].clicks > 0 ? (tCache[m].purchases / tCache[m].clicks)*100 : 0);
     const roases = ALL_MONTHS.map(m => tCache[m].spend > 0 ? tCache[m].convValue / tCache[m].spend : 0);
@@ -664,6 +683,7 @@ function renderAll() {
   renderFunnel(); 
   renderSalesSummary();
   renderCharts(); 
+  renderTopAds();
   renderTable(); 
 }
 
@@ -697,14 +717,12 @@ function renderKPIs() {
       pReach = prevData.reach;
       pImpr = prevData.impressions;
       pClicks = prevData.clicks;
-      pLpViews = prevData.lpViews || 0;
       
       pCpr = pReach > 0 ? (pSpend / pReach) * 1000 : 0;
       pCpm = pImpr > 0 ? (pSpend / pImpr) * 1000 : 0;
       pCpc = pClicks > 0 ? pSpend / pClicks : 0;
       pFreq = pReach > 0 ? pImpr / pReach : 0;
       pCtr = pImpr > 0 ? (pClicks / pImpr) * 100 : 0;
-      pCplpv = pLpViews > 0 ? pSpend / pLpViews : 0;
   }
 
   // Helper เพื่อคำนวณและแสดง HTML ของ % Change
@@ -736,40 +754,38 @@ function renderKPIs() {
   const iconReach = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>';
   const iconImpr = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
   const iconClick = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>';
-  const iconLpViews = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>';
+  const iconLpView = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>';
   const iconCPR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>';
   const iconCPM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
   const iconCPC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><path d="m15 15 6 6"/></svg>';
   const iconCTR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m16 8-8 8"/><path d="M9 9h.01"/><path d="M15 15h.01"/></svg>';
-  const iconFreq = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>';
+  const iconFreq = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 0 20.49 15"/></svg>';
+  const iconCPLPV = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>';
 
   let overviewKPIs = [];
   let costKPIs = [];
-  let rowClassOverview = 'row4';
-  let rowClassCost = 'row4';
+  let rowClassOverview = '';
+  let rowClassCost = '';
 
   if (currentPlatform === 'facebook') {
-    // การแสดงผลสำหรับ Facebook: Overview 5 คอลัมน์ | Cost 6 คอลัมน์ในบรรทัดเดียว
     rowClassOverview = 'row5';
-    rowClassCost = 'row6'; 
-    
+    rowClassCost = 'row6';
     overviewKPIs = [
       card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(spend, pSpend), 'Amount spent (THB)', 'var(--blue)'),
       card(iconReach, 'Reach', formatNum(reach), getDiffHtml(reach, pReach), 'Unique people reached', 'var(--emerald)'),
       card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(impressions, pImpr), 'Total ad impressions', 'var(--purple)'),
       card(iconClick, 'Link Clicks', formatNum(clicks), getDiffHtml(clicks, pClicks), 'Total Link clicks', 'var(--accent)'),
-      card(iconLpViews, 'LP Views', formatNum(lpViews), getDiffHtml(lpViews, pLpViews), 'Landing Page Views', '#8B5CF6')
+      card(iconLpView, 'LP Views', formatNum(lpViews), '', 'Landing Page Views', '#8B5CF6')
     ];
     costKPIs = [
       card(iconCPR, 'CPR', '฿' + cpr.toFixed(2), getDiffHtml(cpr, pCpr, true), 'ต้นทุนต่อการเข้าถึงพันคน', 'var(--emerald)', '฿30 - ฿100'),
       card(iconCPM, 'CPM', '฿' + cpm.toFixed(2), getDiffHtml(cpm, pCpm, true), 'ต้นทุนต่อการแสดงผลพันครั้ง', 'var(--blue)', '฿25 - ฿80'),
       card(iconCPC, 'CPC', '฿' + cpc.toFixed(2), getDiffHtml(cpc, pCpc, true), 'ต้นทุนเฉลี่ยต่อการคลิก', 'var(--purple)', '฿3 - ฿15'),
-      card(iconLpViews, 'Cost per LP View', '฿' + cplpv.toFixed(2), getDiffHtml(cplpv, pCplpv, true), 'ต้นทุนต่อการเข้าชมเว็บไซต์', '#8B5CF6', '฿5 - ฿25'),
-      card(iconCTR, 'CTR', ctr.toFixed(2) + '%', getDiffHtml(ctr, pCtr), 'Click-Through Rate', '#f97316', '1.0% - 3.0%'),
+      card(iconCPLPV, 'Cost per LP View', '฿' + cplpv.toFixed(2), getDiffHtml(cplpv, pCplpv, true), 'ต้นทุนต่อการเข้าชมเว็บ', '#8B5CF6', '฿5 - ฿25'),
+      card(iconCTR, 'CTR', ctr.toFixed(2) + '%', getDiffHtml(ctr, pCtr), 'อัตราการคลิกต่อการแสดงผล', '#f97316', '1.0% - 3.0%'),
       card(iconFreq, 'Frequency', freq.toFixed(2), getDiffHtml(freq, pFreq, true), 'ความถี่เฉลี่ยต่อคน', 'var(--accent)', '1.5 - 3.0')
     ];
   } else if (currentPlatform === 'google') {
-    // การแสดงผลสำหรับ Google Ads (3 กล่องต่อแถว)
     rowClassOverview = 'row3';
     rowClassCost = 'row3';
     overviewKPIs = [
@@ -818,7 +834,6 @@ function renderFunnel() {
   steps.forEach((step, index) => {
     const prevVal = index > 0 ? steps[index - 1].val : step.val;
     const convRate = prevVal > 0 ? ((step.val / prevVal) * 100).toFixed(2) : '0.00';
-    const dropRate = prevVal > 0 ? (100 - ((step.val / prevVal) * 100)).toFixed(2) : '0.00';
     const stepWidth = widths[index];
 
     let badgeHtml = '';
@@ -826,7 +841,7 @@ function renderFunnel() {
       badgeHtml = `
         <div class="pyramid-badge" style="color: ${step.color}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-          ${convRate}% | -${dropRate}%
+          ${convRate}%
         </div>
       `;
     }
@@ -847,6 +862,98 @@ function renderFunnel() {
   document.getElementById('funnelContainer').innerHTML = html;
 }
 
+// ─── TOP ADS PERFORMANCE ───────────────────
+function renderTopAds() {
+  let d = filteredData;
+  const groupedObj = {};
+  
+  // จัดกลุ่มข้อมูลโฆษณาตามชื่อ Ad name
+  d.forEach(r => {
+    let key = r.ad || 'Unknown Ad';
+    if (!groupedObj[key]) {
+      groupedObj[key] = {
+        name: key, spend: 0, reach: 0, impressions: 0,
+        clicks: 0, lpViews: 0, purchases: 0, convValue: 0,
+        imageUrl: r.imageUrl || '' // รองรับเผื่อมีลิงก์ภาพ
+      };
+    }
+    groupedObj[key].spend += r.spend;
+    groupedObj[key].reach += r.reach;
+    groupedObj[key].impressions += r.impressions;
+    groupedObj[key].clicks += r.clicks;
+    groupedObj[key].lpViews += r.lpViews;
+    groupedObj[key].purchases += r.purchases;
+    groupedObj[key].convValue += r.convValue;
+  });
+
+  // คำนวณ ROAS และแปลงเป็น Array
+  let adList = Object.values(groupedObj).map(r => ({
+    ...r,
+    roas: r.spend > 0 ? r.convValue / r.spend : 0
+  }));
+
+  // เรียงลำดับตามยอดค่าใช้จ่าย (Spend) มากไปน้อย
+  adList.sort((a, b) => b.spend - a.spend);
+  
+  // ตัดมาแค่ 5 อันดับแรก
+  const top5 = adList.slice(0, 5);
+  
+  const container = document.getElementById('topAdsContainer');
+  if (top5.length === 0) {
+      container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--muted); font-size: 13px; padding: 20px;">ไม่มีข้อมูลโฆษณา</div>';
+      return;
+  }
+
+  let html = '';
+  top5.forEach((ad, index) => {
+      // ใช้ Placeholder หากไม่มีลิงก์รูปมาให้
+      const defaultSvg = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f1f5f9'/%3E%3Csvg x='150' y='130' width='100' height='100' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpolyline points='21 15 16 10 5 21'/%3E%3C/svg%3E%3Ctext x='50%25' y='270' font-size='18' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%2394a3b8'%3EAd ${index+1}%3C/text%3E%3C/svg%3E`;
+      const imgSrc = ad.imageUrl ? ad.imageUrl : defaultSvg;
+      
+      html += `
+          <div class="top-ad-card">
+              <img src="${imgSrc}" alt="Ad Image" class="top-ad-img">
+              <div class="top-ad-title" title="${ad.name}">${index + 1}. ${ad.name}</div>
+              <div class="top-ad-stats">
+                  <div class="top-ad-stat-item">
+                      <span class="top-ad-stat-label">Spend</span>
+                      <span class="top-ad-stat-value">฿${formatNum(ad.spend)}</span>
+                  </div>
+                  <div class="top-ad-stat-item">
+                      <span class="top-ad-stat-label">Reach</span>
+                      <span class="top-ad-stat-value">${formatNum(ad.reach)}</span>
+                  </div>
+                  <div class="top-ad-stat-item">
+                      <span class="top-ad-stat-label">Impressions</span>
+                      <span class="top-ad-stat-value">${formatNum(ad.impressions)}</span>
+                  </div>
+                  <div class="top-ad-stat-item">
+                      <span class="top-ad-stat-label">Link Clicks</span>
+                      <span class="top-ad-stat-value">${formatNum(ad.clicks)}</span>
+                  </div>
+                  <div class="top-ad-stat-item">
+                      <span class="top-ad-stat-label">LP Views</span>
+                      <span class="top-ad-stat-value">${formatNum(ad.lpViews)}</span>
+                  </div>
+                  <div class="top-ad-stat-item">
+                      <span class="top-ad-stat-label">Purchases</span>
+                      <span class="top-ad-stat-value">${formatNum(ad.purchases)}</span>
+                  </div>
+                  <div class="top-ad-stat-item" style="grid-column: 1 / -1;">
+                      <span class="top-ad-stat-label">Conv. Value</span>
+                      <span class="top-ad-stat-value" style="color: var(--emerald);">฿${formatNum(ad.convValue)}</span>
+                  </div>
+                  <div class="top-ad-stat-item" style="grid-column: 1 / -1; padding-top: 4px; border-top: 1px solid var(--border);">
+                      <span class="top-ad-stat-label">ROAS</span>
+                      <span class="top-ad-stat-value" style="color: var(--primary); font-size: 14px;">${ad.roas.toFixed(2)}x</span>
+                  </div>
+              </div>
+          </div>
+      `;
+  });
+  container.innerHTML = html;
+}
+
 // ─── SALES SUMMARY ─────────────────────────
 function renderSalesSummary() {
   const d = filteredData;
@@ -859,7 +966,6 @@ function renderSalesSummary() {
   const roas = spend > 0 ? convValue / spend : 0;
   const convRate = clicks > 0 ? (purchases / clicks) * 100 : 0;
 
-  // Dynamic Benchmark Analysis
   let benchmarkStatus = '';
   if (clicks === 0) {
     benchmarkStatus = `<span style="color: var(--muted); font-size: 11px;">⚠️ ยังไม่มีข้อมูลทราฟฟิกคลิก</span>`;
@@ -996,28 +1102,6 @@ function renderCharts() {
     const demoSumEl = document.getElementById('demoSummary');
     if(demoSumEl) demoSumEl.style.display = 'none';
   }
-
-  // Ad Pie Chart - Spend by Ad
-  if(charts.adPie) charts.adPie.destroy();
-  const sortedAdSpend = Object.entries(adStats).sort((a,b)=>b[1].spend-a[1].spend);
-  const adLabels = sortedAdSpend.map(item => item[0]);
-  const adData = sortedAdSpend.map(item => item[1].spend);
-
-  charts.adPie = new Chart(document.getElementById('adPieChart'), {
-    type: 'doughnut',
-    data: {
-      labels: adLabels,
-      datasets: [{
-        data: adData,
-        backgroundColor: adLabels.map((_, i) => COLORS[i % COLORS.length]),
-        borderWidth: 2, borderColor: isDark ? '#1E293B' : '#FFF', hoverOffset: 8
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false, cutout: '50%',
-      plugins: { legend: { position: 'right', labels: { color: textColor, font: { family: 'Inter,Noto Sans Thai', size: 11 } } } }
-    }
-  });
 }
 
 // ─── TABLE ─────────────────────────────────
@@ -1189,7 +1273,8 @@ function loadData(rows, isInitial = false, sourceName = '') {
       lpViews: parseInt(r['Landing page views'] || 0) || 0,
       addCart: parseInt(r['Website adds to cart'] || 0) || 0,
       purchases: parseInt(r['Website purchases'] || r['Conversions'] || 0) || 0,
-      convValue: parseFloat(r['Website purchases conversion value'] || r['Conv. value'] || 0) || 0
+      convValue: parseFloat(r['Website purchases conversion value'] || r['Conv. value'] || 0) || 0,
+      imageUrl: r['Image URL'] || r['Image'] || ''
     })).filter(r => r.campaign || r.ad);
     
     allData = parsedData;

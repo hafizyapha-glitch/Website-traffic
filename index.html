@@ -1,19 +1,3 @@
-การปรับโครงสร้างเพื่อรองรับ **ไฟล์รายสัปดาห์ (Weekly Files)** และให้กราฟแสดงแนวโน้มตลอดจนตัวเลขเปรียบเทียบ (Diff) เป็นรายสัปดาห์ เป็นวิธีที่ถูกต้องและตอบโจทย์การทำ Optimize แคมเปญโฆษณามากที่สุดครับ
-
-### 💡 วิธีการทำงานและกระบวนการจัดการไฟล์ของโค้ดชุดใหม่
-
-1. **การตั้งชื่อไฟล์:** ระบบจะวิ่งหาไฟล์ที่มีคำว่า `week1` ถึง `week5` โดยอัตโนมัติ ตัวอย่างเช่น:
-* `./data/facebook/facebook-January-week1.csv`
-* `./data/facebook/facebook-January-week2.csv`
-
-
-2. **ตรรกะการรวมสัปดาห์ (Merge Overlap Week):** หากเดือนมกราคมมีไฟล์สิ้นสุดที่ `week4` ระบบจะนำเอาค่ารายเดือน (Monthly KPI) สรุปเฉพาะแค่ `week1` ถึง `week4` ของมกราคมเท่านั้น **แต่สำหรับกราฟแนวโน้ม (Trend)** ระบบจะแอบไปดึง `facebook-February-week1.csv` มารวมเข้ากับสัปดาห์สุดท้ายของเดือนมกราคม เพื่อให้กราฟเส้นของสัปดาห์นั้นมีข้อมูลที่เต็มสัปดาห์บริบูรณ์ตามที่คุณต้องการครับ
-3. **การเปรียบเทียบผลงาน (KPI Diff):**
-ตัวเลข `%` สีเขียวและสีแดงใต้กล่องสรุปผล จะถูกเปลี่ยนจากการเทียบข้ามเดือน **มาเป็นการเทียบสัปดาห์ล่าสุด (เช่น W4) กับสัปดาห์ก่อนหน้า (W3)** เพื่อให้คุณเห็นความเปลี่ยนแปลงแบบเรียลไทม์ที่สุดครับ
-
-นี่คือโค้ดฉบับอัปเดตสมบูรณ์แบบ คุณสามารถนำไปคัดลอกทับไฟล์ `index.html` เดิมเพื่อใช้งานโครงสร้างใหม่ได้เลยครับ
-
-```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -21,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website | Traffic Ads Performance</title>
 
+  <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -265,6 +250,7 @@
       </button>
     </div>
   </div>
+  <!-- Primary Navigation Platform Tabs -->
   <div class="platform-tabs">
     <button id="tab-facebook" class="platform-tab active" onclick="switchPlatform('facebook')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -291,29 +277,38 @@
       <button class="clear-btn" onclick="clearFilters()">✕ ล้างตัวกรอง</button>
     </div>
 
+    <!-- KPIs Section -->
     <div id="kpiSection"></div>
 
+    <!-- Dashboard Layout -->
     <div class="dashboard-layout">
       
+      <!-- Row 1: Funnel & Sales Summary -->
       <div class="charts-grid">
+        <!-- Customer Journey Funnel -->
         <div class="chart-card">
           <div class="chart-title" style="display: flex; align-items: center; gap: 8px;">
             Customer Journey Funnel
           </div>
           <div class="chart-sub">พฤติกรรมลูกค้า (Conversion Rate)</div>
           <div id="funnelContainer">
-            </div>
+            <!-- Funnel steps injected via JS -->
+          </div>
         </div>
 
+        <!-- Sales Performance Summary -->
         <div class="chart-card" style="display: flex; flex-direction: column;">
           <div class="chart-title">Sale Performance</div>
           <div class="chart-sub" style="margin-bottom: 16px;">ข้อมูลการสั่งซื้อและผลตอบแทนแบบรวมศูนย์</div>
           <div id="salesSummaryContainer" style="flex-grow: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: center;">
-            </div>
+            <!-- Content injected via JS -->
+          </div>
         </div>
       </div>
 
+      <!-- Row 2: Conversion Charts -->
       <div class="charts-grid">
+        <!-- Demographics -->
         <div class="chart-card wide">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 8px;">
             <div class="chart-title" id="demoChartTitle">Demographics by Age & Gender</div>
@@ -332,6 +327,7 @@
           <div id="demoSummary" class="chart-summary" style="display:none;"></div>
         </div>
 
+        <!-- Weekly Trends -->
         <div class="chart-card wide" style="grid-column: 1 / -1;">
           <div class="chart-title">Weekly Performance Trends</div>
           <div class="chart-sub">แนวโน้มประสิทธิภาพโฆษณารายสัปดาห์ (ข้อมูลในเดือนที่เลือก)</div>
@@ -355,6 +351,7 @@
           </div>
         </div>
 
+        <!-- Top Ads Performance -->
         <div class="chart-card wide" style="grid-column: 1 / -1; padding-bottom: 32px;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div>
@@ -375,7 +372,8 @@
           <div class="carousel-wrapper">
             <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
             <div id="topAdsContainer" class="top-ads-carousel">
-              </div>
+              <!-- Injected via JS -->
+            </div>
             <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
           </div>
         </div>
@@ -383,6 +381,7 @@
       </div>
     </div>
 
+    <!-- Data Detail Table -->
     <div class="table-card" style="margin-top:24px;">
       <div class="table-header" style="flex-direction: column; align-items: flex-start;">
         <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
@@ -390,6 +389,7 @@
           <div class="chart-sub" id="tableCount" style="margin-bottom:0;"></div>
         </div>
         
+        <!-- Table View Tabs -->
         <div class="platform-tabs" id="tableTabs" style="border-top: none; padding-top: 8px; margin-bottom: 8px; width: 100%;">
           <button id="tab-table-campaign" class="platform-tab active" onclick="switchTableView('campaign')">Campaign Performance</button>
           <button id="tab-table-adset" class="platform-tab" onclick="switchTableView('adset')">Ad Set Performance</button>
@@ -416,6 +416,7 @@
   </div>
 </div>
 
+<!-- Settings Drawer -->
 <div id="settingsOverlay" class="drawer-overlay"></div>
 <div id="settingsDrawer" class="drawer">
   <div class="drawer-header">
@@ -459,18 +460,18 @@
 
 <script>
 // ─── DATA & INIT ──────────────────────────────
+// Added "Week" to initial data fallback
 const initialCSVData = `"Week","Campaign name","Ad set name","Ad name","Age","Gender","Amount spent (THB)","Reach","Impressions","Link clicks","Landing page views","Website adds to cart","Website purchases","Website purchases conversion value","Image URL"`;
 
 let currentPlatform = 'facebook';
 
+// คำนวณหาเดือนปัจจุบันแบบอัตโนมัติ
 const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 let currentMonth = monthNames[new Date().getMonth()]; 
 
 let currentSource = 'ไม่มีข้อมูล';
 
-const ALL_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-
-// Caching Structure
+// Caching Structure: platform -> month -> data
 let monthCache = { facebook: {}, google: {} };
 
 let allData = [];
@@ -493,9 +494,11 @@ window.addEventListener('DOMContentLoaded', () => {
 window.switchPlatform = async function(platform) {
   currentPlatform = platform;
   
+  // อัปเดต UI Tab
   document.querySelectorAll('.platform-tab').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-' + platform).classList.add('active');
   
+  // สลับไปโหลดข้อมูลของเดือนปัจจุบันสำหรับแพลตฟอร์มใหม่
   await switchMonth(currentMonth, true); 
 };
 
@@ -503,13 +506,16 @@ window.switchPlatform = async function(platform) {
 window.switchMonth = async function(month, forceRefresh = false) {
   currentMonth = month;
   
+  // อัปเดตค่า Dropdown
   const monthSelect = document.getElementById('monthSelect');
   if (monthSelect && monthSelect.value !== month) {
       monthSelect.value = month;
   }
 
+  // เคลียร์ฟิลเตอร์ก่อนเปลี่ยนเดือน
   document.getElementById('filterCampaign').value = '';
 
+  // เช็กว่าเคยโหลดข้อมูลเดือนนี้มาแล้วหรือยัง
   if (!forceRefresh && monthCache[currentPlatform][month]) {
       // โหลดจาก Cache ถ้ามี (ต้องจำลองให้ loadData ไม่ล้าง cache)
       const cached = monthCache[currentPlatform][month];
@@ -749,6 +755,8 @@ function renderAll() {
 // ─── KPIS (Monthly Sum with Weekly Diff) ────────────────
 function renderKPIs() {
   const d = filteredData;
+  
+  // 1. Calculate Monthly Totals (สำหรับแสดงตัวเลขใหญ่)
   const spend = d.reduce((s,r)=>s+r.spend,0);
   const reach = d.reduce((s,r)=>s+r.reach,0);
   const impressions = d.reduce((s,r)=>s+r.impressions,0);
@@ -762,7 +770,7 @@ function renderKPIs() {
   const freq = reach > 0 ? impressions / reach : 0;
   const cplpv = lpViews > 0 ? spend / lpViews : 0;
 
-  // เปรียบเทียบสัปดาห์ล่าสุด (Latest Week) กับสัปดาห์ก่อนหน้า (Previous Week) โดยใช้ข้อมูลจาก Trend
+  // 2. Comparison Logic (เปรียบเทียบรายสัปดาห์: สัปดาห์ล่าสุด vs สัปดาห์ก่อนหน้า)
   const weeks = [...new Set(trendDataForCharts.map(r => r.week).filter(w=>w))].sort();
   const latestWeekName = weeks.length > 0 ? weeks[weeks.length - 1] : null;
   const prevWeekName = weeks.length > 1 ? weeks[weeks.length - 2] : null;
@@ -1092,7 +1100,7 @@ function renderSalesSummary() {
   `;
 }
 
-// ─── CHARTS (Demographics) ─────────────────
+// ─── CHARTS ────────────────────────────────
 const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64748B'];
 
 function renderCharts() {
@@ -1107,6 +1115,18 @@ function renderCharts() {
     return { responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:textColor,font:{family:'Inter,Noto Sans Thai',size:12}}}}, scales:{x:{...axisStyle(),stacked}, y:{...axisStyle(),stacked,title:{display:true,text:yLabel,color:isDark?'#94A3B8':'#6B7280',font:{size:11}}}} };
   }
 
+  // --- Aggregate By Ad Name ---
+  const adStats = {};
+  d.forEach(r => {
+    if (r.ad) {
+      if (!adStats[r.ad]) adStats[r.ad] = { spend: 0, purchases: 0, convValue: 0 };
+      adStats[r.ad].spend += r.spend;
+      adStats[r.ad].purchases += r.purchases;
+      adStats[r.ad].convValue += r.convValue;
+    }
+  });
+
+  // Demographics - Dynamic Metric by Age & Gender
   const agesDemo = [...new Set(d.map(r=>r.age).filter(a=>a))].sort();
   const gendersDemo = [...new Set(d.map(r=>r.gender).filter(g=>g))].sort();
   
@@ -1143,6 +1163,7 @@ function renderCharts() {
     options: chartOpts(selectedMetricLabel, false)
   });
 
+  // Demographic Summary
   let totalDemo = 0;
   d.forEach(r => totalDemo += (r[currentDemoMetric] || 0));
 
@@ -1179,16 +1200,18 @@ function renderCharts() {
 }
 
 // ─── TABLE ─────────────────────────────────
-let currentTableView = 'campaign'; 
+let currentTableView = 'campaign'; // ค่าเริ่มต้นของตาราง
 let currentSortCol = 'spend';
 let currentSortAsc = false;
 
 window.switchTableView = function(view) {
   currentTableView = view;
   
+  // อัปเดตสถานะปุ่ม Tab
   document.querySelectorAll('#tableTabs .platform-tab').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-table-' + view).classList.add('active');
   
+  // อัปเดตชื่อหัวตารางคอลัมน์แรก
   const thName = document.getElementById('th-name-label');
   if(view === 'campaign') thName.textContent = 'Campaign Name';
   if(view === 'adset') thName.textContent = 'Ad Set Name';
@@ -1212,6 +1235,7 @@ function renderTable() {
   const groupedObj = {};
   
   d.forEach(r => {
+    // เลือกคีย์สำหรับการจัดกลุ่ม (Grouping Dimension) ตาม Tab ที่กดเลือก
     let key = r.campaign || 'Unknown';
     if (currentTableView === 'adset') key = r.adset || 'Unknown';
     if (currentTableView === 'ad') key = r.ad || 'Unknown';
@@ -1231,11 +1255,13 @@ function renderTable() {
     groupedObj[key].convValue += r.convValue;
   });
 
+  // Derived metrics
   let tableData = Object.values(groupedObj).map(r => ({
     ...r,
     roas: r.spend > 0 ? r.convValue / r.spend : 0
   }));
 
+  // Sort
   tableData.sort((a, b) => {
     let valA = a[currentSortCol];
     let valB = b[currentSortCol];
@@ -1243,6 +1269,7 @@ function renderTable() {
     return currentSortAsc ? valA - valB : valB - valA;
   });
 
+  // Update Icons
   const cols = ['name','spend','reach','impressions','clicks','addCart','purchases','convValue','roas'];
   cols.forEach(c => {
     const el = document.getElementById(`sortIcon-${c}`);
@@ -1397,5 +1424,3 @@ settingsOverlay?.addEventListener('click', closeDrawer);
 </script>
 </body>
 </html>
-
-```

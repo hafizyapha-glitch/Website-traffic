@@ -471,6 +471,8 @@ let currentMonth = monthNames[new Date().getMonth()];
 
 let currentSource = 'ไม่มีข้อมูล';
 
+const ALL_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
 // Caching Structure: platform -> month -> data
 let monthCache = { facebook: {}, google: {} };
 
@@ -481,6 +483,7 @@ let trendDataForCharts = [];
 let charts = {};
 
 let currentDemoMetric = 'spend';
+
 window.updateDemoMetric = function() {
   currentDemoMetric = document.getElementById('demoMetricSelect').value;
   renderCharts();
@@ -623,8 +626,13 @@ async function tryFetchDataFile(csvPath, xlsxPath, fallbackWeekTag) {
 
 // Data Parsing Standardizer
 function parseRawRow(r) {
+    // ดึงค่า Week จากชื่อไฟล์ หรือถ้ามีคอลัมน์ชื่อ Week ให้ยึดตามคอลัมน์
+    let weekVal = (r.Week || r.week || r.inferredWeek || 'W1').trim().toUpperCase();
+    if (!weekVal.startsWith('W')) weekVal = 'W' + weekVal.replace(/[^0-9]/g, '');
+    if (weekVal === 'W') weekVal = 'W1';
+
     return {
-      week: (r.Week || r.week || r.inferredWeek || 'W1').trim().toUpperCase(),
+      week: weekVal,
       campaign: (r['Campaign name'] || r['Campaign'] || 'Unknown Campaign').trim(),
       adset: (r['Ad set name'] || r['Ad group'] || 'Unknown Ad Set').trim(),
       ad: (r['Ad name'] || r['Ad'] || 'Unknown Ad').trim(),
@@ -736,7 +744,6 @@ function updateSourceLabel() {
 
 function destroyCharts() { 
   if(charts.demo) charts.demo.destroy();
-  // trend charts handle their own destruction
 }
 
 function formatCurrency(n) { return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n); }
@@ -1114,17 +1121,6 @@ function renderCharts() {
   function chartOpts(yLabel, stacked) {
     return { responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:textColor,font:{family:'Inter,Noto Sans Thai',size:12}}}}, scales:{x:{...axisStyle(),stacked}, y:{...axisStyle(),stacked,title:{display:true,text:yLabel,color:isDark?'#94A3B8':'#6B7280',font:{size:11}}}} };
   }
-
-  // --- Aggregate By Ad Name ---
-  const adStats = {};
-  d.forEach(r => {
-    if (r.ad) {
-      if (!adStats[r.ad]) adStats[r.ad] = { spend: 0, purchases: 0, convValue: 0 };
-      adStats[r.ad].spend += r.spend;
-      adStats[r.ad].purchases += r.purchases;
-      adStats[r.ad].convValue += r.convValue;
-    }
-  });
 
   // Demographics - Dynamic Metric by Age & Gender
   const agesDemo = [...new Set(d.map(r=>r.age).filter(a=>a))].sort();

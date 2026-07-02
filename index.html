@@ -468,7 +468,7 @@
 
 <script>
 // ─── DATA & INIT ──────────────────────────────
-const initialCSVData = `"Week","Campaign name","Ad set name","Ad name","Age","Gender","Amount spent (THB)","Reach","Impressions","Link clicks","Landing page views","Website adds to cart","Website purchases","Website purchases conversion value","Image URL"`;
+const initialCSVData = `"Reporting starts","Reporting ends","Week","Campaign name","Ad set name","Ad name","Age","Gender","Amount spent (THB)","Reach","Impressions","Link clicks","Landing page views","Website adds to cart","Website purchases","Website purchases conversion value","Image URL"`;
 
 let currentPlatform = 'facebook';
 
@@ -538,7 +538,7 @@ window.switchMonth = async function(month, forceRefresh = false) {
 
   const mIndex = ALL_MONTHS.indexOf(month);
 
-  // โหลดสัปดาห์ 1-5 ของเดือนที่เลือก และ W1 ของเดือนถัดไป (สำหรับกรณีเปรียบเทียบรอยต่อเดือน) แบบด่วนเพื่อแสดงผล
+  // โหลดสัปดาห์ 1-6 ของเดือนที่เลือก และ W1 ของเดือนถัดไป (สำหรับกรณีเปรียบเทียบรอยต่อเดือน)
   const promises = [];
   for (let w = 1; w <= 6; w++) {
       promises.push(loadFile(currentPlatform, month, `W${w}`, mIndex));
@@ -604,7 +604,7 @@ async function fetchAllBackground() {
     isFetchingAll = true;
     const promises = [];
     for (let m = 0; m < ALL_MONTHS.length; m++) {
-        for (let w = 1; w <= 5; w++) {
+        for (let w = 1; w <= 6; w++) {
             promises.push(loadFile(currentPlatform, ALL_MONTHS[m], `W${w}`, m));
         }
     }
@@ -615,12 +615,26 @@ async function fetchAllBackground() {
     renderKPIs(); 
 }
 
+// ─── DATE & DATA PARSING ───────────────────
+function safeParseDate(dStr) {
+    if (!dStr) return NaN;
+    if (dStr.match(/^\d{4}-\d{2}-\d{2}/)) return new Date(dStr);
+    let parts = dStr.split(/[-/]/);
+    if (parts.length === 3) {
+        if (parts[0].length === 4) return new Date(`${parts[0]}-${parts[1]}-${parts[2]}`);
+        return new Date(`${parts[2]}-${parts[1]}-${parts[0]}`); // Assume DD/MM/YYYY
+    }
+    return new Date(dStr); 
+}
+
 function parseRawRow(r, month, mIndex, w) {
     return {
       month: month,
       monthIndex: mIndex,
       week: w,
-      absWeek: `${String(mIndex).padStart(2, '0')}-${w}`, // สร้างรหัสสัปดาห์ตายตัว เช่น 00-W1, 05-W4
+      absWeek: `${String(mIndex).padStart(2, '0')}-${w}`, // e.g., 04-W5
+      dateStart: (r['Reporting starts'] || r['Day'] || r['Date'] || '').trim(),
+      dateEnd: (r['Reporting ends'] || r['Day'] || r['Date'] || '').trim(),
       campaign: (r['Campaign name'] || r['Campaign'] || 'Unknown Campaign').trim(),
       adset: (r['Ad set name'] || r['Ad group'] || 'Unknown Ad Set').trim(),
       ad: (r['Ad name'] || r['Ad'] || 'Unknown Ad').trim(),
@@ -644,34 +658,67 @@ function matchesCampaign(r) {
     return true;
 }
 
+// ─── SMART MERGE LOGIC ────────────────────
+function getTrendGroupingMap(data) {
+    const weekDateRange = {};
+    data.forEach(r => {
+        if (r.dateStart && r.dateEnd) {
+             let d1 = safeParseDate(r.dateStart);
+             let d2 = safeParseDate(r.dateEnd);
+             if (!isNaN(d1) && !isNaN(d2)) {
+                 if (!weekDateRange[r.absWeek]) weekDateRange[r.absWeek] = { min: d1, max: d2 };
+                 if (d1 < weekDateRange[r.absWeek].min) weekDateRange[r.absWeek].min = d1;
+                 if (d2 > weekDateRange[r.absWeek].max) weekDateRange[r.absWeek].max = d2;
+             }
+        }
+    });
+
+    const mergeMap = {};
+    const labelMap = {};
+
+    const absWeeks = Array.from(new Set(data.map(r => r.absWeek))).sort();
+    absWeeks.forEach(aw => {
+        let m = parseInt(aw.split('-')[0]);
+        let w = aw.split('-')[1];
+        labelMap[aw] = `${ALL_MONTHS[m].substring(0,3)} ${w}`;
+    });
+
+    for (let m = 0; m < 11; m++) {
+        let prefix = String(m).padStart(2, '0') + '-';
+        let monthWeeks = absWeeks.filter(aw => aw.startsWith(prefix));
+        if (monthWeeks.length > 0) {
+            let lastWeek = monthWeeks[monthWeeks.length - 1]; // e.g., '04-W5'
+            if (weekDateRange[lastWeek]) {
+                let span = Math.round((weekDateRange[lastWeek].max - weekDateRange[lastWeek].min) / 86400000) + 1;
+                if (span < 7) {
+                    let nextM = String(m + 1).padStart(2, '0');
+                    let nextW1 = `${nextM}-W1`;
+                    if (absWeeks.includes(nextW1)) {
+                        mergeMap[nextW1] = lastWeek; // Map next W1 to this month's last week
+                        let nextMonthName = ALL_MONTHS[m+1].substring(0,3);
+                        labelMap[lastWeek] = `${ALL_MONTHS[m].substring(0,3)} ${lastWeek.split('-')[1]} - ${nextMonthName} W1`;
+                    }
+                }
+            }
+        }
+    }
+    return { mergeMap, labelMap };
+}
+
 // ─── TREND CHARTS LOGIC (Weekly 12 & Monthly) ────────────────────
 function renderTrendCharts() {
     let chartData = globalData.filter(matchesCampaign);
     let labels = [];
     let aggregated = {};
 
+    const { mergeMap, labelMap } = getTrendGroupingMap(chartData);
+
     if (trendViewMode === 'weekly') {
         const mIndex = ALL_MONTHS.indexOf(currentMonth);
-        const absWeeks = Array.from(new Set(chartData.map(r => r.absWeek))).sort();
 
-        // คำนวณหาสัปดาห์ปลายทาง (End Week) สำหรับกราฟ 12 สัปดาห์
-        let maxCurrentMonthWeek = absWeeks.filter(w => w.startsWith(String(mIndex).padStart(2,'0'))).pop();
-        let nextMonthW1 = `${String(mIndex + 1).padStart(2,'0')}-W1`;
-        
-        // ถ้าเดือนนี้ไม่เต็มสัปดาห์ และมี NextMonth-W1 ให้ดึงมาใช้เป็นจุดสิ้นสุด
-        let endWeek = absWeeks.includes(nextMonthW1) ? nextMonthW1 : maxCurrentMonthWeek;
-
-        let endIndex = absWeeks.indexOf(endWeek);
-        let targetWeeks = [];
-        if (endIndex !== -1) {
-            targetWeeks = absWeeks.slice(Math.max(0, endIndex - 11), endIndex + 1); // ดึง 12 สัปดาห์ย้อนหลัง
-        }
-
-        chartData = chartData.filter(r => targetWeeks.includes(r.absWeek));
-
-        // Group by absWeek
+        // Group By Merged Key
         chartData.forEach(r => {
-            let k = r.absWeek;
+            let k = mergeMap[r.absWeek] || r.absWeek;
             if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0};
             aggregated[k].spend += r.spend;
             aggregated[k].convValue += r.convValue;
@@ -681,12 +728,29 @@ function renderTrendCharts() {
             aggregated[k].impressions += r.impressions;
         });
 
-        const sortedKeys = Object.keys(aggregated).sort();
-        labels = sortedKeys.map(w => {
-            let m = parseInt(w.split('-')[0]);
-            let wk = w.split('-')[1];
-            return `${ALL_MONTHS[m].substring(0,3)} ${wk}`; // เช่น Jan W1
-        });
+        let allAggKeys = Object.keys(aggregated).sort();
+        
+        // Determine end key for current month context
+        let monthKeys = allAggKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
+        let endKey = monthKeys[monthKeys.length - 1]; 
+
+        let targetKeys = [];
+        let endIndex = allAggKeys.indexOf(endKey);
+        if (endIndex !== -1) {
+            targetKeys = allAggKeys.slice(Math.max(0, endIndex - 11), endIndex + 1);
+        } else {
+            targetKeys = allAggKeys.slice(-12);
+        }
+
+        labels = targetKeys.map(k => labelMap[k] || k);
+        
+        var spends = targetKeys.map(k => aggregated[k].spend || 0);
+        var convVals = targetKeys.map(k => aggregated[k].convValue || 0);
+        var purchases = targetKeys.map(k => aggregated[k].purchases || 0);
+        var clicks = targetKeys.map(k => aggregated[k].clicks || 0); 
+        var cpcs = targetKeys.map(k => (aggregated[k].clicks > 0) ? aggregated[k].spend / aggregated[k].clicks : 0);
+        var crs = targetKeys.map(k => (aggregated[k].clicks > 0) ? (aggregated[k].purchases / aggregated[k].clicks)*100 : 0);
+        var roases = targetKeys.map(k => (aggregated[k].spend > 0) ? aggregated[k].convValue / aggregated[k].spend : 0);
 
     } else {
         // โหมดรายเดือน (Monthly) - จัดกลุ่มตามเดือน
@@ -703,17 +767,15 @@ function renderTrendCharts() {
         
         const sortedKeys = Object.keys(aggregated).sort((a,b) => parseInt(a) - parseInt(b));
         labels = sortedKeys.map(k => ALL_MONTHS[parseInt(k)].substring(0,3));
-    }
 
-    const sortedKeys = trendViewMode === 'weekly' ? Object.keys(aggregated).sort() : Object.keys(aggregated).sort((a,b) => parseInt(a) - parseInt(b));
-    
-    const spends = sortedKeys.map(k => aggregated[k].spend || 0);
-    const convVals = sortedKeys.map(k => aggregated[k].convValue || 0);
-    const purchases = sortedKeys.map(k => aggregated[k].purchases || 0);
-    const clicks = sortedKeys.map(k => aggregated[k].clicks || 0); 
-    const cpcs = sortedKeys.map(k => (aggregated[k].clicks > 0) ? aggregated[k].spend / aggregated[k].clicks : 0);
-    const crs = sortedKeys.map(k => (aggregated[k].clicks > 0) ? (aggregated[k].purchases / aggregated[k].clicks)*100 : 0);
-    const roases = sortedKeys.map(k => (aggregated[k].spend > 0) ? aggregated[k].convValue / aggregated[k].spend : 0);
+        var spends = sortedKeys.map(k => aggregated[k].spend || 0);
+        var convVals = sortedKeys.map(k => aggregated[k].convValue || 0);
+        var purchases = sortedKeys.map(k => aggregated[k].purchases || 0);
+        var clicks = sortedKeys.map(k => aggregated[k].clicks || 0); 
+        var cpcs = sortedKeys.map(k => (aggregated[k].clicks > 0) ? aggregated[k].spend / aggregated[k].clicks : 0);
+        var crs = sortedKeys.map(k => (aggregated[k].clicks > 0) ? (aggregated[k].purchases / aggregated[k].clicks)*100 : 0);
+        var roases = sortedKeys.map(k => (aggregated[k].spend > 0) ? aggregated[k].convValue / aggregated[k].spend : 0);
+    }
 
     ['trend1','trend2','trend3','trend4'].forEach(id => {
         if(charts[id]) charts[id].destroy();
@@ -769,16 +831,8 @@ function renderTrendCharts() {
     });
 }
 
-function formatWeekLabel(absWeek) {
-    if (!absWeek) return '';
-    let m = parseInt(absWeek.split('-')[0]);
-    let w = absWeek.split('-')[1];
-    return `${ALL_MONTHS[m].substring(0,3)} ${w}`;
-}
-
-// ─── KPIS (Monthly Sum with Weekly Diff) ────────────────
+// ─── KPIS (Monthly Sum with Merged Weekly Diff) ────────────────
 function renderKPIs() {
-  // 1. ดึงเฉพาะข้อมูลของเดือนปัจจุบัน เพื่อหารายเดือน (Monthly Sum) โดยไม่ปะปน
   const currentMonthData = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   
   const spend = currentMonthData.reduce((s,r)=>s+r.spend,0);
@@ -794,36 +848,37 @@ function renderKPIs() {
   const freq = reach > 0 ? impressions / reach : 0;
   const cplpv = lpViews > 0 ? spend / lpViews : 0;
 
-  // 2. เปรียบเทียบสัปดาห์ล่าสุด (Latest Week) กับสัปดาห์ก่อนหน้า (Previous Week)
+  // เปรียบเทียบสัปดาห์ล่าสุด (Latest Week) กับสัปดาห์ก่อนหน้า (Previous Week) โดยอิงตาม Smart Merge
   const trendData = globalData.filter(matchesCampaign);
+  const { mergeMap, labelMap } = getTrendGroupingMap(trendData);
+
+  let aggregatedForDiff = {};
+  trendData.forEach(r => {
+      let k = mergeMap[r.absWeek] || r.absWeek;
+      if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, purchases:0, convValue:0};
+      aggregatedForDiff[k].spend += r.spend;
+      aggregatedForDiff[k].reach += r.reach;
+      aggregatedForDiff[k].impressions += r.impressions;
+      aggregatedForDiff[k].clicks += r.clicks;
+      aggregatedForDiff[k].lpViews += r.lpViews;
+  });
+
   const mIndex = ALL_MONTHS.indexOf(currentMonth);
-  const absWeeks = Array.from(new Set(trendData.map(r => r.absWeek))).sort();
-
-  let maxCurrentMonthWeek = absWeeks.filter(w => w.startsWith(String(mIndex).padStart(2,'0'))).pop();
-  let nextMonthW1 = `${String(mIndex + 1).padStart(2,'0')}-W1`;
-  let endWeek = absWeeks.includes(nextMonthW1) ? nextMonthW1 : maxCurrentMonthWeek;
-
-  let endIndex = absWeeks.indexOf(endWeek);
-  let targetWeeksForDiff = [];
-  if (endIndex !== -1) {
-     targetWeeksForDiff = absWeeks.slice(Math.max(0, endIndex - 1), endIndex + 1); // ดึงมาแค่ 2 สัปดาห์ท้าย
-  }
-
-  let latestWeekName = targetWeeksForDiff.length > 0 ? targetWeeksForDiff[targetWeeksForDiff.length - 1] : null;
-  let prevWeekName = targetWeeksForDiff.length > 1 ? targetWeeksForDiff[targetWeeksForDiff.length - 2] : null;
+  let allKeys = Object.keys(aggregatedForDiff).sort();
+  
+  let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
+  let latestWeekKey = monthKeys.pop(); 
+  let prevWeekKey = monthKeys.pop(); 
   
   let pSpend = 0, pReach = 0, pImpr = 0, pClicks = 0, pLpViews = 0;
   let pCpr = 0, pCpm = 0, pCpc = 0, pFreq = 0, pCtr = 0, pCplpv = 0;
   let cSpend = 0, cReach = 0, cImpr = 0, cClicks = 0, cLpViews = 0;
   let cCpr = 0, cCpm = 0, cCpc = 0, cFreq = 0, cCtr = 0, cCplpv = 0;
 
-  if (latestWeekName) {
-      const latestData = trendData.filter(r => r.absWeek === latestWeekName);
-      cSpend = latestData.reduce((s,r)=>s+r.spend,0);
-      cReach = latestData.reduce((s,r)=>s+r.reach,0);
-      cImpr = latestData.reduce((s,r)=>s+r.impressions,0);
-      cClicks = latestData.reduce((s,r)=>s+r.clicks,0);
-      cLpViews = latestData.reduce((s,r)=>s+r.lpViews,0);
+  if (latestWeekKey && aggregatedForDiff[latestWeekKey]) {
+      let latestData = aggregatedForDiff[latestWeekKey];
+      cSpend = latestData.spend; cReach = latestData.reach; cImpr = latestData.impressions;
+      cClicks = latestData.clicks; cLpViews = latestData.lpViews;
       
       cCpr = cReach > 0 ? (cSpend / cReach) * 1000 : 0;
       cCpm = cImpr > 0 ? (cSpend / cImpr) * 1000 : 0;
@@ -833,13 +888,10 @@ function renderKPIs() {
       cCplpv = cLpViews > 0 ? cSpend / cLpViews : 0;
   }
 
-  if (prevWeekName) {
-      const prevData = trendData.filter(r => r.absWeek === prevWeekName);
-      pSpend = prevData.reduce((s,r)=>s+r.spend,0);
-      pReach = prevData.reduce((s,r)=>s+r.reach,0);
-      pImpr = prevData.reduce((s,r)=>s+r.impressions,0);
-      pClicks = prevData.reduce((s,r)=>s+r.clicks,0);
-      pLpViews = prevData.reduce((s,r)=>s+r.lpViews,0);
+  if (prevWeekKey && aggregatedForDiff[prevWeekKey]) {
+      let prevData = aggregatedForDiff[prevWeekKey];
+      pSpend = prevData.spend; pReach = prevData.reach; pImpr = prevData.impressions;
+      pClicks = prevData.clicks; pLpViews = prevData.lpViews;
       
       pCpr = pReach > 0 ? (pSpend / pReach) * 1000 : 0;
       pCpm = pImpr > 0 ? (pSpend / pImpr) * 1000 : 0;
@@ -860,7 +912,7 @@ function renderKPIs() {
       if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
       if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
 
-      const titleText = prevWeekName ? `เทียบสัปดาห์ล่าสุด (${formatWeekLabel(latestWeekName)} vs ${formatWeekLabel(prevWeekName)})` : 'เปรียบเทียบสัปดาห์';
+      const titleText = prevWeekKey ? `เทียบสัปดาห์ล่าสุด (${labelMap[latestWeekKey] || latestWeekKey} vs ${labelMap[prevWeekKey] || prevWeekKey})` : 'เปรียบเทียบสัปดาห์';
       return `<span class="kpi-diff ${colorClass}" title="${titleText}">${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
   };
 
@@ -945,8 +997,8 @@ function updateSourceLabel() {
   }
 }
 
-function formatCurrency(n) { return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n); }
 function formatNum(n) { return new Intl.NumberFormat('th-TH').format(Math.round(n)); }
+function formatCurrency(n) { return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n); }
 
 function renderAll() { 
   renderKPIs(); 

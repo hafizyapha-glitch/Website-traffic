@@ -710,6 +710,7 @@ function renderTrendCharts() {
     let chartData = globalData.filter(matchesCampaign);
     let labels = [];
     let aggregated = {};
+    let tooltipDates = [];
 
     const { mergeMap, labelMap } = getTrendGroupingMap(chartData);
 
@@ -719,18 +720,18 @@ function renderTrendCharts() {
         // Group By Merged Key
         chartData.forEach(r => {
             let k = mergeMap[r.absWeek] || r.absWeek;
-            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0};
+            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0, dateEnds:[]};
             aggregated[k].spend += r.spend;
             aggregated[k].convValue += r.convValue;
             aggregated[k].purchases += r.purchases;
             aggregated[k].clicks += r.clicks;
             aggregated[k].reach += r.reach;
             aggregated[k].impressions += r.impressions;
+            if (r.dateEnd) aggregated[k].dateEnds.push(r.dateEnd);
         });
 
         let allAggKeys = Object.keys(aggregated).sort();
         
-        // Determine end key for current month context
         let monthKeys = allAggKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
         let endKey = monthKeys[monthKeys.length - 1]; 
 
@@ -742,7 +743,19 @@ function renderTrendCharts() {
             targetKeys = allAggKeys.slice(-12);
         }
 
-        labels = targetKeys.map(k => labelMap[k] || k);
+        // --- X-AXIS LABEL OVERRIDE: W, W(-1), W(-2) ... ---
+        labels = targetKeys.map((k, i) => {
+            let diff = targetKeys.length - 1 - i;
+            return diff === 0 ? 'W' : `W(-${diff})`;
+        });
+
+        // --- Extract Max Reporting Ends for Tooltip ---
+        tooltipDates = targetKeys.map(k => {
+            let ends = aggregated[k].dateEnds;
+            if(ends.length === 0) return 'N/A';
+            let maxDateStr = ends.sort((a,b) => safeParseDate(b) - safeParseDate(a))[0];
+            return maxDateStr;
+        });
         
         var spends = targetKeys.map(k => aggregated[k].spend || 0);
         var convVals = targetKeys.map(k => aggregated[k].convValue || 0);
@@ -756,17 +769,31 @@ function renderTrendCharts() {
         // โหมดรายเดือน (Monthly) - จัดกลุ่มตามเดือน
         chartData.forEach(r => {
             let k = r.monthIndex;
-            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0};
+            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0, dateEnds:[]};
             aggregated[k].spend += r.spend;
             aggregated[k].convValue += r.convValue;
             aggregated[k].purchases += r.purchases;
             aggregated[k].clicks += r.clicks;
             aggregated[k].reach += r.reach;
             aggregated[k].impressions += r.impressions;
+            if (r.dateEnd) aggregated[k].dateEnds.push(r.dateEnd);
         });
         
         const sortedKeys = Object.keys(aggregated).sort((a,b) => parseInt(a) - parseInt(b));
-        labels = sortedKeys.map(k => ALL_MONTHS[parseInt(k)].substring(0,3));
+
+        // --- X-AXIS LABEL OVERRIDE: M, M(-1), M(-2) ... ---
+        labels = sortedKeys.map((k, i) => {
+            let diff = sortedKeys.length - 1 - i;
+            return diff === 0 ? 'M' : `M(-${diff})`;
+        });
+
+        // --- Extract Max Reporting Ends for Tooltip ---
+        tooltipDates = sortedKeys.map(k => {
+            let ends = aggregated[k].dateEnds;
+            if(ends.length === 0) return 'N/A';
+            let maxDateStr = ends.sort((a,b) => safeParseDate(b) - safeParseDate(a))[0];
+            return maxDateStr;
+        });
 
         var spends = sortedKeys.map(k => aggregated[k].spend || 0);
         var convVals = sortedKeys.map(k => aggregated[k].convValue || 0);
@@ -785,11 +812,22 @@ function renderTrendCharts() {
     const textColor = isDark ? '#F8FAFC' : '#111827';
     const gridColor = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.04)';
 
-    function dualOpts(l1, l2) {
+    function dualOpts(l1, l2, datesArray) {
         return {
             responsive: true, maintainAspectRatio: false,
             interaction: { mode: 'index', intersect: false },
-            plugins: { legend: { position: 'top', labels:{color: textColor, font: {family: 'Inter,Noto Sans Thai', size: 11}} } },
+            plugins: { 
+                legend: { position: 'top', labels:{color: textColor, font: {family: 'Inter,Noto Sans Thai', size: 11}} },
+                tooltip: {
+                    callbacks: {
+                        title: function(context) {
+                            let idx = context[0].dataIndex;
+                            let rEnd = datesArray[idx] !== 'N/A' ? datesArray[idx] : 'ไม่มีข้อมูลวันที่';
+                            return [`Performance Trends (${context[0].label})`, `Reporting ends: ${rEnd}`];
+                        }
+                    }
+                }
+            },
             scales: {
                 x: { grid: {color: gridColor}, ticks: {color: textColor, font: {family: 'Inter', size: 10}} },
                 y: { type: 'linear', display: true, position: 'left', title: {display: true, text: l1, color: textColor, font: {size: 10}}, grid:{color:gridColor}, ticks:{color:textColor, font: {size: 10}} },
@@ -803,7 +841,7 @@ function renderTrendCharts() {
         data: { labels, datasets: [
             { label: 'Spending', data: spends, backgroundColor: '#3B82F6', yAxisID: 'y', borderRadius: 4, order: 2 },
             { label: 'Link Clicks', data: clicks, type: 'line', borderColor: '#06B6D4', backgroundColor: '#06B6D4', yAxisID: 'y1', tension: 0.3, borderWidth: 2, order: 1 }
-        ]}, options: dualOpts('Spending (฿)', 'Link Clicks')
+        ]}, options: dualOpts('Spending (฿)', 'Link Clicks', tooltipDates)
     });
 
     charts.trend2 = new Chart(document.getElementById('trendChart2'), {
@@ -811,7 +849,7 @@ function renderTrendCharts() {
         data: { labels, datasets: [
             { label: 'Spending', data: spends, backgroundColor: '#3B82F6', yAxisID: 'y', borderRadius: 4, order: 2 },
             { label: 'CPC', data: cpcs, type: 'line', borderColor: '#F59E0B', backgroundColor: '#F59E0B', yAxisID: 'y1', tension: 0.3, borderWidth: 2, order: 1 }
-        ]}, options: dualOpts('Spending (฿)', 'CPC (฿)')
+        ]}, options: dualOpts('Spending (฿)', 'CPC (฿)', tooltipDates)
     });
 
     charts.trend3 = new Chart(document.getElementById('trendChart3'), {
@@ -819,7 +857,7 @@ function renderTrendCharts() {
         data: { labels, datasets: [
             { label: 'Purchases', data: purchases, backgroundColor: '#8B5CF6', yAxisID: 'y', borderRadius: 4, order: 2 },
             { label: 'Conv. Rate (%)', data: crs, type: 'line', borderColor: '#EC4899', backgroundColor: '#EC4899', yAxisID: 'y1', tension: 0.3, borderWidth: 2, order: 1 }
-        ]}, options: dualOpts('Purchases', 'Conversion Rate (%)')
+        ]}, options: dualOpts('Purchases', 'Conversion Rate (%)', tooltipDates)
     });
 
     charts.trend4 = new Chart(document.getElementById('trendChart4'), {
@@ -827,7 +865,7 @@ function renderTrendCharts() {
         data: { labels, datasets: [
             { label: 'Conv. Value', data: convVals, backgroundColor: '#10B981', yAxisID: 'y', borderRadius: 4, order: 2 },
             { label: 'ROAS', data: roases, type: 'line', borderColor: '#F43F5E', backgroundColor: '#F43F5E', yAxisID: 'y1', tension: 0.3, borderWidth: 2, order: 1 }
-        ]}, options: dualOpts('Conv. Value (฿)', 'ROAS (x)')
+        ]}, options: dualOpts('Conv. Value (฿)', 'ROAS (x)', tooltipDates)
     });
 }
 

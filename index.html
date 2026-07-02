@@ -536,20 +536,20 @@ window.switchMonth = async function(month, forceRefresh = false) {
 
   showStatus(`กำลังดึงข้อมูล ${currentPlatform} เดือน ${month} แบบรายสัปดาห์...`);
 
-  let currentMonthDataRaw = [];
-  let maxWeek = 0;
-  let filesFound = 0;
+  const mIndex = ALL_MONTHS.indexOf(month);
 
+  // โหลดสัปดาห์ 1-5 ของเดือนที่เลือก และ W1 ของเดือนถัดไป (สำหรับกรณีเปรียบเทียบรอยต่อเดือน) แบบด่วนเพื่อแสดงผล
   const promises = [];
-  // โหลดสัปดาห์ 1-6 ของเดือนปัจจุบัน
   for (let w = 1; w <= 6; w++) {
-      const csvPath = `./data/${currentPlatform}/${currentPlatform}-${month}-week${w}.csv`;
-      const xlsxPath = `./data/${currentPlatform}/${currentPlatform}-${month}-week${w}.xlsx`;
-      promises.push(tryFetchDataFile(csvPath, xlsxPath, `W${w}`));
+      promises.push(loadFile(currentPlatform, month, `W${w}`, mIndex));
   }
+  const nextMonthIndex = (mIndex + 1) % 12;
+  promises.push(loadFile(currentPlatform, ALL_MONTHS[nextMonthIndex], `W1`, nextMonthIndex));
 
-  const results = await Promise.all(promises);
-  results.forEach(res => {
+  await Promise.all(promises);
+
+  const hasData = globalData.some(r => r.month === month);
+
   if (!hasData && globalData.length === 0) {
       Papa.parse(initialCSVData, {
           header: true,

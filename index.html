@@ -327,10 +327,18 @@
           <div id="demoSummary" class="chart-summary" style="display:none;"></div>
         </div>
 
-        <!-- Weekly Trends -->
+        <!-- Trends (Weekly 12 / Monthly) -->
         <div class="chart-card wide" style="grid-column: 1 / -1;">
-          <div class="chart-title">Weekly Performance Trends</div>
-          <div class="chart-sub">แนวโน้มประสิทธิภาพโฆษณารายสัปดาห์ (ข้อมูลในเดือนที่เลือก)</div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div class="chart-title">Performance Trends</div>
+              <div class="chart-sub" id="trendSubTitle" style="margin-bottom: 0;">แนวโน้มประสิทธิภาพโฆษณารายสัปดาห์ (12 สัปดาห์ย้อนหลัง)</div>
+            </div>
+            <div style="display: flex; gap: 4px; background: var(--surface); padding: 4px; border-radius: 8px; border: 1px solid var(--border);">
+              <button id="tab-trend-weekly" style="padding: 6px 16px; border-radius: 6px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s; background: var(--card); box-shadow: var(--shadow-sm); color: var(--primary);" onclick="switchTrendView('weekly')">Weekly</button>
+              <button id="tab-trend-monthly" style="padding: 6px 16px; border-radius: 6px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s; background: transparent; color: var(--text-secondary);" onclick="switchTrendView('monthly')">Monthly</button>
+            </div>
+          </div>
           <div class="trend-grid">
             <div>
                 <div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">1. Spending vs. Link Clicks</div>
@@ -356,7 +364,7 @@
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div>
               <div class="chart-title">Top Ads Performance</div>
-              <div class="chart-sub" style="margin-bottom: 0;">โฆษณาที่มีประสิทธิภาพสูงสุด (Top 10)</div>
+              <div class="chart-sub" style="margin-bottom: 0;">โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)</div>
             </div>
             <select id="topAdSortSelect" onchange="updateTopAdSort()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none; box-shadow: var(--shadow-sm);">
               <option value="spend">เรียงตาม Spend (สูงสุด)</option>
@@ -460,27 +468,22 @@
 
 <script>
 // ─── DATA & INIT ──────────────────────────────
-// Added "Week" to initial data fallback
 const initialCSVData = `"Week","Campaign name","Ad set name","Ad name","Age","Gender","Amount spent (THB)","Reach","Impressions","Link clicks","Landing page views","Website adds to cart","Website purchases","Website purchases conversion value","Image URL"`;
 
 let currentPlatform = 'facebook';
 
-// คำนวณหาเดือนปัจจุบันแบบอัตโนมัติ
-const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-let currentMonth = monthNames[new Date().getMonth()]; 
+const ALL_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+let currentMonth = ALL_MONTHS[new Date().getMonth()]; 
 
 let currentSource = 'ไม่มีข้อมูล';
 
-const ALL_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+// Cache System
+const fetchedFiles = new Set();
+let globalData = []; 
 
-// Caching Structure: platform -> month -> data
-let monthCache = { facebook: {}, google: {} };
-
-let allData = [];
-let allTrendData = [];
-let filteredData = [];
-let trendDataForCharts = [];
 let charts = {};
+let trendViewMode = 'weekly'; 
+let isFetchingAll = false;
 
 let currentDemoMetric = 'spend';
 
@@ -493,146 +496,131 @@ window.addEventListener('DOMContentLoaded', () => {
     switchMonth(currentMonth); 
 });
 
-// ฟังก์ชันสลับแพลตฟอร์ม
+// ฟังก์ชันสลับการแสดงผล Trend (Weekly vs Monthly)
+window.switchTrendView = function(mode) {
+    trendViewMode = mode;
+    const wTab = document.getElementById('tab-trend-weekly');
+    const mTab = document.getElementById('tab-trend-monthly');
+    
+    if(mode === 'weekly') {
+        wTab.style.background = 'var(--card)'; wTab.style.boxShadow = 'var(--shadow-sm)'; wTab.style.color = 'var(--primary)';
+        mTab.style.background = 'transparent'; mTab.style.boxShadow = 'none'; mTab.style.color = 'var(--text-secondary)';
+    } else {
+        mTab.style.background = 'var(--card)'; mTab.style.boxShadow = 'var(--shadow-sm)'; mTab.style.color = 'var(--primary)';
+        wTab.style.background = 'transparent'; wTab.style.boxShadow = 'none'; wTab.style.color = 'var(--text-secondary)';
+    }
+    document.getElementById('trendSubTitle').textContent = mode === 'weekly' ? 'แนวโน้มประสิทธิภาพโฆษณารายสัปดาห์ (12 สัปดาห์ย้อนหลัง)' : 'แนวโน้มประสิทธิภาพโฆษณารายเดือน (ทุกเดือนในระบบ)';
+    renderTrendCharts();
+}
+
 window.switchPlatform = async function(platform) {
   currentPlatform = platform;
   
-  // อัปเดต UI Tab
+  // เคลียร์ข้อมูลทุกครั้งที่สลับ Platform
+  globalData = [];
+  fetchedFiles.clear();
+  isFetchingAll = false;
+  
   document.querySelectorAll('.platform-tab').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-' + platform).classList.add('active');
   
-  // สลับไปโหลดข้อมูลของเดือนปัจจุบันสำหรับแพลตฟอร์มใหม่
   await switchMonth(currentMonth, true); 
 };
 
-// ฟังก์ชันสลับเดือน
 window.switchMonth = async function(month, forceRefresh = false) {
   currentMonth = month;
   
-  // อัปเดตค่า Dropdown
   const monthSelect = document.getElementById('monthSelect');
-  if (monthSelect && monthSelect.value !== month) {
-      monthSelect.value = month;
-  }
-
-  // เคลียร์ฟิลเตอร์ก่อนเปลี่ยนเดือน
+  if (monthSelect && monthSelect.value !== month) { monthSelect.value = month; }
   document.getElementById('filterCampaign').value = '';
-
-  // เช็กว่าเคยโหลดข้อมูลเดือนนี้มาแล้วหรือยัง
-  if (!forceRefresh && monthCache[currentPlatform][month]) {
-      // โหลดจาก Cache ถ้ามี (ต้องจำลองให้ loadData ไม่ล้าง cache)
-      const cached = monthCache[currentPlatform][month];
-      allData = cached.currentMonthData;
-      allTrendData = cached.trendData;
-      filteredData = [...allData];
-      trendDataForCharts = [...allTrendData];
-      currentSource = cached.source;
-      populateFilters();
-      updateSourceLabel();
-      renderAll();
-      return;
-  }
 
   showStatus(`กำลังดึงข้อมูล ${currentPlatform} เดือน ${month} แบบรายสัปดาห์...`);
 
-  let currentMonthDataRaw = [];
-  let maxWeek = 0;
-  let filesFound = 0;
+  const mIndex = ALL_MONTHS.indexOf(month);
 
+  // โหลดสัปดาห์ 1-5 ของเดือนที่เลือก และ W1 ของเดือนถัดไป (สำหรับกรณีเปรียบเทียบรอยต่อเดือน) แบบด่วนเพื่อแสดงผล
   const promises = [];
-  // โหลดสัปดาห์ 1-5 ของเดือนปัจจุบัน
   for (let w = 1; w <= 5; w++) {
-      const csvPath = `./data/${currentPlatform}/${currentPlatform}-${month}-week${w}.csv`;
-      const xlsxPath = `./data/${currentPlatform}/${currentPlatform}-${month}-week${w}.xlsx`;
-      promises.push(tryFetchDataFile(csvPath, xlsxPath, `W${w}`));
+      promises.push(loadFile(currentPlatform, month, `W${w}`, mIndex));
   }
+  const nextMonthIndex = (mIndex + 1) % 12;
+  promises.push(loadFile(currentPlatform, ALL_MONTHS[nextMonthIndex], `W1`, nextMonthIndex));
 
-  const results = await Promise.all(promises);
-  results.forEach(res => {
-      if (res && res.data && res.data.length > 0) {
-          currentMonthDataRaw.push(...res.data);
-          filesFound++;
-          maxWeek = Math.max(maxWeek, parseInt(res.week.replace('W','')));
-      }
-  });
+  await Promise.all(promises);
 
-  if (filesFound === 0) {
+  const hasData = globalData.some(r => r.month === month);
+
+  if (!hasData && globalData.length === 0) {
       Papa.parse(initialCSVData, {
           header: true,
           complete: function(results) {
-              loadData(results.data, true, 'ไม่มีข้อมูล'); 
+              loadManualData(results.data, true, 'ไม่มีข้อมูล'); 
           }
       });
-      showStatus(`ℹ️ ไม่พบไฟล์อัตโนมัติ (เช่น ${currentPlatform}-${month}-week1.csv)`);
-      return;
+      showStatus(`ℹ️ ไม่พบไฟล์อัตโนมัติ (กรุณาเพิ่มไฟล์ลงโฟลเดอร์ ./data/${currentPlatform}/)`);
+  } else {
+      currentSource = `โฟลเดอร์ ${currentPlatform}`;
+      populateFilters();
+      updateSourceLabel();
+      renderAll();
+      showStatus(`✅ โหลดข้อมูลสำเร็จ`);
   }
 
-  // โหลดสัปดาห์ที่ 1 ของเดือนถัดไป (เพื่อให้กราฟแนวโน้มสัปดาห์สุดท้ายสมบูรณ์)
-  const nextMonthIndex = (ALL_MONTHS.indexOf(month) + 1) % 12;
-  const nextMonth = ALL_MONTHS[nextMonthIndex];
-  const nextWeekPathCSV = `./data/${currentPlatform}/${currentPlatform}-${nextMonth}-week1.csv`;
-  const nextWeekPathXLSX = `./data/${currentPlatform}/${currentPlatform}-${nextMonth}-week1.xlsx`;
-  
-  const nextWeekRes = await tryFetchDataFile(nextWeekPathCSV, nextWeekPathXLSX, `W${maxWeek}`); 
-  let nextMonthW1DataRaw = [];
-  if (nextWeekRes && nextWeekRes.data && nextWeekRes.data.length > 0) {
-      nextMonthW1DataRaw = nextWeekRes.data;
-  }
-
-  // แปลงและแยกข้อมูล
-  allData = currentMonthDataRaw.map(parseRawRow).filter(r => r.campaign || r.ad);
-  allTrendData = [...allData, ...nextMonthW1DataRaw.map(parseRawRow).filter(r => r.campaign || r.ad)];
-  
-  filteredData = [...allData];
-  trendDataForCharts = [...allTrendData];
-  currentSource = `ดึงอัตโนมัติ (${filesFound} สัปดาห์)`;
-
-  // เก็บลง Cache
-  monthCache[currentPlatform][month] = {
-      currentMonthData: allData,
-      trendData: allTrendData,
-      source: currentSource
-  };
-
-  populateFilters();
-  updateSourceLabel();
-  renderAll();
-  showStatus(`✅ โหลดข้อมูลสำเร็จ: ${filteredData.length} รายการ`);
+  // หลังจากโหลด UI เสร็จ ให้เรียกโหลดเดือนอื่นๆ ทั้งหมดอยู่เบื้องหลัง เพื่อใช้ทำกราฟ 12 Weeks ย้อนหลัง
+  fetchAllBackground();
 };
 
-// ฟังก์ชันย่อยสำหรับพยายามดึงไฟล์และแนบสัปดาห์เข้าไป
-async function tryFetchDataFile(csvPath, xlsxPath, fallbackWeekTag) {
+async function loadFile(platform, month, w, mIndex) {
+    const fileKey = `${platform}-${month}-${w}`;
+    if (fetchedFiles.has(fileKey)) return false;
+    fetchedFiles.add(fileKey);
+
+    const weekName = w.toLowerCase().replace('w', 'week'); // แปลง W1 เป็น week1
+    const csvPath = `./data/${platform}/${platform}-${month}-${weekName}.csv`;
+    const xlsxPath = `./data/${platform}/${platform}-${month}-${weekName}.xlsx`;
+
     try {
-        let response = await fetch(csvPath);
-        if (response.ok) {
-            const text = await response.text();
-            const parsed = Papa.parse(text, {header: true, skipEmptyLines: true}).data;
-            return { data: parsed.map(r => ({...r, inferredWeek: fallbackWeekTag})), week: fallbackWeekTag };
+        let res = await fetch(csvPath);
+        if (res.ok) {
+            let text = await res.text();
+            let parsed = Papa.parse(text, {header: true, skipEmptyLines: true}).data;
+            parsed.forEach(r => globalData.push(parseRawRow(r, month, mIndex, w)));
+            return true;
         }
-        
-        response = await fetch(xlsxPath);
-        if (response.ok) {
-            const arrayBuffer = await response.arrayBuffer();
-            const wb = XLSX.read(arrayBuffer, {type: 'array'});
-            const ws = wb.Sheets[wb.SheetNames[0]];
-            const parsed = XLSX.utils.sheet_to_json(ws, {defval: 0});
-            return { data: parsed.map(r => ({...r, inferredWeek: fallbackWeekTag})), week: fallbackWeekTag };
+        res = await fetch(xlsxPath);
+        if (res.ok) {
+            let buf = await res.arrayBuffer();
+            let wb = XLSX.read(buf, {type: 'array'});
+            let parsed = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {defval: 0});
+            parsed.forEach(r => globalData.push(parseRawRow(r, month, mIndex, w)));
+            return true;
         }
-    } catch (e) {
-        return null;
-    }
-    return null;
+    } catch(e) {}
+    return false;
 }
 
-// Data Parsing Standardizer
-function parseRawRow(r) {
-    // ดึงค่า Week จากชื่อไฟล์ หรือถ้ามีคอลัมน์ชื่อ Week ให้ยึดตามคอลัมน์
-    let weekVal = (r.Week || r.week || r.inferredWeek || 'W1').trim().toUpperCase();
-    if (!weekVal.startsWith('W')) weekVal = 'W' + weekVal.replace(/[^0-9]/g, '');
-    if (weekVal === 'W') weekVal = 'W1';
+async function fetchAllBackground() {
+    if (isFetchingAll) return;
+    isFetchingAll = true;
+    const promises = [];
+    for (let m = 0; m < ALL_MONTHS.length; m++) {
+        for (let w = 1; w <= 5; w++) {
+            promises.push(loadFile(currentPlatform, ALL_MONTHS[m], `W${w}`, m));
+        }
+    }
+    await Promise.all(promises);
+    
+    // อัปเดตกราฟและส่วนเปรียบเทียบหลังจากได้ข้อมูลประวัติย้อนหลังมาครบแล้ว
+    renderTrendCharts();
+    renderKPIs(); 
+}
 
+function parseRawRow(r, month, mIndex, w) {
     return {
-      week: weekVal,
+      month: month,
+      monthIndex: mIndex,
+      week: w,
+      absWeek: `${String(mIndex).padStart(2, '0')}-${w}`, // สร้างรหัสสัปดาห์ตายตัว เช่น 00-W1, 05-W4
       campaign: (r['Campaign name'] || r['Campaign'] || 'Unknown Campaign').trim(),
       adset: (r['Ad set name'] || r['Ad group'] || 'Unknown Ad Set').trim(),
       ad: (r['Ad name'] || r['Ad'] || 'Unknown Ad').trim(),
@@ -650,34 +638,82 @@ function parseRawRow(r) {
     };
 }
 
-// ─── TREND CHARTS LOGIC (Weekly) ────────────────────
-function renderTrendCharts() {
-    const weeklyStats = {};
-    
-    // ใช้ข้อมูลจาก Trend ที่รวมสัปดาห์ทับซ้อนมาแล้ว
-    trendDataForCharts.forEach(r => {
-        let w = r.week || 'W1';
-        if (!weeklyStats[w]) {
-            weeklyStats[w] = { spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0 };
-        }
-        weeklyStats[w].spend += r.spend || 0;
-        weeklyStats[w].convValue += r.convValue || 0;
-        weeklyStats[w].purchases += r.purchases || 0;
-        weeklyStats[w].clicks += r.clicks || 0;
-        weeklyStats[w].reach += r.reach || 0;
-        weeklyStats[w].impressions += r.impressions || 0;
-    });
+function matchesCampaign(r) {
+    const campaign = document.getElementById('filterCampaign').value;
+    if (campaign && r.campaign !== campaign) return false;
+    return true;
+}
 
-    const labels = Object.keys(weeklyStats).sort();
-    if(labels.length === 0) labels.push('W1');
+// ─── TREND CHARTS LOGIC (Weekly 12 & Monthly) ────────────────────
+function renderTrendCharts() {
+    let chartData = globalData.filter(matchesCampaign);
+    let labels = [];
+    let aggregated = {};
+
+    if (trendViewMode === 'weekly') {
+        const mIndex = ALL_MONTHS.indexOf(currentMonth);
+        const absWeeks = Array.from(new Set(chartData.map(r => r.absWeek))).sort();
+
+        // คำนวณหาสัปดาห์ปลายทาง (End Week) สำหรับกราฟ 12 สัปดาห์
+        let maxCurrentMonthWeek = absWeeks.filter(w => w.startsWith(String(mIndex).padStart(2,'0'))).pop();
+        let nextMonthW1 = `${String(mIndex + 1).padStart(2,'0')}-W1`;
+        
+        // ถ้าเดือนนี้ไม่เต็มสัปดาห์ และมี NextMonth-W1 ให้ดึงมาใช้เป็นจุดสิ้นสุด
+        let endWeek = absWeeks.includes(nextMonthW1) ? nextMonthW1 : maxCurrentMonthWeek;
+
+        let endIndex = absWeeks.indexOf(endWeek);
+        let targetWeeks = [];
+        if (endIndex !== -1) {
+            targetWeeks = absWeeks.slice(Math.max(0, endIndex - 11), endIndex + 1); // ดึง 12 สัปดาห์ย้อนหลัง
+        }
+
+        chartData = chartData.filter(r => targetWeeks.includes(r.absWeek));
+
+        // Group by absWeek
+        chartData.forEach(r => {
+            let k = r.absWeek;
+            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0};
+            aggregated[k].spend += r.spend;
+            aggregated[k].convValue += r.convValue;
+            aggregated[k].purchases += r.purchases;
+            aggregated[k].clicks += r.clicks;
+            aggregated[k].reach += r.reach;
+            aggregated[k].impressions += r.impressions;
+        });
+
+        const sortedKeys = Object.keys(aggregated).sort();
+        labels = sortedKeys.map(w => {
+            let m = parseInt(w.split('-')[0]);
+            let wk = w.split('-')[1];
+            return `${ALL_MONTHS[m].substring(0,3)} ${wk}`; // เช่น Jan W1
+        });
+
+    } else {
+        // โหมดรายเดือน (Monthly) - จัดกลุ่มตามเดือน
+        chartData.forEach(r => {
+            let k = r.monthIndex;
+            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0};
+            aggregated[k].spend += r.spend;
+            aggregated[k].convValue += r.convValue;
+            aggregated[k].purchases += r.purchases;
+            aggregated[k].clicks += r.clicks;
+            aggregated[k].reach += r.reach;
+            aggregated[k].impressions += r.impressions;
+        });
+        
+        const sortedKeys = Object.keys(aggregated).sort((a,b) => parseInt(a) - parseInt(b));
+        labels = sortedKeys.map(k => ALL_MONTHS[parseInt(k)].substring(0,3));
+    }
+
+    const sortedKeys = trendViewMode === 'weekly' ? Object.keys(aggregated).sort() : Object.keys(aggregated).sort((a,b) => parseInt(a) - parseInt(b));
     
-    const spends = labels.map(w => weeklyStats[w]?.spend || 0);
-    const convVals = labels.map(w => weeklyStats[w]?.convValue || 0);
-    const purchases = labels.map(w => weeklyStats[w]?.purchases || 0);
-    const clicks = labels.map(w => weeklyStats[w]?.clicks || 0); 
-    const cpcs = labels.map(w => (weeklyStats[w]?.clicks > 0) ? weeklyStats[w].spend / weeklyStats[w].clicks : 0);
-    const crs = labels.map(w => (weeklyStats[w]?.clicks > 0) ? (weeklyStats[w].purchases / weeklyStats[w].clicks)*100 : 0);
-    const roases = labels.map(w => (weeklyStats[w]?.spend > 0) ? weeklyStats[w].convValue / weeklyStats[w].spend : 0);
+    const spends = sortedKeys.map(k => aggregated[k].spend || 0);
+    const convVals = sortedKeys.map(k => aggregated[k].convValue || 0);
+    const purchases = sortedKeys.map(k => aggregated[k].purchases || 0);
+    const clicks = sortedKeys.map(k => aggregated[k].clicks || 0); 
+    const cpcs = sortedKeys.map(k => (aggregated[k].clicks > 0) ? aggregated[k].spend / aggregated[k].clicks : 0);
+    const crs = sortedKeys.map(k => (aggregated[k].clicks > 0) ? (aggregated[k].purchases / aggregated[k].clicks)*100 : 0);
+    const roases = sortedKeys.map(k => (aggregated[k].spend > 0) ? aggregated[k].convValue / aggregated[k].spend : 0);
 
     ['trend1','trend2','trend3','trend4'].forEach(id => {
         if(charts[id]) charts[id].destroy();
@@ -733,42 +769,23 @@ function renderTrendCharts() {
     });
 }
 
-function updateSourceLabel() {
-  const sourceLabel = document.getElementById('dataStatusLabel');
-  if (sourceLabel) {
-    const isSampleOrEmpty = (currentSource === 'ไม่มีข้อมูล' || !currentSource);
-    const color = isSampleOrEmpty ? 'var(--accent)' : 'var(--emerald)';
-    sourceLabel.innerHTML = `<span style="color:${color}">●</span> ${currentSource || 'ไม่มีข้อมูล'}`;
-  }
-}
-
-function destroyCharts() { 
-  if(charts.demo) charts.demo.destroy();
-}
-
-function formatCurrency(n) { return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n); }
-function formatNum(n) { return new Intl.NumberFormat('th-TH').format(Math.round(n)); }
-
-function renderAll() { 
-  renderKPIs(); 
-  renderFunnel(); 
-  renderSalesSummary();
-  renderCharts(); 
-  renderTrendCharts();
-  renderTopAds();
-  renderTable(); 
+function formatWeekLabel(absWeek) {
+    if (!absWeek) return '';
+    let m = parseInt(absWeek.split('-')[0]);
+    let w = absWeek.split('-')[1];
+    return `${ALL_MONTHS[m].substring(0,3)} ${w}`;
 }
 
 // ─── KPIS (Monthly Sum with Weekly Diff) ────────────────
 function renderKPIs() {
-  const d = filteredData;
+  // 1. ดึงเฉพาะข้อมูลของเดือนปัจจุบัน เพื่อหารายเดือน (Monthly Sum) โดยไม่ปะปน
+  const currentMonthData = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   
-  // 1. Calculate Monthly Totals (สำหรับแสดงตัวเลขใหญ่)
-  const spend = d.reduce((s,r)=>s+r.spend,0);
-  const reach = d.reduce((s,r)=>s+r.reach,0);
-  const impressions = d.reduce((s,r)=>s+r.impressions,0);
-  const clicks = d.reduce((s,r)=>s+r.clicks,0);
-  const lpViews = d.reduce((s,r)=>s+r.lpViews,0);
+  const spend = currentMonthData.reduce((s,r)=>s+r.spend,0);
+  const reach = currentMonthData.reduce((s,r)=>s+r.reach,0);
+  const impressions = currentMonthData.reduce((s,r)=>s+r.impressions,0);
+  const clicks = currentMonthData.reduce((s,r)=>s+r.clicks,0);
+  const lpViews = currentMonthData.reduce((s,r)=>s+r.lpViews,0);
 
   const cpr = reach > 0 ? (spend / reach) * 1000 : 0;
   const cpm = impressions > 0 ? (spend / impressions) * 1000 : 0;
@@ -777,10 +794,23 @@ function renderKPIs() {
   const freq = reach > 0 ? impressions / reach : 0;
   const cplpv = lpViews > 0 ? spend / lpViews : 0;
 
-  // 2. Comparison Logic (เปรียบเทียบรายสัปดาห์: สัปดาห์ล่าสุด vs สัปดาห์ก่อนหน้า)
-  const weeks = [...new Set(trendDataForCharts.map(r => r.week).filter(w=>w))].sort();
-  const latestWeekName = weeks.length > 0 ? weeks[weeks.length - 1] : null;
-  const prevWeekName = weeks.length > 1 ? weeks[weeks.length - 2] : null;
+  // 2. เปรียบเทียบสัปดาห์ล่าสุด (Latest Week) กับสัปดาห์ก่อนหน้า (Previous Week)
+  const trendData = globalData.filter(matchesCampaign);
+  const mIndex = ALL_MONTHS.indexOf(currentMonth);
+  const absWeeks = Array.from(new Set(trendData.map(r => r.absWeek))).sort();
+
+  let maxCurrentMonthWeek = absWeeks.filter(w => w.startsWith(String(mIndex).padStart(2,'0'))).pop();
+  let nextMonthW1 = `${String(mIndex + 1).padStart(2,'0')}-W1`;
+  let endWeek = absWeeks.includes(nextMonthW1) ? nextMonthW1 : maxCurrentMonthWeek;
+
+  let endIndex = absWeeks.indexOf(endWeek);
+  let targetWeeksForDiff = [];
+  if (endIndex !== -1) {
+     targetWeeksForDiff = absWeeks.slice(Math.max(0, endIndex - 1), endIndex + 1); // ดึงมาแค่ 2 สัปดาห์ท้าย
+  }
+
+  let latestWeekName = targetWeeksForDiff.length > 0 ? targetWeeksForDiff[targetWeeksForDiff.length - 1] : null;
+  let prevWeekName = targetWeeksForDiff.length > 1 ? targetWeeksForDiff[targetWeeksForDiff.length - 2] : null;
   
   let pSpend = 0, pReach = 0, pImpr = 0, pClicks = 0, pLpViews = 0;
   let pCpr = 0, pCpm = 0, pCpc = 0, pFreq = 0, pCtr = 0, pCplpv = 0;
@@ -788,7 +818,7 @@ function renderKPIs() {
   let cCpr = 0, cCpm = 0, cCpc = 0, cFreq = 0, cCtr = 0, cCplpv = 0;
 
   if (latestWeekName) {
-      const latestData = trendDataForCharts.filter(r => r.week === latestWeekName);
+      const latestData = trendData.filter(r => r.absWeek === latestWeekName);
       cSpend = latestData.reduce((s,r)=>s+r.spend,0);
       cReach = latestData.reduce((s,r)=>s+r.reach,0);
       cImpr = latestData.reduce((s,r)=>s+r.impressions,0);
@@ -804,7 +834,7 @@ function renderKPIs() {
   }
 
   if (prevWeekName) {
-      const prevData = trendDataForCharts.filter(r => r.week === prevWeekName);
+      const prevData = trendData.filter(r => r.absWeek === prevWeekName);
       pSpend = prevData.reduce((s,r)=>s+r.spend,0);
       pReach = prevData.reduce((s,r)=>s+r.reach,0);
       pImpr = prevData.reduce((s,r)=>s+r.impressions,0);
@@ -830,7 +860,7 @@ function renderKPIs() {
       if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
       if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
 
-      const titleText = prevWeekName ? `เทียบสัปดาห์ล่าสุด (${latestWeekName} vs ${prevWeekName})` : 'เปรียบเทียบสัปดาห์';
+      const titleText = prevWeekName ? `เทียบสัปดาห์ล่าสุด (${formatWeekLabel(latestWeekName)} vs ${formatWeekLabel(prevWeekName)})` : 'เปรียบเทียบสัปดาห์';
       return `<span class="kpi-diff ${colorClass}" title="${titleText}">${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
   };
 
@@ -895,19 +925,42 @@ function renderKPIs() {
   }
 
   document.getElementById('kpiSection').innerHTML = `
-    <div class="kpi-group-label">Overview (ยอดรวมรายเดือน)</div>
+    <div class="kpi-group-label">Overview (ยอดรวมรายเดือนของ ${currentMonth})</div>
     <div class="kpi-grid ${rowClassOverview}" style="margin-bottom: 24px;">${overviewKPIs.join('')}</div>
     <div class="kpi-group-label">Cost Efficiency</div>
     <div class="kpi-grid ${rowClassCost}">${costKPIs.join('')}</div>
     <div style="text-align: right; font-size: 11px; color: var(--muted); margin-top: 8px;">
-      Benchmark ref: E-commerce Industry Average (Thailand) | % Diff เทียบกับสัปดาห์ก่อนหน้า
+      Benchmark ref: E-commerce Industry Average (Thailand) | % Diff เทียบระหว่างสัปดาห์ล่าสุดและสัปดาห์ก่อนหน้า (Hover ดูวันที่)
     </div>
   `;
 }
 
+// ─── GENERAL RENDERING ───────────────────────
+function updateSourceLabel() {
+  const sourceLabel = document.getElementById('dataStatusLabel');
+  if (sourceLabel) {
+    const isSampleOrEmpty = (currentSource === 'ไม่มีข้อมูล' || !currentSource);
+    const color = isSampleOrEmpty ? 'var(--accent)' : 'var(--emerald)';
+    sourceLabel.innerHTML = `<span style="color:${color}">●</span> ${currentSource || 'ไม่มีข้อมูล'}`;
+  }
+}
+
+function formatCurrency(n) { return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n); }
+function formatNum(n) { return new Intl.NumberFormat('th-TH').format(Math.round(n)); }
+
+function renderAll() { 
+  renderKPIs(); 
+  renderFunnel(); 
+  renderSalesSummary();
+  renderCharts(); 
+  renderTrendCharts();
+  renderTopAds();
+  renderTable(); 
+}
+
 // ─── FUNNEL (CUSTOMER JOURNEY) ─────────────
 function renderFunnel() {
-  const d = filteredData;
+  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const impr = d.reduce((s,r)=>s+r.impressions,0);
   const clicks = d.reduce((s,r)=>s+r.clicks,0);
   const lpViews = d.reduce((s,r)=>s+r.lpViews,0);
@@ -970,7 +1023,7 @@ window.scrollCarousel = function(direction) {
 };
 
 function renderTopAds() {
-  let d = filteredData;
+  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const groupedObj = {};
   
   d.forEach(r => {
@@ -1058,7 +1111,7 @@ function renderTopAds() {
 
 // ─── SALES SUMMARY ─────────────────────────
 function renderSalesSummary() {
-  const d = filteredData;
+  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const spend = d.reduce((s,r)=>s+r.spend,0);
   const purchases = d.reduce((s,r)=>s+r.purchases,0);
   const convValue = d.reduce((s,r)=>s+r.convValue,0);
@@ -1113,7 +1166,7 @@ const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64
 function renderCharts() {
   const isDark = document.body.classList.contains('dark-mode');
   const textColor = isDark ? '#F8FAFC' : '#111827';
-  const d = filteredData;
+  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
 
   function axisStyle() {
     return { grid:{color:isDark?'rgba(255,255,255,0.05)':'rgba(0,0,0,0.04)'}, ticks:{color:isDark?'#94A3B8':'#6B7280',font:{family:'Inter,Noto Sans Thai',size:11}}, border:{color:'transparent'} };
@@ -1196,18 +1249,16 @@ function renderCharts() {
 }
 
 // ─── TABLE ─────────────────────────────────
-let currentTableView = 'campaign'; // ค่าเริ่มต้นของตาราง
+let currentTableView = 'campaign'; 
 let currentSortCol = 'spend';
 let currentSortAsc = false;
 
 window.switchTableView = function(view) {
   currentTableView = view;
   
-  // อัปเดตสถานะปุ่ม Tab
   document.querySelectorAll('#tableTabs .platform-tab').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-table-' + view).classList.add('active');
   
-  // อัปเดตชื่อหัวตารางคอลัมน์แรก
   const thName = document.getElementById('th-name-label');
   if(view === 'campaign') thName.textContent = 'Campaign Name';
   if(view === 'adset') thName.textContent = 'Ad Set Name';
@@ -1227,11 +1278,10 @@ window.handleSort = function(col) {
 };
 
 function renderTable() {
-  let d = filteredData;
+  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const groupedObj = {};
   
   d.forEach(r => {
-    // เลือกคีย์สำหรับการจัดกลุ่ม (Grouping Dimension) ตาม Tab ที่กดเลือก
     let key = r.campaign || 'Unknown';
     if (currentTableView === 'adset') key = r.adset || 'Unknown';
     if (currentTableView === 'ad') key = r.ad || 'Unknown';
@@ -1251,13 +1301,11 @@ function renderTable() {
     groupedObj[key].convValue += r.convValue;
   });
 
-  // Derived metrics
   let tableData = Object.values(groupedObj).map(r => ({
     ...r,
     roas: r.spend > 0 ? r.convValue / r.spend : 0
   }));
 
-  // Sort
   tableData.sort((a, b) => {
     let valA = a[currentSortCol];
     let valB = b[currentSortCol];
@@ -1265,14 +1313,13 @@ function renderTable() {
     return currentSortAsc ? valA - valB : valB - valA;
   });
 
-  // Update Icons
   const cols = ['name','spend','reach','impressions','clicks','addCart','purchases','convValue','roas'];
   cols.forEach(c => {
     const el = document.getElementById(`sortIcon-${c}`);
     if (el) el.innerHTML = c === currentSortCol ? (currentSortAsc ? '▲' : '▼') : '';
   });
 
-  document.getElementById('tableCount').textContent = `แสดง ${tableData.length} รายการ`;
+  document.getElementById('tableCount').textContent = `แสดง ${tableData.length} รายการ (เฉพาะเดือน ${currentMonth})`;
   document.getElementById('tableBody').innerHTML = tableData.map(r => `
     <tr>
       <td title="${r.name}" style="max-width:240px; overflow: hidden; text-overflow: ellipsis;">${r.name}</td>
@@ -1290,27 +1337,16 @@ function renderTable() {
 
 // ─── FILTER & UPLOAD ───────────────────────
 function populateFilters() {
-  const campaigns = [...new Set(allData.map(r=>r.campaign).filter(c=>c))].sort();
+  const campaigns = [...new Set(globalData.map(r=>r.campaign).filter(c=>c))].sort();
   document.getElementById('filterCampaign').innerHTML = '<option value="">ทุก Campaign</option>'+campaigns.map(c=>`<option value="${c}">${c}</option>`).join('');
 }
 
 function applyFilters() {
-  const campaign = document.getElementById('filterCampaign').value;
-  filteredData = allData.filter(r=>{
-    if (campaign && r.campaign !== campaign) return false;
-    return true;
-  });
-  trendDataForCharts = allTrendData.filter(r=>{
-    if (campaign && r.campaign !== campaign) return false;
-    return true;
-  });
   renderAll();
 }
 
 function clearFilters() {
   document.getElementById('filterCampaign').value = '';
-  filteredData = [...allData];
-  trendDataForCharts = [...allTrendData];
   renderAll();
 }
 
@@ -1328,7 +1364,7 @@ function handleManualFileUpload(e) {
           const wb = XLSX.read(ev.target.result, {type:'array'}); 
           const ws = wb.Sheets[wb.SheetNames[0]]; 
           const rawData = XLSX.utils.sheet_to_json(ws,{defval:0});
-          loadData(rawData, false, sourceName); 
+          loadManualData(rawData, false, sourceName); 
         } catch(err) {
           showStatus('❌ ไม่สามารถอ่านไฟล์ Excel ได้ หรือไฟล์เสียหาย');
         }
@@ -1339,7 +1375,7 @@ function handleManualFileUpload(e) {
         header:true, 
         skipEmptyLines:true, 
         complete: r => {
-            loadData(r.data, false, sourceName);
+            loadManualData(r.data, false, sourceName);
         },
         error: err => showStatus('❌ เกิดข้อผิดพลาดในการอ่านไฟล์ CSV')
       });
@@ -1351,28 +1387,21 @@ function handleManualFileUpload(e) {
 
 document.getElementById('manualFileInput')?.addEventListener('change', handleManualFileUpload);
 
-function loadData(rows, isInitial = false, sourceName = '') {
+function loadManualData(rows, isInitial = false, sourceName = '') {
   try {
-    const parsedData = rows.map(r => parseRawRow({...r, inferredWeek: 'W1'})).filter(r => r.campaign || r.ad);
+    const mIndex = ALL_MONTHS.indexOf(currentMonth);
+    const parsedData = rows.map(r => parseRawRow({...r}, currentMonth, mIndex, r.Week || r.week || 'W1')).filter(r => r.campaign || r.ad);
     
-    allData = parsedData;
-    allTrendData = parsedData;
-    filteredData = [...allData];
-    trendDataForCharts = [...allTrendData];
+    globalData = parsedData;
 
-    if (sourceName) {
-        currentSource = sourceName;
-    } else if (isInitial) {
-        currentSource = 'ไม่มีข้อมูล';
-    }
+    if (sourceName) { currentSource = sourceName; } 
+    else if (isInitial) { currentSource = 'ไม่มีข้อมูล'; }
 
     populateFilters();
     updateSourceLabel();
     renderAll();
     
-    if (!isInitial) {
-      showStatus(`✅ โหลดข้อมูลสำเร็จ: ${parsedData.length} แถว`);
-    }
+    if (!isInitial) showStatus(`✅ โหลดข้อมูลอัปโหลดสำเร็จ: ${parsedData.length} แถว`);
   } catch(e) { 
     if(!isInitial) showStatus('❌ เกิดข้อผิดพลาดในการอ่านไฟล์: '+e.message); 
   }

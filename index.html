@@ -1,11 +1,3 @@
-ฉันได้ปรับแก้กราฟ **Performance Trends** ในส่วนของโหมดรายเดือน (Monthly) ตามที่คุณต้องการเรียบร้อยแล้วครับ โดยมีการทำงานดังนี้:
-
-1. **แกน X:** เปลี่ยนจากการแสดง `M, M(-1)` ไปแสดงเป็น **ชื่อย่อของเดือน** (เช่น Jan, Feb, Mar...) แทน
-2. **Tooltip ตอน Hover:** เก็บข้อมูล `Date Start` (วันที่เก่าที่สุดในกลุ่ม) และ `Date End` (วันที่ใหม่ที่สุดในกลุ่ม) มาแสดงผลเป็น 2 บรรทัดแยกกัน
-
-คุณสามารถคัดลอกโค้ดทั้งหมดด้านล่างไปทับไฟล์เดิมได้เลยครับ:
-
-```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -758,12 +750,14 @@ function renderTrendCharts() {
             return diff === 0 ? 'W' : `W(-${diff})`;
         });
 
-        // --- Extract Max Reporting Ends for Tooltip ---
+        // --- Extract Min Date Start and Max Date End for Tooltip ---
         tooltipDates = targetKeys.map(k => {
-            let ends = aggregated[k].dateEnds;
-            if(ends.length === 0) return ['Reporting ends: N/A'];
-            let maxDateStr = ends.sort((a,b) => safeParseDate(b) - safeParseDate(a))[0];
-            return [`Reporting ends: ${maxDateStr}`];
+            let agg = aggregated[k] || { dateStarts: [], dateEnds: [] };
+            let starts = agg.dateStarts || [];
+            let ends = agg.dateEnds || [];
+            let startStr = starts.length > 0 ? starts.sort((a,b) => safeParseDate(a) - safeParseDate(b))[0] : 'N/A';
+            let endStr = ends.length > 0 ? ends.sort((a,b) => safeParseDate(b) - safeParseDate(a))[0] : 'N/A';
+            return [`Date start: ${startStr}`, `Date end: ${endStr}`];
         });
         
         var spends = targetKeys.map(k => aggregated[k].spend || 0);
@@ -788,30 +782,27 @@ function renderTrendCharts() {
             if (r.dateEnd) aggregated[k].dateEnds.push(r.dateEnd);
             if (r.dateStart) aggregated[k].dateStarts.push(r.dateStart);
         });
-        
-        const sortedKeys = Object.keys(aggregated).sort((a,b) => parseInt(a) - parseInt(b));
 
-        // --- X-AXIS LABEL OVERRIDE: Month Names ---
-        labels = sortedKeys.map(k => {
-            return ALL_MONTHS[parseInt(k)].substring(0, 3);
-        });
+        // --- X-AXIS LABEL OVERRIDE: บังคับแสดง 12 เดือน ---
+        labels = ALL_MONTHS.map(m => m.substring(0, 3));
 
         // --- Extract Min Date Start and Max Date End for Tooltip ---
-        tooltipDates = sortedKeys.map(k => {
-            let starts = aggregated[k].dateStarts;
-            let ends = aggregated[k].dateEnds;
+        tooltipDates = ALL_MONTHS.map((m, i) => {
+            let agg = aggregated[i] || { dateStarts: [], dateEnds: [] };
+            let starts = agg.dateStarts || [];
+            let ends = agg.dateEnds || [];
             let startStr = starts.length > 0 ? starts.sort((a,b) => safeParseDate(a) - safeParseDate(b))[0] : 'N/A';
             let endStr = ends.length > 0 ? ends.sort((a,b) => safeParseDate(b) - safeParseDate(a))[0] : 'N/A';
             return [`Date start: ${startStr}`, `Date end: ${endStr}`];
         });
 
-        var spends = sortedKeys.map(k => aggregated[k].spend || 0);
-        var convVals = sortedKeys.map(k => aggregated[k].convValue || 0);
-        var purchases = sortedKeys.map(k => aggregated[k].purchases || 0);
-        var clicks = sortedKeys.map(k => aggregated[k].clicks || 0); 
-        var cpcs = sortedKeys.map(k => (aggregated[k].clicks > 0) ? aggregated[k].spend / aggregated[k].clicks : 0);
-        var crs = sortedKeys.map(k => (aggregated[k].clicks > 0) ? (aggregated[k].purchases / aggregated[k].clicks)*100 : 0);
-        var roases = sortedKeys.map(k => (aggregated[k].spend > 0) ? aggregated[k].convValue / aggregated[k].spend : 0);
+        var spends = ALL_MONTHS.map((m, i) => (aggregated[i] ? aggregated[i].spend : 0));
+        var convVals = ALL_MONTHS.map((m, i) => (aggregated[i] ? aggregated[i].convValue : 0));
+        var purchases = ALL_MONTHS.map((m, i) => (aggregated[i] ? aggregated[i].purchases : 0));
+        var clicks = ALL_MONTHS.map((m, i) => (aggregated[i] ? aggregated[i].clicks : 0)); 
+        var cpcs = ALL_MONTHS.map((m, i) => (aggregated[i] && aggregated[i].clicks > 0) ? aggregated[i].spend / aggregated[i].clicks : 0);
+        var crs = ALL_MONTHS.map((m, i) => (aggregated[i] && aggregated[i].clicks > 0) ? (aggregated[i].purchases / aggregated[i].clicks)*100 : 0);
+        var roases = ALL_MONTHS.map((m, i) => (aggregated[i] && aggregated[i].spend > 0) ? aggregated[i].convValue / aggregated[i].spend : 0);
     }
 
     ['trend1','trend2','trend3','trend4'].forEach(id => {
@@ -829,11 +820,30 @@ function renderTrendCharts() {
             plugins: { 
                 legend: { position: 'top', labels:{color: textColor, font: {family: 'Inter,Noto Sans Thai', size: 11}} },
                 tooltip: {
+                    displayColors: false,
                     callbacks: {
                         title: function(context) {
-                            let idx = context[0].dataIndex;
+                            // นำข้อความ "Performance Trends" ออก และแสดงแค่ชื่อแกน (เช่น Jan, Feb หรือ W(-1))
+                            return `${context[0].label}`;
+                        },
+                        label: function(context) {
+                            let idx = context.dataIndex;
                             let dateLines = datesArray[idx] || [];
-                            return [`Performance Trends (${context[0].label})`].concat(dateLines);
+                            
+                            let labelText = context.dataset.label || '';
+                            let valText = context.parsed.y;
+                            if (labelText.includes('ROAS')) valText = valText.toFixed(2) + 'x';
+                            else if (labelText.includes('Rate')) valText = valText.toFixed(2) + '%';
+                            else if (labelText.includes('฿') || l1.includes('฿') || l2.includes('฿')) valText = '฿' + formatNum(valText);
+                            else valText = formatNum(valText);
+
+                            let combinedLabel = `${labelText}: ${valText}`;
+                            
+                            // หากเป็น Dataset แรกของ Tooltip นี้ ให้แทรกวันที่เข้าไปด้วยเพื่อให้แสดงครั้งเดียว
+                            if (context.datasetIndex === 0) {
+                                return dateLines.concat(['', combinedLabel]);
+                            }
+                            return combinedLabel;
                         }
                     }
                 }
@@ -1553,5 +1563,3 @@ settingsOverlay?.addEventListener('click', closeDrawer);
 </script>
 </body>
 </html>
-
-```

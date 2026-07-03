@@ -1,3 +1,11 @@
+ฉันได้ปรับแก้กราฟ **Performance Trends** ในส่วนของโหมดรายเดือน (Monthly) ตามที่คุณต้องการเรียบร้อยแล้วครับ โดยมีการทำงานดังนี้:
+
+1. **แกน X:** เปลี่ยนจากการแสดง `M, M(-1)` ไปแสดงเป็น **ชื่อย่อของเดือน** (เช่น Jan, Feb, Mar...) แทน
+2. **Tooltip ตอน Hover:** เก็บข้อมูล `Date Start` (วันที่เก่าที่สุดในกลุ่ม) และ `Date End` (วันที่ใหม่ที่สุดในกลุ่ม) มาแสดงผลเป็น 2 บรรทัดแยกกัน
+
+คุณสามารถคัดลอกโค้ดทั้งหมดด้านล่างไปทับไฟล์เดิมได้เลยครับ:
+
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -720,7 +728,7 @@ function renderTrendCharts() {
         // Group By Merged Key
         chartData.forEach(r => {
             let k = mergeMap[r.absWeek] || r.absWeek;
-            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0, dateEnds:[]};
+            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0, dateEnds:[], dateStarts:[]};
             aggregated[k].spend += r.spend;
             aggregated[k].convValue += r.convValue;
             aggregated[k].purchases += r.purchases;
@@ -728,6 +736,7 @@ function renderTrendCharts() {
             aggregated[k].reach += r.reach;
             aggregated[k].impressions += r.impressions;
             if (r.dateEnd) aggregated[k].dateEnds.push(r.dateEnd);
+            if (r.dateStart) aggregated[k].dateStarts.push(r.dateStart);
         });
 
         let allAggKeys = Object.keys(aggregated).sort();
@@ -752,9 +761,9 @@ function renderTrendCharts() {
         // --- Extract Max Reporting Ends for Tooltip ---
         tooltipDates = targetKeys.map(k => {
             let ends = aggregated[k].dateEnds;
-            if(ends.length === 0) return 'N/A';
+            if(ends.length === 0) return ['Reporting ends: N/A'];
             let maxDateStr = ends.sort((a,b) => safeParseDate(b) - safeParseDate(a))[0];
-            return maxDateStr;
+            return [`Reporting ends: ${maxDateStr}`];
         });
         
         var spends = targetKeys.map(k => aggregated[k].spend || 0);
@@ -769,7 +778,7 @@ function renderTrendCharts() {
         // โหมดรายเดือน (Monthly) - จัดกลุ่มตามเดือน
         chartData.forEach(r => {
             let k = r.monthIndex;
-            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0, dateEnds:[]};
+            if (!aggregated[k]) aggregated[k] = {spend:0, convValue:0, purchases:0, clicks:0, reach:0, impressions:0, dateEnds:[], dateStarts:[]};
             aggregated[k].spend += r.spend;
             aggregated[k].convValue += r.convValue;
             aggregated[k].purchases += r.purchases;
@@ -777,22 +786,23 @@ function renderTrendCharts() {
             aggregated[k].reach += r.reach;
             aggregated[k].impressions += r.impressions;
             if (r.dateEnd) aggregated[k].dateEnds.push(r.dateEnd);
+            if (r.dateStart) aggregated[k].dateStarts.push(r.dateStart);
         });
         
         const sortedKeys = Object.keys(aggregated).sort((a,b) => parseInt(a) - parseInt(b));
 
-        // --- X-AXIS LABEL OVERRIDE: M, M(-1), M(-2) ... ---
-        labels = sortedKeys.map((k, i) => {
-            let diff = sortedKeys.length - 1 - i;
-            return diff === 0 ? 'M' : `M(-${diff})`;
+        // --- X-AXIS LABEL OVERRIDE: Month Names ---
+        labels = sortedKeys.map(k => {
+            return ALL_MONTHS[parseInt(k)].substring(0, 3);
         });
 
-        // --- Extract Max Reporting Ends for Tooltip ---
+        // --- Extract Min Date Start and Max Date End for Tooltip ---
         tooltipDates = sortedKeys.map(k => {
+            let starts = aggregated[k].dateStarts;
             let ends = aggregated[k].dateEnds;
-            if(ends.length === 0) return 'N/A';
-            let maxDateStr = ends.sort((a,b) => safeParseDate(b) - safeParseDate(a))[0];
-            return maxDateStr;
+            let startStr = starts.length > 0 ? starts.sort((a,b) => safeParseDate(a) - safeParseDate(b))[0] : 'N/A';
+            let endStr = ends.length > 0 ? ends.sort((a,b) => safeParseDate(b) - safeParseDate(a))[0] : 'N/A';
+            return [`Date start: ${startStr}`, `Date end: ${endStr}`];
         });
 
         var spends = sortedKeys.map(k => aggregated[k].spend || 0);
@@ -822,8 +832,8 @@ function renderTrendCharts() {
                     callbacks: {
                         title: function(context) {
                             let idx = context[0].dataIndex;
-                            let rEnd = datesArray[idx] !== 'N/A' ? datesArray[idx] : 'ไม่มีข้อมูลวันที่';
-                            return [`Performance Trends (${context[0].label})`, `Reporting ends: ${rEnd}`];
+                            let dateLines = datesArray[idx] || [];
+                            return [`Performance Trends (${context[0].label})`].concat(dateLines);
                         }
                     }
                 }
@@ -878,6 +888,7 @@ function renderKPIs() {
   const impressions = currentMonthData.reduce((s,r)=>s+r.impressions,0);
   const clicks = currentMonthData.reduce((s,r)=>s+r.clicks,0);
   const lpViews = currentMonthData.reduce((s,r)=>s+r.lpViews,0);
+  const addCart = currentMonthData.reduce((s,r)=>s+r.addCart,0); // เพิ่มตัวแปรคำนวณ Add to Cart
 
   const cpr = reach > 0 ? (spend / reach) * 1000 : 0;
   const cpm = impressions > 0 ? (spend / impressions) * 1000 : 0;
@@ -893,12 +904,13 @@ function renderKPIs() {
   let aggregatedForDiff = {};
   trendData.forEach(r => {
       let k = mergeMap[r.absWeek] || r.absWeek;
-      if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, purchases:0, convValue:0};
+      if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
       aggregatedForDiff[k].spend += r.spend;
       aggregatedForDiff[k].reach += r.reach;
       aggregatedForDiff[k].impressions += r.impressions;
       aggregatedForDiff[k].clicks += r.clicks;
       aggregatedForDiff[k].lpViews += r.lpViews;
+      aggregatedForDiff[k].addCart += r.addCart; // เพิ่มข้อมูลลงในระบบ Diff
   });
 
   const mIndex = ALL_MONTHS.indexOf(currentMonth);
@@ -908,15 +920,15 @@ function renderKPIs() {
   let latestWeekKey = monthKeys.pop(); 
   let prevWeekKey = monthKeys.pop(); 
   
-  let pSpend = 0, pReach = 0, pImpr = 0, pClicks = 0, pLpViews = 0;
+  let pSpend = 0, pReach = 0, pImpr = 0, pClicks = 0, pLpViews = 0, pAddCart = 0;
   let pCpr = 0, pCpm = 0, pCpc = 0, pFreq = 0, pCtr = 0, pCplpv = 0;
-  let cSpend = 0, cReach = 0, cImpr = 0, cClicks = 0, cLpViews = 0;
+  let cSpend = 0, cReach = 0, cImpr = 0, cClicks = 0, cLpViews = 0, cAddCart = 0;
   let cCpr = 0, cCpm = 0, cCpc = 0, cFreq = 0, cCtr = 0, cCplpv = 0;
 
   if (latestWeekKey && aggregatedForDiff[latestWeekKey]) {
       let latestData = aggregatedForDiff[latestWeekKey];
       cSpend = latestData.spend; cReach = latestData.reach; cImpr = latestData.impressions;
-      cClicks = latestData.clicks; cLpViews = latestData.lpViews;
+      cClicks = latestData.clicks; cLpViews = latestData.lpViews; cAddCart = latestData.addCart;
       
       cCpr = cReach > 0 ? (cSpend / cReach) * 1000 : 0;
       cCpm = cImpr > 0 ? (cSpend / cImpr) * 1000 : 0;
@@ -929,7 +941,7 @@ function renderKPIs() {
   if (prevWeekKey && aggregatedForDiff[prevWeekKey]) {
       let prevData = aggregatedForDiff[prevWeekKey];
       pSpend = prevData.spend; pReach = prevData.reach; pImpr = prevData.impressions;
-      pClicks = prevData.clicks; pLpViews = prevData.lpViews;
+      pClicks = prevData.clicks; pLpViews = prevData.lpViews; pAddCart = prevData.addCart;
       
       pCpr = pReach > 0 ? (pSpend / pReach) * 1000 : 0;
       pCpm = pImpr > 0 ? (pSpend / pImpr) * 1000 : 0;
@@ -968,6 +980,7 @@ function renderKPIs() {
   const iconImpr = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
   const iconClick = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>';
   const iconLpView = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>';
+  const iconAddCart = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>';
   
   const iconCPR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>';
   const iconCPM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
@@ -982,14 +995,15 @@ function renderKPIs() {
   let rowClassCost = '';
 
   if (currentPlatform === 'facebook') {
-    rowClassOverview = 'row5';
-    rowClassCost = 'row6';
+    rowClassOverview = 'row3'; // ปรับเป็น 3/3 สำหรับ Overview
+    rowClassCost = 'row3';     // ปรับเป็น 3/3 สำหรับ Cost
     overviewKPIs = [
       card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cSpend, pSpend), 'Amount spent (THB)', 'var(--blue)'),
       card(iconReach, 'Reach', formatNum(reach), getDiffHtml(cReach, pReach), 'Unique people reached', 'var(--emerald)'),
       card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cImpr, pImpr), 'Total ad impressions', 'var(--purple)'),
       card(iconClick, 'Link Clicks', formatNum(clicks), getDiffHtml(cClicks, pClicks), 'Total Link clicks', 'var(--accent)'),
-      card(iconLpView, 'LP Views', formatNum(lpViews), getDiffHtml(cLpViews, pLpViews), 'Landing Page Views', '#8B5CF6')
+      card(iconLpView, 'LP Views', formatNum(lpViews), getDiffHtml(cLpViews, pLpViews), 'Landing Page Views', '#8B5CF6'),
+      card(iconAddCart, 'Add to Cart', formatNum(addCart), getDiffHtml(cAddCart, pAddCart), 'Website adds to cart', '#EC4899') // เพิ่มการ์ดใบที่ 6
     ];
     costKPIs = [
       card(iconCPR, 'CPR', '฿' + cpr.toFixed(2), getDiffHtml(cCpr, pCpr, true), 'ต้นทุนต่อการเข้าถึงพันคน', 'var(--emerald)', '฿30 - ฿100'),
@@ -1539,3 +1553,5 @@ settingsOverlay?.addEventListener('click', closeDrawer);
 </script>
 </body>
 </html>
+
+```

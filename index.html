@@ -889,6 +889,55 @@ function renderTrendCharts() {
     });
 }
 
+// ─── WOW HELPER ──────────────────────────────────────────
+function getWoWComparison() {
+  const trendData = globalData.filter(matchesCampaign);
+  const { mergeMap, labelMap } = getTrendGroupingMap(trendData);
+
+  let aggregatedForDiff = {};
+  trendData.forEach(r => {
+      let k = mergeMap[r.absWeek] || r.absWeek;
+      if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+      aggregatedForDiff[k].spend += r.spend;
+      aggregatedForDiff[k].reach += r.reach;
+      aggregatedForDiff[k].impressions += r.impressions;
+      aggregatedForDiff[k].clicks += r.clicks;
+      aggregatedForDiff[k].lpViews += r.lpViews;
+      aggregatedForDiff[k].addCart += r.addCart;
+      aggregatedForDiff[k].purchases += r.purchases;
+      aggregatedForDiff[k].convValue += r.convValue;
+  });
+
+  const mIndex = ALL_MONTHS.indexOf(currentMonth);
+  let allKeys = Object.keys(aggregatedForDiff).sort();
+  
+  let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
+  let latestWeekKey = monthKeys.pop(); 
+  let prevWeekKey = monthKeys.pop(); 
+  
+  let c = aggregatedForDiff[latestWeekKey] || {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+  let p = aggregatedForDiff[prevWeekKey] || {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+  
+  return { c, p, latestWeekKey, prevWeekKey, labelMap };
+}
+
+function createDiffHtml(currentVal, prevVal, reverseGoodBad, wowInfo, solidBg = false) {
+  if (!prevVal || prevVal === 0) return '';
+  const diff = ((currentVal - prevVal) / prevVal) * 100;
+  if (diff === 0) return '';
+  
+  const sign = diff > 0 ? '↑' : '↓';
+  let colorClass = 'neutral';
+  
+  if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
+  if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
+
+  const bgStyle = solidBg ? ` style="background: var(--card);"` : '';
+
+  const titleText = wowInfo.prevWeekKey ? `เทียบสัปดาห์ล่าสุด (${wowInfo.labelMap[wowInfo.latestWeekKey] || wowInfo.latestWeekKey} vs ${wowInfo.labelMap[wowInfo.prevWeekKey] || wowInfo.prevWeekKey})` : 'เปรียบเทียบสัปดาห์';
+  return `<span class="kpi-diff ${colorClass}" title="${titleText}"${bgStyle}>${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
+}
+
 // ─── KPIS (Monthly Sum with Merged Weekly Diff) ────────────────
 function renderKPIs() {
   const currentMonthData = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
@@ -907,74 +956,23 @@ function renderKPIs() {
   const freq = reach > 0 ? impressions / reach : 0;
   const cplpv = lpViews > 0 ? spend / lpViews : 0;
 
-  // เปรียบเทียบสัปดาห์ล่าสุด (Latest Week) กับสัปดาห์ก่อนหน้า (Previous Week) โดยอิงตาม Smart Merge
-  const trendData = globalData.filter(matchesCampaign);
-  const { mergeMap, labelMap } = getTrendGroupingMap(trendData);
-
-  let aggregatedForDiff = {};
-  trendData.forEach(r => {
-      let k = mergeMap[r.absWeek] || r.absWeek;
-      if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
-      aggregatedForDiff[k].spend += r.spend;
-      aggregatedForDiff[k].reach += r.reach;
-      aggregatedForDiff[k].impressions += r.impressions;
-      aggregatedForDiff[k].clicks += r.clicks;
-      aggregatedForDiff[k].lpViews += r.lpViews;
-      aggregatedForDiff[k].addCart += r.addCart; // เพิ่มข้อมูลลงในระบบ Diff
-  });
-
-  const mIndex = ALL_MONTHS.indexOf(currentMonth);
-  let allKeys = Object.keys(aggregatedForDiff).sort();
+  const wow = getWoWComparison();
   
-  let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
-  let latestWeekKey = monthKeys.pop(); 
-  let prevWeekKey = monthKeys.pop(); 
-  
-  let pSpend = 0, pReach = 0, pImpr = 0, pClicks = 0, pLpViews = 0, pAddCart = 0;
-  let pCpr = 0, pCpm = 0, pCpc = 0, pFreq = 0, pCtr = 0, pCplpv = 0;
-  let cSpend = 0, cReach = 0, cImpr = 0, cClicks = 0, cLpViews = 0, cAddCart = 0;
-  let cCpr = 0, cCpm = 0, cCpc = 0, cFreq = 0, cCtr = 0, cCplpv = 0;
+  let cCpr = wow.c.reach > 0 ? (wow.c.spend / wow.c.reach) * 1000 : 0;
+  let cCpm = wow.c.impressions > 0 ? (wow.c.spend / wow.c.impressions) * 1000 : 0;
+  let cCpc = wow.c.clicks > 0 ? wow.c.spend / wow.c.clicks : 0;
+  let cFreq = wow.c.reach > 0 ? wow.c.impressions / wow.c.reach : 0;
+  let cCtr = wow.c.impressions > 0 ? (wow.c.clicks / wow.c.impressions) * 100 : 0;
+  let cCplpv = wow.c.lpViews > 0 ? wow.c.spend / wow.c.lpViews : 0;
 
-  if (latestWeekKey && aggregatedForDiff[latestWeekKey]) {
-      let latestData = aggregatedForDiff[latestWeekKey];
-      cSpend = latestData.spend; cReach = latestData.reach; cImpr = latestData.impressions;
-      cClicks = latestData.clicks; cLpViews = latestData.lpViews; cAddCart = latestData.addCart;
-      
-      cCpr = cReach > 0 ? (cSpend / cReach) * 1000 : 0;
-      cCpm = cImpr > 0 ? (cSpend / cImpr) * 1000 : 0;
-      cCpc = cClicks > 0 ? cSpend / cClicks : 0;
-      cFreq = cReach > 0 ? cImpr / cReach : 0;
-      cCtr = cImpr > 0 ? (cClicks / cImpr) * 100 : 0;
-      cCplpv = cLpViews > 0 ? cSpend / cLpViews : 0;
-  }
+  let pCpr = wow.p.reach > 0 ? (wow.p.spend / wow.p.reach) * 1000 : 0;
+  let pCpm = wow.p.impressions > 0 ? (wow.p.spend / wow.p.impressions) * 1000 : 0;
+  let pCpc = wow.p.clicks > 0 ? wow.p.spend / wow.p.clicks : 0;
+  let pFreq = wow.p.reach > 0 ? wow.p.impressions / wow.p.reach : 0;
+  let pCtr = wow.p.impressions > 0 ? (wow.p.clicks / wow.p.impressions) * 100 : 0;
+  let pCplpv = wow.p.lpViews > 0 ? wow.p.spend / wow.p.lpViews : 0;
 
-  if (prevWeekKey && aggregatedForDiff[prevWeekKey]) {
-      let prevData = aggregatedForDiff[prevWeekKey];
-      pSpend = prevData.spend; pReach = prevData.reach; pImpr = prevData.impressions;
-      pClicks = prevData.clicks; pLpViews = prevData.lpViews; pAddCart = prevData.addCart;
-      
-      pCpr = pReach > 0 ? (pSpend / pReach) * 1000 : 0;
-      pCpm = pImpr > 0 ? (pSpend / pImpr) * 1000 : 0;
-      pCpc = pClicks > 0 ? pSpend / pClicks : 0;
-      pFreq = pReach > 0 ? pImpr / pReach : 0;
-      pCtr = pImpr > 0 ? (pClicks / pImpr) * 100 : 0;
-      pCplpv = pLpViews > 0 ? pSpend / pLpViews : 0;
-  }
-
-  const getDiffHtml = (currentWeekly, previousWeekly, reverseGoodBad = false) => {
-      if (!previousWeekly || previousWeekly === 0) return '';
-      const diff = ((currentWeekly - previousWeekly) / previousWeekly) * 100;
-      if (diff === 0) return '';
-      
-      const sign = diff > 0 ? '↑' : '↓';
-      let colorClass = 'neutral';
-      
-      if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
-      if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
-
-      const titleText = prevWeekKey ? `เทียบสัปดาห์ล่าสุด (${labelMap[latestWeekKey] || latestWeekKey} vs ${labelMap[prevWeekKey] || prevWeekKey})` : 'เปรียบเทียบสัปดาห์';
-      return `<span class="kpi-diff ${colorClass}" title="${titleText}">${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
-  };
+  const getDiffHtml = (cVal, pVal, reverse = false) => createDiffHtml(cVal, pVal, reverse, wow);
 
   function card(icon, label, value, diffHtml, sub, color, benchmark = '') {
     const bmHtml = benchmark ? `<div class="kpi-benchmark"><span class="bm-label">เกณฑ์มาตรฐาน:</span><span class="bm-val">${benchmark}</span></div>` : '';
@@ -1008,12 +1006,12 @@ function renderKPIs() {
     rowClassOverview = 'row3'; // ปรับเป็น 3/3 สำหรับ Overview
     rowClassCost = 'row3';     // ปรับเป็น 3/3 สำหรับ Cost
     overviewKPIs = [
-      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cSpend, pSpend), 'Amount spent (THB)', 'var(--blue)'),
-      card(iconReach, 'Reach', formatNum(reach), getDiffHtml(cReach, pReach), 'Unique people reached', 'var(--emerald)'),
-      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cImpr, pImpr), 'Total ad impressions', 'var(--purple)'),
-      card(iconClick, 'Link Clicks', formatNum(clicks), getDiffHtml(cClicks, pClicks), 'Total Link clicks', 'var(--accent)'),
-      card(iconLpView, 'LP Views', formatNum(lpViews), getDiffHtml(cLpViews, pLpViews), 'Landing Page Views', '#8B5CF6'),
-      card(iconAddCart, 'Add to Cart', formatNum(addCart), getDiffHtml(cAddCart, pAddCart), 'Website adds to cart', '#EC4899') // เพิ่มการ์ดใบที่ 6
+      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(wow.c.spend, wow.p.spend), 'Amount spent (THB)', 'var(--blue)'),
+      card(iconReach, 'Reach', formatNum(reach), getDiffHtml(wow.c.reach, wow.p.reach), 'Unique people reached', 'var(--emerald)'),
+      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(wow.c.impressions, wow.p.impressions), 'Total ad impressions', 'var(--purple)'),
+      card(iconClick, 'Link Clicks', formatNum(clicks), getDiffHtml(wow.c.clicks, wow.p.clicks), 'Total Link clicks', 'var(--accent)'),
+      card(iconLpView, 'LP Views', formatNum(lpViews), getDiffHtml(wow.c.lpViews, wow.p.lpViews), 'Landing Page Views', '#8B5CF6'),
+      card(iconAddCart, 'Add to Cart', formatNum(addCart), getDiffHtml(wow.c.addCart, wow.p.addCart), 'Website adds to cart', '#EC4899') // เพิ่มการ์ดใบที่ 6
     ];
     costKPIs = [
       card(iconCPR, 'CPR', '฿' + cpr.toFixed(2), getDiffHtml(cCpr, pCpr, true), 'ต้นทุนต่อการเข้าถึงพันคน', 'var(--emerald)', '฿30 - ฿100'),
@@ -1027,9 +1025,9 @@ function renderKPIs() {
     rowClassOverview = 'row3';
     rowClassCost = 'row3';
     overviewKPIs = [
-      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cSpend, pSpend), 'Amount spent (THB)', 'var(--blue)'),
-      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cImpr, pImpr), 'Total ad impressions', 'var(--purple)'),
-      card(iconClick, 'Clicks', formatNum(clicks), getDiffHtml(cClicks, pClicks), 'Total clicks', 'var(--accent)')
+      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(wow.c.spend, wow.p.spend), 'Amount spent (THB)', 'var(--blue)'),
+      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(wow.c.impressions, wow.p.impressions), 'Total ad impressions', 'var(--purple)'),
+      card(iconClick, 'Clicks', formatNum(clicks), getDiffHtml(wow.c.clicks, wow.p.clicks), 'Total clicks', 'var(--accent)')
     ];
     costKPIs = [
       card(iconCPM, 'CPM', '฿' + cpm.toFixed(2), getDiffHtml(cCpm, pCpm, true), 'Cost per 1,000 Impressions', 'var(--blue)', '฿20 - ฿80'),
@@ -1081,12 +1079,14 @@ function renderFunnel() {
   const addCart = d.reduce((s,r)=>s+r.addCart,0);
   const purchases = d.reduce((s,r)=>s+r.purchases,0);
 
+  const wow = getWoWComparison();
+
   const steps = [
-    { id: 1, name: 'การมองเห็น (Impressions)', val: impr, color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
-    { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
-    { id: 3, name: 'เข้าชมเว็บ (Landing Page Views)', val: lpViews, color: '#8B5CF6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
-    { id: 4, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
-    { id: 5, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
+    { id: 1, name: 'การมองเห็น (Impressions)', val: impr, diff: createDiffHtml(wow.c.impressions, wow.p.impressions, false, wow, true), color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
+    { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, diff: createDiffHtml(wow.c.clicks, wow.p.clicks, false, wow, true), color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
+    { id: 3, name: 'เข้าชมเว็บ (Landing Page Views)', val: lpViews, diff: createDiffHtml(wow.c.lpViews, wow.p.lpViews, false, wow, true), color: '#8B5CF6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
+    { id: 4, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, diff: createDiffHtml(wow.c.addCart, wow.p.addCart, false, wow, true), color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
+    { id: 5, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, diff: createDiffHtml(wow.c.purchases, wow.p.purchases, false, wow, true), color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
   ];
 
   let html = '<div class="pyramid-funnel-container">';
@@ -1114,7 +1114,10 @@ function renderFunnel() {
           <div class="pyramid-icon">${step.icon}</div>
           <div class="pyramid-name" title="${step.name}">${step.name}</div>
         </div>
-        <div class="pyramid-val">${formatNum(step.val)}</div>
+        <div style="display:flex; flex-direction:column; align-items:flex-end;">
+            <div class="pyramid-val">${formatNum(step.val)}</div>
+            ${step.diff ? `<div style="margin-top:2px;">${step.diff}</div>` : ''}
+        </div>
       </div>
     `;
   });
@@ -1235,6 +1238,20 @@ function renderSalesSummary() {
   const roas = spend > 0 ? convValue / spend : 0;
   const convRate = clicks > 0 ? (purchases / clicks) * 100 : 0;
 
+  const wow = getWoWComparison();
+  const cAov = wow.c.purchases > 0 ? wow.c.convValue / wow.c.purchases : 0;
+  const pAov = wow.p.purchases > 0 ? wow.p.convValue / wow.p.purchases : 0;
+  const cRoas = wow.c.spend > 0 ? wow.c.convValue / wow.c.spend : 0;
+  const pRoas = wow.p.spend > 0 ? wow.p.convValue / wow.p.spend : 0;
+  const cConvRate = wow.c.clicks > 0 ? (wow.c.purchases / wow.c.clicks) * 100 : 0;
+  const pConvRate = wow.p.clicks > 0 ? (wow.p.purchases / wow.p.clicks) * 100 : 0;
+
+  const diffPurchases = createDiffHtml(wow.c.purchases, wow.p.purchases, false, wow);
+  const diffConvValue = createDiffHtml(wow.c.convValue, wow.p.convValue, false, wow);
+  const diffAov = createDiffHtml(cAov, pAov, false, wow);
+  const diffRoas = createDiffHtml(cRoas, pRoas, false, wow);
+  const diffConvRate = createDiffHtml(cConvRate, pConvRate, false, wow);
+
   let benchmarkStatus = '';
   if (clicks === 0) {
     benchmarkStatus = `<span style="color: var(--muted); font-size: 11px;">⚠️ ยังไม่มีข้อมูลทราฟฟิกคลิก</span>`;
@@ -1249,23 +1266,23 @@ function renderSalesSummary() {
   document.getElementById('salesSummaryContainer').innerHTML = `
     <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Website Purchases</div>
-      <div style="color: var(--purple); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">${formatNum(purchases)}</div>
+      <div style="color: var(--purple); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center;">${formatNum(purchases)} ${diffPurchases}</div>
     </div>
     <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Conversion Value</div>
-      <div style="color: var(--emerald); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">฿${formatNum(convValue)}</div>
+      <div style="color: var(--emerald); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center;">฿${formatNum(convValue)} ${diffConvValue}</div>
     </div>
     <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">AOV (ยอดซื้อเฉลี่ย)</div>
-      <div style="color: var(--blue); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">฿${formatNum(aov)}</div>
+      <div style="color: var(--blue); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center;">฿${formatNum(aov)} ${diffAov}</div>
     </div>
     <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">ROAS</div>
-      <div style="color: var(--accent); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">${roas.toFixed(2)}x</div>
+      <div style="color: var(--accent); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center;">${roas.toFixed(2)}x ${diffRoas}</div>
     </div>
     <div style="grid-column: 1 / -1; background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 4px;">Conversion Rate (Purchases / Clicks)</div>
-      <div style="color: var(--primary); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; margin-bottom: 6px;">${convRate.toFixed(2)}%</div>
+      <div style="color: var(--primary); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; margin-bottom: 6px; display: flex; align-items: center; justify-content: center;">${convRate.toFixed(2)}% ${diffConvRate}</div>
       <div style="font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px; align-items: center;">
         <div style="font-weight: 500; color: var(--muted)">เกณฑ์เฉลี่ย E-commerce มาตรฐาน: 1.00% - 3.00%</div>
         <div>สถานะ: ${benchmarkStatus}</div>

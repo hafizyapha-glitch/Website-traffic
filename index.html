@@ -41,7 +41,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter','Noto Sans Thai',sans-serif; min-height: 100vh; line-height: 1.5; }
 
-    /* Header & Navigation */
     .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 32px 0 32px; display: flex; flex-direction: column; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
     .header-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; width: 100%; }
     .logo-area { display: flex; align-items: center; gap: 16px; }
@@ -78,7 +77,6 @@
     .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 8px; color: var(--muted); padding: 8px 12px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .2s; }
     .clear-btn:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
 
-    /* KPIs */
     .kpi-group-label { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; margin-top: 16px; }
     .kpi-grid { display: grid; gap: 16px; margin-bottom: 8px; }
     .kpi-grid.row3 { grid-template-columns: repeat(3,1fr); }
@@ -100,7 +98,6 @@
     .kpi-diff.bad { background: rgba(244,63,94,0.1); color: #F43F5E; }
     .kpi-diff.neutral { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
 
-    /* Layout & Charts */
     .dashboard-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
     .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-sm); }
@@ -114,7 +111,6 @@
     
     .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
 
-    /* Top Ads Carousel */
     .carousel-wrapper { position: relative; display: flex; align-items: center; margin-top: 16px; }
     .top-ads-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 16px; scroll-behavior: smooth; width: 100%; -ms-overflow-style: none; scrollbar-width: none; }
     .top-ads-carousel::-webkit-scrollbar { display: none; }
@@ -131,7 +127,6 @@
     .carousel-btn.left { left: -18px; }
     .carousel-btn.right { right: -18px; }
 
-    /* Pyramid Funnel Styles */
     .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
     .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
     .pyramid-step:hover { transform: translateY(-2px); }
@@ -143,7 +138,6 @@
     .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
     .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
 
-    /* Table */
     .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0; box-shadow: var(--shadow-sm); overflow: hidden; margin-top: 24px; }
     .table-header { padding: 24px 24px 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .table-responsive { width: 100%; overflow-x: auto; }
@@ -157,6 +151,11 @@
     .sort-icon { display: inline-block; width: 12px; margin-left: 4px; font-size: 10px; color: var(--primary); }
     .num { font-family: 'Inter',sans-serif; font-variant-numeric: tabular-nums; }
     .cost-cell { font-weight: 600; font-family: 'Inter',sans-serif; color: var(--text); }
+    
+    .table-diff-icon { font-size: 12px; margin-left: 6px; cursor: help; font-weight: 700; display: inline-block; }
+    .table-diff-icon.good { color: var(--emerald); }
+    .table-diff-icon.bad { color: #F43F5E; }
+    .table-diff-icon.neutral { color: var(--muted); }
 
     #statusBar { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
 
@@ -613,6 +612,8 @@ async function fetchAllBackground() {
     // อัปเดตกราฟและส่วนเปรียบเทียบหลังจากได้ข้อมูลประวัติย้อนหลังมาครบแล้ว
     renderTrendCharts();
     renderKPIs(); 
+    renderFunnel();
+    renderSalesSummary();
 }
 
 // ─── DATE & DATA PARSING ───────────────────
@@ -704,6 +705,56 @@ function getTrendGroupingMap(data) {
     }
     return { mergeMap, labelMap };
 }
+
+// ─── WOW HELPER ──────────────────────────────────────────
+function getWoWComparison() {
+  const trendData = globalData.filter(matchesCampaign);
+  const { mergeMap, labelMap } = getTrendGroupingMap(trendData);
+
+  let aggregatedForDiff = {};
+  trendData.forEach(r => {
+      let k = mergeMap[r.absWeek] || r.absWeek;
+      if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+      aggregatedForDiff[k].spend += r.spend;
+      aggregatedForDiff[k].reach += r.reach;
+      aggregatedForDiff[k].impressions += r.impressions;
+      aggregatedForDiff[k].clicks += r.clicks;
+      aggregatedForDiff[k].lpViews += r.lpViews;
+      aggregatedForDiff[k].addCart += r.addCart;
+      aggregatedForDiff[k].purchases += r.purchases;
+      aggregatedForDiff[k].convValue += r.convValue;
+  });
+
+  const mIndex = ALL_MONTHS.indexOf(currentMonth);
+  let allKeys = Object.keys(aggregatedForDiff).sort();
+  
+  let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
+  let latestWeekKey = monthKeys.pop(); 
+  let prevWeekKey = monthKeys.pop(); 
+  
+  let c = aggregatedForDiff[latestWeekKey] || {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+  let p = aggregatedForDiff[prevWeekKey] || {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+  
+  return { c, p, latestWeekKey, prevWeekKey, labelMap };
+}
+
+function createDiffHtml(currentVal, prevVal, reverseGoodBad, wowInfo, solidBg = false) {
+  if (!prevVal || prevVal === 0) return '';
+  const diff = ((currentVal - prevVal) / prevVal) * 100;
+  if (diff === 0) return '';
+  
+  const sign = diff > 0 ? '↑' : '↓';
+  let colorClass = 'neutral';
+  
+  if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
+  if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
+
+  const bgStyle = solidBg ? ` style="background: var(--card);"` : '';
+
+  const titleText = wowInfo.prevWeekKey ? `เทียบสัปดาห์ล่าสุด (${wowInfo.labelMap[wowInfo.latestWeekKey] || wowInfo.latestWeekKey} vs ${wowInfo.labelMap[wowInfo.prevWeekKey] || wowInfo.prevWeekKey})` : 'เปรียบเทียบสัปดาห์';
+  return `<span class="kpi-diff ${colorClass}" title="${titleText}"${bgStyle}>${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
+}
+
 
 // ─── TREND CHARTS LOGIC (Weekly 12 & Monthly) ────────────────────
 function renderTrendCharts() {
@@ -823,7 +874,6 @@ function renderTrendCharts() {
                     displayColors: false,
                     callbacks: {
                         title: function(context) {
-                            // นำข้อความ "Performance Trends" ออก และแสดงแค่ชื่อแกน (เช่น Jan, Feb หรือ W(-1))
                             return `${context[0].label}`;
                         },
                         label: function(context) {
@@ -839,7 +889,7 @@ function renderTrendCharts() {
 
                             let combinedLabel = `${labelText}: ${valText}`;
                             
-                            // หากเป็น Dataset แรกของ Tooltip นี้ ให้แทรกวันที่เข้าไปด้วยเพื่อให้แสดงครั้งเดียว
+                            // Insert dates only on the first dataset to avoid repetition
                             if (context.datasetIndex === 0) {
                                 return dateLines.concat(['', combinedLabel]);
                             }
@@ -887,55 +937,6 @@ function renderTrendCharts() {
             { label: 'ROAS', data: roases, type: 'line', borderColor: '#F43F5E', backgroundColor: '#F43F5E', yAxisID: 'y1', tension: 0.3, borderWidth: 2, order: 1 }
         ]}, options: dualOpts('Conv. Value (฿)', 'ROAS (x)', tooltipDates)
     });
-}
-
-// ─── WOW HELPER ──────────────────────────────────────────
-function getWoWComparison() {
-  const trendData = globalData.filter(matchesCampaign);
-  const { mergeMap, labelMap } = getTrendGroupingMap(trendData);
-
-  let aggregatedForDiff = {};
-  trendData.forEach(r => {
-      let k = mergeMap[r.absWeek] || r.absWeek;
-      if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
-      aggregatedForDiff[k].spend += r.spend;
-      aggregatedForDiff[k].reach += r.reach;
-      aggregatedForDiff[k].impressions += r.impressions;
-      aggregatedForDiff[k].clicks += r.clicks;
-      aggregatedForDiff[k].lpViews += r.lpViews;
-      aggregatedForDiff[k].addCart += r.addCart;
-      aggregatedForDiff[k].purchases += r.purchases;
-      aggregatedForDiff[k].convValue += r.convValue;
-  });
-
-  const mIndex = ALL_MONTHS.indexOf(currentMonth);
-  let allKeys = Object.keys(aggregatedForDiff).sort();
-  
-  let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
-  let latestWeekKey = monthKeys.pop(); 
-  let prevWeekKey = monthKeys.pop(); 
-  
-  let c = aggregatedForDiff[latestWeekKey] || {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
-  let p = aggregatedForDiff[prevWeekKey] || {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
-  
-  return { c, p, latestWeekKey, prevWeekKey, labelMap };
-}
-
-function createDiffHtml(currentVal, prevVal, reverseGoodBad, wowInfo, solidBg = false) {
-  if (!prevVal || prevVal === 0) return '';
-  const diff = ((currentVal - prevVal) / prevVal) * 100;
-  if (diff === 0) return '';
-  
-  const sign = diff > 0 ? '↑' : '↓';
-  let colorClass = 'neutral';
-  
-  if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
-  if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
-
-  const bgStyle = solidBg ? ` style="background: var(--card);"` : '';
-
-  const titleText = wowInfo.prevWeekKey ? `เทียบสัปดาห์ล่าสุด (${wowInfo.labelMap[wowInfo.latestWeekKey] || wowInfo.latestWeekKey} vs ${wowInfo.labelMap[wowInfo.prevWeekKey] || wowInfo.prevWeekKey})` : 'เปรียบเทียบสัปดาห์';
-  return `<span class="kpi-diff ${colorClass}" title="${titleText}"${bgStyle}>${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
 }
 
 // ─── KPIS (Monthly Sum with Merged Weekly Diff) ────────────────
@@ -1003,15 +1004,15 @@ function renderKPIs() {
   let rowClassCost = '';
 
   if (currentPlatform === 'facebook') {
-    rowClassOverview = 'row3'; // ปรับเป็น 3/3 สำหรับ Overview
-    rowClassCost = 'row3';     // ปรับเป็น 3/3 สำหรับ Cost
+    rowClassOverview = 'row3'; 
+    rowClassCost = 'row3';     
     overviewKPIs = [
       card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(wow.c.spend, wow.p.spend), 'Amount spent (THB)', 'var(--blue)'),
       card(iconReach, 'Reach', formatNum(reach), getDiffHtml(wow.c.reach, wow.p.reach), 'Unique people reached', 'var(--emerald)'),
       card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(wow.c.impressions, wow.p.impressions), 'Total ad impressions', 'var(--purple)'),
       card(iconClick, 'Link Clicks', formatNum(clicks), getDiffHtml(wow.c.clicks, wow.p.clicks), 'Total Link clicks', 'var(--accent)'),
       card(iconLpView, 'LP Views', formatNum(lpViews), getDiffHtml(wow.c.lpViews, wow.p.lpViews), 'Landing Page Views', '#8B5CF6'),
-      card(iconAddCart, 'Add to Cart', formatNum(addCart), getDiffHtml(wow.c.addCart, wow.p.addCart), 'Website adds to cart', '#EC4899') // เพิ่มการ์ดใบที่ 6
+      card(iconAddCart, 'Add to Cart', formatNum(addCart), getDiffHtml(wow.c.addCart, wow.p.addCart), 'Website adds to cart', '#EC4899') 
     ];
     costKPIs = [
       card(iconCPR, 'CPR', '฿' + cpr.toFixed(2), getDiffHtml(cCpr, pCpr, true), 'ต้นทุนต่อการเข้าถึงพันคน', 'var(--emerald)', '฿30 - ฿100'),
@@ -1410,6 +1411,15 @@ window.handleSort = function(col) {
 
 function renderTable() {
   const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
+  
+  // Get WoW Keys
+  const { mergeMap } = getTrendGroupingMap(globalData);
+  const mIndex = ALL_MONTHS.indexOf(currentMonth);
+  let allKeys = Array.from(new Set(globalData.map(r => mergeMap[r.absWeek] || r.absWeek))).sort();
+  let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
+  let latestWeekKey = monthKeys.pop(); 
+  let prevWeekKey = monthKeys.pop(); 
+
   const groupedObj = {};
   
   d.forEach(r => {
@@ -1420,9 +1430,12 @@ function renderTable() {
     if (!groupedObj[key]) {
       groupedObj[key] = {
         name: key, spend: 0, reach: 0, impressions: 0,
-        clicks: 0, addCart: 0, purchases: 0, convValue: 0
+        clicks: 0, addCart: 0, purchases: 0, convValue: 0,
+        latest: { spend: 0, reach: 0, impressions: 0, clicks: 0, addCart: 0, purchases: 0, convValue: 0 },
+        prev: { spend: 0, reach: 0, impressions: 0, clicks: 0, addCart: 0, purchases: 0, convValue: 0 }
       };
     }
+    
     groupedObj[key].spend += r.spend;
     groupedObj[key].reach += r.reach;
     groupedObj[key].impressions += r.impressions;
@@ -1430,12 +1443,33 @@ function renderTable() {
     groupedObj[key].addCart += r.addCart;
     groupedObj[key].purchases += r.purchases;
     groupedObj[key].convValue += r.convValue;
+
+    let mappedWeek = mergeMap[r.absWeek] || r.absWeek;
+    if (mappedWeek === latestWeekKey) {
+      groupedObj[key].latest.spend += r.spend;
+      groupedObj[key].latest.reach += r.reach;
+      groupedObj[key].latest.impressions += r.impressions;
+      groupedObj[key].latest.clicks += r.clicks;
+      groupedObj[key].latest.addCart += r.addCart;
+      groupedObj[key].latest.purchases += r.purchases;
+      groupedObj[key].latest.convValue += r.convValue;
+    } else if (mappedWeek === prevWeekKey) {
+      groupedObj[key].prev.spend += r.spend;
+      groupedObj[key].prev.reach += r.reach;
+      groupedObj[key].prev.impressions += r.impressions;
+      groupedObj[key].prev.clicks += r.clicks;
+      groupedObj[key].prev.addCart += r.addCart;
+      groupedObj[key].prev.purchases += r.purchases;
+      groupedObj[key].prev.convValue += r.convValue;
+    }
   });
 
-  let tableData = Object.values(groupedObj).map(r => ({
-    ...r,
-    roas: r.spend > 0 ? r.convValue / r.spend : 0
-  }));
+  let tableData = Object.values(groupedObj).map(r => {
+    r.roas = r.spend > 0 ? r.convValue / r.spend : 0;
+    r.latest.roas = r.latest.spend > 0 ? r.latest.convValue / r.latest.spend : 0;
+    r.prev.roas = r.prev.spend > 0 ? r.prev.convValue / r.prev.spend : 0;
+    return r;
+  });
 
   tableData.sort((a, b) => {
     let valA = a[currentSortCol];
@@ -1450,18 +1484,34 @@ function renderTable() {
     if (el) el.innerHTML = c === currentSortCol ? (currentSortAsc ? '▲' : '▼') : '';
   });
 
+  const getTableDiffHtml = (cVal, pVal, reverseGoodBad = false) => {
+    if (!pVal || pVal === 0) return '';
+    const diff = ((cVal - pVal) / pVal) * 100;
+    if (diff === 0) return '';
+    
+    const sign = diff > 0 ? '↑' : '↓';
+    let colorClass = 'neutral';
+    
+    if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
+    if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
+
+    const formattedDiff = (diff > 0 ? '+' : '') + diff.toFixed(1) + '%';
+    
+    return `<span class="table-diff-icon ${colorClass}" title="WoW: ${formattedDiff}">${sign}</span>`;
+  };
+
   document.getElementById('tableCount').textContent = `แสดง ${tableData.length} รายการ (เฉพาะเดือน ${currentMonth})`;
   document.getElementById('tableBody').innerHTML = tableData.map(r => `
     <tr>
       <td title="${r.name}" style="max-width:240px; overflow: hidden; text-overflow: ellipsis;">${r.name}</td>
-      <td class="cost-cell">฿${formatNum(r.spend)}</td>
-      <td class="num">${r.reach.toLocaleString()}</td>
-      <td class="num">${r.impressions.toLocaleString()}</td>
-      <td class="num">${r.clicks.toLocaleString()}</td>
-      <td class="num">${r.addCart.toLocaleString()}</td>
-      <td class="num">${r.purchases.toLocaleString()}</td>
-      <td class="num">฿${formatNum(r.convValue)}</td>
-      <td class="num" style="color:var(--emerald);font-weight:600;">${r.roas.toFixed(2)}x</td>
+      <td class="cost-cell">฿${formatNum(r.spend)} ${getTableDiffHtml(r.latest.spend, r.prev.spend)}</td>
+      <td class="num">${r.reach.toLocaleString()} ${getTableDiffHtml(r.latest.reach, r.prev.reach)}</td>
+      <td class="num">${r.impressions.toLocaleString()} ${getTableDiffHtml(r.latest.impressions, r.prev.impressions)}</td>
+      <td class="num">${r.clicks.toLocaleString()} ${getTableDiffHtml(r.latest.clicks, r.prev.clicks)}</td>
+      <td class="num">${r.addCart.toLocaleString()} ${getTableDiffHtml(r.latest.addCart, r.prev.addCart)}</td>
+      <td class="num">${r.purchases.toLocaleString()} ${getTableDiffHtml(r.latest.purchases, r.prev.purchases)}</td>
+      <td class="num">฿${formatNum(r.convValue)} ${getTableDiffHtml(r.latest.convValue, r.prev.convValue)}</td>
+      <td class="num" style="color:var(--emerald);font-weight:600;">${r.roas.toFixed(2)}x ${getTableDiffHtml(r.latest.roas, r.prev.roas)}</td>
     </tr>
   `).join('');
 }

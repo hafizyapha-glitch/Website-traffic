@@ -273,6 +273,12 @@
       <select id="filterCampaign" onchange="applyFilters()">
         <option value="">ทุก Campaign</option>
       </select>
+      <select id="filterObjective" onchange="applyFilters()">
+        <option value="">ทุก Objective</option>
+        <option value="conversion">Conversion</option>
+        <option value="traffic">Traffic</option>
+        <option value="live">Live</option>
+      </select>
       <button class="clear-btn" onclick="clearFilters()">✕ ล้างตัวกรอง</button>
     </div>
 
@@ -655,7 +661,15 @@ function parseRawRow(r, month, mIndex, w) {
 
 function matchesCampaign(r) {
     const campaign = document.getElementById('filterCampaign').value;
+    const objective = document.getElementById('filterObjective').value;
+    
     if (campaign && r.campaign !== campaign) return false;
+    
+    if (objective) {
+        const nameLower = r.campaign.toLowerCase();
+        if (!nameLower.includes(objective.toLowerCase())) return false;
+    }
+    
     return true;
 }
 
@@ -1518,16 +1532,35 @@ function renderTable() {
 
 // ─── FILTER & UPLOAD ───────────────────────
 function populateFilters() {
-  const campaigns = [...new Set(globalData.map(r=>r.campaign).filter(c=>c))].sort();
-  document.getElementById('filterCampaign').innerHTML = '<option value="">ทุก Campaign</option>'+campaigns.map(c=>`<option value="${c}">${c}</option>`).join('');
+  const objective = document.getElementById('filterObjective')?.value || '';
+  let filteredData = globalData;
+  
+  if (objective) {
+    filteredData = globalData.filter(r => r.campaign.toLowerCase().includes(objective.toLowerCase()));
+  }
+  
+  const campaigns = [...new Set(filteredData.map(r=>r.campaign).filter(c=>c))].sort();
+  const campSelect = document.getElementById('filterCampaign');
+  const currentCamp = campSelect.value;
+  
+  campSelect.innerHTML = '<option value="">ทุก Campaign</option>'+campaigns.map(c=>`<option value="${c}">${c}</option>`).join('');
+  
+  if (campaigns.includes(currentCamp)) {
+      campSelect.value = currentCamp;
+  } else {
+      campSelect.value = '';
+  }
 }
 
 function applyFilters() {
+  populateFilters();
   renderAll();
 }
 
 function clearFilters() {
+  document.getElementById('filterObjective').value = '';
   document.getElementById('filterCampaign').value = '';
+  populateFilters();
   renderAll();
 }
 

@@ -1,423 +1,434 @@
 ﻿"Campaign name","Ad set name",Gender,Age,"Ad name","Amount spent (THB)",Reach,Impressions,"Link clicks","Landing page views","Website adds to cart","Website purchases","Website purchases conversion value","Reporting starts","Reporting ends"
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",2752.95184565,36222,63241,588,503,80,2,2898,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1265.13124667,13535,22152,293,248,29,1,1449,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,25-34,"ผ่อนทอง 0% July 2026",1218.06187424,87987,136935,1812,1755,13,1,11191,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1217.44783158,19759,36005,331,296,51,8,41629,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,35-44,"ผ่อนทอง 0% July 2026",1000.28183384,66936,108869,1474,1417,22,2,17592,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",982.1022644,13612,24589,206,173,26,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,25-34,"ผ่อนทอง 0% July 2026",882.84847412,63892,95816,1300,1240,16,1,1163,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,35-44,"ผ่อนทอง 0% July 2026",785.38629728,50816,77781,1143,1100,44,12,179853,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",734.43528837,12827,18811,163,134,18,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",660.9455901,9213,13277,147,127,11,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,35-44,"ผ่อนทอง 0% July 2026",654.14761538,37557,57657,742,719,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,45-54,"ผ่อนทอง 0% July 2026",610.73359564,32783,55041,898,844,21,2,129960,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,45-54,"ผ่อนทอง 0% July 2026",608.35988935,36508,60315,902,879,18,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Service - ทองแท้ 96.5",582.31415076,35218,54748,689,672,2,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",569.89143239,10030,14129,111,85,15,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",535.5729948,9110,16552,154,128,29,2,2471,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",507.18129379,6738,9344,110,95,7,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",505.82838862,6016,9899,131,107,13,1,1499,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",485.35117992,10560,15915,122,101,13,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,55-64,"ผ่อนทอง 0% July 2026",478.14657509,23893,42160,689,664,2,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,55-64,"ผ่อนทอง 0% July 2026",455.53126368,22881,42275,670,648,2,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",401.55987672,26618,38483,517,507,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,25-34,"ผ่อนทอง 0% July 2026",386.82267649,25030,34866,464,454,2,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,18-24,"ผ่อนทอง 0% July 2026",371.2696982,24009,40162,553,518,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",366.72583932,7783,11948,73,58,8,1,32744,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Service - ทองแท้ 96.5",342.16974481,22824,32003,427,408,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,25-34,"12 พลังปีเกิด July 2026",315.46830399,30926,37081,422,414,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,65+,"ผ่อนทอง 0% July 2026",307.46006624,13966,27101,408,392,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",306.57509338,3461,5033,88,78,4,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,18-24,"ผ่อนทอง 0% July 2026",289.85257401,21381,32039,430,404,4,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",269.04418767,6101,8721,68,60,9,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,65+,"ผ่อนทอง 0% July 2026",249.96028644,11017,21565,408,391,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,35-44,"12 พลังปีเกิด July 2026",245.97924304,22937,28091,349,339,2,2,40985,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,25-34,"12 พลังปีเกิด July 2026",231.54998492,21518,25824,306,293,8,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",225.45786581,16846,21612,250,246,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",188.4425353,1865,2738,55,47,2,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,35-44,"12 พลังปีเกิด July 2026",182.18567799,15903,19269,251,240,5,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",179.28796507,2052,2695,45,42,7,1,1499,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",172.47986297,4833,7464,48,38,9,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,45-54,"ผ่อนทอง 0% July 2026",163.91689665,9425,13615,216,207,3,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Trust - ช่องทางชำระเงิน",158.91894386,11576,14400,202,201,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",157.02077154,2874,3942,30,26,7,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,35-44,"ผ่อนทอง 0% July 2026",144.51726393,10225,13353,183,180,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,45-54,"12 พลังปีเกิด July 2026",137.31359317,11034,14545,163,152,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",130.72231716,2905,4417,37,33,4,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,45-54,"12 พลังปีเกิด July 2026",129.55247727,10001,12744,176,167,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Service - ทองแท้ 96.5",128.49006916,7671,11603,135,129,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Service - ทองแท้ 96.5",125.75751569,8503,12320,173,169,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",122.740272,1309,2076,40,35,9,2,3022,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,55-64,"12 พลังปีเกิด July 2026",121.33010643,8086,11225,173,169,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,25-34,"Custom Card - 1 - 15 July 2026",119.85299191,3186,5436,36,29,5,1,989,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,55-64,"12 พลังปีเกิด July 2026",114.77226431,7956,11153,161,151,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,25-34,"ผ่อนทอง 0% July 2026",108.97793678,7686,10023,124,116,4,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",104.23865338,8418,9689,119,115,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,35-44,"Custom Card - 1 - 15 July 2026",97.77244071,2275,3740,18,18,4,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Service - ทองแท้ 96.5",95.7494743,6684,9269,126,125,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Trust - ช่องทางชำระเงิน",93.3752551,7325,8456,129,121,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,18-24,"12 พลังปีเกิด July 2026",91.43878021,8393,10500,124,111,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",87.06909848,5917,8116,101,100,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",86.16493589,1725,2522,26,17,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,65+,"Test - Branding - เปลี่ยนโอากาสพิเศษ",82.9833204,4021,6350,156,134,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",80.37527616,2277,3461,20,16,1,1,8814,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,35-44,"ผ่อนทอง 0% July 2026",79.5,6311,6836,99,97,5,2,131220,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,male,65+,"12 พลังปีเกิด July 2026",76.16723045,5190,7267,88,80,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,25-34,"ผ่อนทอง 0% July 2026",74.92,6109,6583,69,64,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",72.35051324,5373,7205,91,87,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,18-24,"12 พลังปีเกิด July 2026",68.85734222,6525,7914,112,104,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",63.98531175,5175,5972,74,68,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,65+,"12 พลังปีเกิด July 2026",61.18647185,4089,5531,72,63,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",57.67164795,717,1020,11,9,1,2,6198,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,35-44,"Custom Card - 1 - 15 July 2026",55.42014403,1134,1746,6,3,4,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",55.05692706,4040,5334,66,64,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",53.82712276,4609,4907,52,51,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,25-34,"Custom Card - 1 - 15 July 2026",53.00057432,1220,1991,14,10,6,2,1976,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",2868.01092749,37261,65827,605,520,84,2,2898,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,25-34,"ผ่อนทอง 0% July 2026",1423.47749022,99039,159171,2100,2026,15,2,143461,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1323.31197178,20990,38897,353,315,57,8,41629,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1307.04219344,13831,22850,299,251,34,2,9240,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,35-44,"ผ่อนทอง 0% July 2026",1161.48715462,74643,125755,1683,1622,23,2,17592,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,25-34,"ผ่อนทอง 0% July 2026",1016.54250139,71954,109913,1470,1404,17,1,1163,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1006.0662938,13982,25235,210,178,27,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",964.6325439,15684,24106,202,168,23,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,35-44,"ผ่อนทอง 0% July 2026",902.21671869,56361,88607,1317,1264,54,13,245443,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",827.62934207,10930,16371,173,148,13,3,4497,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",816.56908359,12680,18776,148,118,16,1,1163,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",727.31699773,8907,12263,156,126,8,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,35-44,"ผ่อนทอง 0% July 2026",715.61959174,40106,62839,802,776,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",699.35634427,14807,22790,175,149,14,1,17235,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,45-54,"ผ่อนทอง 0% July 2026",698.09424843,39260,68766,1032,1003,18,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,45-54,"ผ่อนทอง 0% July 2026",688.52460144,35262,61610,1013,951,28,3,134527,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Service - ทองแท้ 96.5",684.43578147,38785,62688,766,747,3,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",563.83317704,11432,17342,112,93,15,1,32744,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",559.17238208,9487,17291,159,135,29,2,2471,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,55-64,"ผ่อนทอง 0% July 2026",545.22988735,25821,47554,793,764,3,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,55-64,"ผ่อนทอง 0% July 2026",520.75079035,24417,48011,753,723,2,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",515.73297388,6071,10099,132,107,13,1,1499,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",481.92487652,30903,45749,609,598,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,18-24,"ผ่อนทอง 0% July 2026",439.54378594,27178,47259,651,608,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,25-34,"ผ่อนทอง 0% July 2026",438.66748995,26780,39271,519,508,2,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Service - ทองแท้ 96.5",407.30748955,25535,37109,498,476,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,25-34,"12 พลังปีเกิด July 2026",397.69309962,38044,46259,521,511,2,1,33324,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",394.87922851,4169,6277,100,87,4,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,65+,"ผ่อนทอง 0% July 2026",350.0370877,14877,30677,469,451,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,18-24,"ผ่อนทอง 0% July 2026",339.21748682,24598,37176,497,464,5,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,35-44,"12 พลังปีเกิด July 2026",315.5145255,27561,35682,449,437,2,2,40985,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,25-34,"12 พลังปีเกิด July 2026",300.97477778,27330,33215,391,378,8,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,65+,"ผ่อนทอง 0% July 2026",283.27955028,11621,24191,458,435,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",283.08936798,19613,26560,304,299,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",269.56418731,6114,8731,69,61,9,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",247.68578853,2565,3512,52,48,7,1,1499,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,35-44,"12 พลังปีเกิด July 2026",242.95578447,20585,25421,325,312,5,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",191.83738649,1883,2824,55,47,2,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,45-54,"12 พลังปีเกิด July 2026",176.69693413,13836,18484,224,210,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,45-54,"ผ่อนทอง 0% July 2026",176.06497893,10002,14549,242,233,3,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",173.00985121,4844,7480,48,38,9,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,45-54,"12 พลังปีเกิด July 2026",170.67703858,12488,16567,229,218,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Trust - ช่องทางชำระเงิน",163.27776053,11895,14773,208,207,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,35-44,"ผ่อนทอง 0% July 2026",160.69541724,10896,14754,198,195,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,55-64,"12 พลังปีเกิด July 2026",160.47721556,10017,14762,226,223,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",157.33077095,2877,3947,30,26,7,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Service - ทองแท้ 96.5",155.42904201,9820,14762,198,195,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Service - ทองแท้ 96.5",150.00907542,8439,13209,158,152,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,55-64,"12 พลังปีเกิด July 2026",148.28742706,9808,14341,210,200,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",130.75233004,2911,4421,37,33,4,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,25-34,"ผ่อนทอง 0% July 2026",125.19642961,8509,11411,138,127,4,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",123.3083201,1318,2101,40,35,9,2,3022,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,25-34,"Custom Card - 1 - 15 July 2026",120.17299653,3187,5443,37,29,8,1,989,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Service - ทองแท้ 96.5",118.54926932,7644,11094,147,146,2,1,198500,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,18-24,"12 พลังปีเกิด July 2026",115.77799113,10203,13112,162,146,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",106.23135417,8558,9842,123,119,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",104.53238151,6769,9670,121,120,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,35-44,"Custom Card - 1 - 15 July 2026",97.79243847,2275,3741,18,18,4,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,male,65+,"12 พลังปีเกิด July 2026",97.00831681,6158,9173,111,102,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Trust - ช่องทางชำระเงิน",96.89680204,7527,8737,132,124,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",90.88337627,6456,8971,123,117,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,65+,"Test - Branding - เปลี่ยนโอากาสพิเศษ",90.04242242,4193,6836,162,139,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,18-24,"12 พลังปีเกิด July 2026",89.67844399,8215,10098,146,136,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",86.3549344,1725,2528,26,17,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",84.59197695,2029,3317,10,8,3,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,65+,"12 พลังปีเกิด July 2026",80.94859546,4960,7221,96,87,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",80.4752793,2289,3470,20,16,1,1,8814,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,35-44,"ผ่อนทอง 0% July 2026",80.25,6335,6880,100,98,5,2,131220,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,25-34,"ผ่อนทอง 0% July 2026",75.22,6128,6608,69,64,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",73.46171683,903,1277,14,11,1,2,6198,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",71.1948112,4876,6781,85,82,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",67.8158974,5578,5989,70,69,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",67.2515717,1539,2446,20,17,2,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",65.46467204,5266,6093,74,68,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,35-44,"Custom Card - 1 - 15 July 2026",55.84753051,1140,1769,7,4,4,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,25-34,"Custom Card - 1 - 15 July 2026",53.69877978,1236,2018,14,10,6,2,1976,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,35-44,"12 พลังปีเกิด July 2026",52.34,4158,4839,71,70,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",50.60571684,1177,1941,6,5,3,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,35-44,"ผ่อนทอง 0% July 2026",46.85,3943,4198,51,49,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,25-34,"ผ่อนทอง 0% July 2026",46.02,3869,4034,59,56,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,45-54,"Custom Card - 1 - 15 July 2026",42.08105048,850,1421,8,6,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,25-34,"Custom Card - 1 - 15 July 2026",39.51098632,1229,2183,14,9,2,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",39.23398396,915,1475,10,7,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,35-44,"ผ่อนทอง 0% July 2026",47.29,3961,4229,51,49,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,25-34,"ผ่อนทอง 0% July 2026",46.2,3870,4050,59,56,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",46.06107647,527,773,12,10,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",44.0673341,3648,3892,44,46,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,45-54,"Custom Card - 1 - 15 July 2026",42.13105054,850,1422,8,6,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",41.42943558,783,1494,8,4,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,45-54,"ผ่อนทอง 0% July 2026",41.24882365,2670,3648,39,39,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,25-34,"Custom Card - 1 - 15 July 2026",39.53098571,1229,2184,14,9,2,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,35-44,"Test - Branding - เปลี่ยนโอากาสพิเศษ",38.87,3084,3311,36,36,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,45-54,"ผ่อนทอง 0% July 2026",38.34927395,2560,3438,38,39,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",36.95782791,654,900,9,7,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",36.1378761,542,787,14,13,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",36.08772099,693,1286,7,3,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",35.82146041,407,593,11,9,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,55-64,"ผ่อนทอง 0% July 2026",35.75932299,2158,3018,40,38,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,35-44,"Custom Card - 1 - 15 July 2026",33.75084253,1056,1839,7,4,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,55-64,"ผ่อนทอง 0% July 2026",38.46890293,2242,3199,43,41,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Service - ทองแท้ 96.5",37.91976628,2320,3492,48,48,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",36.95783205,654,901,9,7,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",36.31786959,544,791,14,13,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Trust - ช่องทางชำระเงิน",33.90538187,2765,3224,43,43,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,35-44,"Custom Card - 1 - 15 July 2026",33.75084158,1056,1839,7,4,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,25-34,"12 พลังปีเกิด July 2026",33.53,2762,3069,30,27,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",33.23997642,2950,3068,33,33,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Trust - ช่องทางชำระเงิน",32.75184325,2706,3133,43,43,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",31.23533821,296,442,7,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Service - ทองแท้ 96.5",30.55855583,2007,2880,43,43,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Trust - ช่องทางชำระเงิน",30.39171043,2272,2673,33,32,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,45-54,"ผ่อนทอง 0% July 2026",29.83,2253,2498,34,32,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",31.5995695,306,465,7,4,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Trust - ช่องทางชำระเงิน",31.30573596,2324,2746,34,33,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,45-54,"ผ่อนทอง 0% July 2026",30.33,2269,2521,34,32,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,55-64,"Test - Branding - เปลี่ยนโอากาสพิเศษ",28.98858552,2060,2969,50,43,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",27.89,2345,2396,27,27,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,25-34,"Custom Card - 1 - 15 July 2026",27.57,837,1183,1,1,2,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,55-64,"Test - Branding - เปลี่ยนโอากาสพิเศษ",27.44802172,1998,2787,50,43,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,35-44,"Custom Card - 1 - 15 July 2026",26.92,636,847,2,2,2,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",25.95274418,271,440,7,6,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",25.29209963,2096,2421,30,27,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,45-54,"Custom Card - 1 - 15 July 2026",24.58562767,262,418,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",24.53204654,315,589,3,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Trust - ช่องทางชำระเงิน",23.34131363,1952,2257,33,31,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Service - ทองแท้ 96.5",21.10972625,1286,1793,38,35,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,45-54,"Custom Card - 1 - 15 July 2026",20.93052249,607,1050,4,3,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",20.00982589,417,710,7,5,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",19.47161644,1606,1747,20,20,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",18.44891572,497,829,1,2,2,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",17.72442292,1273,1709,17,14,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",17.22142964,1524,1674,29,26,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,65+,"Test - Branding - เปลี่ยนโอากาสพิเศษ",15.35211404,1061,1552,27,26,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,55-64,"Custom Card - 1 - 15 July 2026",14.85037071,269,438,2,2,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",14.59716799,148,204,3,3,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",14.52621031,1266,1382,22,17,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",14.42708447,171,356,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Service - ทองแท้ 96.5",26.69983544,1454,2206,43,39,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",26.13964389,281,460,8,6,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",25.66791097,2114,2458,32,29,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,45-54,"Custom Card - 1 - 15 July 2026",25.27530506,263,430,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",24.8396616,319,597,3,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Trust - ช่องทางชำระเงิน",24.24669745,2017,2336,33,31,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",21.96839891,1499,2102,23,20,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",21.43970791,443,773,7,5,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,45-54,"Custom Card - 1 - 15 July 2026",20.9505224,607,1052,4,3,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",19.88838135,1626,1779,21,21,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",18.60887424,1575,1713,27,22,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",18.44891778,497,829,1,2,2,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",18.13867802,1136,1624,21,20,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",17.54857178,1535,1700,29,26,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,65+,"Test - Branding - เปลี่ยนโอากาสพิเศษ",16.27236589,1095,1646,27,26,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",16.14977998,180,391,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",15.27035688,256,389,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",14.90979688,151,208,4,4,2,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,55-64,"Custom Card - 1 - 15 July 2026",14.8503703,269,438,2,2,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",14.68034309,191,286,4,2,1,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,45-54,"12 พลังปีเกิด July 2026",14.39,1103,1253,18,19,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,45-54,"ผ่อนทอง 0% July 2026",14.1,1129,1217,13,14,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,55-64,"ผ่อนทอง 0% July 2026",13.49974442,884,1227,21,16,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",13.34591935,881,1206,13,12,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,18-24,"Custom Card - 1 - 15 July 2026",13.28033152,419,684,7,7,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,65+,"ผ่อนทอง 0% July 2026",13.24974915,711,1090,14,14,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,55-64,"ผ่อนทอง 0% July 2026",14.32959134,917,1293,21,16,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,45-54,"ผ่อนทอง 0% July 2026",14.19,1133,1221,13,14,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,65+,"ผ่อนทอง 0% July 2026",14.16959591,744,1157,15,15,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",13.7991652,1205,1289,18,14,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,35-44,"Test - Service - ทองแท้ 96.5",13.39,1234,1283,13,17,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,18-24,"Custom Card - 1 - 15 July 2026",13.28033115,419,684,7,7,1,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,35-44,"Test - Branding - เปลี่ยนโอากาสพิเศษ",12.86,1059,1151,20,21,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,35-44,"12 พลังปีเกิด July 2026",12.79,1121,1259,11,14,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,35-44,"Test - Service - ทองแท้ 96.5",12.68860955,1191,1237,12,16,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,55-64,"ผ่อนทอง 0% July 2026",12.11,813,963,10,10,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",12.46924566,996,1095,23,20,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,18-24,"ผ่อนทอง 0% July 2026",12.2096518,861,1111,16,16,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,55-64,"ผ่อนทอง 0% July 2026",12.15,816,966,10,10,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,25-34,"Custom Card - 1 - 15 July 2026",11.35,368,529,3,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,25-34,"12 พลังปีเกิด July 2026",11.34,979,1080,18,16,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,25-34,"Custom Card - 1 - 15 July 2026",11.33,368,528,3,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",11.27136454,183,284,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,25-34,"Custom Card - 1 - 15 July 2026",11.02803876,233,384,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",11.00037002,153,230,4,2,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,25-34,"Custom Card - 1 - 15 July 2026",11.29343405,242,395,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Service - ทองแท้ 96.5",11.11993146,607,954,17,16,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,35-44,"Custom Card - 1 - 15 July 2026",11.11353864,281,436,3,4,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",10.88,974,990,14,13,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,45-54,"Custom Card - 1 - 15 July 2026",10.63,249,320,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,35-44,"Custom Card - 1 - 15 July 2026",10.61811166,276,427,3,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,18-24,"ผ่อนทอง 0% July 2026",10.59979932,773,972,12,10,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,35-44,"Custom Card - 1 - 15 July 2026",10.52,359,504,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,65+,"Test - Service - ทองแท้ 96.5",10.45,947,1147,9,9,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",10.37872682,931,1006,14,12,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",9.86780494,825,896,19,17,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",9.65943229,238,430,4,4,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,65+,"Test - Service - ทองแท้ 96.5",10.46,947,1148,9,9,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Service - ทองแท้ 96.5",10.2699367,533,817,13,12,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",9.78022857,207,334,1,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",9.65943338,238,430,4,4,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,25-34,"ผ่อนทอง 0% July 2026",9.13966285,605,972,12,8,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Service - ทองแท้ 96.5",8.90994508,589,762,12,10,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,65+,"ผ่อนทอง 0% July 2026",8.79974905,450,718,11,9,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",8.78,654,701,8,9,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Service - ทองแท้ 96.5",8.31777265,471,680,11,10,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Service - ทองแท้ 96.5",8.14761364,499,730,15,14,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Service - ทองแท้ 96.5",8.13192656,786,804,14,12,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,65+,"ผ่อนทอง 0% July 2026",8.12984608,433,675,10,8,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",8.0395275,183,255,3,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,25-34,"ผ่อนทอง 0% July 2026",7.67197898,534,823,11,7,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Trust - ช่องทางชำระเงิน",7.19040467,583,679,10,9,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,35-44,"ผ่อนทอง 0% July 2026",7.04099376,457,718,10,9,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Service - ทองแท้ 96.5",7.01655671,493,624,10,9,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Service - ทองแท้ 96.5",8.37,811,828,15,13,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,35-44,"ผ่อนทอง 0% July 2026",8.17969826,506,827,10,9,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",8.07952605,184,257,3,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Trust - ช่องทางชำระเงิน",7.37899493,599,694,10,9,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",7.03237912,553,741,16,9,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,45-54,"ผ่อนทอง 0% July 2026",6.97974253,324,547,12,8,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,45-54,"Custom Card - 1 - 15 July 2026",6.81,189,302,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",6.59231963,531,704,16,9,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,55-64,"Custom Card - 1 - 15 July 2026",6.48016177,210,362,1,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,45-54,"ผ่อนทอง 0% July 2026",6.28982089,312,493,12,8,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,45-54,"Test - Service - ทองแท้ 96.5",6.28922399,484,526,9,9,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,55-64,"ผ่อนทอง 0% July 2026",5.96,403,481,3,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",5.95306439,363,500,16,9,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,45-54,"Test - Service - ทองแท้ 96.5",6.54,499,544,10,10,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,55-64,"Custom Card - 1 - 15 July 2026",6.48016158,210,362,1,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",6.37014887,45,100,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",6.35953651,377,560,6,6,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",6.33313688,371,524,16,9,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",6.09955545,475,576,7,5,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,55-64,"ผ่อนทอง 0% July 2026",5.99,404,483,3,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,55-64,"Test - Service - ทองแท้ 96.5",5.92,678,806,6,5,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",5.77117953,137,211,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",5.91956857,414,555,7,6,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,35-44,"Test - Branding - เปลี่ยนโอากาสพิเศษ",5.72379721,295,425,8,6,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Service - ทองแท้ 96.5",5.70996481,288,492,5,5,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,25-34,"Test - Service - ทองแท้ 96.5",5.29,379,422,8,9,1,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",5.18969499,45,72,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,35-44,"Test - Branding - เปลี่ยนโอากาสพิเศษ",5.18396043,283,400,7,6,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,65+,"ผ่อนทอง 0% July 2026",5.17,365,416,9,9,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",5.09970028,145,212,2,1,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,65+,"ผ่อนทอง 0% July 2026",5.19,366,417,9,9,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,45-54,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",5.18969557,45,72,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",5.14969792,146,213,2,1,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,55-64,"Test - Branding - เปลี่ยนโอากาสพิเศษ",4.84474982,409,576,6,7,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,65+,"Test - Service - ทองแท้ 96.5",4.77,506,634,7,10,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",4.71039103,392,462,5,5,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,55-64,"Test - Branding - เปลี่ยนโอากาสพิเศษ",4.64458883,397,547,6,7,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,18-24,"Custom Card - 1 - 15 July 2026",4.62011533,150,239,1,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",4.74961344,396,467,5,5,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,18-24,"Custom Card - 1 - 15 July 2026",4.6201152,150,239,1,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,55-64,"Custom Card - 1 - 15 July 2026",4.6,87,147,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,18-24,"ผ่อนทอง 0% July 2026",4.51983327,271,463,7,6,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,18-24,"ผ่อนทอง 0% July 2026",4.48,365,394,8,8,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,55-64,"12 พลังปีเกิด July 2026",4.48,302,361,6,6,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,18-24,"ผ่อนทอง 0% July 2026",4.45,363,392,8,8,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Service - ทองแท้ 96.5",4.38409677,242,384,4,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",4.37850357,290,407,4,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",4.35846465,316,405,7,6,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,35-44,"Test - Service - ทองแท้ 96.5",4.25624235,379,406,6,6,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Trust - ช่องทางชำระเงิน",4.11023132,288,359,5,5,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,65+,"Custom Card - 1 - 15 July 2026",4.1101026,95,159,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",4.08793926,344,401,5,3,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,35-44,"Test - Service - ทองแท้ 96.5",4.48,395,421,6,6,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Trust - ช่องทางชำระเงิน",4.29941439,300,372,5,5,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,55-64,"ผ่อนทอง 0% July 2026",4.18984544,167,339,4,4,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,65+,"Custom Card - 1 - 15 July 2026",4.13010298,96,160,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,18-24,"Custom Card - 1 - 15 July 2026",3.97,109,170,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,55-64,"Custom Card - 1 - 15 July 2026",3.84931543,44,99,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",3.74373907,39,84,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,18-24,"ผ่อนทอง 0% July 2026",3.72581747,236,387,6,5,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,55-64,"ผ่อนทอง 0% July 2026",3.68575491,156,301,4,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,65+,"ผ่อนทอง 0% July 2026",3.63,237,273,5,5,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,55-64,"Custom Card - 1 - 15 July 2026",3.84776293,45,100,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",3.80976952,323,342,5,5,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,65+,"ผ่อนทอง 0% July 2026",3.64,238,274,5,5,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",3.51974348,187,299,5,5,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,25-34,"Test - Service - ทองแท้ 96.5",3.51,403,432,6,5,4,1,8042,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,45-54,"Custom Card - 1 - 15 July 2026",3.42939011,101,171,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,45-54,"Custom Card - 1 - 15 July 2026",3.44799535,104,175,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,25-34,"Test - Service - ทองแท้ 96.5",3.42,303,317,4,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,45-54,"12 พลังปีเกิด July 2026",3.37,309,343,3,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,25-34,"Test - Service - ทองแท้ 96.5",3.28481763,295,308,4,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",3.27,264,273,2,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,35-44,"Test - Service - ทองแท้ 96.5",3.18,302,312,7,7,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",3.0555132,263,281,5,5,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,18-24,"Custom Card - 1 - 15 July 2026",3.00946479,76,119,2,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",2.70984074,62,136,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,35-44,"Test - Service - ทองแท้ 96.5",2.65,268,304,8,8,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,18-24,"Custom Card - 1 - 15 July 2026",3.05822196,79,122,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,18-24,"ผ่อนทอง 0% July 2026",3.02991359,199,260,3,3,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",2.79006521,55,96,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,35-44,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",2.70984104,62,136,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,35-44,"Test - Service - ทองแท้ 96.5",2.65,269,305,8,8,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,45-54,"Test - Service - ทองแท้ 96.5",2.6,305,345,3,3,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,55-64,"Test - Service - ทองแท้ 96.5",2.6,313,381,4,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",2.46478691,143,208,4,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,18-24,"ผ่อนทอง 0% July 2026",2.45995343,171,219,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,25-34,"12 พลังปีเกิด July 2026",2.36995888,190,242,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,35-44,"ผ่อนทอง 0% July 2026",2.3599327,133,202,2,3,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,65+,"ผ่อนทอง 0% July 2026",2.31991442,108,213,5,5,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",2.27,199,200,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",2.12017601,178,190,2,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,65+,"ผ่อนทอง 0% July 2026",2.11329969,101,191,5,5,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,35-44,"ผ่อนทอง 0% July 2026",2.09996024,125,184,2,3,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",2.05760279,118,157,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,35-44,"12 พลังปีเกิด July 2026",2.24996096,186,226,4,4,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",2.18982178,182,195,2,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",2.08773755,120,162,2,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,35-44,"12 พลังปีเกิด July 2026",2.03,206,207,3,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,55-64,"Test - Service - ทองแท้ 96.5",2.02,150,163,2,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,55-64,"Custom Card - 1 - 15 July 2026",1.99,76,96,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,55-64,"Test - Service - ทองแท้ 96.5",1.97289351,147,160,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Service - ทองแท้ 96.5",1.9799878,101,156,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,18-24,"Custom Card - 1 - 15 July 2026",1.88,65,87,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,35-44,"12 พลังปีเกิด July 2026",1.86507436,154,178,4,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,65+,"Custom Card - 1 - 15 July 2026",1.81004518,74,107,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,45-54,"Test - Service - ทองแท้ 96.5",1.8,204,228,1,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,25-34,"12 พลังปีเกิด July 2026",1.77482883,149,186,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Service - ทองแท้ 96.5",1.85998854,138,177,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,65+,"Custom Card - 1 - 15 July 2026",1.81004513,74,107,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,45-54,"Test - Service - ทองแท้ 96.5",1.8,204,229,1,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",1.78989172,125,136,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,18-24,"ผ่อนทอง 0% July 2026",1.76,141,155,2,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Service - ทองแท้ 96.5",1.74162749,96,140,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,45-54,"Test - Service - ทองแท้ 96.5",1.74,150,161,4,4,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,65+,"12 พลังปีเกิด July 2026",1.73,117,136,3,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,45-54,"Test - Service - ทองแท้ 96.5",1.69248225,147,158,4,4,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Trust - ช่องทางชำระเงิน",1.58978346,115,134,3,3,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",1.58,125,125,3,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1.57578293,29,55,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",1.57,130,130,2,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Trust - ช่องทางชำระเงิน",1.49008386,109,125,3,3,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Service - ทองแท้ 96.5",1.46136559,117,146,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,35-44,"Test - Branding - เปลี่ยนโอากาสพิเศษ",1.52834376,97,127,2,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,25-34,"ผ่อนทอง 0% July 2026",1.48995751,89,117,5,4,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",1.45841953,128,159,4,4,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",1.44989433,92,133,2,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,18-24,"12 พลังปีเกิด July 2026",1.42,123,137,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,25-34,"12 พลังปีเกิด July 2026",1.42,136,138,3,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,55-64,"12 พลังปีเกิด July 2026",1.41,106,123,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,35-44,"Test - Branding - เปลี่ยนโอากาสพิเศษ",1.38838247,95,120,2,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1.35992007,42,63,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,25-34,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1.35992023,42,63,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,18-24,"Test - Service - ทองแท้ 96.5",1.35,142,153,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",1.32845229,125,154,4,4,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Service - ทองแท้ 96.5",1.3299918,73,111,3,3,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",1.26,97,97,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",1.25,95,101,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,25-34,"ผ่อนทอง 0% July 2026",1.23997652,77,100,5,4,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1.23060429,13,56,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1.23998311,13,57,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,65+,"Custom Card - 1 - 15 July 2026",1.21,32,47,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,65+,"Custom Card - 1 - 15 July 2026",1.20929692,17,22,1,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,18-24,"Test - Service - ทองแท้ 96.5",1.19,118,120,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",1.1320426,88,93,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Service - ทองแท้ 96.5",1.13105693,63,92,2,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",1.1221794,77,104,2,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1.02050112,18,23,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,45-54,"12 พลังปีเกิด July 2026",1.18997935,93,116,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",1.18991328,74,94,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,18-24,"Test - Branding - เปลี่ยนโอากาสพิเศษ",1.14875511,61,96,1,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,18-24,"12 พลังปีเกิด July 2026",1.13998022,112,152,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,55-64,"12 พลังปีเกิด July 2026",1.08998109,69,96,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,55-64,"Custom Card - 1 - 15 July 2026",1.08936665,28,91,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",1.04991455,79,85,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",1.03998583,19,24,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Trust - ช่องทางชำระเงิน",1.01986109,87,95,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,65+,"12 พลังปีเกิด July 2026",1.01,75,89,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,55-64,"Custom Card - 1 - 15 July 2026",0.99982219,25,88,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,18-24,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.99883631,57,88,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.99008219,75,81,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.98048147,9,23,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,55-64,"12 พลังปีเกิด July 2026",0.96261903,61,85,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Trust - ช่องทางชำระเงิน",0.96005403,69,82,2,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,45-54,"12 พลังปีเกิด July 2026",0.93253718,76,93,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.89007389,72,81,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.87007223,58,62,2,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,45-54,"Custom Card - 1 - 15 July 2026",0.84984886,2,3,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,18-24,"12 พลังปีเกิด July 2026",0.83226437,91,117,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Trust - ช่องทางชำระเงิน",0.83004671,77,82,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Trust - ช่องทางชำระเงิน",0.99986381,74,88,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.97998665,9,23,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.90992594,73,83,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.88992757,59,63,2,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Trust - ช่องทางชำระเงิน",0.85988288,63,75,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,45-54,"Custom Card - 1 - 15 July 2026",0.8495061,2,3,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.83993878,53,73,2,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,45-54,"12 พลังปีเกิด July 2026",0.83,73,73,1,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Trust - ช่องทางชำระเงิน",0.82004615,59,71,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.81,68,68,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.81,58,58,2,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.81,57,57,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,65+,"Test - Service - ทองแท้ 96.5",0.79,57,62,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.77,66,67,2,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,35-44,"12 พลังปีเกิด July 2026",0.74,75,76,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,65+,"Custom Card - 1 - 15 July 2026",0.74,26,32,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,65+,"Test - Service - ทองแท้ 96.5",0.73107222,54,58,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.69134267,51,61,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.71995645,37,38,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.71995645,53,54,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,55-64,"Test - Service - ทองแท้ 96.5",0.68,55,60,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.65,47,47,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.64124537,41,56,2,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.64,60,62,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,25-34,"12 พลังปีเกิด July 2026",0.64,63,64,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,65+,"Custom Card - 1 - 15 July 2026",0.62988798,16,21,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,65+,"Test - Service - ทองแท้ 96.5",0.62091065,31,41,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.60996415,3,15,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,18-24,"Custom Card - 1 - 15 July 2026",0.60989154,21,26,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,65+,"Test - Service - ทองแท้ 96.5",0.64,31,43,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,65+,"12 พลังปีเกิด July 2026",0.60998942,52,61,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.60996422,3,15,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,18-24,"Custom Card - 1 - 15 July 2026",0.60964555,21,26,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.6,57,58,3,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,35-44,"Custom Card - 1 - 15 July 2026",0.59001473,30,44,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,55-64,"Test - Service - ทองแท้ 96.5",0.57083721,51,55,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,25-34,"Custom Card - 1 - 15 July 2026",0.57001423,19,27,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Service - ทองแท้ 96.5",0.5999963,26,46,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,35-44,"Custom Card - 1 - 15 July 2026",0.59001471,30,44,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,45-54,"ผ่อนทอง 0% July 2026",0.58998317,35,46,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,25-34,"Custom Card - 1 - 15 July 2026",0.57001421,19,27,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.56996552,39,44,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,35-44,"Test - Trust - ช่องทางชำระเงิน",0.56,43,43,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,45-54,"ผ่อนทอง 0% July 2026",0.52998997,32,43,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Service - ทองแท้ 96.5",0.52048638,24,41,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.51996944,8,10,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,55-64,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.5199695,8,10,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.51,44,44,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,unknown,35-44,"ผ่อนทอง 0% July 2026",0.48,34,40,2,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,25-34,"Custom Card - 1 - 15 July 2026",0.47991465,10,13,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Trust - ช่องทางชำระเงิน",0.47993463,41,45,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,25-34,"Custom Card - 1 - 15 July 2026",0.47972109,10,13,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,18-24,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.47948039,41,48,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,55-64,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.47,49,49,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.47,47,47,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.46,41,41,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.46,39,40,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.46,49,50,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Trust - ช่องทางชำระเงิน",0.45002533,40,43,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,65+,"12 พลังปีเกิด July 2026",0.44120039,39,46,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.43,39,39,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.42000982,9,9,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Trust - ช่องทางชำระเงิน",0.42,33,33,1,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,18-24,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.41951125,39,45,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,35-44,"Test - Trust - ช่องทางชำระเงิน",0.4,34,34,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,65+,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.39143652,8,8,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.38068689,31,31,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.38,34,34,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,18-24,"Test - Service - ทองแท้ 96.5",0.37054345,37,38,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.3999758,27,28,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,18-24,"Test - Service - ทองแท้ 96.5",0.38,38,39,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,65+,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.37,50,51,1,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,25-34,"Custom Card - 1 - 15 July 2026",0.36,11,17,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.34997943,11,15,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,18-24,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0.34997947,11,15,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,55-64,"12 พลังปีเกิด July 2026",0.34,24,24,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.33,31,31,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Lookalike,unknown,25-34,"ผ่อนทอง 0% July 2026",0.33,26,28,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Trust - ช่องทางชำระเงิน",0.32995506,25,26,1,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.32,30,30,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Lookalike,unknown,25-34,"ผ่อนทอง 0% July 2026",0.3,24,26,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Trust - ช่องทางชำระเงิน",0.29001632,23,24,1,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.28002325,20,20,2,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.28002325,22,24,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.31997668,22,29,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Trust - ช่องทางชำระเงิน",0.30995778,21,26,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.2899764,22,22,2,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,male,18-24,"12 พลังปีเกิด July 2026",0.28,27,28,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.28,22,22,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.27997721,22,24,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,45-54,"12 พลังปีเกิด July 2026",0.27,15,16,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.26050593,18,24,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Trust - ช่องทางชำระเงิน",0.26001463,17,22,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.26,20,20,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,65+,"12 พลังปีเกิด July 2026",0.26,22,23,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.2504519,23,23,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,25-34,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.25,25,25,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.24043383,17,17,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.24001993,15,17,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.24001993,18,19,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Service - ทองแท้ 96.5",0.2599984,8,17,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.24997965,19,20,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,55-64,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.24,23,24,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.23998047,15,17,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.22,28,28,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.2103796,21,21,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,45-54,"Custom Card - 1 - 15 July 2026",0.21000524,14,24,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,35-44,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.21,17,17,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,25-34,"Test - Trust - ช่องทางชำระเงิน",0.2,19,19,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.1999879,12,14,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.17,14,14,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.17,14,14,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Service - ทองแท้ 96.5",0.16014965,6,12,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.16998972,14,14,1,1,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.16998761,10,13,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.16,9,9,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.16,12,12,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.16,11,12,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,35-44,"Custom Card - 1 - 15 July 2026",0.16,10,18,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,35-44,"12 พลังปีเกิด July 2026",0.16,12,14,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.15029188,9,12,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.15,10,11,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,unknown,45-54,"ผ่อนทอง 0% July 2026",0.15,10,13,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,18-24,"ผ่อนทอง 0% July 2026",0.14999572,11,15,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.14,12,12,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,55-64,"12 พลังปีเกิด July 2026",0.14,10,11,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Trust - ช่องทางชำระเงิน",0.13000732,9,10,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.13,7,7,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.13,12,12,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.12021691,9,10,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Trust - ช่องทางชำระเงิน",0.1299823,9,10,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,45-54,"Test - Trust - ช่องทางชำระเงิน",0.12,5,5,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,25-34,"12 พลังปีเกิด July 2026",0.12,8,10,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,18-24,"ผ่อนทอง 0% July 2026",0.11999773,8,12,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,55-64,"ผ่อนทอง 0% July 2026",0.11999658,7,9,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,18-24,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.11,11,11,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,female,65+,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.11,12,12,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,25-34,"Test - Trust - ช่องทางชำระเงิน",0.11,4,4,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.11,8,8,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,65+,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.11,7,8,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,unknown,55-64,"ผ่อนทอง 0% July 2026",0.11,4,7,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,55-64,"ผ่อนทอง 0% July 2026",0.10999792,6,8,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,65+,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.10987199,10,12,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,18-24,"Test - Service - ทองแท้ 96.5",0.10014688,10,10,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,18-24,"Custom Card - 1 - 15 July 2026",0.1000025,5,5,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,65+,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.10988092,10,12,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,18-24,"Custom Card - 1 - 15 July 2026",0.10000249,5,5,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.1,11,11,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,35-44,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.1,6,6,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.1,14,15,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.1,8,8,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,65+,"Test - Trust - ช่องทางชำระเงิน",0.1,5,5,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,18-24,"Test - Service - ทองแท้ 96.5",0.1,10,10,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,45-54,"Custom Card - 1 - 15 July 2026",0.1,7,11,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.09016268,13,13,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,18-24,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.09,4,4,,,1,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,female,18-24,"12 พลังปีเกิด July 2026",0.09,7,7,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.09,6,6,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,65+,"Custom Card - 1 - 15 July 2026",0.089984,9,11,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.08014461,7,7,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,unknown,35-44,"Test - Service - ทองแท้ 96.5",0.0801175,9,9,1,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.08,5,5,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.08999456,13,13,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,65+,"Custom Card - 1 - 15 July 2026",0.0899477,9,11,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.08,7,7,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,unknown,35-44,"Test - Service - ทองแท้ 96.5",0.08,9,9,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,55-64,"Custom Card - 1 - 15 July 2026",0.07000175,5,6,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.07,5,5,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.07,2,2,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,male,18-24,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.07,5,5,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.07,9,9,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,65+,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.07,18,18,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,65+,"12 พลังปีเกิด July 2026",0.07,7,7,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Trust - ช่องทางชำระเงิน",0.06000338,3,4,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,45-54,"12 พลังปีเกิด July 2026",0.06,6,8,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,35-44,"Custom Card - 1 - 15 July 2026",0.05998933,7,12,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.05000415,3,4,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Trust - ช่องทางชำระเงิน",0.05999183,3,4,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,35-44,"Custom Card - 1 - 15 July 2026",0.05996514,7,12,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,55-64,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.05,10,10,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,55-64,"Test - Trust - ช่องทางชำระเงิน",0.05,2,2,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.05,2,2,1,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.05,11,11,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.05,3,3,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,65+,"Test - Service - ทองแท้ 96.5",0.05,5,5,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,65+,"ผ่อนทอง 0% July 2026",0.04999905,3,10,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,unknown,25-34,"Test - Service - ทองแท้ 96.5",0.04005875,5,5,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,unknown,45-54,"Test - Service - ทองแท้ 96.5",0.04005875,4,4,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,unknown,55-64,"Test - Service - ทองแท้ 96.5",0.04005875,2,2,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.04,11,12,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,65+,"ผ่อนทอง 0% July 2026",0.04999857,3,10,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.04999593,3,4,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,25-34,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.04,12,13,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.04,5,5,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,45-54,"Test - Trust - ช่องทางชำระเงิน",0.04,4,4,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,55-64,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.04,3,3,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.04,8,8,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,18-24,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.04,9,9,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.04,2,2,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,unknown,25-34,"Test - Service - ทองแท้ 96.5",0.04,5,5,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,unknown,45-54,"Test - Service - ทองแท้ 96.5",0.04,4,4,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,unknown,55-64,"Test - Service - ทองแท้ 96.5",0.04,2,2,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,unknown,65+,"ผ่อนทอง 0% July 2026",0.04,2,2,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.03005838,3,3,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.03005838,2,4,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.03005423,3,3,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,18-24,"Test - Service - ทองแท้ 96.5",0.03002806,3,3,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.03999708,4,5,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,18-24,"Test - Trust - ช่องทางชำระเงิน",0.03,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,45-54,"Test - Trust - ช่องทางชำระเงิน",0.03,3,3,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,55-64,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.03,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.03,3,3,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,25-34,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.03,5,5,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,35-44,"Test - Trust - ช่องทางชำระเงิน",0.03,2,2,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.03,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,65+,"Test - Trust - ช่องทางชำระเงิน",0.03,2,2,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,18-24,"Custom Card - 1 - 15 July 2026",0.02999467,2,2,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,18-24,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.02003615,2,2,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,18-24,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.02000166,1,1,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.02000166,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,18-24,"Test - Service - ทองแท้ 96.5",0.02999982,3,3,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,65+,"Test - Service - ทองแท้ 96.5",0.02999982,2,2,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.02999819,3,3,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.02999781,2,4,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,18-24,"Custom Card - 1 - 15 July 2026",0.02998257,2,2,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,18-24,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.02,2,2,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,25-34,"Test - Trust - ช่องทางชำระเงิน",0.02,4,4,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.02,6,6,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.02,7,7,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.02,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,18-24,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.02,5,5,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,male,18-24,"12 พลังปีเกิด July 2026",0.02,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.02,5,5,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,35-44,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.02,2,2,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.02,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,18-24,"12 พลังปีเกิด July 2026",0.02,2,2,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,unknown,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.02,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,45-54,"Test - Service - ทองแท้ 96.5",0.02,2,2,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.02,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,65+,"12 พลังปีเกิด July 2026",0.02,2,2,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.01997673,2,2,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,55-64,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.01997673,4,4,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.01001808,1,1,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.01001808,1,1,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,65+,"Test - Service - ทองแท้ 96.5",0.01000935,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,18-24,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.01999879,2,2,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,18-24,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.01999837,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.01999837,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.01997835,2,2,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,55-64,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.01997835,4,4,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,18-24,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.01,3,3,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,35-44,"Test - Trust - ช่องทางชำระเงิน",0.01,1,1,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.01,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.01,3,3,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,55-64,"Test - Trust - ช่องทางชำระเงิน",0.01,2,2,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,65+,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.01,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,18-24,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.01,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.01,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.01,6,6,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.01,5,5,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,45-54,"Test - Trust - ช่องทางชำระเงิน",0.01,1,1,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.01,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,55-64,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.01,3,3,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,55-64,"Test - Trust - ช่องทางชำระเงิน",0.01,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,55-64,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0.01,1,1,,,,,,2026-07-01,2026-07-06
@@ -426,6 +437,9 @@
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,45-54,"Test - Branding - มากกว่ามูลค่าทอง คือความสุข",0.01,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,45-54,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.01,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,55-64,"Test - Service - ทองแท้ 96.5",0.01,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,55-64,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.0099994,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0.0099994,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,18-24,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0.00998917,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,18-24,"Gems of The Day  21- 30 Jun 26",0,0,0,,,1,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,18-24,"Gems of The Day  21- 30 Jun 26",0,0,0,,,1,1,8085,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,female,18-24,"Test - Trust - ช่องทางชำระเงิน",0,1,1,,,1,,,2026-07-01,2026-07-06
@@ -437,8 +451,7 @@
 "4040 | ONN | website Traffic Campaign  | Pay Day","Pay Day  -Broad",female,25-34,"Pay Day 25-30 June 2026",0,0,0,,,20,2,82497,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic Campaign  | Pay Day","Pay Day -Lookalike",female,25-34,"Pay Day 25-30 June 2026",0,0,0,,,6,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,25-34,"Aurora Mid Year Gold Sale  25- 30 Jun 26",0,0,0,,7,8,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,female,25-34,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0,1,1,,,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,female,35-44,"ผ่อนทอง 0% June 2026",0,0,0,,4,10,1,16831,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,female,35-44,"ผ่อนทอง 0% June 2026",0,0,0,,4,11,1,16831,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,female,35-44,"ผ่อนทอง 0% June 2026",0,0,0,,,2,1,4805,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,35-44,"Gems of The Day  21- 30 Jun 26",0,0,0,,,3,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic Campaign  | Pay Day","Pay Day  -Broad",female,35-44,"Pay Day 25-30 June 2026",0,0,0,,,19,4,88665,2026-07-01,2026-07-06
@@ -465,13 +478,14 @@
 "4040 | ONN | website Traffic | Always On",Gold-Broad,male,35-44,"ผ่อนทอง 0% June 2026",0,0,0,,,,1,4384,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic Campaign  | Pay Day","Pay Day  -Broad",male,35-44,"Pay Day 25-30 June 2026",0,0,0,,,1,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic Campaign  | Pay Day","Pay Day -Lookalike",male,35-44,"Pay Day 25-30 June 2026",0,0,0,,,8,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,35-44,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0,3,3,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Broad,male,45-54,"ผ่อนทอง 0% June 2026",0,0,0,,,1,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,45-54,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0,5,5,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,45-54,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0,2,2,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic Campaign  | Pay Day","Pay Day  -Broad",male,45-54,"Pay Day 25-30 June 2026",0,0,0,,,2,1,15970,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,45-54,"Aurora Mid Year Gold Sale  25- 30 Jun 26",0,0,0,,,1,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,male,55-64,"Test - Trust - ช่องทางชำระเงิน",0,1,1,,,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic Campaign  | Pay Day","Pay Day  -Broad",male,55-64,"Pay Day 25-30 June 2026",0,0,0,,,1,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Test | June 2026",Traffic-Lookalike,male,65+,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,18-24,"Test - Service - ทองแท้ 96.5",0,2,2,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,35-44,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,35-44,"Test - Service - ทองแท้ 96.5",0,1,1,,,,,,2026-07-01,2026-07-06
@@ -480,10 +494,10 @@
 "4040 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,65+,"Custom Card - 1 - 15 July 2026",0,1,1,,,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Broad,unknown,Unknown,"Test - Branding - เปลี่ยนโอากาสพิเศษ",0,0,0,,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,Unknown,"พระประจำวันเกิดล้อมพลอย - 1 - 10 July 2026",0,0,0,,1,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,Unknown,"ผ่อนทอง 0% July 2026",0,0,0,,7,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,Unknown,"ผ่อนทอง 0% July 2026",0,0,0,,8,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Lookalike,unknown,Unknown,"ผ่อนทอง 0% July 2026",0,0,0,,1,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Always On",Gold-Retargeting,unknown,Unknown,"ผ่อนทอง 0% July 2026",0,0,0,,2,,,,2026-07-01,2026-07-06
-"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,Unknown,"12 พลังปีเกิด July 2026",0,0,0,,2,,,,2026-07-01,2026-07-06
+"4040 | ONN | website Traffic | Always On",Gold-Broad,unknown,Unknown,"12 พลังปีเกิด July 2026",0,0,0,,3,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,Unknown,"Test - Service - ทองแท้ 96.5",0,0,0,,4,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,Unknown,"Test - Trust - AURORA มั่นใจ มาตรฐานระดับโลก!",0,0,0,,2,,,,2026-07-01,2026-07-06
 "4040 | ONN | website Traffic | Test | June 2026",Traffic-Retargeting,unknown,Unknown,"Test - Service - ซื้อทองออนไลน์อย่างมั่นใจ",0,0,0,,1,,,,2026-07-01,2026-07-06

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website | Traffic Ads Performance</title>
 
-  <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -41,6 +40,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter','Noto Sans Thai',sans-serif; min-height: 100vh; line-height: 1.5; }
 
+    /* Header & Navigation */
     .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 32px 0 32px; display: flex; flex-direction: column; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
     .header-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; width: 100%; }
     .logo-area { display: flex; align-items: center; gap: 16px; }
@@ -77,6 +77,7 @@
     .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 8px; color: var(--muted); padding: 8px 12px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .2s; }
     .clear-btn:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
 
+    /* KPIs */
     .kpi-group-label { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; margin-top: 16px; }
     .kpi-grid { display: grid; gap: 16px; margin-bottom: 8px; }
     .kpi-grid.row3 { grid-template-columns: repeat(3,1fr); }
@@ -88,16 +89,17 @@
     .kpi-icon { grid-area: icon; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
     .kpi-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.75; }
     .kpi-label { grid-area: label; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px; }
-    .kpi-value { grid-area: value; font-size: 24px; font-weight: 700; font-family: 'Inter',sans-serif; color: var(--text); line-height: 1.2; margin-bottom: 8px; display: flex; align-items: center; }
+    .kpi-value { grid-area: value; font-size: 24px; font-weight: 700; font-family: 'Inter',sans-serif; color: var(--text); line-height: 1.2; margin-bottom: 8px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
     .kpi-sub { grid-area: sub; font-size: 12px; color: var(--muted); }
     .kpi-benchmark { grid-area: bench; font-size: 11px; color: var(--text-secondary); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
     .kpi-benchmark .bm-val { color: var(--text); font-weight: 600; font-family: 'Inter',sans-serif; }
     
-    .kpi-diff { font-size: 11px; margin-left: 10px; display: inline-flex; align-items: center; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: help; }
+    .kpi-diff { font-size: 11px; margin-left: 6px; display: inline-flex; align-items: center; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: help; }
     .kpi-diff.good { background: rgba(16,185,129,0.1); color: var(--emerald); }
     .kpi-diff.bad { background: rgba(244,63,94,0.1); color: #F43F5E; }
     .kpi-diff.neutral { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
 
+    /* Layout & Charts */
     .dashboard-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
     .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-sm); }
@@ -111,6 +113,7 @@
     
     .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
 
+    /* Top Ads Carousel */
     .carousel-wrapper { position: relative; display: flex; align-items: center; margin-top: 16px; }
     .top-ads-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 16px; scroll-behavior: smooth; width: 100%; -ms-overflow-style: none; scrollbar-width: none; }
     .top-ads-carousel::-webkit-scrollbar { display: none; }
@@ -127,6 +130,7 @@
     .carousel-btn.left { left: -18px; }
     .carousel-btn.right { right: -18px; }
 
+    /* Pyramid Funnel Styles */
     .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
     .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
     .pyramid-step:hover { transform: translateY(-2px); }
@@ -138,6 +142,7 @@
     .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
     .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
 
+    /* Table */
     .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0; box-shadow: var(--shadow-sm); overflow: hidden; margin-top: 24px; }
     .table-header { padding: 24px 24px 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .table-responsive { width: 100%; overflow-x: auto; }
@@ -150,9 +155,9 @@
     .sortable:hover { color: var(--primary); }
     .sort-icon { display: inline-block; width: 12px; margin-left: 4px; font-size: 10px; color: var(--primary); }
     .num { font-family: 'Inter',sans-serif; font-variant-numeric: tabular-nums; }
-    .cost-cell { font-weight: 600; font-family: 'Inter',sans-serif; color: var(--text); }
+    .cost-cell { font-weight: 600; font-family: 'Inter',sans-serif; color: var(--text); display: flex; align-items: center; gap: 4px; }
     
-    .table-diff-icon { font-size: 12px; margin-left: 6px; cursor: help; font-weight: 700; display: inline-block; }
+    .table-diff-icon { font-size: 11px; margin-left: 4px; cursor: help; font-weight: bold; }
     .table-diff-icon.good { color: var(--emerald); }
     .table-diff-icon.bad { color: #F43F5E; }
     .table-diff-icon.neutral { color: var(--muted); }
@@ -273,16 +278,20 @@
       <select id="filterCampaign" onchange="applyFilters()">
         <option value="">ทุก Campaign</option>
       </select>
-      <select id="filterObjective" onchange="applyFilters()">
+      <select id="filterObjective" onchange="handleObjectiveChange()">
         <option value="">ทุก Objective</option>
         <option value="conversion">Conversion</option>
         <option value="traffic">Traffic</option>
         <option value="live">Live</option>
       </select>
+      <select id="filterComparison" onchange="applyFilters()">
+        <option value="wow">Week on Week (WoW)</option>
+        <option value="mom">Month on Month (MoM)</option>
+        <option value="mtw">Month to Week (Same Weeks)</option>
+      </select>
       <button class="clear-btn" onclick="clearFilters()">✕ ล้างตัวกรอง</button>
     </div>
 
-    <!-- KPIs Section -->
     <div id="kpiSection"></div>
 
     <!-- Dashboard Layout -->
@@ -301,7 +310,6 @@
           </div>
         </div>
 
-        <!-- Sales Performance Summary -->
         <div class="chart-card" style="display: flex; flex-direction: column;">
           <div class="chart-title">Sale Performance</div>
           <div class="chart-sub" style="margin-bottom: 16px;">ข้อมูลการสั่งซื้อและผลตอบแทนแบบรวมศูนย์</div>
@@ -332,7 +340,6 @@
           <div id="demoSummary" class="chart-summary" style="display:none;"></div>
         </div>
 
-        <!-- Trends (Weekly 12 / Monthly) -->
         <div class="chart-card wide" style="grid-column: 1 / -1;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div>
@@ -394,7 +401,6 @@
       </div>
     </div>
 
-    <!-- Data Detail Table -->
     <div class="table-card" style="margin-top:24px;">
       <div class="table-header" style="flex-direction: column; align-items: flex-start;">
         <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
@@ -429,7 +435,6 @@
   </div>
 </div>
 
-<!-- Settings Drawer -->
 <div id="settingsOverlay" class="drawer-overlay"></div>
 <div id="settingsDrawer" class="drawer">
   <div class="drawer-header">
@@ -537,6 +542,8 @@ window.switchMonth = async function(month, forceRefresh = false) {
   
   const monthSelect = document.getElementById('monthSelect');
   if (monthSelect && monthSelect.value !== month) { monthSelect.value = month; }
+  
+  // Reset Campaign filter when month changes to allow fresh loading
   document.getElementById('filterCampaign').value = '';
 
   showStatus(`กำลังดึงข้อมูล ${currentPlatform} เดือน ${month} แบบรายสัปดาห์...`);
@@ -620,9 +627,9 @@ async function fetchAllBackground() {
     renderKPIs(); 
     renderFunnel();
     renderSalesSummary();
+    renderTable();
 }
 
-// ─── DATE & DATA PARSING ───────────────────
 function safeParseDate(dStr) {
     if (!dStr) return NaN;
     if (dStr.match(/^\d{4}-\d{2}-\d{2}/)) return new Date(dStr);
@@ -660,20 +667,20 @@ function parseRawRow(r, month, mIndex, w) {
 }
 
 function matchesCampaign(r) {
-    const campaign = document.getElementById('filterCampaign').value;
-    const objective = document.getElementById('filterObjective').value;
+    const campaign = document.getElementById('filterCampaign')?.value;
+    const objective = document.getElementById('filterObjective')?.value;
     
     if (campaign && r.campaign !== campaign) return false;
     
     if (objective) {
-        const nameLower = r.campaign.toLowerCase();
-        if (!nameLower.includes(objective.toLowerCase())) return false;
+        const campName = r.campaign.toLowerCase();
+        if (objective === 'conversion' && !campName.includes('conversion')) return false;
+        if (objective === 'traffic' && !campName.includes('traffic')) return false;
+        if (objective === 'live' && !campName.includes('live')) return false;
     }
-    
     return true;
 }
 
-// ─── SMART MERGE LOGIC ────────────────────
 function getTrendGroupingMap(data) {
     const weekDateRange = {};
     data.forEach(r => {
@@ -720,39 +727,70 @@ function getTrendGroupingMap(data) {
     return { mergeMap, labelMap };
 }
 
-// ─── WOW HELPER ──────────────────────────────────────────
-function getWoWComparison() {
-  const trendData = globalData.filter(matchesCampaign);
-  const { mergeMap, labelMap } = getTrendGroupingMap(trendData);
+// ─── COMPARISON HELPER (WoW, MoM, MtW) ────────────────────
+function getComparisonData() {
+    const trendData = globalData.filter(matchesCampaign);
+    const mode = document.getElementById('filterComparison')?.value || 'wow';
+    const mIndex = ALL_MONTHS.indexOf(currentMonth);
+    let prevMonthIndex = mIndex === 0 ? 11 : mIndex - 1;
 
-  let aggregatedForDiff = {};
-  trendData.forEach(r => {
-      let k = mergeMap[r.absWeek] || r.absWeek;
-      if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
-      aggregatedForDiff[k].spend += r.spend;
-      aggregatedForDiff[k].reach += r.reach;
-      aggregatedForDiff[k].impressions += r.impressions;
-      aggregatedForDiff[k].clicks += r.clicks;
-      aggregatedForDiff[k].lpViews += r.lpViews;
-      aggregatedForDiff[k].addCart += r.addCart;
-      aggregatedForDiff[k].purchases += r.purchases;
-      aggregatedForDiff[k].convValue += r.convValue;
-  });
+    let rule = { mode, mIndex, prevMonthIndex };
+    let c = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+    let p = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
 
-  const mIndex = ALL_MONTHS.indexOf(currentMonth);
-  let allKeys = Object.keys(aggregatedForDiff).sort();
-  
-  let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
-  let latestWeekKey = monthKeys.pop(); 
-  let prevWeekKey = monthKeys.pop(); 
-  
-  let c = aggregatedForDiff[latestWeekKey] || {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
-  let p = aggregatedForDiff[prevWeekKey] || {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
-  
-  return { c, p, latestWeekKey, prevWeekKey, labelMap };
+    if (mode === 'wow') {
+        const { mergeMap, labelMap } = getTrendGroupingMap(trendData);
+        let aggregatedForDiff = {};
+        trendData.forEach(r => {
+            let k = mergeMap[r.absWeek] || r.absWeek;
+            if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+            ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => {
+                aggregatedForDiff[k][prop] += r[prop];
+            });
+        });
+        let allKeys = Object.keys(aggregatedForDiff).sort();
+        let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
+        rule.wowLatestKey = monthKeys.pop();
+        rule.wowPrevKey = monthKeys.pop();
+        rule.mergeMap = mergeMap;
+        rule.labelCurrent = labelMap[rule.wowLatestKey] || rule.wowLatestKey;
+        rule.labelPrev = labelMap[rule.wowPrevKey] || rule.wowPrevKey;
+        
+        if (rule.wowLatestKey) c = aggregatedForDiff[rule.wowLatestKey];
+        if (rule.wowPrevKey) p = aggregatedForDiff[rule.wowPrevKey];
+        
+    } else if (mode === 'mom') {
+        rule.labelCurrent = ALL_MONTHS[mIndex];
+        rule.labelPrev = ALL_MONTHS[prevMonthIndex];
+        trendData.forEach(r => {
+            if (r.monthIndex === mIndex) {
+                ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => c[prop] += r[prop]);
+            } else if (r.monthIndex === prevMonthIndex) {
+                ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => p[prop] += r[prop]);
+            }
+        });
+    } else if (mode === 'mtw') {
+        let currentMonthWeeks = [...new Set(trendData.filter(r => r.monthIndex === mIndex).map(r => r.week))].sort();
+        let numWeeks = currentMonthWeeks.length;
+        let prevMonthWeeksAll = [...new Set(trendData.filter(r => r.monthIndex === prevMonthIndex).map(r => r.week))].sort();
+        rule.currentMonthWeeks = currentMonthWeeks;
+        rule.prevMonthWeeksTarget = prevMonthWeeksAll.slice(0, numWeeks);
+        rule.labelCurrent = `${ALL_MONTHS[mIndex]} (${numWeeks} สัปดาห์)`;
+        rule.labelPrev = `${ALL_MONTHS[prevMonthIndex]} (${numWeeks} สัปดาห์แรก)`;
+        
+        trendData.forEach(r => {
+            if (r.monthIndex === mIndex && rule.currentMonthWeeks.includes(r.week)) {
+                ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => c[prop] += r[prop]);
+            } else if (r.monthIndex === prevMonthIndex && rule.prevMonthWeeksTarget.includes(r.week)) {
+                ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => p[prop] += r[prop]);
+            }
+        });
+    }
+    
+    return { c, p, rule };
 }
 
-function createDiffHtml(currentVal, prevVal, reverseGoodBad, wowInfo, solidBg = false) {
+function createDiffHtml(currentVal, prevVal, reverseGoodBad, rule, solidBg = false) {
   if (!prevVal || prevVal === 0) return '';
   const diff = ((currentVal - prevVal) / prevVal) * 100;
   if (diff === 0) return '';
@@ -764,13 +802,11 @@ function createDiffHtml(currentVal, prevVal, reverseGoodBad, wowInfo, solidBg = 
   if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
 
   const bgStyle = solidBg ? ` style="background: var(--card);"` : '';
-
-  const titleText = wowInfo.prevWeekKey ? `เทียบสัปดาห์ล่าสุด (${wowInfo.labelMap[wowInfo.latestWeekKey] || wowInfo.latestWeekKey} vs ${wowInfo.labelMap[wowInfo.prevWeekKey] || wowInfo.prevWeekKey})` : 'เปรียบเทียบสัปดาห์';
+  const titleText = rule ? `เทียบ ${rule.labelCurrent} vs ${rule.labelPrev}` : 'เปรียบเทียบ';
+  
   return `<span class="kpi-diff ${colorClass}" title="${titleText}"${bgStyle}>${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
 }
 
-
-// ─── TREND CHARTS LOGIC (Weekly 12 & Monthly) ────────────────────
 function renderTrendCharts() {
     let chartData = globalData.filter(matchesCampaign);
     let labels = [];
@@ -888,26 +924,13 @@ function renderTrendCharts() {
                     displayColors: false,
                     callbacks: {
                         title: function(context) {
-                            return `${context[0].label}`;
+                            let idx = context[0].dataIndex;
+                            let dateLines = datesArray[idx] || [];
+                            // นำข้อความ "Performance Trends" ออก และแสดงแค่ชื่อแกน (เช่น Jan, Feb หรือ W(-1)) + วันที่เลย
+                            return [`${context[0].label}`].concat(dateLines);
                         },
                         label: function(context) {
-                            let idx = context.dataIndex;
-                            let dateLines = datesArray[idx] || [];
-                            
-                            let labelText = context.dataset.label || '';
-                            let valText = context.parsed.y;
-                            if (labelText.includes('ROAS')) valText = valText.toFixed(2) + 'x';
-                            else if (labelText.includes('Rate')) valText = valText.toFixed(2) + '%';
-                            else if (labelText.includes('฿') || l1.includes('฿') || l2.includes('฿')) valText = '฿' + formatNum(valText);
-                            else valText = formatNum(valText);
-
-                            let combinedLabel = `${labelText}: ${valText}`;
-                            
-                            // Insert dates only on the first dataset to avoid repetition
-                            if (context.datasetIndex === 0) {
-                                return dateLines.concat(['', combinedLabel]);
-                            }
-                            return combinedLabel;
+                            return `${context.dataset.label}: ${context.formattedValue}`;
                         }
                     }
                 }
@@ -953,7 +976,6 @@ function renderTrendCharts() {
     });
 }
 
-// ─── KPIS (Monthly Sum with Merged Weekly Diff) ────────────────
 function renderKPIs() {
   const currentMonthData = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   
@@ -962,7 +984,7 @@ function renderKPIs() {
   const impressions = currentMonthData.reduce((s,r)=>s+r.impressions,0);
   const clicks = currentMonthData.reduce((s,r)=>s+r.clicks,0);
   const lpViews = currentMonthData.reduce((s,r)=>s+r.lpViews,0);
-  const addCart = currentMonthData.reduce((s,r)=>s+r.addCart,0); // เพิ่มตัวแปรคำนวณ Add to Cart
+  const addCart = currentMonthData.reduce((s,r)=>s+r.addCart,0); 
 
   const cpr = reach > 0 ? (spend / reach) * 1000 : 0;
   const cpm = impressions > 0 ? (spend / impressions) * 1000 : 0;
@@ -971,23 +993,27 @@ function renderKPIs() {
   const freq = reach > 0 ? impressions / reach : 0;
   const cplpv = lpViews > 0 ? spend / lpViews : 0;
 
-  const wow = getWoWComparison();
+  // ดึงข้อมูลการเปรียบเทียบตาม Filter (WoW, MoM, MtW)
+  const compData = getComparisonData();
+  const cData = compData.c;
+  const pData = compData.p;
+  const rule = compData.rule;
   
-  let cCpr = wow.c.reach > 0 ? (wow.c.spend / wow.c.reach) * 1000 : 0;
-  let cCpm = wow.c.impressions > 0 ? (wow.c.spend / wow.c.impressions) * 1000 : 0;
-  let cCpc = wow.c.clicks > 0 ? wow.c.spend / wow.c.clicks : 0;
-  let cFreq = wow.c.reach > 0 ? wow.c.impressions / wow.c.reach : 0;
-  let cCtr = wow.c.impressions > 0 ? (wow.c.clicks / wow.c.impressions) * 100 : 0;
-  let cCplpv = wow.c.lpViews > 0 ? wow.c.spend / wow.c.lpViews : 0;
+  let cCpr = cData.reach > 0 ? (cData.spend / cData.reach) * 1000 : 0;
+  let cCpm = cData.impressions > 0 ? (cData.spend / cData.impressions) * 1000 : 0;
+  let cCpc = cData.clicks > 0 ? cData.spend / cData.clicks : 0;
+  let cFreq = cData.reach > 0 ? cData.impressions / cData.reach : 0;
+  let cCtr = cData.impressions > 0 ? (cData.clicks / cData.impressions) * 100 : 0;
+  let cCplpv = cData.lpViews > 0 ? cData.spend / cData.lpViews : 0;
 
-  let pCpr = wow.p.reach > 0 ? (wow.p.spend / wow.p.reach) * 1000 : 0;
-  let pCpm = wow.p.impressions > 0 ? (wow.p.spend / wow.p.impressions) * 1000 : 0;
-  let pCpc = wow.p.clicks > 0 ? wow.p.spend / wow.p.clicks : 0;
-  let pFreq = wow.p.reach > 0 ? wow.p.impressions / wow.p.reach : 0;
-  let pCtr = wow.p.impressions > 0 ? (wow.p.clicks / wow.p.impressions) * 100 : 0;
-  let pCplpv = wow.p.lpViews > 0 ? wow.p.spend / wow.p.lpViews : 0;
+  let pCpr = pData.reach > 0 ? (pData.spend / pData.reach) * 1000 : 0;
+  let pCpm = pData.impressions > 0 ? (pData.spend / pData.impressions) * 1000 : 0;
+  let pCpc = pData.clicks > 0 ? pData.spend / pData.clicks : 0;
+  let pFreq = pData.reach > 0 ? pData.impressions / pData.reach : 0;
+  let pCtr = pData.impressions > 0 ? (pData.clicks / pData.impressions) * 100 : 0;
+  let pCplpv = pData.lpViews > 0 ? pData.spend / pData.lpViews : 0;
 
-  const getDiffHtml = (cVal, pVal, reverse = false) => createDiffHtml(cVal, pVal, reverse, wow);
+  const getDiffHtml = (cVal, pVal, reverse = false) => createDiffHtml(cVal, pVal, reverse, rule);
 
   function card(icon, label, value, diffHtml, sub, color, benchmark = '') {
     const bmHtml = benchmark ? `<div class="kpi-benchmark"><span class="bm-label">เกณฑ์มาตรฐาน:</span><span class="bm-val">${benchmark}</span></div>` : '';
@@ -1021,12 +1047,12 @@ function renderKPIs() {
     rowClassOverview = 'row3'; 
     rowClassCost = 'row3';     
     overviewKPIs = [
-      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(wow.c.spend, wow.p.spend), 'Amount spent (THB)', 'var(--blue)'),
-      card(iconReach, 'Reach', formatNum(reach), getDiffHtml(wow.c.reach, wow.p.reach), 'Unique people reached', 'var(--emerald)'),
-      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(wow.c.impressions, wow.p.impressions), 'Total ad impressions', 'var(--purple)'),
-      card(iconClick, 'Link Clicks', formatNum(clicks), getDiffHtml(wow.c.clicks, wow.p.clicks), 'Total Link clicks', 'var(--accent)'),
-      card(iconLpView, 'LP Views', formatNum(lpViews), getDiffHtml(wow.c.lpViews, wow.p.lpViews), 'Landing Page Views', '#8B5CF6'),
-      card(iconAddCart, 'Add to Cart', formatNum(addCart), getDiffHtml(wow.c.addCart, wow.p.addCart), 'Website adds to cart', '#EC4899') 
+      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend), 'Amount spent (THB)', 'var(--blue)'),
+      card(iconReach, 'Reach', formatNum(reach), getDiffHtml(cData.reach, pData.reach), 'Unique people reached', 'var(--emerald)'),
+      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cData.impressions, pData.impressions), 'Total ad impressions', 'var(--purple)'),
+      card(iconClick, 'Link Clicks', formatNum(clicks), getDiffHtml(cData.clicks, pData.clicks), 'Total Link clicks', 'var(--accent)'),
+      card(iconLpView, 'LP Views', formatNum(lpViews), getDiffHtml(cData.lpViews, pData.lpViews), 'Landing Page Views', '#8B5CF6'),
+      card(iconAddCart, 'Add to Cart', formatNum(addCart), getDiffHtml(cData.addCart, pData.addCart), 'Website adds to cart', '#EC4899')
     ];
     costKPIs = [
       card(iconCPR, 'CPR', '฿' + cpr.toFixed(2), getDiffHtml(cCpr, pCpr, true), 'ต้นทุนต่อการเข้าถึงพันคน', 'var(--emerald)', '฿30 - ฿100'),
@@ -1040,9 +1066,9 @@ function renderKPIs() {
     rowClassOverview = 'row3';
     rowClassCost = 'row3';
     overviewKPIs = [
-      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(wow.c.spend, wow.p.spend), 'Amount spent (THB)', 'var(--blue)'),
-      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(wow.c.impressions, wow.p.impressions), 'Total ad impressions', 'var(--purple)'),
-      card(iconClick, 'Clicks', formatNum(clicks), getDiffHtml(wow.c.clicks, wow.p.clicks), 'Total clicks', 'var(--accent)')
+      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend), 'Amount spent (THB)', 'var(--blue)'),
+      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cData.impressions, pData.impressions), 'Total ad impressions', 'var(--purple)'),
+      card(iconClick, 'Clicks', formatNum(clicks), getDiffHtml(cData.clicks, pData.clicks), 'Total clicks', 'var(--accent)')
     ];
     costKPIs = [
       card(iconCPM, 'CPM', '฿' + cpm.toFixed(2), getDiffHtml(cCpm, pCpm, true), 'Cost per 1,000 Impressions', 'var(--blue)', '฿20 - ฿80'),
@@ -1057,12 +1083,11 @@ function renderKPIs() {
     <div class="kpi-group-label">Cost Efficiency</div>
     <div class="kpi-grid ${rowClassCost}">${costKPIs.join('')}</div>
     <div style="text-align: right; font-size: 11px; color: var(--muted); margin-top: 8px;">
-      Benchmark ref: E-commerce Industry Average (Thailand) | % Diff เทียบระหว่างสัปดาห์ล่าสุดและสัปดาห์ก่อนหน้า (Hover ดูวันที่)
+      Benchmark ref: E-commerce Industry Average (Thailand) | % Diff คำนวณตาม Filter Comparison
     </div>
   `;
 }
 
-// ─── GENERAL RENDERING ───────────────────────
 function updateSourceLabel() {
   const sourceLabel = document.getElementById('dataStatusLabel');
   if (sourceLabel) {
@@ -1085,7 +1110,6 @@ function renderAll() {
   renderTable(); 
 }
 
-// ─── FUNNEL (CUSTOMER JOURNEY) ─────────────
 function renderFunnel() {
   const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const impr = d.reduce((s,r)=>s+r.impressions,0);
@@ -1094,14 +1118,17 @@ function renderFunnel() {
   const addCart = d.reduce((s,r)=>s+r.addCart,0);
   const purchases = d.reduce((s,r)=>s+r.purchases,0);
 
-  const wow = getWoWComparison();
+  const compData = getComparisonData();
+  const cData = compData.c;
+  const pData = compData.p;
+  const rule = compData.rule;
 
   const steps = [
-    { id: 1, name: 'การมองเห็น (Impressions)', val: impr, diff: createDiffHtml(wow.c.impressions, wow.p.impressions, false, wow, true), color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
-    { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, diff: createDiffHtml(wow.c.clicks, wow.p.clicks, false, wow, true), color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
-    { id: 3, name: 'เข้าชมเว็บ (Landing Page Views)', val: lpViews, diff: createDiffHtml(wow.c.lpViews, wow.p.lpViews, false, wow, true), color: '#8B5CF6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
-    { id: 4, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, diff: createDiffHtml(wow.c.addCart, wow.p.addCart, false, wow, true), color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
-    { id: 5, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, diff: createDiffHtml(wow.c.purchases, wow.p.purchases, false, wow, true), color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
+    { id: 1, name: 'การมองเห็น (Impressions)', val: impr, diff: createDiffHtml(cData.impressions, pData.impressions, false, rule, true), color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
+    { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, diff: createDiffHtml(cData.clicks, pData.clicks, false, rule, true), color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
+    { id: 3, name: 'เข้าชมเว็บ (Landing Page Views)', val: lpViews, diff: createDiffHtml(cData.lpViews, pData.lpViews, false, rule, true), color: '#8B5CF6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
+    { id: 4, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, diff: createDiffHtml(cData.addCart, pData.addCart, false, rule, true), color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
+    { id: 5, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, diff: createDiffHtml(cData.purchases, pData.purchases, false, rule, true), color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
   ];
 
   let html = '<div class="pyramid-funnel-container">';
@@ -1141,7 +1168,74 @@ function renderFunnel() {
   document.getElementById('funnelContainer').innerHTML = html;
 }
 
-// ─── TOP ADS PERFORMANCE ───────────────────
+function renderSalesSummary() {
+  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
+  const spend = d.reduce((s,r)=>s+r.spend,0);
+  const purchases = d.reduce((s,r)=>s+r.purchases,0);
+  const convValue = d.reduce((s,r)=>s+r.convValue,0);
+  const clicks = d.reduce((s,r)=>s+r.clicks,0);
+
+  const aov = purchases > 0 ? convValue / purchases : 0;
+  const roas = spend > 0 ? convValue / spend : 0;
+  const convRate = clicks > 0 ? (purchases / clicks) * 100 : 0;
+
+  const compData = getComparisonData();
+  const cData = compData.c;
+  const pData = compData.p;
+  const rule = compData.rule;
+  
+  const cAov = cData.purchases > 0 ? cData.convValue / cData.purchases : 0;
+  const pAov = pData.purchases > 0 ? pData.convValue / pData.purchases : 0;
+  const cRoas = cData.spend > 0 ? cData.convValue / cData.spend : 0;
+  const pRoas = pData.spend > 0 ? pData.convValue / pData.spend : 0;
+  const cConvRate = cData.clicks > 0 ? (cData.purchases / cData.clicks) * 100 : 0;
+  const pConvRate = pData.clicks > 0 ? (pData.purchases / pData.clicks) * 100 : 0;
+
+  const diffPurchases = createDiffHtml(cData.purchases, pData.purchases, false, rule);
+  const diffConvValue = createDiffHtml(cData.convValue, pData.convValue, false, rule);
+  const diffAov = createDiffHtml(cAov, pAov, false, rule);
+  const diffRoas = createDiffHtml(cRoas, pRoas, false, rule);
+  const diffConvRate = createDiffHtml(cConvRate, pConvRate, false, rule);
+
+  let benchmarkStatus = '';
+  if (clicks === 0) {
+    benchmarkStatus = `<span style="color: var(--muted); font-size: 11px;">⚠️ ยังไม่มีข้อมูลทราฟฟิกคลิก</span>`;
+  } else if (convRate >= 3.00) {
+    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 600; font-size: 11px; display: flex; align-items: center; gap: 4px;">🔥 ดีเยี่ยม (สูงกว่าเกณฑ์ทั่วไป > 3.0%)</span>`;
+  } else if (convRate >= 1.00) {
+    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">✨ ปกติ (ตามเกณฑ์มาตรฐาน 1.0% - 3.0%)</span>`;
+  } else {
+    benchmarkStatus = `<span style="color: var(--accent); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">⚠️ ต่ำกว่าเกณฑ์เฉลี่ย (ควรเช็กความเร็วเว็บหรือข้อเสนอพิเศษ)</span>`;
+  }
+
+  document.getElementById('salesSummaryContainer').innerHTML = `
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Website Purchases</div>
+      <div style="color: var(--purple); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">${formatNum(purchases)} ${diffPurchases}</div>
+    </div>
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Conversion Value</div>
+      <div style="color: var(--emerald); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">฿${formatNum(convValue)} ${diffConvValue}</div>
+    </div>
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">AOV (ยอดซื้อเฉลี่ย)</div>
+      <div style="color: var(--blue); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">฿${formatNum(aov)} ${diffAov}</div>
+    </div>
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">ROAS</div>
+      <div style="color: var(--accent); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">${roas.toFixed(2)}x ${diffRoas}</div>
+    </div>
+    <div style="grid-column: 1 / -1; background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 4px;">Conversion Rate (Purchases / Clicks)</div>
+      <div style="color: var(--primary); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">${convRate.toFixed(2)}% ${diffConvRate}</div>
+      <div style="font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px; align-items: center;">
+        <div style="font-weight: 500; color: var(--muted)">เกณฑ์เฉลี่ย E-commerce มาตรฐาน: 1.00% - 3.00%</div>
+        <div>สถานะ: ${benchmarkStatus}</div>
+      </div>
+    </div>
+  `;
+}
+
 let currentTopAdSort = 'spend';
 window.updateTopAdSort = function() {
   currentTopAdSort = document.getElementById('topAdSortSelect').value;
@@ -1241,72 +1335,6 @@ function renderTopAds() {
   container.innerHTML = html;
 }
 
-// ─── SALES SUMMARY ─────────────────────────
-function renderSalesSummary() {
-  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
-  const spend = d.reduce((s,r)=>s+r.spend,0);
-  const purchases = d.reduce((s,r)=>s+r.purchases,0);
-  const convValue = d.reduce((s,r)=>s+r.convValue,0);
-  const clicks = d.reduce((s,r)=>s+r.clicks,0);
-
-  const aov = purchases > 0 ? convValue / purchases : 0;
-  const roas = spend > 0 ? convValue / spend : 0;
-  const convRate = clicks > 0 ? (purchases / clicks) * 100 : 0;
-
-  const wow = getWoWComparison();
-  const cAov = wow.c.purchases > 0 ? wow.c.convValue / wow.c.purchases : 0;
-  const pAov = wow.p.purchases > 0 ? wow.p.convValue / wow.p.purchases : 0;
-  const cRoas = wow.c.spend > 0 ? wow.c.convValue / wow.c.spend : 0;
-  const pRoas = wow.p.spend > 0 ? wow.p.convValue / wow.p.spend : 0;
-  const cConvRate = wow.c.clicks > 0 ? (wow.c.purchases / wow.c.clicks) * 100 : 0;
-  const pConvRate = wow.p.clicks > 0 ? (wow.p.purchases / wow.p.clicks) * 100 : 0;
-
-  const diffPurchases = createDiffHtml(wow.c.purchases, wow.p.purchases, false, wow);
-  const diffConvValue = createDiffHtml(wow.c.convValue, wow.p.convValue, false, wow);
-  const diffAov = createDiffHtml(cAov, pAov, false, wow);
-  const diffRoas = createDiffHtml(cRoas, pRoas, false, wow);
-  const diffConvRate = createDiffHtml(cConvRate, pConvRate, false, wow);
-
-  let benchmarkStatus = '';
-  if (clicks === 0) {
-    benchmarkStatus = `<span style="color: var(--muted); font-size: 11px;">⚠️ ยังไม่มีข้อมูลทราฟฟิกคลิก</span>`;
-  } else if (convRate >= 3.00) {
-    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 600; font-size: 11px; display: flex; align-items: center; gap: 4px;">🔥 ดีเยี่ยม (สูงกว่าเกณฑ์ทั่วไป > 3.0%)</span>`;
-  } else if (convRate >= 1.00) {
-    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">✨ ปกติ (ตามเกณฑ์มาตรฐาน 1.0% - 3.0%)</span>`;
-  } else {
-    benchmarkStatus = `<span style="color: var(--accent); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">⚠️ ต่ำกว่าเกณฑ์เฉลี่ย (ควรเช็กความเร็วเว็บหรือข้อเสนอพิเศษ)</span>`;
-  }
-
-  document.getElementById('salesSummaryContainer').innerHTML = `
-    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Website Purchases</div>
-      <div style="color: var(--purple); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center;">${formatNum(purchases)} ${diffPurchases}</div>
-    </div>
-    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Conversion Value</div>
-      <div style="color: var(--emerald); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center;">฿${formatNum(convValue)} ${diffConvValue}</div>
-    </div>
-    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">AOV (ยอดซื้อเฉลี่ย)</div>
-      <div style="color: var(--blue); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center;">฿${formatNum(aov)} ${diffAov}</div>
-    </div>
-    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">ROAS</div>
-      <div style="color: var(--accent); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center;">${roas.toFixed(2)}x ${diffRoas}</div>
-    </div>
-    <div style="grid-column: 1 / -1; background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 4px;">Conversion Rate (Purchases / Clicks)</div>
-      <div style="color: var(--primary); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; margin-bottom: 6px; display: flex; align-items: center; justify-content: center;">${convRate.toFixed(2)}% ${diffConvRate}</div>
-      <div style="font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px; align-items: center;">
-        <div style="font-weight: 500; color: var(--muted)">เกณฑ์เฉลี่ย E-commerce มาตรฐาน: 1.00% - 3.00%</div>
-        <div>สถานะ: ${benchmarkStatus}</div>
-      </div>
-    </div>
-  `;
-}
-
-// ─── CHARTS ────────────────────────────────
 const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64748B'];
 
 function renderCharts() {
@@ -1321,7 +1349,6 @@ function renderCharts() {
     return { responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:textColor,font:{family:'Inter,Noto Sans Thai',size:12}}}}, scales:{x:{...axisStyle(),stacked}, y:{...axisStyle(),stacked,title:{display:true,text:yLabel,color:isDark?'#94A3B8':'#6B7280',font:{size:11}}}} };
   }
 
-  // Demographics - Dynamic Metric by Age & Gender
   const agesDemo = [...new Set(d.map(r=>r.age).filter(a=>a))].sort();
   const gendersDemo = [...new Set(d.map(r=>r.gender).filter(g=>g))].sort();
   
@@ -1337,11 +1364,7 @@ function renderCharts() {
   const selectedMetricLabel = metricLabels[currentDemoMetric];
   document.getElementById('demoChartSub').textContent = `การวิเคราะห์กลุ่มเป้าหมายแยกตามอายุและเพศ (อิงตาม${metricThLabels[currentDemoMetric]})`;
 
-  const genderColors = {
-    'male': '#3B82F6',   /* สีน้ำเงิน */
-    'female': '#EC4899', /* สีชมพู */
-    'unknown': '#94A3B8' /* สีเทา */
-  };
+  const genderColors = { 'male': '#3B82F6', 'female': '#EC4899', 'unknown': '#94A3B8' };
 
   if(charts.demo) charts.demo.destroy();
   charts.demo = new Chart(document.getElementById('demoChart'), {
@@ -1358,7 +1381,6 @@ function renderCharts() {
     options: chartOpts(selectedMetricLabel, false)
   });
 
-  // Demographic Summary
   let totalDemo = 0;
   d.forEach(r => totalDemo += (r[currentDemoMetric] || 0));
 
@@ -1394,7 +1416,6 @@ function renderCharts() {
   }
 }
 
-// ─── TABLE ─────────────────────────────────
 let currentTableView = 'campaign'; 
 let currentSortCol = 'spend';
 let currentSortAsc = false;
@@ -1424,19 +1445,30 @@ window.handleSort = function(col) {
 };
 
 function renderTable() {
-  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
+  const trendData = globalData.filter(matchesCampaign);
+  const compData = getComparisonData();
+  const rule = compData.rule;
   
-  // Get WoW Keys
-  const { mergeMap } = getTrendGroupingMap(globalData);
-  const mIndex = ALL_MONTHS.indexOf(currentMonth);
-  let allKeys = Array.from(new Set(globalData.map(r => mergeMap[r.absWeek] || r.absWeek))).sort();
-  let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
-  let latestWeekKey = monthKeys.pop(); 
-  let prevWeekKey = monthKeys.pop(); 
-
   const groupedObj = {};
   
-  d.forEach(r => {
+  trendData.forEach(r => {
+    let isCurrent = false;
+    let isPrev = false;
+    if (rule.mode === 'wow') {
+        let k = rule.mergeMap[r.absWeek] || r.absWeek;
+        if (k === rule.wowLatestKey) isCurrent = true;
+        if (k === rule.wowPrevKey) isPrev = true;
+    } else if (rule.mode === 'mom') {
+        if (r.monthIndex === rule.mIndex) isCurrent = true;
+        if (r.monthIndex === rule.prevMonthIndex) isPrev = true;
+    } else if (rule.mode === 'mtw') {
+        if (r.monthIndex === rule.mIndex && rule.currentMonthWeeks.includes(r.week)) isCurrent = true;
+        if (r.monthIndex === rule.prevMonthIndex && rule.prevMonthWeeksTarget.includes(r.week)) isPrev = true;
+    }
+
+    let inCurrentMonth = r.monthIndex === rule.mIndex;
+    if (!isCurrent && !isPrev && !inCurrentMonth) return;
+
     let key = r.campaign || 'Unknown';
     if (currentTableView === 'adset') key = r.adset || 'Unknown';
     if (currentTableView === 'ad') key = r.ad || 'Unknown';
@@ -1450,35 +1482,38 @@ function renderTable() {
       };
     }
     
-    groupedObj[key].spend += r.spend;
-    groupedObj[key].reach += r.reach;
-    groupedObj[key].impressions += r.impressions;
-    groupedObj[key].clicks += r.clicks;
-    groupedObj[key].addCart += r.addCart;
-    groupedObj[key].purchases += r.purchases;
-    groupedObj[key].convValue += r.convValue;
+    if (inCurrentMonth) {
+        groupedObj[key].spend += r.spend;
+        groupedObj[key].reach += r.reach;
+        groupedObj[key].impressions += r.impressions;
+        groupedObj[key].clicks += r.clicks;
+        groupedObj[key].addCart += r.addCart;
+        groupedObj[key].purchases += r.purchases;
+        groupedObj[key].convValue += r.convValue;
+    }
 
-    let mappedWeek = mergeMap[r.absWeek] || r.absWeek;
-    if (mappedWeek === latestWeekKey) {
-      groupedObj[key].latest.spend += r.spend;
-      groupedObj[key].latest.reach += r.reach;
-      groupedObj[key].latest.impressions += r.impressions;
-      groupedObj[key].latest.clicks += r.clicks;
-      groupedObj[key].latest.addCart += r.addCart;
-      groupedObj[key].latest.purchases += r.purchases;
-      groupedObj[key].latest.convValue += r.convValue;
-    } else if (mappedWeek === prevWeekKey) {
-      groupedObj[key].prev.spend += r.spend;
-      groupedObj[key].prev.reach += r.reach;
-      groupedObj[key].prev.impressions += r.impressions;
-      groupedObj[key].prev.clicks += r.clicks;
-      groupedObj[key].prev.addCart += r.addCart;
-      groupedObj[key].prev.purchases += r.purchases;
-      groupedObj[key].prev.convValue += r.convValue;
+    if (isCurrent) {
+        groupedObj[key].latest.spend += r.spend;
+        groupedObj[key].latest.reach += r.reach;
+        groupedObj[key].latest.impressions += r.impressions;
+        groupedObj[key].latest.clicks += r.clicks;
+        groupedObj[key].latest.addCart += r.addCart;
+        groupedObj[key].latest.purchases += r.purchases;
+        groupedObj[key].latest.convValue += r.convValue;
+    }
+
+    if (isPrev) {
+        groupedObj[key].prev.spend += r.spend;
+        groupedObj[key].prev.reach += r.reach;
+        groupedObj[key].prev.impressions += r.impressions;
+        groupedObj[key].prev.clicks += r.clicks;
+        groupedObj[key].prev.addCart += r.addCart;
+        groupedObj[key].prev.purchases += r.purchases;
+        groupedObj[key].prev.convValue += r.convValue;
     }
   });
 
-  let tableData = Object.values(groupedObj).map(r => {
+  let tableData = Object.values(groupedObj).filter(r => r.spend > 0 || r.latest.spend > 0 || r.prev.spend > 0).map(r => {
     r.roas = r.spend > 0 ? r.convValue / r.spend : 0;
     r.latest.roas = r.latest.spend > 0 ? r.latest.convValue / r.latest.spend : 0;
     r.prev.roas = r.prev.spend > 0 ? r.prev.convValue / r.prev.spend : 0;
@@ -1510,15 +1545,16 @@ function renderTable() {
     if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
 
     const formattedDiff = (diff > 0 ? '+' : '') + diff.toFixed(1) + '%';
+    const titleText = `เทียบ ${rule.labelCurrent} vs ${rule.labelPrev} (${formattedDiff})`;
     
-    return `<span class="table-diff-icon ${colorClass}" title="WoW: ${formattedDiff}">${sign}</span>`;
+    return `<span class="table-diff-icon ${colorClass}" title="${titleText}">${sign}</span>`;
   };
 
   document.getElementById('tableCount').textContent = `แสดง ${tableData.length} รายการ (เฉพาะเดือน ${currentMonth})`;
   document.getElementById('tableBody').innerHTML = tableData.map(r => `
     <tr>
       <td title="${r.name}" style="max-width:240px; overflow: hidden; text-overflow: ellipsis;">${r.name}</td>
-      <td class="cost-cell">฿${formatNum(r.spend)} ${getTableDiffHtml(r.latest.spend, r.prev.spend)}</td>
+      <td class="cost-cell">฿${formatNum(r.spend)} ${getTableDiffHtml(r.latest.spend, r.prev.spend, true)}</td>
       <td class="num">${r.reach.toLocaleString()} ${getTableDiffHtml(r.latest.reach, r.prev.reach)}</td>
       <td class="num">${r.impressions.toLocaleString()} ${getTableDiffHtml(r.latest.impressions, r.prev.impressions)}</td>
       <td class="num">${r.clicks.toLocaleString()} ${getTableDiffHtml(r.latest.clicks, r.prev.clicks)}</td>
@@ -1530,38 +1566,49 @@ function renderTable() {
   `).join('');
 }
 
-// ─── FILTER & UPLOAD ───────────────────────
+function updateCampaignDropdown() {
+    const objective = document.getElementById('filterObjective')?.value;
+    let filteredData = globalData;
+    if (objective) {
+        filteredData = globalData.filter(r => {
+            const campName = r.campaign.toLowerCase();
+            if (objective === 'conversion' && campName.includes('conversion')) return true;
+            if (objective === 'traffic' && campName.includes('traffic')) return true;
+            if (objective === 'live' && campName.includes('live')) return true;
+            return false;
+        });
+    }
+    
+    const campaigns = [...new Set(filteredData.map(r=>r.campaign).filter(c=>c))].sort();
+    const select = document.getElementById('filterCampaign');
+    const currentVal = select.value;
+    select.innerHTML = '<option value="">ทุก Campaign</option>' + campaigns.map(c=>`<option value="${c}">${c}</option>`).join('');
+    if (campaigns.includes(currentVal)) {
+        select.value = currentVal;
+    } else {
+        select.value = '';
+    }
+}
+
+function handleObjectiveChange() {
+    updateCampaignDropdown();
+    applyFilters();
+}
+
 function populateFilters() {
-  const objective = document.getElementById('filterObjective')?.value || '';
-  let filteredData = globalData;
-  
-  if (objective) {
-    filteredData = globalData.filter(r => r.campaign.toLowerCase().includes(objective.toLowerCase()));
-  }
-  
-  const campaigns = [...new Set(filteredData.map(r=>r.campaign).filter(c=>c))].sort();
-  const campSelect = document.getElementById('filterCampaign');
-  const currentCamp = campSelect.value;
-  
-  campSelect.innerHTML = '<option value="">ทุก Campaign</option>'+campaigns.map(c=>`<option value="${c}">${c}</option>`).join('');
-  
-  if (campaigns.includes(currentCamp)) {
-      campSelect.value = currentCamp;
-  } else {
-      campSelect.value = '';
-  }
+  updateCampaignDropdown();
 }
 
 function applyFilters() {
-  populateFilters();
   renderAll();
 }
 
 function clearFilters() {
-  document.getElementById('filterObjective').value = '';
   document.getElementById('filterCampaign').value = '';
-  populateFilters();
-  renderAll();
+  document.getElementById('filterObjective').value = '';
+  document.getElementById('filterComparison').value = 'wow';
+  updateCampaignDropdown();
+  applyFilters();
 }
 
 function handleManualFileUpload(e) {

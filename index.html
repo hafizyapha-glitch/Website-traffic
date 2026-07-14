@@ -1235,8 +1235,9 @@ function renderFunnel() {
     const rawDiffHtml = getDiffHtml(step.cVal, step.pVal, compData.labels.c, compData.labels.p);
     let styledDiffHtml = rawDiffHtml;
     if (rawDiffHtml) {
-        styledDiffHtml = rawDiffHtml.replace('class="kpi-diff good"', 'class="kpi-diff" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.4);"');
-        styledDiffHtml = styledDiffHtml.replace('class="kpi-diff bad"', 'class="kpi-diff" style="background: rgba(0,0,0,0.2); color: #fff; border: 1px solid rgba(0,0,0,0.3);"');
+        styledDiffHtml = styledDiffHtml.replace('class="kpi-diff good"', 'class="kpi-diff" style="margin-left: 0; background: rgba(255,255,255,0.25); color: #fff; border: 1px solid rgba(255,255,255,0.5);"');
+        styledDiffHtml = styledDiffHtml.replace('class="kpi-diff bad"', 'class="kpi-diff" style="margin-left: 0; background: rgba(0,0,0,0.2); color: #fff; border: 1px solid rgba(0,0,0,0.3);"');
+        styledDiffHtml = styledDiffHtml.replace('class="kpi-diff neutral"', 'class="kpi-diff" style="margin-left: 0; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2);"');
     }
 
     html += `
@@ -1246,9 +1247,9 @@ function renderFunnel() {
           <div class="pyramid-icon">${step.icon}</div>
           <div class="pyramid-name" title="${step.name}">${step.name}</div>
         </div>
-        <div style="display:flex; align-items:center;">
-            ${styledDiffHtml}
-            <div class="pyramid-val">${formatNum(step.val)}</div>
+        <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:center; gap: 6px;">
+            <div class="pyramid-val" style="margin-left: 0; line-height: 1;">${formatNum(step.val)}</div>
+            ${styledDiffHtml ? `<div>${styledDiffHtml}</div>` : ''}
         </div>
       </div>
     `;

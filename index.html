@@ -54,7 +54,8 @@
     body.dark-mode .header-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
     .header-select:focus { border-color: var(--primary); }
 
-    .platform-tabs { display: flex; gap: 24px; border-top: 1px solid var(--border); padding-top: 8px; }
+    .header-bottom-wrap { display: flex; justify-content: space-between; align-items: flex-end; width: 100%; border-top: 1px solid var(--border); padding-top: 8px; flex-wrap: wrap; gap: 16px; }
+    .platform-tabs { display: flex; gap: 24px; }
     .platform-tab { background: transparent; border: none; font-family: 'Inter', 'Noto Sans Thai', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-secondary); cursor: pointer; padding: 10px 4px; border-bottom: 2px solid transparent; transition: all .2s; display: flex; align-items: center; gap: 6px; }
     .platform-tab svg { width: 16px; height: 16px; opacity: 0.7; }
     .platform-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
@@ -203,6 +204,7 @@
     .header { padding: 16px 16px 0 16px; flex-direction: column; align-items: flex-start; gap: 16px; }
     .header-top { flex-direction: column; align-items: flex-start; gap: 16px; padding-bottom: 12px; }
     .header-right { width: 100%; justify-content: space-between; }
+    .header-bottom-wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
     .platform-tabs { width: 100%; overflow-x: auto; gap: 16px; }
     .kpi-grid.row3, .kpi-grid.row4, .kpi-grid.row5, .kpi-grid.row6 { grid-template-columns: repeat(2,1fr); }
     .trend-grid { grid-template-columns: 1fr; }
@@ -254,23 +256,19 @@
       </button>
     </div>
   </div>
-  <!-- Primary Navigation Platform Tabs -->
-  <div class="platform-tabs">
-    <button id="tab-facebook" class="platform-tab active" onclick="switchPlatform('facebook')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      Facebook Ads
-    </button>
-    <button id="tab-google" class="platform-tab" onclick="switchPlatform('google')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
-      Google Ads
-    </button>
-  </div>
-</div>
-
-<div class="main">
-  <div style="padding: 0 32px; margin-top: -8px;" id="innerMain">
-    <div id="statusBar"></div>
-    <div class="filter-row">
+  <!-- Primary Navigation Platform Tabs and Filters -->
+  <div class="header-bottom-wrap">
+    <div class="platform-tabs">
+      <button id="tab-facebook" class="platform-tab active" onclick="switchPlatform('facebook')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Facebook Ads
+      </button>
+      <button id="tab-google" class="platform-tab" onclick="switchPlatform('google')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+        Google Ads
+      </button>
+    </div>
+    <div class="filter-row" style="padding-bottom: 8px;">
       <span class="filter-label">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>
         Filter:
@@ -291,7 +289,14 @@
       </select>
       <button class="clear-btn" onclick="clearFilters()">✕ ล้างตัวกรอง</button>
     </div>
+  </div>
+</div>
 
+<div class="main">
+  <div style="padding: 0 32px; margin-top: -8px;" id="innerMain">
+    <div id="statusBar"></div>
+
+    <!-- KPIs Section -->
     <div id="kpiSection"></div>
 
     <!-- Dashboard Layout -->

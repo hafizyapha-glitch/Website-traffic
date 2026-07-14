@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website | Traffic Ads Performance</title>
 
+  <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -42,19 +43,18 @@
 
     /* Header & Navigation */
     .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 32px 0 32px; display: flex; flex-direction: column; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
-    .header-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; width: 100%; }
+    .header-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; width: 100%; flex-wrap: wrap; gap: 16px; }
     .logo-area { display: flex; align-items: center; gap: 16px; }
     .logo-icon { width: 50px; height: 50px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-sm); color: var(--primary); }
     .logo-icon svg { width: 28px; height: 28px; }
     .logo-title { font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
     .logo-sub { font-size: 13px; color: var(--muted); font-weight: 500; }
     
-    .header-right { display: flex; align-items: center; gap: 16px; }
+    .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .header-select { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: 8px 32px 8px 16px; font-size: 14px; font-weight: 600; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; box-shadow: var(--shadow-sm); min-width: 150px; }
     body.dark-mode .header-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
     .header-select:focus { border-color: var(--primary); }
 
-    .header-bottom-wrap { display: flex; justify-content: space-between; align-items: flex-end; width: 100%; border-top: 1px solid var(--border); padding-top: 8px; flex-wrap: wrap; gap: 16px; }
     .platform-tabs { display: flex; gap: 24px; }
     .platform-tab { background: transparent; border: none; font-family: 'Inter', 'Noto Sans Thai', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-secondary); cursor: pointer; padding: 10px 4px; border-bottom: 2px solid transparent; transition: all .2s; display: flex; align-items: center; gap: 6px; }
     .platform-tab svg { width: 16px; height: 16px; opacity: 0.7; }
@@ -70,12 +70,13 @@
     .upload-label:hover { border-color: var(--primary); color: var(--primary); }
     input[type="file"] { display: none; }
 
-    .filter-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    /* Filters (Moved to Header) */
+    .filter-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: flex-end; flex-grow: 1; }
     .filter-row select { background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: 8px 32px 8px 16px; font-size: 13px; font-weight: 500; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; box-shadow: var(--shadow-sm); }
     body.dark-mode .filter-row select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
     .filter-row select:focus { border-color: var(--primary); }
-    .filter-label { font-size: 14px; font-weight: 500; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
-    .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 8px; color: var(--muted); padding: 8px 12px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .2s; }
+    .filter-label { font-size: 14px; font-weight: 500; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; margin-right: 4px; }
+    .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 8px; color: var(--muted); padding: 8px 12px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; }
     .clear-btn:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
 
     /* KPIs */
@@ -101,7 +102,7 @@
     .kpi-diff.neutral { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
 
     /* Layout & Charts */
-    .dashboard-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
+    .dashboard-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 8px; }
     .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-sm); }
     .chart-card.wide { grid-column: span 2; }
@@ -138,7 +139,7 @@
     .pyramid-step-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
     .pyramid-icon { background: rgba(255,255,255,0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .pyramid-icon svg { width: 18px; height: 18px; stroke: white; }
-    .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; }
     .pyramid-val { font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif; flex-shrink: 0; margin-left: 12px; }
     .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
     .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
@@ -156,12 +157,11 @@
     .sortable:hover { color: var(--primary); }
     .sort-icon { display: inline-block; width: 12px; margin-left: 4px; font-size: 10px; color: var(--primary); }
     .num { font-family: 'Inter',sans-serif; font-variant-numeric: tabular-nums; }
-    .cost-cell { font-weight: 600; font-family: 'Inter',sans-serif; color: var(--text); display: flex; align-items: center; gap: 4px; }
+    .cost-cell { font-weight: 600; font-family: 'Inter',sans-serif; color: var(--text); }
     
-    .table-diff-icon { font-size: 11px; margin-left: 4px; cursor: help; font-weight: bold; }
+    .table-diff-icon { display: inline-block; margin-left: 6px; font-size: 12px; cursor: help; }
     .table-diff-icon.good { color: var(--emerald); }
     .table-diff-icon.bad { color: #F43F5E; }
-    .table-diff-icon.neutral { color: var(--muted); }
 
     #statusBar { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
 
@@ -204,8 +204,8 @@
     .header { padding: 16px 16px 0 16px; flex-direction: column; align-items: flex-start; gap: 16px; }
     .header-top { flex-direction: column; align-items: flex-start; gap: 16px; padding-bottom: 12px; }
     .header-right { width: 100%; justify-content: space-between; }
-    .header-bottom-wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
     .platform-tabs { width: 100%; overflow-x: auto; gap: 16px; }
+    .filter-row { width: 100%; justify-content: flex-start; }
     .kpi-grid.row3, .kpi-grid.row4, .kpi-grid.row5, .kpi-grid.row6 { grid-template-columns: repeat(2,1fr); }
     .trend-grid { grid-template-columns: 1fr; }
     .top-ad-card { flex: 0 0 calc(50% - 8px); }
@@ -256,9 +256,10 @@
       </button>
     </div>
   </div>
-  <!-- Primary Navigation Platform Tabs and Filters -->
-  <div class="header-bottom-wrap">
-    <div class="platform-tabs">
+  
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 12px; padding-bottom: 12px; gap: 16px;">
+    <!-- Primary Navigation Platform Tabs -->
+    <div class="platform-tabs" style="border-top: none; padding-top: 0;">
       <button id="tab-facebook" class="platform-tab active" onclick="switchPlatform('facebook')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         Facebook Ads
@@ -268,7 +269,9 @@
         Google Ads
       </button>
     </div>
-    <div class="filter-row" style="padding-bottom: 8px;">
+
+    <!-- Filters -->
+    <div class="filter-row">
       <span class="filter-label">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>
         Filter:
@@ -276,18 +279,18 @@
       <select id="filterCampaign" onchange="applyFilters()">
         <option value="">ทุก Campaign</option>
       </select>
-      <select id="filterObjective" onchange="handleObjectiveChange()">
+      <select id="filterObjective" onchange="applyFilters()">
         <option value="">ทุก Objective</option>
         <option value="conversion">Conversion</option>
         <option value="traffic">Traffic</option>
         <option value="live">Live</option>
       </select>
-      <select id="filterComparison" onchange="applyFilters()">
+      <select id="filterComparison" onchange="applyFilters()" style="color: var(--primary);">
         <option value="wow">Week on Week (WoW)</option>
         <option value="mom">Month on Month (MoM)</option>
-        <option value="mtw">Month to Week (Same Weeks)</option>
+        <option value="m2w">Month to Week (Same Weeks)</option>
       </select>
-      <button class="clear-btn" onclick="clearFilters()">✕ ล้างตัวกรอง</button>
+      <button class="clear-btn" onclick="clearFilters()" title="ล้างตัวกรอง">✕</button>
     </div>
   </div>
 </div>
@@ -315,6 +318,7 @@
           </div>
         </div>
 
+        <!-- Sales Performance Summary -->
         <div class="chart-card" style="display: flex; flex-direction: column;">
           <div class="chart-title">Sale Performance</div>
           <div class="chart-sub" style="margin-bottom: 16px;">ข้อมูลการสั่งซื้อและผลตอบแทนแบบรวมศูนย์</div>
@@ -345,6 +349,7 @@
           <div id="demoSummary" class="chart-summary" style="display:none;"></div>
         </div>
 
+        <!-- Trends (Weekly 12 / Monthly) -->
         <div class="chart-card wide" style="grid-column: 1 / -1;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div>
@@ -406,6 +411,7 @@
       </div>
     </div>
 
+    <!-- Data Detail Table -->
     <div class="table-card" style="margin-top:24px;">
       <div class="table-header" style="flex-direction: column; align-items: flex-start;">
         <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
@@ -440,6 +446,7 @@
   </div>
 </div>
 
+<!-- Settings Drawer -->
 <div id="settingsOverlay" class="drawer-overlay"></div>
 <div id="settingsDrawer" class="drawer">
   <div class="drawer-header">
@@ -547,9 +554,8 @@ window.switchMonth = async function(month, forceRefresh = false) {
   
   const monthSelect = document.getElementById('monthSelect');
   if (monthSelect && monthSelect.value !== month) { monthSelect.value = month; }
-  
-  // Reset Campaign filter when month changes to allow fresh loading
   document.getElementById('filterCampaign').value = '';
+  document.getElementById('filterObjective').value = '';
 
   showStatus(`กำลังดึงข้อมูล ${currentPlatform} เดือน ${month} แบบรายสัปดาห์...`);
 
@@ -635,6 +641,7 @@ async function fetchAllBackground() {
     renderTable();
 }
 
+// ─── DATE & DATA PARSING ───────────────────
 function safeParseDate(dStr) {
     if (!dStr) return NaN;
     if (dStr.match(/^\d{4}-\d{2}-\d{2}/)) return new Date(dStr);
@@ -672,20 +679,22 @@ function parseRawRow(r, month, mIndex, w) {
 }
 
 function matchesCampaign(r) {
-    const campaign = document.getElementById('filterCampaign')?.value;
-    const objective = document.getElementById('filterObjective')?.value;
+    const campaignFilter = document.getElementById('filterCampaign').value;
+    const objectiveFilter = document.getElementById('filterObjective').value.toLowerCase();
     
-    if (campaign && r.campaign !== campaign) return false;
+    // Check Campaign Name Match
+    if (campaignFilter && r.campaign !== campaignFilter) return false;
     
-    if (objective) {
+    // Check Objective Match (checking keyword in campaign name)
+    if (objectiveFilter) {
         const campName = r.campaign.toLowerCase();
-        if (objective === 'conversion' && !campName.includes('conversion')) return false;
-        if (objective === 'traffic' && !campName.includes('traffic')) return false;
-        if (objective === 'live' && !campName.includes('live')) return false;
+        if (!campName.includes(objectiveFilter)) return false;
     }
+    
     return true;
 }
 
+// ─── SMART MERGE LOGIC ────────────────────
 function getTrendGroupingMap(data) {
     const weekDateRange = {};
     data.forEach(r => {
@@ -732,86 +741,166 @@ function getTrendGroupingMap(data) {
     return { mergeMap, labelMap };
 }
 
-// ─── COMPARISON HELPER (WoW, MoM, MtW) ────────────────────
-function getComparisonData() {
-    const trendData = globalData.filter(matchesCampaign);
-    const mode = document.getElementById('filterComparison')?.value || 'wow';
+// ─── COMPARISON LOGIC (WoW, MoM, Month vs Same Weeks) ───────────────────
+function getComparisonData(targetDataArr = null, specificGroupingKey = null) {
+    // targetDataArr: ให้ใช้สำหรับเจาะจงข้อมูล (เช่นตารางราย Campaign) ถ้าไม่ใส่จะใช้ globalData รวม
+    const baseData = (targetDataArr || globalData).filter(matchesCampaign);
+    const compMode = document.getElementById('filterComparison').value; // 'wow', 'mom', 'm2w'
+    const { mergeMap, labelMap } = getTrendGroupingMap(baseData);
     const mIndex = ALL_MONTHS.indexOf(currentMonth);
-    let prevMonthIndex = mIndex === 0 ? 11 : mIndex - 1;
 
-    let rule = { mode, mIndex, prevMonthIndex };
-    let c = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
-    let p = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+    let currentObj = { spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0 };
+    let previousObj = { spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0 };
+    let labelCurrent = '';
+    let labelPrevious = '';
 
-    if (mode === 'wow') {
-        const { mergeMap, labelMap } = getTrendGroupingMap(trendData);
-        let aggregatedForDiff = {};
-        trendData.forEach(r => {
+    if (compMode === 'wow') {
+        // Week on Week (WoW)
+        let aggregatedWeekly = {};
+        baseData.forEach(r => {
+            if (specificGroupingKey && r[specificGroupingKey.field] !== specificGroupingKey.value) return;
             let k = mergeMap[r.absWeek] || r.absWeek;
-            if(!aggregatedForDiff[k]) aggregatedForDiff[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
-            ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => {
-                aggregatedForDiff[k][prop] += r[prop];
-            });
+            if(!aggregatedWeekly[k]) aggregatedWeekly[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+            aggregatedWeekly[k].spend += r.spend;
+            aggregatedWeekly[k].reach += r.reach;
+            aggregatedWeekly[k].impressions += r.impressions;
+            aggregatedWeekly[k].clicks += r.clicks;
+            aggregatedWeekly[k].lpViews += r.lpViews;
+            aggregatedWeekly[k].addCart += r.addCart;
+            aggregatedWeekly[k].purchases += r.purchases;
+            aggregatedWeekly[k].convValue += r.convValue;
         });
-        let allKeys = Object.keys(aggregatedForDiff).sort();
+
+        let allKeys = Object.keys(aggregatedWeekly).sort();
         let monthKeys = allKeys.filter(k => parseInt(k.split('-')[0]) <= mIndex);
-        rule.wowLatestKey = monthKeys.pop();
-        rule.wowPrevKey = monthKeys.pop();
-        rule.mergeMap = mergeMap;
-        rule.labelCurrent = labelMap[rule.wowLatestKey] || rule.wowLatestKey;
-        rule.labelPrev = labelMap[rule.wowPrevKey] || rule.wowPrevKey;
+        let latestWeekKey = monthKeys.pop(); 
+        let prevWeekKey = monthKeys.pop(); 
+
+        if (latestWeekKey && aggregatedWeekly[latestWeekKey]) currentObj = aggregatedWeekly[latestWeekKey];
+        if (prevWeekKey && aggregatedWeekly[prevWeekKey]) previousObj = aggregatedWeekly[prevWeekKey];
         
-        if (rule.wowLatestKey) c = aggregatedForDiff[rule.wowLatestKey];
-        if (rule.wowPrevKey) p = aggregatedForDiff[rule.wowPrevKey];
-        
-    } else if (mode === 'mom') {
-        rule.labelCurrent = ALL_MONTHS[mIndex];
-        rule.labelPrev = ALL_MONTHS[prevMonthIndex];
-        trendData.forEach(r => {
-            if (r.monthIndex === mIndex) {
-                ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => c[prop] += r[prop]);
-            } else if (r.monthIndex === prevMonthIndex) {
-                ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => p[prop] += r[prop]);
-            }
+        labelCurrent = latestWeekKey ? (labelMap[latestWeekKey] || latestWeekKey) : 'สัปดาห์นี้';
+        labelPrevious = prevWeekKey ? (labelMap[prevWeekKey] || prevWeekKey) : 'สัปดาห์ก่อน';
+
+    } else if (compMode === 'mom') {
+        // Month on Month (MoM) - เต็มเดือนเทียบเต็มเดือน
+        let aggregatedMonthly = {};
+        baseData.forEach(r => {
+            if (specificGroupingKey && r[specificGroupingKey.field] !== specificGroupingKey.value) return;
+            let k = r.monthIndex;
+            if(!aggregatedMonthly[k]) aggregatedMonthly[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0};
+            aggregatedMonthly[k].spend += r.spend;
+            aggregatedMonthly[k].reach += r.reach;
+            aggregatedMonthly[k].impressions += r.impressions;
+            aggregatedMonthly[k].clicks += r.clicks;
+            aggregatedMonthly[k].lpViews += r.lpViews;
+            aggregatedMonthly[k].addCart += r.addCart;
+            aggregatedMonthly[k].purchases += r.purchases;
+            aggregatedMonthly[k].convValue += r.convValue;
         });
-    } else if (mode === 'mtw') {
-        let currentMonthWeeks = [...new Set(trendData.filter(r => r.monthIndex === mIndex).map(r => r.week))].sort();
-        let numWeeks = currentMonthWeeks.length;
-        let prevMonthWeeksAll = [...new Set(trendData.filter(r => r.monthIndex === prevMonthIndex).map(r => r.week))].sort();
-        rule.currentMonthWeeks = currentMonthWeeks;
-        rule.prevMonthWeeksTarget = prevMonthWeeksAll.slice(0, numWeeks);
-        rule.labelCurrent = `${ALL_MONTHS[mIndex]} (${numWeeks} สัปดาห์)`;
-        rule.labelPrev = `${ALL_MONTHS[prevMonthIndex]} (${numWeeks} สัปดาห์แรก)`;
+
+        if (aggregatedMonthly[mIndex]) currentObj = aggregatedMonthly[mIndex];
+        let prevMonthIndex = mIndex > 0 ? mIndex - 1 : 11;
+        if (aggregatedMonthly[prevMonthIndex]) previousObj = aggregatedMonthly[prevMonthIndex];
+
+        labelCurrent = `เดือน ${ALL_MONTHS[mIndex]}`;
+        labelPrevious = `เดือน ${ALL_MONTHS[prevMonthIndex]}`;
+
+    } else if (compMode === 'm2w') {
+        // Month to Week (Same Weeks) - นับจำนวนสัปดาห์เดือนปัจจุบัน ไปหาจำนวนสัปดาห์เดือนก่อน
+        let aggregatedWeekly = {};
+        let currentMonthWeeksCount = 0;
         
-        trendData.forEach(r => {
-            if (r.monthIndex === mIndex && rule.currentMonthWeeks.includes(r.week)) {
-                ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => c[prop] += r[prop]);
-            } else if (r.monthIndex === prevMonthIndex && rule.prevMonthWeeksTarget.includes(r.week)) {
-                ['spend','reach','impressions','clicks','lpViews','addCart','purchases','convValue'].forEach(prop => p[prop] += r[prop]);
-            }
+        baseData.forEach(r => {
+            if (specificGroupingKey && r[specificGroupingKey.field] !== specificGroupingKey.value) return;
+            let k = mergeMap[r.absWeek] || r.absWeek;
+            if(!aggregatedWeekly[k]) aggregatedWeekly[k] = {spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0, mIndex: parseInt(k.split('-')[0])};
+            aggregatedWeekly[k].spend += r.spend;
+            aggregatedWeekly[k].reach += r.reach;
+            aggregatedWeekly[k].impressions += r.impressions;
+            aggregatedWeekly[k].clicks += r.clicks;
+            aggregatedWeekly[k].lpViews += r.lpViews;
+            aggregatedWeekly[k].addCart += r.addCart;
+            aggregatedWeekly[k].purchases += r.purchases;
+            aggregatedWeekly[k].convValue += r.convValue;
         });
+
+        let allKeys = Object.keys(aggregatedWeekly).sort();
+        let currentMonthKeys = allKeys.filter(k => aggregatedWeekly[k].mIndex === mIndex);
+        currentMonthWeeksCount = currentMonthKeys.length;
+
+        currentMonthKeys.forEach(k => {
+            currentObj.spend += aggregatedWeekly[k].spend;
+            currentObj.reach += aggregatedWeekly[k].reach;
+            currentObj.impressions += aggregatedWeekly[k].impressions;
+            currentObj.clicks += aggregatedWeekly[k].clicks;
+            currentObj.lpViews += aggregatedWeekly[k].lpViews;
+            currentObj.addCart += aggregatedWeekly[k].addCart;
+            currentObj.purchases += aggregatedWeekly[k].purchases;
+            currentObj.convValue += aggregatedWeekly[k].convValue;
+        });
+
+        let prevMonthIndex = mIndex > 0 ? mIndex - 1 : 11;
+        let prevMonthKeys = allKeys.filter(k => aggregatedWeekly[k].mIndex === prevMonthIndex);
+        let targetPrevKeys = prevMonthKeys.slice(0, currentMonthWeeksCount); // เอาแค่จำนวนสัปดาห์เท่ากัน
+
+        targetPrevKeys.forEach(k => {
+            previousObj.spend += aggregatedWeekly[k].spend;
+            previousObj.reach += aggregatedWeekly[k].reach;
+            previousObj.impressions += aggregatedWeekly[k].impressions;
+            previousObj.clicks += aggregatedWeekly[k].clicks;
+            previousObj.lpViews += aggregatedWeekly[k].lpViews;
+            previousObj.addCart += aggregatedWeekly[k].addCart;
+            previousObj.purchases += aggregatedWeekly[k].purchases;
+            previousObj.convValue += aggregatedWeekly[k].convValue;
+        });
+
+        labelCurrent = `เดือน ${ALL_MONTHS[mIndex]} (${currentMonthWeeksCount} สัปดาห์)`;
+        labelPrevious = `เดือน ${ALL_MONTHS[prevMonthIndex]} (${targetPrevKeys.length} สัปดาห์แรก)`;
     }
+
+    // คำนวณ Cost Metrics อัตโนมัติให้ทั้ง Current และ Previous
+    const calcCost = (obj) => {
+        return {
+            cpr: obj.reach > 0 ? (obj.spend / obj.reach) * 1000 : 0,
+            cpm: obj.impressions > 0 ? (obj.spend / obj.impressions) * 1000 : 0,
+            cpc: obj.clicks > 0 ? obj.spend / obj.clicks : 0,
+            ctr: obj.impressions > 0 ? (obj.clicks / obj.impressions) * 100 : 0,
+            freq: obj.reach > 0 ? obj.impressions / obj.reach : 0,
+            cplpv: obj.lpViews > 0 ? obj.spend / obj.lpViews : 0,
+            roas: obj.spend > 0 ? obj.convValue / obj.spend : 0,
+            cr: obj.clicks > 0 ? (obj.purchases / obj.clicks) * 100 : 0,
+            aov: obj.purchases > 0 ? obj.convValue / obj.purchases : 0
+        };
+    };
+
+    return { 
+        c: {...currentObj, ...calcCost(currentObj)}, 
+        p: {...previousObj, ...calcCost(previousObj)}, 
+        labels: { c: labelCurrent, p: labelPrevious }
+    };
+}
+
+const getDiffHtml = (currentVal, previousVal, labelCurrent, labelPrevious, reverseGoodBad = false, onlyIcon = false) => {
+    if (!previousVal || previousVal === 0) return '';
+    const diff = ((currentVal - previousVal) / previousVal) * 100;
+    if (diff === 0) return '';
     
-    return { c, p, rule };
-}
+    const sign = diff > 0 ? '↑' : '↓';
+    let colorClass = 'neutral';
+    
+    if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
+    if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
 
-function createDiffHtml(currentVal, prevVal, reverseGoodBad, rule, solidBg = false) {
-  if (!prevVal || prevVal === 0) return '';
-  const diff = ((currentVal - prevVal) / prevVal) * 100;
-  if (diff === 0) return '';
-  
-  const sign = diff > 0 ? '↑' : '↓';
-  let colorClass = 'neutral';
-  
-  if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
-  if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
+    const titleText = `เทียบ: ${labelCurrent} vs ${labelPrevious} (${diff > 0 ? '+' : ''}${diff.toFixed(1)}%)`;
+    
+    if (onlyIcon) {
+        return `<span class="table-diff-icon ${colorClass}" title="${titleText}">${sign}</span>`;
+    }
+    return `<span class="kpi-diff ${colorClass}" title="${titleText}">${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
+};
 
-  const bgStyle = solidBg ? ` style="background: var(--card);"` : '';
-  const titleText = rule ? `เทียบ ${rule.labelCurrent} vs ${rule.labelPrev}` : 'เปรียบเทียบ';
-  
-  return `<span class="kpi-diff ${colorClass}" title="${titleText}"${bgStyle}>${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
-}
-
+// ─── TREND CHARTS LOGIC (Weekly 12 & Monthly) ────────────────────
 function renderTrendCharts() {
     let chartData = globalData.filter(matchesCampaign);
     let labels = [];
@@ -926,16 +1015,13 @@ function renderTrendCharts() {
             plugins: { 
                 legend: { position: 'top', labels:{color: textColor, font: {family: 'Inter,Noto Sans Thai', size: 11}} },
                 tooltip: {
-                    displayColors: false,
+                    displayColors: false, // ซ่อนกล่องสีใน Tooltip ให้คลีนขึ้น
                     callbacks: {
                         title: function(context) {
                             let idx = context[0].dataIndex;
                             let dateLines = datesArray[idx] || [];
-                            // นำข้อความ "Performance Trends" ออก และแสดงแค่ชื่อแกน (เช่น Jan, Feb หรือ W(-1)) + วันที่เลย
+                            // แสดงแค่ชื่อแกน (เช่น Jan, Feb หรือ W(-1)) + วันที่
                             return [`${context[0].label}`].concat(dateLines);
-                        },
-                        label: function(context) {
-                            return `${context.dataset.label}: ${context.formattedValue}`;
                         }
                     }
                 }
@@ -981,6 +1067,7 @@ function renderTrendCharts() {
     });
 }
 
+// ─── KPIS (With Universal Comparison) ────────────────
 function renderKPIs() {
   const currentMonthData = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   
@@ -989,7 +1076,7 @@ function renderKPIs() {
   const impressions = currentMonthData.reduce((s,r)=>s+r.impressions,0);
   const clicks = currentMonthData.reduce((s,r)=>s+r.clicks,0);
   const lpViews = currentMonthData.reduce((s,r)=>s+r.lpViews,0);
-  const addCart = currentMonthData.reduce((s,r)=>s+r.addCart,0); 
+  const addCart = currentMonthData.reduce((s,r)=>s+r.addCart,0);
 
   const cpr = reach > 0 ? (spend / reach) * 1000 : 0;
   const cpm = impressions > 0 ? (spend / impressions) * 1000 : 0;
@@ -998,27 +1085,12 @@ function renderKPIs() {
   const freq = reach > 0 ? impressions / reach : 0;
   const cplpv = lpViews > 0 ? spend / lpViews : 0;
 
-  // ดึงข้อมูลการเปรียบเทียบตาม Filter (WoW, MoM, MtW)
+  // Use Universal Comparison Logic
   const compData = getComparisonData();
   const cData = compData.c;
   const pData = compData.p;
-  const rule = compData.rule;
-  
-  let cCpr = cData.reach > 0 ? (cData.spend / cData.reach) * 1000 : 0;
-  let cCpm = cData.impressions > 0 ? (cData.spend / cData.impressions) * 1000 : 0;
-  let cCpc = cData.clicks > 0 ? cData.spend / cData.clicks : 0;
-  let cFreq = cData.reach > 0 ? cData.impressions / cData.reach : 0;
-  let cCtr = cData.impressions > 0 ? (cData.clicks / cData.impressions) * 100 : 0;
-  let cCplpv = cData.lpViews > 0 ? cData.spend / cData.lpViews : 0;
-
-  let pCpr = pData.reach > 0 ? (pData.spend / pData.reach) * 1000 : 0;
-  let pCpm = pData.impressions > 0 ? (pData.spend / pData.impressions) * 1000 : 0;
-  let pCpc = pData.clicks > 0 ? pData.spend / pData.clicks : 0;
-  let pFreq = pData.reach > 0 ? pData.impressions / pData.reach : 0;
-  let pCtr = pData.impressions > 0 ? (pData.clicks / pData.impressions) * 100 : 0;
-  let pCplpv = pData.lpViews > 0 ? pData.spend / pData.lpViews : 0;
-
-  const getDiffHtml = (cVal, pVal, reverse = false) => createDiffHtml(cVal, pVal, reverse, rule);
+  const labelC = compData.labels.c;
+  const labelP = compData.labels.p;
 
   function card(icon, label, value, diffHtml, sub, color, benchmark = '') {
     const bmHtml = benchmark ? `<div class="kpi-benchmark"><span class="bm-label">เกณฑ์มาตรฐาน:</span><span class="bm-val">${benchmark}</span></div>` : '';
@@ -1052,33 +1124,33 @@ function renderKPIs() {
     rowClassOverview = 'row3'; 
     rowClassCost = 'row3';     
     overviewKPIs = [
-      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend), 'Amount spent (THB)', 'var(--blue)'),
-      card(iconReach, 'Reach', formatNum(reach), getDiffHtml(cData.reach, pData.reach), 'Unique people reached', 'var(--emerald)'),
-      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cData.impressions, pData.impressions), 'Total ad impressions', 'var(--purple)'),
-      card(iconClick, 'Link Clicks', formatNum(clicks), getDiffHtml(cData.clicks, pData.clicks), 'Total Link clicks', 'var(--accent)'),
-      card(iconLpView, 'LP Views', formatNum(lpViews), getDiffHtml(cData.lpViews, pData.lpViews), 'Landing Page Views', '#8B5CF6'),
-      card(iconAddCart, 'Add to Cart', formatNum(addCart), getDiffHtml(cData.addCart, pData.addCart), 'Website adds to cart', '#EC4899')
+      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend, labelC, labelP), 'Amount spent (THB)', 'var(--blue)'),
+      card(iconReach, 'Reach', formatNum(reach), getDiffHtml(cData.reach, pData.reach, labelC, labelP), 'Unique people reached', 'var(--emerald)'),
+      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cData.impressions, pData.impressions, labelC, labelP), 'Total ad impressions', 'var(--purple)'),
+      card(iconClick, 'Link Clicks', formatNum(clicks), getDiffHtml(cData.clicks, pData.clicks, labelC, labelP), 'Total Link clicks', 'var(--accent)'),
+      card(iconLpView, 'LP Views', formatNum(lpViews), getDiffHtml(cData.lpViews, pData.lpViews, labelC, labelP), 'Landing Page Views', '#8B5CF6'),
+      card(iconAddCart, 'Add to Cart', formatNum(addCart), getDiffHtml(cData.addCart, pData.addCart, labelC, labelP), 'Website adds to cart', '#EC4899') 
     ];
     costKPIs = [
-      card(iconCPR, 'CPR', '฿' + cpr.toFixed(2), getDiffHtml(cCpr, pCpr, true), 'ต้นทุนต่อการเข้าถึงพันคน', 'var(--emerald)', '฿30 - ฿100'),
-      card(iconCPM, 'CPM', '฿' + cpm.toFixed(2), getDiffHtml(cCpm, pCpm, true), 'ต้นทุนต่อการแสดงผลพันครั้ง', 'var(--blue)', '฿25 - ฿80'),
-      card(iconCPC, 'CPC', '฿' + cpc.toFixed(2), getDiffHtml(cCpc, pCpc, true), 'ต้นทุนเฉลี่ยต่อการคลิก', 'var(--purple)', '฿3 - ฿15'),
-      card(iconCPLPV, 'Cost per LP View', '฿' + cplpv.toFixed(2), getDiffHtml(cCplpv, pCplpv, true), 'ต้นทุนต่อการเข้าชมเว็บ', '#8B5CF6', '฿5 - ฿25'),
-      card(iconCTR, 'CTR', ctr.toFixed(2) + '%', getDiffHtml(cCtr, pCtr), 'อัตราการคลิกต่อการแสดงผล', '#f97316', '1.0% - 3.0%'),
-      card(iconFreq, 'Frequency', freq.toFixed(2), getDiffHtml(cFreq, pFreq, true), 'ความถี่เฉลี่ยต่อคน', 'var(--accent)', '1.5 - 3.0')
+      card(iconCPR, 'CPR', '฿' + cpr.toFixed(2), getDiffHtml(cData.cpr, pData.cpr, labelC, labelP, true), 'ต้นทุนต่อการเข้าถึงพันคน', 'var(--emerald)', '฿30 - ฿100'),
+      card(iconCPM, 'CPM', '฿' + cpm.toFixed(2), getDiffHtml(cData.cpm, pData.cpm, labelC, labelP, true), 'ต้นทุนต่อการแสดงผลพันครั้ง', 'var(--blue)', '฿25 - ฿80'),
+      card(iconCPC, 'CPC', '฿' + cpc.toFixed(2), getDiffHtml(cData.cpc, pData.cpc, labelC, labelP, true), 'ต้นทุนเฉลี่ยต่อการคลิก', 'var(--purple)', '฿3 - ฿15'),
+      card(iconCPLPV, 'Cost per LP View', '฿' + cplpv.toFixed(2), getDiffHtml(cData.cplpv, pData.cplpv, labelC, labelP, true), 'ต้นทุนต่อการเข้าชมเว็บ', '#8B5CF6', '฿5 - ฿25'),
+      card(iconCTR, 'CTR', ctr.toFixed(2) + '%', getDiffHtml(cData.ctr, pData.ctr, labelC, labelP), 'อัตราการคลิกต่อการแสดงผล', '#f97316', '1.0% - 3.0%'),
+      card(iconFreq, 'Frequency', freq.toFixed(2), getDiffHtml(cData.freq, pData.freq, labelC, labelP, true), 'ความถี่เฉลี่ยต่อคน', 'var(--accent)', '1.5 - 3.0')
     ];
   } else if (currentPlatform === 'google') {
     rowClassOverview = 'row3';
     rowClassCost = 'row3';
     overviewKPIs = [
-      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend), 'Amount spent (THB)', 'var(--blue)'),
-      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cData.impressions, pData.impressions), 'Total ad impressions', 'var(--purple)'),
-      card(iconClick, 'Clicks', formatNum(clicks), getDiffHtml(cData.clicks, pData.clicks), 'Total clicks', 'var(--accent)')
+      card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend, labelC, labelP), 'Amount spent (THB)', 'var(--blue)'),
+      card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cData.impressions, pData.impressions, labelC, labelP), 'Total ad impressions', 'var(--purple)'),
+      card(iconClick, 'Clicks', formatNum(clicks), getDiffHtml(cData.clicks, pData.clicks, labelC, labelP), 'Total clicks', 'var(--accent)')
     ];
     costKPIs = [
-      card(iconCPM, 'CPM', '฿' + cpm.toFixed(2), getDiffHtml(cCpm, pCpm, true), 'Cost per 1,000 Impressions', 'var(--blue)', '฿20 - ฿80'),
-      card(iconCPC, 'CPC', '฿' + cpc.toFixed(2), getDiffHtml(cCpc, pCpc, true), 'Cost per Click', 'var(--purple)', '฿2 - ฿15'),
-      card(iconCTR, 'CTR', ctr.toFixed(2) + '%', getDiffHtml(cCtr, pCtr), 'Click-Through Rate', '#f97316', '1.0% - 5.0%')
+      card(iconCPM, 'CPM', '฿' + cpm.toFixed(2), getDiffHtml(cData.cpm, pData.cpm, labelC, labelP, true), 'Cost per 1,000 Impressions', 'var(--blue)', '฿20 - ฿80'),
+      card(iconCPC, 'CPC', '฿' + cpc.toFixed(2), getDiffHtml(cData.cpc, pData.cpc, labelC, labelP, true), 'Cost per Click', 'var(--purple)', '฿2 - ฿15'),
+      card(iconCTR, 'CTR', ctr.toFixed(2) + '%', getDiffHtml(cData.ctr, pData.ctr, labelC, labelP), 'Click-Through Rate', '#f97316', '1.0% - 5.0%')
     ];
   }
 
@@ -1093,6 +1165,7 @@ function renderKPIs() {
   `;
 }
 
+// ─── GENERAL RENDERING ───────────────────────
 function updateSourceLabel() {
   const sourceLabel = document.getElementById('dataStatusLabel');
   if (sourceLabel) {
@@ -1106,6 +1179,12 @@ function formatNum(n) { return new Intl.NumberFormat('th-TH').format(Math.round(
 function formatCurrency(n) { return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n); }
 
 function renderAll() { 
+  // Update UI Elements First
+  const compFilter = document.getElementById('filterComparison');
+  if(compFilter) {
+      document.querySelectorAll('.kpi-diff, .table-diff-icon').forEach(el => el.style.opacity = '0.5'); // visual cue while loading
+  }
+
   renderKPIs(); 
   renderFunnel(); 
   renderSalesSummary();
@@ -1115,6 +1194,7 @@ function renderAll() {
   renderTable(); 
 }
 
+// ─── FUNNEL (CUSTOMER JOURNEY) ─────────────
 function renderFunnel() {
   const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const impr = d.reduce((s,r)=>s+r.impressions,0);
@@ -1124,16 +1204,13 @@ function renderFunnel() {
   const purchases = d.reduce((s,r)=>s+r.purchases,0);
 
   const compData = getComparisonData();
-  const cData = compData.c;
-  const pData = compData.p;
-  const rule = compData.rule;
 
   const steps = [
-    { id: 1, name: 'การมองเห็น (Impressions)', val: impr, diff: createDiffHtml(cData.impressions, pData.impressions, false, rule, true), color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
-    { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, diff: createDiffHtml(cData.clicks, pData.clicks, false, rule, true), color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
-    { id: 3, name: 'เข้าชมเว็บ (Landing Page Views)', val: lpViews, diff: createDiffHtml(cData.lpViews, pData.lpViews, false, rule, true), color: '#8B5CF6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
-    { id: 4, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, diff: createDiffHtml(cData.addCart, pData.addCart, false, rule, true), color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
-    { id: 5, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, diff: createDiffHtml(cData.purchases, pData.purchases, false, rule, true), color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
+    { id: 1, name: 'การมองเห็น (Impressions)', val: impr, cVal: compData.c.impressions, pVal: compData.p.impressions, color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
+    { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, cVal: compData.c.clicks, pVal: compData.p.clicks, color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
+    { id: 3, name: 'เข้าชมเว็บ (Landing Page Views)', val: lpViews, cVal: compData.c.lpViews, pVal: compData.p.lpViews, color: '#8B5CF6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
+    { id: 4, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, cVal: compData.c.addCart, pVal: compData.p.addCart, color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
+    { id: 5, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, cVal: compData.c.purchases, pVal: compData.p.purchases, color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
   ];
 
   let html = '<div class="pyramid-funnel-container">';
@@ -1154,6 +1231,14 @@ function renderFunnel() {
       `;
     }
 
+    // Fix Diff Bubble colors for dark backgrounds
+    const rawDiffHtml = getDiffHtml(step.cVal, step.pVal, compData.labels.c, compData.labels.p);
+    let styledDiffHtml = rawDiffHtml;
+    if (rawDiffHtml) {
+        styledDiffHtml = rawDiffHtml.replace('class="kpi-diff good"', 'class="kpi-diff" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.4);"');
+        styledDiffHtml = styledDiffHtml.replace('class="kpi-diff bad"', 'class="kpi-diff" style="background: rgba(0,0,0,0.2); color: #fff; border: 1px solid rgba(0,0,0,0.3);"');
+    }
+
     html += `
       <div class="pyramid-step" style="width: ${stepWidth}%; background-color: ${step.color};">
         ${badgeHtml}
@@ -1161,9 +1246,9 @@ function renderFunnel() {
           <div class="pyramid-icon">${step.icon}</div>
           <div class="pyramid-name" title="${step.name}">${step.name}</div>
         </div>
-        <div style="display:flex; flex-direction:column; align-items:flex-end;">
+        <div style="display:flex; align-items:center;">
+            ${styledDiffHtml}
             <div class="pyramid-val">${formatNum(step.val)}</div>
-            ${step.diff ? `<div style="margin-top:2px;">${step.diff}</div>` : ''}
         </div>
       </div>
     `;
@@ -1173,74 +1258,7 @@ function renderFunnel() {
   document.getElementById('funnelContainer').innerHTML = html;
 }
 
-function renderSalesSummary() {
-  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
-  const spend = d.reduce((s,r)=>s+r.spend,0);
-  const purchases = d.reduce((s,r)=>s+r.purchases,0);
-  const convValue = d.reduce((s,r)=>s+r.convValue,0);
-  const clicks = d.reduce((s,r)=>s+r.clicks,0);
-
-  const aov = purchases > 0 ? convValue / purchases : 0;
-  const roas = spend > 0 ? convValue / spend : 0;
-  const convRate = clicks > 0 ? (purchases / clicks) * 100 : 0;
-
-  const compData = getComparisonData();
-  const cData = compData.c;
-  const pData = compData.p;
-  const rule = compData.rule;
-  
-  const cAov = cData.purchases > 0 ? cData.convValue / cData.purchases : 0;
-  const pAov = pData.purchases > 0 ? pData.convValue / pData.purchases : 0;
-  const cRoas = cData.spend > 0 ? cData.convValue / cData.spend : 0;
-  const pRoas = pData.spend > 0 ? pData.convValue / pData.spend : 0;
-  const cConvRate = cData.clicks > 0 ? (cData.purchases / cData.clicks) * 100 : 0;
-  const pConvRate = pData.clicks > 0 ? (pData.purchases / pData.clicks) * 100 : 0;
-
-  const diffPurchases = createDiffHtml(cData.purchases, pData.purchases, false, rule);
-  const diffConvValue = createDiffHtml(cData.convValue, pData.convValue, false, rule);
-  const diffAov = createDiffHtml(cAov, pAov, false, rule);
-  const diffRoas = createDiffHtml(cRoas, pRoas, false, rule);
-  const diffConvRate = createDiffHtml(cConvRate, pConvRate, false, rule);
-
-  let benchmarkStatus = '';
-  if (clicks === 0) {
-    benchmarkStatus = `<span style="color: var(--muted); font-size: 11px;">⚠️ ยังไม่มีข้อมูลทราฟฟิกคลิก</span>`;
-  } else if (convRate >= 3.00) {
-    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 600; font-size: 11px; display: flex; align-items: center; gap: 4px;">🔥 ดีเยี่ยม (สูงกว่าเกณฑ์ทั่วไป > 3.0%)</span>`;
-  } else if (convRate >= 1.00) {
-    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">✨ ปกติ (ตามเกณฑ์มาตรฐาน 1.0% - 3.0%)</span>`;
-  } else {
-    benchmarkStatus = `<span style="color: var(--accent); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">⚠️ ต่ำกว่าเกณฑ์เฉลี่ย (ควรเช็กความเร็วเว็บหรือข้อเสนอพิเศษ)</span>`;
-  }
-
-  document.getElementById('salesSummaryContainer').innerHTML = `
-    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Website Purchases</div>
-      <div style="color: var(--purple); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">${formatNum(purchases)} ${diffPurchases}</div>
-    </div>
-    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Conversion Value</div>
-      <div style="color: var(--emerald); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">฿${formatNum(convValue)} ${diffConvValue}</div>
-    </div>
-    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">AOV (ยอดซื้อเฉลี่ย)</div>
-      <div style="color: var(--blue); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">฿${formatNum(aov)} ${diffAov}</div>
-    </div>
-    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">ROAS</div>
-      <div style="color: var(--accent); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">${roas.toFixed(2)}x ${diffRoas}</div>
-    </div>
-    <div style="grid-column: 1 / -1; background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 4px;">Conversion Rate (Purchases / Clicks)</div>
-      <div style="color: var(--primary); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px;">${convRate.toFixed(2)}% ${diffConvRate}</div>
-      <div style="font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px; align-items: center;">
-        <div style="font-weight: 500; color: var(--muted)">เกณฑ์เฉลี่ย E-commerce มาตรฐาน: 1.00% - 3.00%</div>
-        <div>สถานะ: ${benchmarkStatus}</div>
-      </div>
-    </div>
-  `;
-}
-
+// ─── TOP ADS PERFORMANCE ───────────────────
 let currentTopAdSort = 'spend';
 window.updateTopAdSort = function() {
   currentTopAdSort = document.getElementById('topAdSortSelect').value;
@@ -1340,6 +1358,75 @@ function renderTopAds() {
   container.innerHTML = html;
 }
 
+// ─── SALES SUMMARY ─────────────────────────
+function renderSalesSummary() {
+  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
+  const spend = d.reduce((s,r)=>s+r.spend,0);
+  const purchases = d.reduce((s,r)=>s+r.purchases,0);
+  const convValue = d.reduce((s,r)=>s+r.convValue,0);
+  const clicks = d.reduce((s,r)=>s+r.clicks,0);
+
+  const aov = purchases > 0 ? convValue / purchases : 0;
+  const roas = spend > 0 ? convValue / spend : 0;
+  const convRate = clicks > 0 ? (purchases / clicks) * 100 : 0;
+
+  const compData = getComparisonData();
+
+  let benchmarkStatus = '';
+  if (clicks === 0) {
+    benchmarkStatus = `<span style="color: var(--muted); font-size: 11px;">⚠️ ยังไม่มีข้อมูลทราฟฟิกคลิก</span>`;
+  } else if (convRate >= 3.00) {
+    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 600; font-size: 11px; display: flex; align-items: center; gap: 4px;">🔥 ดีเยี่ยม (สูงกว่าเกณฑ์ทั่วไป > 3.0%)</span>`;
+  } else if (convRate >= 1.00) {
+    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">✨ ปกติ (ตามเกณฑ์มาตรฐาน 1.0% - 3.0%)</span>`;
+  } else {
+    benchmarkStatus = `<span style="color: var(--accent); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">⚠️ ต่ำกว่าเกณฑ์เฉลี่ย (ควรเช็กความเร็วเว็บหรือข้อเสนอพิเศษ)</span>`;
+  }
+
+  document.getElementById('salesSummaryContainer').innerHTML = `
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Website Purchases</div>
+      <div style="display:flex; align-items:center;">
+        <div style="color: var(--purple); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">${formatNum(purchases)}</div>
+        ${getDiffHtml(compData.c.purchases, compData.p.purchases, compData.labels.c, compData.labels.p)}
+      </div>
+    </div>
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Conversion Value</div>
+      <div style="display:flex; align-items:center;">
+          <div style="color: var(--emerald); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">฿${formatNum(convValue)}</div>
+          ${getDiffHtml(compData.c.convValue, compData.p.convValue, compData.labels.c, compData.labels.p)}
+      </div>
+    </div>
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">AOV (ยอดซื้อเฉลี่ย)</div>
+      <div style="display:flex; align-items:center;">
+          <div style="color: var(--blue); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">฿${formatNum(aov)}</div>
+          ${getDiffHtml(compData.c.aov, compData.p.aov, compData.labels.c, compData.labels.p)}
+      </div>
+    </div>
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">ROAS</div>
+      <div style="display:flex; align-items:center;">
+          <div style="color: var(--accent); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">${roas.toFixed(2)}x</div>
+          ${getDiffHtml(compData.c.roas, compData.p.roas, compData.labels.c, compData.labels.p)}
+      </div>
+    </div>
+    <div style="grid-column: 1 / -1; background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 4px;">Conversion Rate (Purchases / Clicks)</div>
+      <div style="display:flex; align-items:center; margin-bottom: 6px;">
+          <div style="color: var(--primary); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">${convRate.toFixed(2)}%</div>
+          ${getDiffHtml(compData.c.cr, compData.p.cr, compData.labels.c, compData.labels.p)}
+      </div>
+      <div style="font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px; align-items: center;">
+        <div style="font-weight: 500; color: var(--muted)">เกณฑ์เฉลี่ย E-commerce มาตรฐาน: 1.00% - 3.00%</div>
+        <div>สถานะ: ${benchmarkStatus}</div>
+      </div>
+    </div>
+  `;
+}
+
+// ─── CHARTS ────────────────────────────────
 const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64748B'];
 
 function renderCharts() {
@@ -1354,6 +1441,7 @@ function renderCharts() {
     return { responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:textColor,font:{family:'Inter,Noto Sans Thai',size:12}}}}, scales:{x:{...axisStyle(),stacked}, y:{...axisStyle(),stacked,title:{display:true,text:yLabel,color:isDark?'#94A3B8':'#6B7280',font:{size:11}}}} };
   }
 
+  // Demographics - Dynamic Metric by Age & Gender
   const agesDemo = [...new Set(d.map(r=>r.age).filter(a=>a))].sort();
   const gendersDemo = [...new Set(d.map(r=>r.gender).filter(g=>g))].sort();
   
@@ -1369,7 +1457,11 @@ function renderCharts() {
   const selectedMetricLabel = metricLabels[currentDemoMetric];
   document.getElementById('demoChartSub').textContent = `การวิเคราะห์กลุ่มเป้าหมายแยกตามอายุและเพศ (อิงตาม${metricThLabels[currentDemoMetric]})`;
 
-  const genderColors = { 'male': '#3B82F6', 'female': '#EC4899', 'unknown': '#94A3B8' };
+  const genderColors = {
+    'male': '#3B82F6',   /* สีน้ำเงิน */
+    'female': '#EC4899', /* สีชมพู */
+    'unknown': '#94A3B8' /* สีเทา */
+  };
 
   if(charts.demo) charts.demo.destroy();
   charts.demo = new Chart(document.getElementById('demoChart'), {
@@ -1386,6 +1478,7 @@ function renderCharts() {
     options: chartOpts(selectedMetricLabel, false)
   });
 
+  // Demographic Summary
   let totalDemo = 0;
   d.forEach(r => totalDemo += (r[currentDemoMetric] || 0));
 
@@ -1421,6 +1514,7 @@ function renderCharts() {
   }
 }
 
+// ─── TABLE ─────────────────────────────────
 let currentTableView = 'campaign'; 
 let currentSortCol = 'spend';
 let currentSortAsc = false;
@@ -1450,30 +1544,10 @@ window.handleSort = function(col) {
 };
 
 function renderTable() {
-  const trendData = globalData.filter(matchesCampaign);
-  const compData = getComparisonData();
-  const rule = compData.rule;
-  
+  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const groupedObj = {};
   
-  trendData.forEach(r => {
-    let isCurrent = false;
-    let isPrev = false;
-    if (rule.mode === 'wow') {
-        let k = rule.mergeMap[r.absWeek] || r.absWeek;
-        if (k === rule.wowLatestKey) isCurrent = true;
-        if (k === rule.wowPrevKey) isPrev = true;
-    } else if (rule.mode === 'mom') {
-        if (r.monthIndex === rule.mIndex) isCurrent = true;
-        if (r.monthIndex === rule.prevMonthIndex) isPrev = true;
-    } else if (rule.mode === 'mtw') {
-        if (r.monthIndex === rule.mIndex && rule.currentMonthWeeks.includes(r.week)) isCurrent = true;
-        if (r.monthIndex === rule.prevMonthIndex && rule.prevMonthWeeksTarget.includes(r.week)) isPrev = true;
-    }
-
-    let inCurrentMonth = r.monthIndex === rule.mIndex;
-    if (!isCurrent && !isPrev && !inCurrentMonth) return;
-
+  d.forEach(r => {
     let key = r.campaign || 'Unknown';
     if (currentTableView === 'adset') key = r.adset || 'Unknown';
     if (currentTableView === 'ad') key = r.ad || 'Unknown';
@@ -1481,49 +1555,22 @@ function renderTable() {
     if (!groupedObj[key]) {
       groupedObj[key] = {
         name: key, spend: 0, reach: 0, impressions: 0,
-        clicks: 0, addCart: 0, purchases: 0, convValue: 0,
-        latest: { spend: 0, reach: 0, impressions: 0, clicks: 0, addCart: 0, purchases: 0, convValue: 0 },
-        prev: { spend: 0, reach: 0, impressions: 0, clicks: 0, addCart: 0, purchases: 0, convValue: 0 }
+        clicks: 0, addCart: 0, purchases: 0, convValue: 0
       };
     }
-    
-    if (inCurrentMonth) {
-        groupedObj[key].spend += r.spend;
-        groupedObj[key].reach += r.reach;
-        groupedObj[key].impressions += r.impressions;
-        groupedObj[key].clicks += r.clicks;
-        groupedObj[key].addCart += r.addCart;
-        groupedObj[key].purchases += r.purchases;
-        groupedObj[key].convValue += r.convValue;
-    }
-
-    if (isCurrent) {
-        groupedObj[key].latest.spend += r.spend;
-        groupedObj[key].latest.reach += r.reach;
-        groupedObj[key].latest.impressions += r.impressions;
-        groupedObj[key].latest.clicks += r.clicks;
-        groupedObj[key].latest.addCart += r.addCart;
-        groupedObj[key].latest.purchases += r.purchases;
-        groupedObj[key].latest.convValue += r.convValue;
-    }
-
-    if (isPrev) {
-        groupedObj[key].prev.spend += r.spend;
-        groupedObj[key].prev.reach += r.reach;
-        groupedObj[key].prev.impressions += r.impressions;
-        groupedObj[key].prev.clicks += r.clicks;
-        groupedObj[key].prev.addCart += r.addCart;
-        groupedObj[key].prev.purchases += r.purchases;
-        groupedObj[key].prev.convValue += r.convValue;
-    }
+    groupedObj[key].spend += r.spend;
+    groupedObj[key].reach += r.reach;
+    groupedObj[key].impressions += r.impressions;
+    groupedObj[key].clicks += r.clicks;
+    groupedObj[key].addCart += r.addCart;
+    groupedObj[key].purchases += r.purchases;
+    groupedObj[key].convValue += r.convValue;
   });
 
-  let tableData = Object.values(groupedObj).filter(r => r.spend > 0 || r.latest.spend > 0 || r.prev.spend > 0).map(r => {
-    r.roas = r.spend > 0 ? r.convValue / r.spend : 0;
-    r.latest.roas = r.latest.spend > 0 ? r.latest.convValue / r.latest.spend : 0;
-    r.prev.roas = r.prev.spend > 0 ? r.prev.convValue / r.prev.spend : 0;
-    return r;
-  });
+  let tableData = Object.values(groupedObj).map(r => ({
+    ...r,
+    roas: r.spend > 0 ? r.convValue / r.spend : 0
+  }));
 
   tableData.sort((a, b) => {
     let valA = a[currentSortCol];
@@ -1538,70 +1585,56 @@ function renderTable() {
     if (el) el.innerHTML = c === currentSortCol ? (currentSortAsc ? '▲' : '▼') : '';
   });
 
-  const getTableDiffHtml = (cVal, pVal, reverseGoodBad = false) => {
-    if (!pVal || pVal === 0) return '';
-    const diff = ((cVal - pVal) / pVal) * 100;
-    if (diff === 0) return '';
-    
-    const sign = diff > 0 ? '↑' : '↓';
-    let colorClass = 'neutral';
-    
-    if (diff > 0) { colorClass = reverseGoodBad ? 'bad' : 'good'; }
-    if (diff < 0) { colorClass = reverseGoodBad ? 'good' : 'bad'; }
+  const getRowComparison = (rowName) => {
+      // Find grouping field
+      let field = 'campaign';
+      if(currentTableView === 'adset') field = 'adset';
+      if(currentTableView === 'ad') field = 'ad';
 
-    const formattedDiff = (diff > 0 ? '+' : '') + diff.toFixed(1) + '%';
-    const titleText = `เทียบ ${rule.labelCurrent} vs ${rule.labelPrev} (${formattedDiff})`;
-    
-    return `<span class="table-diff-icon ${colorClass}" title="${titleText}">${sign}</span>`;
+      let cData = getComparisonData(null, {field: field, value: rowName});
+      return cData;
   };
 
   document.getElementById('tableCount').textContent = `แสดง ${tableData.length} รายการ (เฉพาะเดือน ${currentMonth})`;
-  document.getElementById('tableBody').innerHTML = tableData.map(r => `
+  document.getElementById('tableBody').innerHTML = tableData.map(r => {
+    const comp = getRowComparison(r.name);
+    
+    const diffSpend = getDiffHtml(comp.c.spend, comp.p.spend, comp.labels.c, comp.labels.p, true, true);
+    const diffReach = getDiffHtml(comp.c.reach, comp.p.reach, comp.labels.c, comp.labels.p, false, true);
+    const diffImpr = getDiffHtml(comp.c.impressions, comp.p.impressions, comp.labels.c, comp.labels.p, false, true);
+    const diffClicks = getDiffHtml(comp.c.clicks, comp.p.clicks, comp.labels.c, comp.labels.p, false, true);
+    const diffAddCart = getDiffHtml(comp.c.addCart, comp.p.addCart, comp.labels.c, comp.labels.p, false, true);
+    const diffPurchases = getDiffHtml(comp.c.purchases, comp.p.purchases, comp.labels.c, comp.labels.p, false, true);
+    const diffConvVal = getDiffHtml(comp.c.convValue, comp.p.convValue, comp.labels.c, comp.labels.p, false, true);
+    const diffRoas = getDiffHtml(comp.c.roas, comp.p.roas, comp.labels.c, comp.labels.p, false, true);
+
+    return `
     <tr>
       <td title="${r.name}" style="max-width:240px; overflow: hidden; text-overflow: ellipsis;">${r.name}</td>
-      <td class="cost-cell">฿${formatNum(r.spend)} ${getTableDiffHtml(r.latest.spend, r.prev.spend, true)}</td>
-      <td class="num">${r.reach.toLocaleString()} ${getTableDiffHtml(r.latest.reach, r.prev.reach)}</td>
-      <td class="num">${r.impressions.toLocaleString()} ${getTableDiffHtml(r.latest.impressions, r.prev.impressions)}</td>
-      <td class="num">${r.clicks.toLocaleString()} ${getTableDiffHtml(r.latest.clicks, r.prev.clicks)}</td>
-      <td class="num">${r.addCart.toLocaleString()} ${getTableDiffHtml(r.latest.addCart, r.prev.addCart)}</td>
-      <td class="num">${r.purchases.toLocaleString()} ${getTableDiffHtml(r.latest.purchases, r.prev.purchases)}</td>
-      <td class="num">฿${formatNum(r.convValue)} ${getTableDiffHtml(r.latest.convValue, r.prev.convValue)}</td>
-      <td class="num" style="color:var(--emerald);font-weight:600;">${r.roas.toFixed(2)}x ${getTableDiffHtml(r.latest.roas, r.prev.roas)}</td>
+      <td class="cost-cell">฿${formatNum(r.spend)}${diffSpend}</td>
+      <td class="num">${r.reach.toLocaleString()}${diffReach}</td>
+      <td class="num">${r.impressions.toLocaleString()}${diffImpr}</td>
+      <td class="num">${r.clicks.toLocaleString()}${diffClicks}</td>
+      <td class="num">${r.addCart.toLocaleString()}${diffAddCart}</td>
+      <td class="num">${r.purchases.toLocaleString()}${diffPurchases}</td>
+      <td class="num">฿${formatNum(r.convValue)}${diffConvVal}</td>
+      <td class="num" style="color:var(--emerald);font-weight:600;">${r.roas.toFixed(2)}x${diffRoas}</td>
     </tr>
-  `).join('');
+  `}).join('');
 }
 
-function updateCampaignDropdown() {
-    const objective = document.getElementById('filterObjective')?.value;
-    let filteredData = globalData;
-    if (objective) {
-        filteredData = globalData.filter(r => {
-            const campName = r.campaign.toLowerCase();
-            if (objective === 'conversion' && campName.includes('conversion')) return true;
-            if (objective === 'traffic' && campName.includes('traffic')) return true;
-            if (objective === 'live' && campName.includes('live')) return true;
-            return false;
-        });
-    }
-    
-    const campaigns = [...new Set(filteredData.map(r=>r.campaign).filter(c=>c))].sort();
-    const select = document.getElementById('filterCampaign');
-    const currentVal = select.value;
-    select.innerHTML = '<option value="">ทุก Campaign</option>' + campaigns.map(c=>`<option value="${c}">${c}</option>`).join('');
-    if (campaigns.includes(currentVal)) {
-        select.value = currentVal;
-    } else {
-        select.value = '';
-    }
-}
-
-function handleObjectiveChange() {
-    updateCampaignDropdown();
-    applyFilters();
-}
-
+// ─── FILTER & UPLOAD ───────────────────────
 function populateFilters() {
-  updateCampaignDropdown();
+  const campaigns = [...new Set(globalData.map(r=>r.campaign).filter(c=>c))].sort();
+  
+  // เก็บค่าปัจจุบันไว้ถ้ามี
+  const currentCamp = document.getElementById('filterCampaign').value;
+  
+  document.getElementById('filterCampaign').innerHTML = '<option value="">ทุก Campaign</option>'+campaigns.map(c=>`<option value="${c}">${c}</option>`).join('');
+  
+  if (campaigns.includes(currentCamp)) {
+      document.getElementById('filterCampaign').value = currentCamp;
+  }
 }
 
 function applyFilters() {
@@ -1611,9 +1644,7 @@ function applyFilters() {
 function clearFilters() {
   document.getElementById('filterCampaign').value = '';
   document.getElementById('filterObjective').value = '';
-  document.getElementById('filterComparison').value = 'wow';
-  updateCampaignDropdown();
-  applyFilters();
+  renderAll();
 }
 
 function handleManualFileUpload(e) {

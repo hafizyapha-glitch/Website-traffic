@@ -71,12 +71,12 @@
     input[type="file"] { display: none; }
 
     /* Filters (Moved to Header) */
-    .filter-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: flex-end; flex-grow: 1; }
-    .filter-row select { background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: 8px 32px 8px 16px; font-size: 13px; font-weight: 500; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; box-shadow: var(--shadow-sm); }
-    body.dark-mode .filter-row select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+    .filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end; flex-grow: 1; }
+    .filter-row select { background: var(--card); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 6px 28px 6px 14px; font-size: 11.5px; font-weight: 500; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; box-shadow: var(--shadow-sm); }
+    body.dark-mode .filter-row select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
     .filter-row select:focus { border-color: var(--primary); }
-    .filter-label { font-size: 14px; font-weight: 500; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; margin-right: 4px; }
-    .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 8px; color: var(--muted); padding: 8px 12px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; }
+    .filter-label { font-size: 12.5px; font-weight: 500; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; margin-right: 4px; }
+    .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 6px; color: var(--muted); padding: 6px 10px; font-size: 11.5px; font-weight: 500; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; }
     .clear-btn:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
 
     /* KPIs */
@@ -133,18 +133,23 @@
     .carousel-btn.right { right: -18px; }
 
     /* Pyramid Funnel Styles */
-    .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
-    .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
-    .pyramid-step:hover { transform: translateY(-2px); }
-    .pyramid-step-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    .pyramid-icon { background: rgba(255,255,255,0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .pyramid-icon svg { width: 18px; height: 18px; stroke: white; }
-    .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; }
-    .pyramid-val { font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif; flex-shrink: 0; margin-left: 12px; }
-    .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
-    .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
+  .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
+  .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
+  .pyramid-step:hover { transform: translateY(-2px); }
+  .pyramid-step-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .pyramid-icon { background: rgba(255,255,255,0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .pyramid-icon svg { width: 18px; height: 18px; stroke: white; }
+  .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; }
+  .pyramid-val { font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif; flex-shrink: 0; margin-left: 12px; }
+  .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
+  .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
+  
+  .pyramid-diff-badge { font-size: 10px; font-weight: 600; font-family: 'Inter', sans-serif; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 2px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); background: rgba(255, 255, 255, 0.8); }
+  .pyramid-diff-badge.good { color: var(--emerald); }
+  .pyramid-diff-badge.bad { color: #F43F5E; }
+  .pyramid-diff-badge.neutral { color: var(--muted); }
 
-    /* Table */
+  /* Table */
     .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0; box-shadow: var(--shadow-sm); overflow: hidden; margin-top: 24px; }
     .table-header { padding: 24px 24px 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .table-responsive { width: 100%; overflow-x: auto; }
@@ -273,7 +278,7 @@
     <!-- Filters -->
     <div class="filter-row">
       <span class="filter-label">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>
         Filter:
       </span>
       <select id="filterCampaign" onchange="applyFilters()">
@@ -1231,13 +1236,15 @@ function renderFunnel() {
       `;
     }
 
-    // Fix Diff Bubble colors for dark backgrounds
-    const rawDiffHtml = getDiffHtml(step.cVal, step.pVal, compData.labels.c, compData.labels.p);
-    let styledDiffHtml = rawDiffHtml;
-    if (rawDiffHtml) {
-        styledDiffHtml = styledDiffHtml.replace('class="kpi-diff good"', 'class="kpi-diff" style="margin-left: 0; background: rgba(255,255,255,0.25); color: #fff; border: 1px solid rgba(255,255,255,0.5);"');
-        styledDiffHtml = styledDiffHtml.replace('class="kpi-diff bad"', 'class="kpi-diff" style="margin-left: 0; background: rgba(0,0,0,0.2); color: #fff; border: 1px solid rgba(0,0,0,0.3);"');
-        styledDiffHtml = styledDiffHtml.replace('class="kpi-diff neutral"', 'class="kpi-diff" style="margin-left: 0; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2);"');
+    let styledDiffHtml = '';
+    if (step.pVal && step.pVal > 0) {
+        const diff = ((step.cVal - step.pVal) / step.pVal) * 100;
+        if (diff !== 0) {
+            const sign = diff > 0 ? '↑' : '↓';
+            const colorClass = diff > 0 ? 'good' : 'bad';
+            const titleText = `เทียบ: ${compData.labels.c} vs ${compData.labels.p} (${diff > 0 ? '+' : ''}${diff.toFixed(1)}%)`;
+            styledDiffHtml = `<div class="pyramid-diff-badge ${colorClass}" title="${titleText}">${sign} ${Math.abs(diff).toFixed(1)}%</div>`;
+        }
     }
 
     html += `
@@ -1247,9 +1254,9 @@ function renderFunnel() {
           <div class="pyramid-icon">${step.icon}</div>
           <div class="pyramid-name" title="${step.name}">${step.name}</div>
         </div>
-        <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:center; gap: 6px;">
+        <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:center;">
             <div class="pyramid-val" style="margin-left: 0; line-height: 1;">${formatNum(step.val)}</div>
-            ${styledDiffHtml ? `<div>${styledDiffHtml}</div>` : ''}
+            ${styledDiffHtml}
         </div>
       </div>
     `;

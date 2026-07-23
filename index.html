@@ -580,12 +580,8 @@ window.switchMonth = async function(month, forceRefresh = false) {
   const hasData = globalData.some(r => r.month === month);
 
   if (!hasData && globalData.length === 0) {
-      Papa.parse(initialCSVData, {
-          header: true,
-          complete: function(results) {
-              loadManualData(results.data, true, 'ไม่มีข้อมูล'); 
-          }
-      });
+      let data2D = Papa.parse(initialCSVData, {header: false, skipEmptyLines: true}).data;
+      loadManualData(processRawArrayData(data2D), true, 'ไม่มีข้อมูล'); 
       showStatus(`ℹ️ ไม่พบไฟล์อัตโนมัติ (กำลังแสดงข้อมูลตัวอย่าง)`);
   } else {
       currentSource = `โฟลเดอร์ ${currentPlatform}`;
@@ -598,6 +594,60 @@ window.switchMonth = async function(month, forceRefresh = false) {
   fetchAllBackground();
 };
 
+// --- NEW SMART PARSER FOR GOOGLE ADS DATA ---
+function processRawArrayData(data2D) {
+    let headerIdx = data2D.findIndex(row => {
+        if (!Array.isArray(row)) return false;
+        let rowStr = row.join(' ').toLowerCase();
+        return (rowStr.includes('campaign') || rowStr.includes('campaign name')) && 
+               (rowStr.includes('cost') || rowStr.includes('amount spent') || rowStr.includes('spend'));
+    });
+    
+    if (headerIdx === -1) {
+        headerIdx = data2D.findIndex(row => {
+            if (!Array.isArray(row)) return false;
+            let rowStr = row.join(' ').toLowerCase();
+            return rowStr.includes('keyword') || rowStr.includes('ad name');
+        });
+        if (headerIdx === -1) headerIdx = 0; 
+    }
+    
+    let dates = { start: '', end: '' };
+    for (let i = 0; i < headerIdx; i++) {
+        let rowStr = Array.isArray(data2D[i]) ? data2D[i].join(' ') : data2D[i];
+        let m = rowStr.match(/([a-zA-Z]+\s\d{1,2},\s\d{4})\s*-\s*([a-zA-Z]+\s\d{1,2},\s\d{4})/);
+        if (m) {
+            dates.start = m[1];
+            dates.end = m[2];
+            break;
+        }
+    }
+    
+    let headers = data2D[headerIdx] || [];
+    let result = [];
+    for (let i = headerIdx + 1; i < data2D.length; i++) {
+        let row = data2D[i];
+        if (!row || row.length === 0 || row.every(c => c === '' || c === null || c === undefined)) continue;
+        
+        let firstCellStr = String(row[0] || '').toLowerCase().trim();
+        if (firstCellStr === 'total' || firstCellStr === 'รวม') continue;
+
+        let obj = {};
+        headers.forEach((h, colIdx) => {
+            if (h && typeof h === 'string') {
+                obj[h.trim()] = row[colIdx];
+            }
+        });
+        
+        if (!obj['Reporting starts'] && !obj['Day'] && !obj['Date'] && dates.start) {
+            obj['Reporting starts'] = dates.start;
+            obj['Reporting ends'] = dates.end;
+        }
+        result.push(obj);
+    }
+    return result;
+}
+
 async function loadFile(platform, month, w, mIndex) {
     const fileKey = `${platform}-${month}-${w}`;
     if (fetchedFiles.has(fileKey)) return false;
@@ -605,16 +655,16 @@ async function loadFile(platform, month, w, mIndex) {
 
     const weekName = w.toLowerCase().replace('w', 'week');
     
-    // Load Campaign File
     const csvPath = `./data/${platform}/${platform}-${month}-${weekName}.csv`;
-    const xlsxPath = `./data/${platform}/${platform}-${weekName}.xlsx`;
+    const xlsxPath = `./data/${platform}/${platform}-${month}-${weekName}.xlsx`;
 
     let loadedMain = false;
     try {
         let res = await fetch(csvPath);
         if (res.ok) {
             let text = await res.text();
-            let parsed = Papa.parse(text, {header: true, skipEmptyLines: true}).data;
+            let data2D = Papa.parse(text, {header: false, skipEmptyLines: true}).data;
+            let parsed = processRawArrayData(data2D);
             parsed.forEach(r => globalData.push({...parseRawRow(r, month, mIndex, w), rowType: 'campaign'}));
             loadedMain = true;
         } else {
@@ -622,14 +672,14 @@ async function loadFile(platform, month, w, mIndex) {
             if (res.ok) {
                 let buf = await res.arrayBuffer();
                 let wb = XLSX.read(buf, {type: 'array'});
-                let parsed = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {defval: 0});
+                let data2D = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header: 1, defval: ""});
+                let parsed = processRawArrayData(data2D);
                 parsed.forEach(r => globalData.push({...parseRawRow(r, month, mIndex, w), rowType: 'campaign'}));
                 loadedMain = true;
             }
         }
     } catch(e) {}
 
-    // Load Keyword File for Google Ads
     if (platform === 'google') {
         const kwCsvPath = `./data/google/Keyword/Keyword-${month}-${weekName}.csv`;
         const kwXlsxPath = `./data/google/Keyword/Keyword-${month}-${weekName}.xlsx`;
@@ -637,14 +687,16 @@ async function loadFile(platform, month, w, mIndex) {
             let res = await fetch(kwCsvPath);
             if (res.ok) {
                 let text = await res.text();
-                let parsed = Papa.parse(text, {header: true, skipEmptyLines: true}).data;
+                let data2D = Papa.parse(text, {header: false, skipEmptyLines: true}).data;
+                let parsed = processRawArrayData(data2D);
                 parsed.forEach(r => globalData.push({...parseRawRow(r, month, mIndex, w), rowType: 'keyword'}));
             } else {
                 res = await fetch(kwXlsxPath);
                 if (res.ok) {
                     let buf = await res.arrayBuffer();
                     let wb = XLSX.read(buf, {type: 'array'});
-                    let parsed = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {defval: 0});
+                    let data2D = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header: 1, defval: ""});
+                    let parsed = processRawArrayData(data2D);
                     parsed.forEach(r => globalData.push({...parseRawRow(r, month, mIndex, w), rowType: 'keyword'}));
                 }
             }
@@ -778,7 +830,6 @@ function getTrendGroupingMap(data) {
 
 // ─── COMPARISON LOGIC ───────────────────
 function getComparisonData(targetDataArr = null, specificGroupingKey = null) {
-    // Only use 'campaign' rowType to prevent double counting if keyword data is present
     let rawData = targetDataArr || globalData;
     let baseData = rawData.filter(r => r.rowType !== 'keyword' && matchesCampaign(r));
     
@@ -1496,7 +1547,7 @@ function renderSalesSummary() {
 const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64748B'];
 
 function renderCharts() {
-  if (currentPlatform === 'google') return; // Skip if Google
+  if (currentPlatform === 'google') return; 
   
   const isDark = document.body.classList.contains('dark-mode');
   const textColor = isDark ? '#F8FAFC' : '#111827';
@@ -1607,7 +1658,7 @@ window.handleSort = function(col) {
 };
 
 function renderTable() {
-  if (currentPlatform === 'google') return; // Skip if Google
+  if (currentPlatform === 'google') return; 
 
   const d = globalData.filter(r => r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
   const groupedObj = {};
@@ -1719,8 +1770,8 @@ function handleManualFileUpload(e) {
         try {
           const wb = XLSX.read(ev.target.result, {type:'array'}); 
           const ws = wb.Sheets[wb.SheetNames[0]]; 
-          const rawData = XLSX.utils.sheet_to_json(ws,{defval:0});
-          loadManualData(rawData, false, sourceName); 
+          const data2D = XLSX.utils.sheet_to_json(ws,{header: 1, defval:""});
+          loadManualData(processRawArrayData(data2D), false, sourceName); 
         } catch(err) {
           showStatus('❌ ไม่สามารถอ่านไฟล์ Excel ได้ หรือไฟล์เสียหาย');
         }
@@ -1728,10 +1779,10 @@ function handleManualFileUpload(e) {
       reader.readAsArrayBuffer(file);
     } else {
       Papa.parse(file, {
-        header:true, 
-        skipEmptyLines:true, 
+        header: false, 
+        skipEmptyLines: true, 
         complete: r => {
-            loadManualData(r.data, false, sourceName);
+            loadManualData(processRawArrayData(r.data), false, sourceName);
         },
         error: err => showStatus('❌ เกิดข้อผิดพลาดในการอ่านไฟล์ CSV')
       });
@@ -1748,7 +1799,7 @@ function loadManualData(rows, isInitial = false, sourceName = '') {
     const mIndex = ALL_MONTHS.indexOf(currentMonth);
     const parsedData = rows.map(r => {
         let parsed = parseRawRow({...r}, currentMonth, mIndex, r.Week || r.week || 'W1');
-        parsed.rowType = 'campaign'; // Default manually uploaded to campaign
+        parsed.rowType = 'campaign'; 
         return parsed;
     }).filter(r => r.campaign || r.ad);
     
@@ -1797,7 +1848,6 @@ if (themeCheckbox) {
   });
 }
 
-// Drawer
 const settingsBtn = document.getElementById('settingsBtn');
 const closeDrawerBtn = document.getElementById('closeDrawerBtn');
 const settingsDrawer = document.getElementById('settingsDrawer');

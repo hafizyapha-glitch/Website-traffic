@@ -41,7 +41,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter','Noto Sans Thai',sans-serif; min-height: 100vh; line-height: 1.5; }
 
-    /* Header & Navigation */
     .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 32px 0 32px; display: flex; flex-direction: column; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
     .header-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; width: 100%; flex-wrap: wrap; gap: 16px; }
     .logo-area { display: flex; align-items: center; gap: 16px; }
@@ -70,7 +69,6 @@
     .upload-label:hover { border-color: var(--primary); color: var(--primary); }
     input[type="file"] { display: none; }
 
-    /* Filters (Moved to Header) */
     .filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end; flex-grow: 1; }
     .filter-row select { background: var(--card); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 6px 28px 6px 14px; font-size: 11.5px; font-weight: 500; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; box-shadow: var(--shadow-sm); }
     body.dark-mode .filter-row select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
@@ -79,7 +77,6 @@
     .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 6px; color: var(--muted); padding: 6px 10px; font-size: 11.5px; font-weight: 500; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; }
     .clear-btn:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
 
-    /* KPIs */
     .kpi-group-label { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; margin-top: 16px; }
     .kpi-grid { display: grid; gap: 16px; margin-bottom: 8px; }
     .kpi-grid.row3 { grid-template-columns: repeat(3,1fr); }
@@ -115,7 +112,6 @@
     
     .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
 
-    /* Top Ads Carousel */
     .carousel-wrapper { position: relative; display: flex; align-items: center; margin-top: 16px; }
     .top-ads-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 16px; scroll-behavior: smooth; width: 100%; -ms-overflow-style: none; scrollbar-width: none; }
     .top-ads-carousel::-webkit-scrollbar { display: none; }
@@ -132,24 +128,22 @@
     .carousel-btn.left { left: -18px; }
     .carousel-btn.right { right: -18px; }
 
-    /* Pyramid Funnel Styles */
-  .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
-  .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
-  .pyramid-step:hover { transform: translateY(-2px); }
-  .pyramid-step-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
-  .pyramid-icon { background: rgba(255,255,255,0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .pyramid-icon svg { width: 18px; height: 18px; stroke: white; }
-  .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; }
-  .pyramid-val { font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif; flex-shrink: 0; margin-left: 12px; }
-  .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
-  .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
+    .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
+    .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
+    .pyramid-step:hover { transform: translateY(-2px); }
+    .pyramid-step-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .pyramid-icon { background: rgba(255,255,255,0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pyramid-icon svg { width: 18px; height: 18px; stroke: white; }
+    .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; }
+    .pyramid-val { font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif; flex-shrink: 0; margin-left: 12px; }
+    .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
+    .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
   
-  .pyramid-diff-badge { font-size: 10px; font-weight: 600; font-family: 'Inter', sans-serif; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 2px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); background: rgba(255, 255, 255, 0.8); }
-  .pyramid-diff-badge.good { color: var(--emerald); }
-  .pyramid-diff-badge.bad { color: #F43F5E; }
-  .pyramid-diff-badge.neutral { color: var(--muted); }
+    .pyramid-diff-badge { font-size: 10px; font-weight: 600; font-family: 'Inter', sans-serif; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 2px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); background: rgba(255, 255, 255, 0.8); }
+    .pyramid-diff-badge.good { color: var(--emerald); }
+    .pyramid-diff-badge.bad { color: #F43F5E; }
+    .pyramid-diff-badge.neutral { color: var(--muted); }
 
-  /* Table */
     .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0; box-shadow: var(--shadow-sm); overflow: hidden; margin-top: 24px; }
     .table-header { padding: 24px 24px 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .table-responsive { width: 100%; overflow-x: auto; }
@@ -170,7 +164,6 @@
 
     #statusBar { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
 
-    /* Settings Drawer */
     .drawer-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
     .drawer-overlay.show { opacity: 1; visibility: visible; }
     .drawer { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: var(--card); z-index: 1000; box-shadow: -4px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; display: flex; flex-direction: column; border-left: 1px solid var(--border); }
@@ -336,7 +329,7 @@
       <!-- Row 2: Conversion Charts -->
       <div class="charts-grid">
         <!-- Demographics -->
-        <div class="chart-card wide">
+        <div class="chart-card wide" id="demographicsCard">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 8px;">
             <div class="chart-title" id="demoChartTitle">Demographics by Age & Gender</div>
             <select id="demoMetricSelect" onchange="updateDemoMetric()" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none;">
@@ -386,12 +379,12 @@
           </div>
         </div>
 
-        <!-- Top Ads Performance -->
+        <!-- Top Ads / Keyword Performance -->
         <div class="chart-card wide" style="grid-column: 1 / -1; padding-bottom: 32px;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div>
-              <div class="chart-title">Top Ads Performance</div>
-              <div class="chart-sub" style="margin-bottom: 0;">โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)</div>
+              <div class="chart-title" id="topAdsTitle">Top Ads Performance</div>
+              <div class="chart-sub" id="topAdsSubTitle" style="margin-bottom: 0;">โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)</div>
             </div>
             <select id="topAdSortSelect" onchange="updateTopAdSort()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none; box-shadow: var(--shadow-sm);">
               <option value="spend">เรียงตาม Spend (สูงสุด)</option>
@@ -494,7 +487,6 @@
 </div>
 
 <script>
-// ─── DATA & INIT ──────────────────────────────
 const initialCSVData = `"Reporting starts","Reporting ends","Week","Campaign name","Ad set name","Ad name","Age","Gender","Amount spent (THB)","Reach","Impressions","Link clicks","Landing page views","Website adds to cart","Website purchases","Website purchases conversion value","Image URL"`;
 
 let currentPlatform = 'facebook';
@@ -507,6 +499,10 @@ let currentSource = 'ไม่มีข้อมูล';
 // Cache System
 const fetchedFiles = new Set();
 let globalData = []; 
+
+// Keyword Cache System for Google Ads
+const fetchedKeywordFiles = new Set();
+let globalKeywordData = [];
 
 let charts = {};
 let trendViewMode = 'weekly'; 
@@ -545,7 +541,9 @@ window.switchPlatform = async function(platform) {
   
   // เคลียร์ข้อมูลทุกครั้งที่สลับ Platform
   globalData = [];
+  globalKeywordData = [];
   fetchedFiles.clear();
+  fetchedKeywordFiles.clear();
   isFetchingAll = false;
   
   document.querySelectorAll('.platform-tab').forEach(el => el.classList.remove('active'));
@@ -570,9 +568,11 @@ window.switchMonth = async function(month, forceRefresh = false) {
   const promises = [];
   for (let w = 1; w <= 6; w++) {
       promises.push(loadFile(currentPlatform, month, `W${w}`, mIndex));
+      if (currentPlatform === 'google') promises.push(loadKeywordFile(currentPlatform, month, `W${w}`, mIndex));
   }
   const nextMonthIndex = (mIndex + 1) % 12;
   promises.push(loadFile(currentPlatform, ALL_MONTHS[nextMonthIndex], `W1`, nextMonthIndex));
+  if (currentPlatform === 'google') promises.push(loadKeywordFile(currentPlatform, ALL_MONTHS[nextMonthIndex], `W1`, nextMonthIndex));
 
   await Promise.all(promises);
 
@@ -627,6 +627,45 @@ async function loadFile(platform, month, w, mIndex) {
     return false;
 }
 
+async function loadKeywordFile(platform, month, w, mIndex) {
+    if (platform !== 'google') return false;
+    const fileKey = `keyword-${platform}-${month}-${w}`;
+    if (fetchedKeywordFiles.has(fileKey)) return false;
+    fetchedKeywordFiles.add(fileKey);
+
+    const weekName = w.toLowerCase().replace('w', 'week');
+    
+    // รองรับการตั้งชื่อไฟล์ Keyword หลายรูปแบบในโฟลเดอร์ Keyword
+    const paths = [
+        `./data/google/Keyword/google-${month}-${weekName}.csv`,
+        `./data/google/Keyword/google-${month}-${weekName}.xlsx`,
+        `./data/google/Keyword/Keyword-${month}-${weekName}.csv`,
+        `./data/google/Keyword/Keyword-${month}-${weekName}.xlsx`,
+        `./data/google/Keyword/${month}-${weekName}.csv`,
+        `./data/google/Keyword/${month}-${weekName}.xlsx`
+    ];
+
+    for (const path of paths) {
+        try {
+            let res = await fetch(path);
+            if (res.ok) {
+                if (path.endsWith('.csv')) {
+                    let text = await res.text();
+                    let parsed = Papa.parse(text, {header: true, skipEmptyLines: true}).data;
+                    parsed.forEach(r => globalKeywordData.push(parseKeywordRow(r, month, mIndex, w)));
+                } else {
+                    let buf = await res.arrayBuffer();
+                    let wb = XLSX.read(buf, {type: 'array'});
+                    let parsed = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {defval: 0});
+                    parsed.forEach(r => globalKeywordData.push(parseKeywordRow(r, month, mIndex, w)));
+                }
+                return true; 
+            }
+        } catch(e) {}
+    }
+    return false;
+}
+
 async function fetchAllBackground() {
     if (isFetchingAll) return;
     isFetchingAll = true;
@@ -634,6 +673,7 @@ async function fetchAllBackground() {
     for (let m = 0; m < ALL_MONTHS.length; m++) {
         for (let w = 1; w <= 6; w++) {
             promises.push(loadFile(currentPlatform, ALL_MONTHS[m], `W${w}`, m));
+            if (currentPlatform === 'google') promises.push(loadKeywordFile(currentPlatform, ALL_MONTHS[m], `W${w}`, m));
         }
     }
     await Promise.all(promises);
@@ -646,7 +686,12 @@ async function fetchAllBackground() {
     renderTable();
 }
 
-// ─── DATE & DATA PARSING ───────────────────
+function parseNum(val) {
+    if (!val) return 0;
+    if (typeof val === 'number') return val;
+    return parseFloat(val.toString().replace(/,/g, '')) || 0;
+}
+
 function safeParseDate(dStr) {
     if (!dStr) return NaN;
     if (dStr.match(/^\d{4}-\d{2}-\d{2}/)) return new Date(dStr);
@@ -671,15 +716,33 @@ function parseRawRow(r, month, mIndex, w) {
       ad: (r['Ad name'] || r['Ad'] || 'Unknown Ad').trim(),
       age: r['Age'] || 'Unknown',
       gender: r['Gender'] || 'Unknown',
-      spend: parseFloat(r['Amount spent (THB)'] || r['Cost'] || 0) || 0,
-      reach: parseInt(r['Reach'] || r['Unique users'] || 0) || 0,
-      impressions: parseInt(r['Impressions'] || r['Impr.'] || 0) || 0,
-      clicks: parseInt(r['Link clicks'] || r['Clicks'] || 0) || 0,
-      lpViews: parseInt(r['Landing page views'] || 0) || 0,
-      addCart: parseInt(r['Website adds to cart'] || 0) || 0,
-      purchases: parseInt(r['Website purchases'] || r['Conversions'] || 0) || 0,
-      convValue: parseFloat(r['Website purchases conversion value'] || r['Conv. value'] || 0) || 0,
+      spend: parseNum(r['Cost'] || r['Amount spent (THB)']),
+      reach: parseNum(r['Reach'] || r['Unique users']),
+      impressions: parseNum(r['Impr.'] || r['Impressions']),
+      clicks: parseNum(r['Clicks'] || r['Link clicks']),
+      lpViews: parseNum(r['Landing page views']),
+      addCart: parseNum(r['Add to cart'] || r['Website adds to cart']),
+      purchases: parseNum(r['Purchase'] || r['Website purchases'] || r['Conversions']),
+      convValue: parseNum(r['Revenue'] || r['Website purchases conversion value'] || r['Conv. value']),
       imageUrl: r['Image URL'] || r['Image'] || ''
+    };
+}
+
+function parseKeywordRow(r, month, mIndex, w) {
+    return {
+      month: month,
+      monthIndex: mIndex,
+      week: w,
+      campaign: (r['Campaign name'] || r['Campaign'] || 'Unknown Campaign').trim(),
+      keyword: (r['Search keyword'] || r['Keyword'] || r['Search Keyword'] || 'Unknown Keyword').trim(),
+      spend: parseNum(r['Cost'] || r['Amount spent (THB)']),
+      reach: parseNum(r['Reach'] || r['Unique users']),
+      impressions: parseNum(r['Impr.'] || r['Impressions']),
+      clicks: parseNum(r['Clicks'] || r['Link clicks']),
+      lpViews: parseNum(r['Landing page views']),
+      addCart: parseNum(r['Add to cart'] || r['Website adds to cart']),
+      purchases: parseNum(r['Conversions'] || r['Purchase'] || r['Website purchases']),
+      convValue: parseNum(r['Conv. value'] || r['Revenue'] || r['Website purchases conversion value'])
     };
 }
 
@@ -699,7 +762,6 @@ function matchesCampaign(r) {
     return true;
 }
 
-// ─── SMART MERGE LOGIC ────────────────────
 function getTrendGroupingMap(data) {
     const weekDateRange = {};
     data.forEach(r => {
@@ -746,7 +808,6 @@ function getTrendGroupingMap(data) {
     return { mergeMap, labelMap };
 }
 
-// ─── COMPARISON LOGIC (WoW, MoM, Month vs Same Weeks) ───────────────────
 function getComparisonData(targetDataArr = null, specificGroupingKey = null) {
     // targetDataArr: ให้ใช้สำหรับเจาะจงข้อมูล (เช่นตารางราย Campaign) ถ้าไม่ใส่จะใช้ globalData รวม
     const baseData = (targetDataArr || globalData).filter(matchesCampaign);
@@ -905,7 +966,6 @@ const getDiffHtml = (currentVal, previousVal, labelCurrent, labelPrevious, rever
     return `<span class="kpi-diff ${colorClass}" title="${titleText}">${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
 };
 
-// ─── TREND CHARTS LOGIC (Weekly 12 & Monthly) ────────────────────
 function renderTrendCharts() {
     let chartData = globalData.filter(matchesCampaign);
     let labels = [];
@@ -1072,7 +1132,6 @@ function renderTrendCharts() {
     });
 }
 
-// ─── KPIS (With Universal Comparison) ────────────────
 function renderKPIs() {
   const currentMonthData = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   
@@ -1170,7 +1229,6 @@ function renderKPIs() {
   `;
 }
 
-// ─── GENERAL RENDERING ───────────────────────
 function updateSourceLabel() {
   const sourceLabel = document.getElementById('dataStatusLabel');
   if (sourceLabel) {
@@ -1199,7 +1257,6 @@ function renderAll() {
   renderTable(); 
 }
 
-// ─── FUNNEL (CUSTOMER JOURNEY) ─────────────
 function renderFunnel() {
   const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const impr = d.reduce((s,r)=>s+r.impressions,0);
@@ -1210,16 +1267,27 @@ function renderFunnel() {
 
   const compData = getComparisonData();
 
-  const steps = [
-    { id: 1, name: 'การมองเห็น (Impressions)', val: impr, cVal: compData.c.impressions, pVal: compData.p.impressions, color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
-    { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, cVal: compData.c.clicks, pVal: compData.p.clicks, color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
-    { id: 3, name: 'เข้าชมเว็บ (Landing Page Views)', val: lpViews, cVal: compData.c.lpViews, pVal: compData.p.lpViews, color: '#8B5CF6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
-    { id: 4, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, cVal: compData.c.addCart, pVal: compData.p.addCart, color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
-    { id: 5, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, cVal: compData.c.purchases, pVal: compData.p.purchases, color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
-  ];
+  let steps = [];
+  
+  if (currentPlatform === 'google') {
+      steps = [
+        { id: 1, name: 'การมองเห็น (Impressions)', val: impr, cVal: compData.c.impressions, pVal: compData.p.impressions, color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
+        { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, cVal: compData.c.clicks, pVal: compData.p.clicks, color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
+        { id: 3, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, cVal: compData.c.addCart, pVal: compData.p.addCart, color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
+        { id: 4, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, cVal: compData.c.purchases, pVal: compData.p.purchases, color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
+      ];
+  } else {
+      steps = [
+        { id: 1, name: 'การมองเห็น (Impressions)', val: impr, cVal: compData.c.impressions, pVal: compData.p.impressions, color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
+        { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, cVal: compData.c.clicks, pVal: compData.p.clicks, color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
+        { id: 3, name: 'เข้าชมเว็บ (Landing Page Views)', val: lpViews, cVal: compData.c.lpViews, pVal: compData.p.lpViews, color: '#8B5CF6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
+        { id: 4, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, cVal: compData.c.addCart, pVal: compData.p.addCart, color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
+        { id: 5, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, cVal: compData.c.purchases, pVal: compData.p.purchases, color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
+      ];
+  }
 
   let html = '<div class="pyramid-funnel-container">';
-  const widths = [100, 90, 80, 70, 60];
+  const widths = steps.length === 4 ? [100, 85, 70, 55] : [100, 90, 80, 70, 60];
 
   steps.forEach((step, index) => {
     const prevVal = index > 0 ? steps[index - 1].val : step.val;
@@ -1266,7 +1334,6 @@ function renderFunnel() {
   document.getElementById('funnelContainer').innerHTML = html;
 }
 
-// ─── TOP ADS PERFORMANCE ───────────────────
 let currentTopAdSort = 'spend';
 window.updateTopAdSort = function() {
   currentTopAdSort = document.getElementById('topAdSortSelect').value;
@@ -1280,16 +1347,34 @@ window.scrollCarousel = function(direction) {
 };
 
 function renderTopAds() {
-  const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
+  const container = document.getElementById('topAdsContainer');
+  const titleEl = document.getElementById('topAdsTitle');
+  const subTitleEl = document.getElementById('topAdsSubTitle');
+
+  if (currentPlatform === 'google') {
+      if (titleEl) titleEl.textContent = 'Keyword Performance';
+      if (subTitleEl) subTitleEl.textContent = 'คีย์เวิร์ดที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)';
+  } else {
+      if (titleEl) titleEl.textContent = 'Top Ads Performance';
+      if (subTitleEl) subTitleEl.textContent = 'โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)';
+  }
+
+  // หากเป็น Google ให้ดึงข้อมูลจากโฟลเดอร์ Keyword (ถ้ามี) ถ้าไม่มีจะ Fallback กลับไปดึงจากไฟล์หลัก
+  let dataSource = globalData;
+  if (currentPlatform === 'google' && globalKeywordData.length > 0) {
+      dataSource = globalKeywordData;
+  }
+
+  const d = dataSource.filter(r => r.month === currentMonth && matchesCampaign(r));
   const groupedObj = {};
   
   d.forEach(r => {
-    let key = r.ad || 'Unknown Ad';
+    let key = currentPlatform === 'google' ? (r.keyword || 'Unknown Keyword') : (r.ad || 'Unknown Ad');
     if (!groupedObj[key]) {
       groupedObj[key] = {
         name: key, spend: 0, reach: 0, impressions: 0,
         clicks: 0, lpViews: 0, purchases: 0, convValue: 0,
-        imageUrl: r.imageUrl || '' 
+        imageUrl: currentPlatform === 'google' ? '' : (r.imageUrl || '') 
       };
     }
     groupedObj[key].spend += r.spend;
@@ -1309,22 +1394,33 @@ function renderTopAds() {
   adList.sort((a, b) => b[currentTopAdSort] - a[currentTopAdSort]);
   const top10 = adList.slice(0, 10);
   
-  const container = document.getElementById('topAdsContainer');
   if (top10.length === 0) {
-      container.innerHTML = '<div style="width: 100%; text-align: center; color: var(--muted); font-size: 13px; padding: 20px;">ไม่มีข้อมูลโฆษณา</div>';
+      container.innerHTML = `<div style="width: 100%; text-align: center; color: var(--muted); font-size: 13px; padding: 20px;">ไม่มีข้อมูล${currentPlatform === 'google' ? 'คีย์เวิร์ด' : 'โฆษณา'}</div>`;
       return;
   }
 
   let html = '';
   top10.forEach((ad, index) => {
-      const adNameSafe = encodeURIComponent(ad.name.trim());
-      const imgPath = `./data/${currentPlatform}/picture/${adNameSafe}.jpg`;
-      const fallbackPngPath = `./data/${currentPlatform}/picture/${adNameSafe}.png`;
-      const defaultSvg = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f1f5f9'/%3E%3Csvg x='150' y='130' width='100' height='100' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpolyline points='21 15 16 10 5 21'/%3E%3C/svg%3E%3Ctext x='50%25' y='270' font-size='18' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%2394a3b8'%3EAd ${index+1}%3C/text%3E%3C/svg%3E`;
+      let mediaHtml = '';
+      if (currentPlatform === 'google') {
+          // ดีไซน์การแสดงผลแบบกล่องข้อความสำหรับ Keyword
+          mediaHtml = `
+          <div style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; background: rgba(59,130,246,0.05); border: 1px solid rgba(59,130,246,0.2); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; position: relative;">
+             <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--primary);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+             <div style="font-size: 13px; font-weight: 600; color: var(--text); padding: 0 16px; text-align: center; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; word-break: break-word;">${ad.name}</div>
+          </div>`;
+      } else {
+          // ดีไซน์รูปภาพโฆษณาปกติ
+          const adNameSafe = encodeURIComponent(ad.name.trim());
+          const imgPath = `./data/${currentPlatform}/picture/${adNameSafe}.jpg`;
+          const fallbackPngPath = `./data/${currentPlatform}/picture/${adNameSafe}.png`;
+          const defaultSvg = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f1f5f9'/%3E%3Csvg x='150' y='130' width='100' height='100' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpolyline points='21 15 16 10 5 21'/%3E%3C/svg%3E%3Ctext x='50%25' y='270' font-size='18' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%2394a3b8'%3EAd ${index+1}%3C/text%3E%3C/svg%3E`;
+          mediaHtml = `<img src="${imgPath}" onerror="if(!this.dataset.pngTried){this.dataset.pngTried='true';this.src='${fallbackPngPath}';}else{this.onerror=null;this.src='${defaultSvg}';}" alt="Ad Image" class="top-ad-img">`;
+      }
       
       html += `
           <div class="top-ad-card">
-              <img src="${imgPath}" onerror="if(!this.dataset.pngTried){this.dataset.pngTried='true';this.src='${fallbackPngPath}';}else{this.onerror=null;this.src='${defaultSvg}';}" alt="Ad Image" class="top-ad-img">
+              ${mediaHtml}
               <div class="top-ad-title" title="${ad.name}">${index + 1}. ${ad.name}</div>
               <div class="top-ad-stats">
                   <div class="top-ad-stat-item">
@@ -1366,7 +1462,6 @@ function renderTopAds() {
   container.innerHTML = html;
 }
 
-// ─── SALES SUMMARY ─────────────────────────
 function renderSalesSummary() {
   const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const spend = d.reduce((s,r)=>s+r.spend,0);
@@ -1391,16 +1486,19 @@ function renderSalesSummary() {
     benchmarkStatus = `<span style="color: var(--accent); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">⚠️ ต่ำกว่าเกณฑ์เฉลี่ย (ควรเช็กความเร็วเว็บหรือข้อเสนอพิเศษ)</span>`;
   }
 
+  const purchasesLabel = currentPlatform === 'google' ? 'Purchases' : 'Website Purchases';
+  const revenueLabel = currentPlatform === 'google' ? 'Revenue' : 'Conversion Value';
+
   document.getElementById('salesSummaryContainer').innerHTML = `
     <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Website Purchases</div>
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">${purchasesLabel}</div>
       <div style="display:flex; align-items:center;">
         <div style="color: var(--purple); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">${formatNum(purchases)}</div>
         ${getDiffHtml(compData.c.purchases, compData.p.purchases, compData.labels.c, compData.labels.p)}
       </div>
     </div>
     <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">Conversion Value</div>
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">${revenueLabel}</div>
       <div style="display:flex; align-items:center;">
           <div style="color: var(--emerald); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">฿${formatNum(convValue)}</div>
           ${getDiffHtml(compData.c.convValue, compData.p.convValue, compData.labels.c, compData.labels.p)}
@@ -1434,10 +1532,16 @@ function renderSalesSummary() {
   `;
 }
 
-// ─── CHARTS ────────────────────────────────
-const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64748B'];
-
 function renderCharts() {
+  const chartCard = document.getElementById('demographicsCard');
+  
+  if (currentPlatform === 'google') {
+      if (chartCard) chartCard.style.display = 'none';
+      return;
+  } else {
+      if (chartCard) chartCard.style.display = 'block';
+  }
+
   const isDark = document.body.classList.contains('dark-mode');
   const textColor = isDark ? '#F8FAFC' : '#111827';
   const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
@@ -1522,7 +1626,6 @@ function renderCharts() {
   }
 }
 
-// ─── TABLE ─────────────────────────────────
 let currentTableView = 'campaign'; 
 let currentSortCol = 'spend';
 let currentSortAsc = false;
@@ -1552,6 +1655,16 @@ window.handleSort = function(col) {
 };
 
 function renderTable() {
+  const tableCard = document.querySelector('.table-card');
+  
+  // ซ่อนตารางเมื่ออยู่หน้า Google Ads
+  if (currentPlatform === 'google') {
+      if (tableCard) tableCard.style.display = 'none';
+      return;
+  } else {
+      if (tableCard) tableCard.style.display = 'block';
+  }
+
   const d = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
   const groupedObj = {};
   
@@ -1594,7 +1707,6 @@ function renderTable() {
   });
 
   const getRowComparison = (rowName) => {
-      // Find grouping field
       let field = 'campaign';
       if(currentTableView === 'adset') field = 'adset';
       if(currentTableView === 'ad') field = 'ad';
@@ -1631,7 +1743,6 @@ function renderTable() {
   `}).join('');
 }
 
-// ─── FILTER & UPLOAD ───────────────────────
 function populateFilters() {
   const campaigns = [...new Set(globalData.map(r=>r.campaign).filter(c=>c))].sort();
   
@@ -1718,7 +1829,6 @@ function showStatus(msg) {
   setTimeout(()=>{ bar.style.display='none'; }, 4000);
 }
 
-// ─── UI & SETTINGS ─────────────────────────
 const themeCheckbox = document.getElementById('themeToggleCheckbox');
 function updateThemeIcon() {
   const isDark = document.body.classList.contains('dark-mode');

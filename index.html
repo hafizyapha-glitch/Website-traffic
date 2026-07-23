@@ -164,7 +164,15 @@
 
     /* Yearly Summary Table Specific Styles */
     #yearlySummaryTable th, #yearlySummaryTable td { border: none !important; text-align: right; color: #111827; }
-    #yearlySummaryTable th:first-child, #yearlySummaryTable td:first-child { text-align: left; font-weight: 600; }
+    #yearlySummaryTable th:first-child, #yearlySummaryTable td:first-child { 
+        text-align: left; 
+        font-weight: 600; 
+        position: sticky; 
+        left: 0; 
+        z-index: 10; 
+        box-shadow: 2px 0 4px -2px rgba(0,0,0,0.15); /* เพิ่มเงาให้ดูมีมิติเมื่อเลื่อนตาราง */
+    }
+    #yearlySummaryTable thead th:first-child { z-index: 11; } /* ให้ Header อยู่เหนือสุด */
     #yearlySummaryTable th.total-col, #yearlySummaryTable td.total-col { color: #dc2626; font-weight: 700; }
     
     #yearlySummaryTable thead th { background-color: #ececec; color: #111827; font-weight: 600; }
@@ -581,16 +589,18 @@ function processRawArrayData(data2D) {
     let headerIdx = data2D.findIndex(row => {
         if (!Array.isArray(row)) return false;
         let rowStr = row.join(' ').toLowerCase();
-        return (rowStr.includes('cost') || rowStr.includes('amount spent') || rowStr.includes('spend') || rowStr.includes('impr')) && 
-               (rowStr.includes('campaign') || rowStr.includes('keyword') || rowStr.includes('ad ') || rowStr.includes('search term'));
+        // ขยายเงื่อนไขการหา Header ให้ครอบคลุมภาษาไทย และคำว่า "ค้นหา"
+        return (rowStr.includes('cost') || rowStr.includes('amount spent') || rowStr.includes('spend') || rowStr.includes('impr') || rowStr.includes('ค่าใช้จ่าย') || rowStr.includes('แสดงผล')) && 
+               (rowStr.includes('campaign') || rowStr.includes('keyword') || rowStr.includes('ad ') || rowStr.includes('search') || rowStr.includes('แคมเปญ') || rowStr.includes('คีย์เวิร์ด') || rowStr.includes('โฆษณา') || rowStr.includes('ค้นหา'));
     });
     
     if (headerIdx === -1) headerIdx = 0; 
     
     let dates = { start: '', end: '' };
     for (let i = 0; i < headerIdx; i++) {
-        let rowStr = Array.isArray(data2D[i]) ? data2D[i].join(' ') : data2D[i];
+        let rowStr = Array.isArray(data2D[i]) ? data2D[i].join(' ') : String(data2D[i]);
         let m = rowStr.match(/([a-zA-Z]+\s\d{1,2},\s\d{4})\s*-\s*([a-zA-Z]+\s\d{1,2},\s\d{4})/);
+        if (!m) m = rowStr.match(/(\d{1,2}\/\d{1,2}\/\d{2,4})\s*-\s*(\d{1,2}\/\d{1,2}\/\d{2,4})/);
         if (m) {
             dates.start = m[1];
             dates.end = m[2];
@@ -605,16 +615,16 @@ function processRawArrayData(data2D) {
         if (!row || row.length === 0 || row.every(c => c === '' || c === null || c === undefined)) continue;
         
         let firstCellStr = String(row[0] || '').toLowerCase().trim();
-        if (firstCellStr === 'total' || firstCellStr === 'รวม') continue;
+        if (firstCellStr === 'total' || firstCellStr === 'รวม' || firstCellStr.includes('total:')) continue;
 
         let obj = {};
         headers.forEach((h, colIdx) => {
             if (h && typeof h === 'string') {
-                obj[h.trim()] = row[colIdx];
+                obj[h.trim().replace(/\r?\n|\r/g, " ")] = row[colIdx];
             }
         });
         
-        if (!obj['Reporting starts'] && !obj['Day'] && !obj['Date'] && dates.start) {
+        if (!obj['Reporting starts'] && !obj['Day'] && !obj['Date'] && !obj['วัน'] && dates.start) {
             obj['Reporting starts'] = dates.start;
             obj['Reporting ends'] = dates.end;
         }
@@ -624,30 +634,54 @@ function processRawArrayData(data2D) {
 }
 
 function parseRawRow(r, month, mIndex, w) {
+    // ฟังก์ชันช่วยหา Key ด้วย Regex เพื่อให้ยืดหยุ่นกับชื่อคอลัมน์ที่ไม่ตายตัว
+    const findVal = (regex) => {
+        const key = Object.keys(r).find(k => k.match(regex));
+        return key && r[key] !== undefined && r[key] !== null ? r[key] : '';
+    };
+
+    let adValue = findVal(/search keyword|search term|keyword|คีย์เวิร์ด|ข้อความค้นหา|เกณฑ์การค้นหา|ad name|ad|ชื่อโฆษณา/i).toString().trim();
+    let campaignValue = findVal(/campaign name|campaign|แคมเปญ/i).toString().trim();
+    let adsetValue = findVal(/ad group|ad set name|ad group name|กลุ่มโฆษณา/i).toString().trim();
+    
+    // Fallback: ถ้าข้อมูล Keyword ว่างเปล่า หรือเป็น Unknown
+    if (!adValue || adValue === 'Unknown' || adValue === ' --' || adValue === '-') {
+         if (adsetValue && adsetValue !== 'Unknown Ad Set' && adsetValue !== '') {
+             adValue = `[Ad Group] ${adsetValue}`;
+         } else if (campaignValue && campaignValue !== 'Unknown Campaign' && campaignValue !== '') {
+             adValue = `[Campaign] ${campaignValue}`;
+         } else {
+             adValue = 'Unknown';
+         }
+    }
+
+    if (!campaignValue) campaignValue = 'Unknown Campaign';
+    if (!adsetValue) adsetValue = 'Unknown Ad Set';
+
     return {
       month: month,
       monthIndex: mIndex,
       week: w,
       absWeek: `${String(mIndex).padStart(2, '0')}-${w}`,
-      dateStart: (r['Reporting starts'] || r['Day'] || r['Date'] || '').trim(),
-      dateEnd: (r['Reporting ends'] || r['Day'] || r['Date'] || '').trim(),
-      campaign: (r['Campaign name'] || r['Campaign'] || 'Unknown Campaign').trim(),
-      adset: (r['Ad group'] || r['Ad set name'] || r['Ad group name'] || 'Unknown Ad Set').trim(),
-      ad: (r['Search keyword'] || r['Search Keyword'] || r['Search term'] || r['Search Term'] || r['Keyword'] || r['Ad name'] || r['Ad'] || 'Unknown').toString().trim(),
-      age: r['Age'] || 'Unknown',
-      gender: r['Gender'] || 'Unknown',
+      dateStart: findVal(/reporting starts|day|date|วัน/i).toString().trim(),
+      dateEnd: findVal(/reporting ends|day|date|วัน/i).toString().trim(),
+      campaign: campaignValue,
+      adset: adsetValue,
+      ad: adValue,
+      age: findVal(/age|อายุ/i).toString() || 'Unknown',
+      gender: findVal(/gender|เพศ/i).toString() || 'Unknown',
       
-      spend: parseNum(r['Amount spent (THB)']) || parseNum(r['Cost']) || parseNum(r['Spend']) || 0,
-      reach: parseNum(r['Reach']) || parseNum(r['Unique users']) || 0,
-      impressions: parseNum(r['Impressions']) || parseNum(r['Impr.']) || 0,
-      clicks: parseNum(r['Link clicks']) || parseNum(r['Clicks']) || 0,
-      lpViews: parseNum(r['Landing page views']) || 0,
-      addCart: parseNum(r['Website adds to cart']) || parseNum(r['Add to cart']) || parseNum(r['Adds to cart']) || 0,
-      purchases: parseNum(r['Website purchases']) || parseNum(r['Conversions']) || parseNum(r['Purchase']) || parseNum(r['Purchases']) || 0,
-      convValue: parseNum(r['Website purchases conversion value']) || parseNum(r['Conv. value']) || parseNum(r['Revenue']) || 0,
+      spend: parseNum(findVal(/amount spent|cost|spend|ค่าใช้จ่าย/i)) || 0,
+      reach: parseNum(findVal(/reach|unique users|การเข้าถึง/i)) || 0,
+      impressions: parseNum(findVal(/impressions|impr|การแสดงผล/i)) || 0,
+      clicks: parseNum(findVal(/link clicks|clicks|คลิก/i)) || 0,
+      lpViews: parseNum(findVal(/landing page views|การเข้าชม/i)) || 0,
+      addCart: parseNum(findVal(/adds to cart|add to cart|การเพิ่มลงในรถเข็น/i)) || 0,
+      purchases: parseNum(findVal(/website purchases|conversions|purchase|คอนเวอร์ชัน|การซื้อ/i)) || 0,
+      convValue: parseNum(findVal(/conversion value|conv\. value|revenue|มูลค่าคอนเวอร์ชัน|มูลค่าการซื้อ/i)) || 0,
       
-      imprTopPct: parsePct(r['Impr. (Top) %'] || r['Impr. (top) %']),
-      imageUrl: r['Image URL'] || r['Image'] || ''
+      imprTopPct: parsePct(findVal(/impr\. \(top\) %|% การแสดงผล \(บนสุด\)/i)),
+      imageUrl: findVal(/image url|image/i).toString() || ''
     };
 }
 
@@ -1528,10 +1562,10 @@ function renderTopAdsFB() {
 
   let html = '';
   top10.forEach((ad, index) => {
-      const adNameSafe = encodeURIComponent(ad.name.trim());
+      const adNameSafe = encodeURIComponent(ad.name.trim().replace(/'/g, "%27"));
       const imgPath = `./data/${currentPlatform}/picture/${adNameSafe}.jpg`;
       const fallbackPngPath = `./data/${currentPlatform}/picture/${adNameSafe}.png`;
-      const defaultSvg = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f1f5f9'/%3E%3Csvg x='150' y='130' width='100' height='100' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpolyline points='21 15 16 10 5 21'/%3E%3C/svg%3E%3Ctext x='50%25' y='270' font-size='18' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%2394a3b8'%3EAd ${index+1}%3C/text%3E%3C/svg%3E`;
+      const defaultSvg = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23f1f5f9%22/%3E%3Csvg x=%22150%22 y=%22130%22 width=%22100%22 height=%22100%22 fill=%22none%22 stroke=%22%2394a3b8%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%222%22 ry=%222%22/%3E%3Ccircle cx=%228.5%22 cy=%228.5%22 r=%221.5%22/%3E%3Cpolyline points=%2221 15 16 10 5 21%22/%3E%3C/svg%3E%3Ctext x=%2250%25%22 y=%22270%22 font-size=%2218%22 font-weight=%22bold%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 fill=%22%2394a3b8%22%3EAd ${index+1}%3C/text%3E%3C/svg%3E`;
       
       html += `
           <div class="top-ad-card">
@@ -1812,9 +1846,14 @@ document.getElementById('manualFileInput')?.addEventListener('change', handleMan
 function loadManualData(rows, isInitial = false, sourceName = '') {
   try {
     const mIndex = ALL_MONTHS.indexOf(currentMonth);
+    
+    // ตรวจสอบชื่อไฟล์ ถ้ามีคำว่า Keyword ให้ถือว่าเป็นข้อมูล Keyword 
+    const isKeywordReport = sourceName.toLowerCase().includes('keyword') || sourceName.toLowerCase().includes('search');
+
     const parsedData = rows.map(r => {
         let parsed = parseRawRow({...r}, currentMonth, mIndex, r.Week || r.week || 'W1');
-        parsed.rowType = 'campaign'; 
+        // กำหนด Type ตามชื่อไฟล์ เพื่อให้ไปโผล่ในตารางได้ถูกต้อง
+        parsed.rowType = isKeywordReport ? 'keyword' : 'campaign'; 
         return parsed;
     }).filter(r => r.campaign || r.ad);
     

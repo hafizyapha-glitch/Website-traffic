@@ -41,6 +41,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter','Noto Sans Thai',sans-serif; min-height: 100vh; line-height: 1.5; }
 
+    /* Header & Navigation */
     .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 32px 0 32px; display: flex; flex-direction: column; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
     .header-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; width: 100%; flex-wrap: wrap; gap: 16px; }
     .logo-area { display: flex; align-items: center; gap: 16px; }
@@ -50,12 +51,12 @@
     .logo-sub { font-size: 13px; color: var(--muted); font-weight: 500; }
     
     .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .header-select { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: 8px 32px 8px 16px; font-size: 14px; font-weight: 600; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; box-shadow: var(--shadow-sm); min-width: 150px; }
+    .header-select { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: 8px 32px 8px 16px; font-size: 14px; font-weight: 600; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; box-shadow: var(--shadow-sm); min-width: 150px; }
     body.dark-mode .header-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
     .header-select:focus { border-color: var(--primary); }
 
     .platform-tabs { display: flex; gap: 24px; }
-    .platform-tab { background: transparent; border: none; font-size: 14px; font-weight: 600; color: var(--text-secondary); cursor: pointer; padding: 10px 4px; border-bottom: 2px solid transparent; transition: all .2s; display: flex; align-items: center; gap: 6px; }
+    .platform-tab { background: transparent; border: none; font-family: 'Inter', 'Noto Sans Thai', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-secondary); cursor: pointer; padding: 10px 4px; border-bottom: 2px solid transparent; transition: all .2s; display: flex; align-items: center; gap: 6px; }
     .platform-tab svg { width: 16px; height: 16px; opacity: 0.7; }
     .platform-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
     .platform-tab.active svg { opacity: 1; }
@@ -69,14 +70,16 @@
     .upload-label:hover { border-color: var(--primary); color: var(--primary); }
     input[type="file"] { display: none; }
 
+    /* Filters */
     .filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end; flex-grow: 1; }
-    .filter-row select { background: var(--card); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 6px 28px 6px 14px; font-size: 11.5px; font-weight: 500; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; box-shadow: var(--shadow-sm); }
+    .filter-row select { background: var(--card); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 6px 28px 6px 14px; font-size: 11.5px; font-weight: 500; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; box-shadow: var(--shadow-sm); }
     body.dark-mode .filter-row select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
     .filter-row select:focus { border-color: var(--primary); }
     .filter-label { font-size: 12.5px; font-weight: 500; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; margin-right: 4px; }
     .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 6px; color: var(--muted); padding: 6px 10px; font-size: 11.5px; font-weight: 500; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; }
     .clear-btn:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
 
+    /* KPIs */
     .kpi-group-label { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; margin-top: 16px; }
     .kpi-grid { display: grid; gap: 16px; margin-bottom: 8px; }
     .kpi-grid.row3 { grid-template-columns: repeat(3,1fr); }
@@ -88,16 +91,17 @@
     .kpi-icon { grid-area: icon; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
     .kpi-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.75; }
     .kpi-label { grid-area: label; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px; }
-    .kpi-value { grid-area: value; font-size: 24px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .kpi-value { grid-area: value; font-size: 24px; font-weight: 700; font-family: 'Inter',sans-serif; color: var(--text); line-height: 1.2; margin-bottom: 8px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
     .kpi-sub { grid-area: sub; font-size: 12px; color: var(--muted); }
     .kpi-benchmark { grid-area: bench; font-size: 11px; color: var(--text-secondary); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-    .kpi-benchmark .bm-val { color: var(--text); font-weight: 600; }
+    .kpi-benchmark .bm-val { color: var(--text); font-weight: 600; font-family: 'Inter',sans-serif; }
     
-    .kpi-diff { font-size: 11px; margin-left: 6px; display: inline-flex; align-items: center; padding: 2px 6px; border-radius: 4px; font-weight: 600; cursor: help; }
+    .kpi-diff { font-size: 11px; margin-left: 6px; display: inline-flex; align-items: center; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: help; }
     .kpi-diff.good { background: rgba(16,185,129,0.1); color: var(--emerald); }
     .kpi-diff.bad { background: rgba(244,63,94,0.1); color: #F43F5E; }
     .kpi-diff.neutral { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
 
+    /* Layout & Charts */
     .dashboard-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 8px; }
     .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-sm); }
@@ -111,6 +115,7 @@
     
     .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
 
+    /* Top Ads Carousel */
     .carousel-wrapper { position: relative; display: flex; align-items: center; margin-top: 16px; }
     .top-ads-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 16px; scroll-behavior: smooth; width: 100%; -ms-overflow-style: none; scrollbar-width: none; }
     .top-ads-carousel::-webkit-scrollbar { display: none; }
@@ -121,50 +126,47 @@
     .top-ad-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 8px; font-size: 11px; }
     .top-ad-stat-item { display: flex; flex-direction: column; }
     .top-ad-stat-label { color: var(--muted); margin-bottom: 2px; }
-    .top-ad-stat-value { font-weight: 600; color: var(--text); font-size: 12px; }
+    .top-ad-stat-value { font-weight: 600; color: var(--text); font-family: 'Inter', sans-serif; font-size: 12px; }
     .carousel-btn { position: absolute; top: 40%; transform: translateY(-50%); background: var(--card); border: 1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; box-shadow: var(--shadow); color: var(--text); transition: all 0.2s; }
     .carousel-btn:hover { color: var(--primary); border-color: var(--primary); }
     .carousel-btn.left { left: -18px; }
     .carousel-btn.right { right: -18px; }
 
-    .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
-    .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
-    .pyramid-step:hover { transform: translateY(-2px); }
-    .pyramid-step-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    .pyramid-icon { background: rgba(255,255,255,0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .pyramid-icon svg { width: 18px; height: 18px; stroke: white; }
-    .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; }
-    .pyramid-val { font-size: 18px; font-weight: 700; flex-shrink: 0; margin-left: 12px; }
-    .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
-    .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
-    .pyramid-diff-badge { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 2px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); background: rgba(255, 255, 255, 0.8); }
-    .pyramid-diff-badge.good { color: var(--emerald); }
-    .pyramid-diff-badge.bad { color: #F43F5E; }
-    .pyramid-diff-badge.neutral { color: var(--muted); }
+    /* Pyramid Funnel Styles */
+  .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
+  .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
+  .pyramid-step:hover { transform: translateY(-2px); }
+  .pyramid-step-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .pyramid-icon { background: rgba(255,255,255,0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .pyramid-icon svg { width: 18px; height: 18px; stroke: white; }
+  .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; }
+  .pyramid-val { font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif; flex-shrink: 0; margin-left: 12px; }
+  .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
+  .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
+  
+  .pyramid-diff-badge { font-size: 10px; font-weight: 600; font-family: 'Inter', sans-serif; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 2px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); background: rgba(255, 255, 255, 0.8); }
+  .pyramid-diff-badge.good { color: var(--emerald); }
+  .pyramid-diff-badge.bad { color: #F43F5E; }
+  .pyramid-diff-badge.neutral { color: var(--muted); }
 
+  /* Table */
     .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0; box-shadow: var(--shadow-sm); overflow: hidden; margin-top: 24px; }
     .table-header { padding: 24px 24px 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .table-responsive { width: 100%; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; min-width: 900px; text-align: center; border: none; }
-    
-    /* Table Headers */
-    th { font-size: 13px; font-weight: 600; color: #111827; padding: 12px 16px; background: #ececec; white-space: nowrap; border: none; }
-    th.total-col { font-weight: 700; color: #111827; }
-    
-    /* Table Data Cells */
-    td { padding: 12px 16px; font-size: 13px; color: #111827; white-space: nowrap; border: none; }
-    td.metric-col { font-weight: 600; background: #f7f7f7 !important; text-align: left; }
-    td.total-col { font-weight: 700; }
-    
-    /* Alternating Row Colors (ignoring metric column) */
-    tbody tr:nth-child(odd) td:not(.metric-col) { background: #ffffff; }
-    tbody tr:nth-child(even) td:not(.metric-col) { background: #f9f9f9; }
-    
-    /* Utility class for numbers */
+    table { width: 100%; border-collapse: collapse; min-width: 900px; text-align: left; }
+    th { font-size: 12px; font-weight: 600; color: var(--text-secondary); padding: 12px 24px; border-bottom: 1px solid var(--border); background: var(--surface); white-space: nowrap; }
+    td { padding: 16px 24px; font-size: 13px; color: var(--text); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--surface); }
+    .sortable { cursor: pointer; user-select: none; transition: color 0.2s; }
+    .sortable:hover { color: var(--primary); }
+    .sort-icon { display: inline-block; width: 12px; margin-left: 4px; font-size: 10px; color: var(--primary); }
     .num { font-variant-numeric: tabular-nums; }
-    
+    .cost-cell { font-weight: 600; color: var(--text); }
+
     #statusBar { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
 
+    /* Settings Drawer */
     .drawer-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
     .drawer-overlay.show { opacity: 1; visibility: visible; }
     .drawer { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: var(--card); z-index: 1000; box-shadow: -4px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; display: flex; flex-direction: column; border-left: 1px solid var(--border); }
@@ -333,7 +335,7 @@
         <div class="chart-card wide" id="demoChartCard">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 8px;">
             <div class="chart-title" id="demoChartTitle">Demographics by Age & Gender</div>
-            <select id="demoMetricSelect" onchange="updateDemoMetric()" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; cursor: pointer; outline: none;">
+            <select id="demoMetricSelect" onchange="updateDemoMetric()" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none;">
               <option value="spend">Spend (THB)</option>
               <option value="reach">Reach</option>
               <option value="impressions">Impressions</option>
@@ -387,7 +389,7 @@
               <div class="chart-title" id="topAdsTitle">Top Ads Performance</div>
               <div class="chart-sub" id="topAdsSubTitle" style="margin-bottom: 0;">โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)</div>
             </div>
-            <select id="topAdSortSelect" onchange="updateTopAdSort()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; cursor: pointer; outline: none; box-shadow: var(--shadow-sm);">
+            <select id="topAdSortSelect" onchange="updateTopAdSort()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none; box-shadow: var(--shadow-sm);">
               <option value="spend">เรียงตาม Spend (สูงสุด)</option>
               <option value="reach" id="optTopReach">เรียงตาม Reach (สูงสุด)</option>
               <option value="impressions">เรียงตาม Impressions (สูงสุด)</option>
@@ -399,26 +401,27 @@
             </select>
           </div>
           <div class="carousel-wrapper">
-            <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
+            <button class="carousel-btn left" onclick="scrollCarousel(-1)" id="carouselBtnLeft">&#10094;</button>
             <div id="topAdsContainer" class="top-ads-carousel">
               <!-- Injected via JS -->
             </div>
-            <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
+            <button class="carousel-btn right" onclick="scrollCarousel(1)" id="carouselBtnRight">&#10095;</button>
           </div>
         </div>
 
       </div>
     </div>
 
+    <!-- Yearly Performance Summary Table -->
     <div class="table-card" id="tableCard" style="margin-top:24px;">
       <div class="table-header" style="flex-direction: column; align-items: flex-start;">
         <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
           <div class="chart-title">Yearly Performance Summary</div>
-          <div class="chart-sub" id="tableCount" style="margin-bottom:0;">รวมผลลัพธ์ทุก Campaign แบบรายเดือนตลอดปี</div>
+          <div class="chart-sub" id="tableCount" style="margin-bottom:0;">รวมผลลัพธ์แบบรายเดือนตลอดปี</div>
         </div>
       </div>
       <div class="table-responsive">
-        <table id="monthlySummaryTable">
+        <table id="monthlySummaryTable" style="width: 100%; border-collapse: collapse; min-width: 900px; text-align: center; border: none;">
           <thead>
             <tr id="tableHeaderRow">
               <!-- Injected via JS -->
@@ -433,6 +436,7 @@
   </div>
 </div>
 
+<!-- Settings Drawer -->
 <div id="settingsOverlay" class="drawer-overlay"></div>
 <div id="settingsDrawer" class="drawer">
   <div class="drawer-header">
@@ -525,14 +529,18 @@ window.switchPlatform = async function(platform) {
   const isGoogle = platform === 'google';
   document.getElementById('demoChartCard').style.display = isGoogle ? 'none' : 'block';
   
+  // ซ่อน dropdown ของ Top Ads เมื่อเป็น Google Ads
+  const topAdSortSelect = document.getElementById('topAdSortSelect');
+  if(topAdSortSelect) topAdSortSelect.style.display = isGoogle ? 'none' : 'block';
+
   document.getElementById('topAdsTitle').textContent = isGoogle ? 'Keyword Performance' : 'Top Ads Performance';
-  document.getElementById('topAdsSubTitle').textContent = isGoogle ? 'คีย์เวิร์ดที่มีประสิทธิภาพสูงสุด (Top 10)' : 'โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)';
+  document.getElementById('topAdsSubTitle').textContent = isGoogle ? 'สรุปข้อมูลคีย์เวิร์ด' : 'โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)';
   
   const optReach = document.getElementById('optTopReach');
   const optLpViews = document.getElementById('optTopLpViews');
   if (optReach) optReach.style.display = isGoogle ? 'none' : 'block';
   if (optLpViews) optLpViews.style.display = isGoogle ? 'none' : 'block';
-  
+
   await switchMonth(currentMonth, true); 
 };
 
@@ -585,7 +593,7 @@ function processRawArrayData(data2D) {
         headerIdx = data2D.findIndex(row => {
             if (!Array.isArray(row)) return false;
             let rowStr = row.join(' ').toLowerCase();
-            return rowStr.includes('keyword') || rowStr.includes('ad name');
+            return rowStr.includes('keyword') || rowStr.includes('search term') || rowStr.includes('search keyword') || rowStr.includes('ad name');
         });
         if (headerIdx === -1) headerIdx = 0; 
     }
@@ -633,6 +641,7 @@ async function loadFile(platform, month, w, mIndex) {
 
     const weekName = w.toLowerCase().replace('w', 'week');
     
+    // Load Campaign File
     const csvPath = `./data/${platform}/${platform}-${month}-${weekName}.csv`;
     const xlsxPath = `./data/${platform}/${platform}-${month}-${weekName}.xlsx`;
 
@@ -658,6 +667,7 @@ async function loadFile(platform, month, w, mIndex) {
         }
     } catch(e) {}
 
+    // Load Keyword File for Google Ads
     if (platform === 'google') {
         const kwCsvPath = `./data/google/Keyword/Keyword-${month}-${weekName}.csv`;
         const kwXlsxPath = `./data/google/Keyword/Keyword-${month}-${weekName}.xlsx`;
@@ -715,7 +725,7 @@ function safeParseDate(dStr) {
 function parseNum(val) {
     if (val === undefined || val === null || val === '') return 0;
     if (typeof val === 'number') return val;
-    let str = val.toString().replace(/,/g, '').replace(/฿/g, '').replace(/%/g, '').trim();
+    let str = val.toString().replace(/,/g, '').replace(/฿/g, '').replace(/%/g, '').replace(/</g, '').replace(/>/g, '').trim();
     return parseFloat(str) || 0;
 }
 
@@ -729,7 +739,7 @@ function parseRawRow(r, month, mIndex, w) {
       dateEnd: (r['Reporting ends'] || r['Day'] || r['Date'] || '').trim(),
       campaign: (r['Campaign name'] || r['Campaign'] || 'Unknown Campaign').trim(),
       adset: (r['Ad set name'] || r['Ad group'] || 'Unknown Ad Set').trim(),
-      ad: (r['Ad name'] || r['Ad'] || r['Keyword'] || r['Search Keyword'] || 'Unknown Ad').trim(),
+      ad: (r['Ad name'] || r['Ad'] || r['Keyword'] || r['Search keyword'] || r['Search Keyword'] || r['Search term'] || 'Unknown Ad').trim(),
       age: r['Age'] || 'Unknown',
       gender: r['Gender'] || 'Unknown',
       
@@ -741,6 +751,7 @@ function parseRawRow(r, month, mIndex, w) {
       addCart: parseNum(r['Website adds to cart']) || parseNum(r['Add to cart']) || parseNum(r['Adds to cart']) || 0,
       purchases: parseNum(r['Website purchases']) || parseNum(r['Conversions']) || parseNum(r['Purchase']) || parseNum(r['Purchases']) || 0,
       convValue: parseNum(r['Website purchases conversion value']) || parseNum(r['Conv. value']) || parseNum(r['Revenue']) || 0,
+      imprTopPct: parseNum(r['Impr. (Top) %']) || parseNum(r['Impr. (top) %']) || parseNum(r['Impr. (Top)']) || 0,
       
       imageUrl: r['Image URL'] || r['Image'] || ''
     };
@@ -1166,12 +1177,10 @@ function renderKPIs() {
 
   let overviewKPIs = [];
   let costKPIs = [];
-  let rowClassOverview = '';
-  let rowClassCost = '';
+  let rowClassOverview = 'row3';
+  let rowClassCost = 'row3';
 
   if (currentPlatform === 'facebook') {
-    rowClassOverview = 'row3'; 
-    rowClassCost = 'row3';     
     overviewKPIs = [
       card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend, labelC, labelP), 'Amount spent (THB)', 'var(--blue)'),
       card(iconReach, 'Reach', formatNum(reach), getDiffHtml(cData.reach, pData.reach, labelC, labelP), 'Unique people reached', 'var(--emerald)'),
@@ -1189,8 +1198,6 @@ function renderKPIs() {
       card(iconFreq, 'Frequency', freq.toFixed(2), getDiffHtml(cData.freq, pData.freq, labelC, labelP, true), 'ความถี่เฉลี่ยต่อคน', 'var(--accent)', '1.5 - 3.0')
     ];
   } else if (currentPlatform === 'google') {
-    rowClassOverview = 'row3';
-    rowClassCost = 'row3';
     overviewKPIs = [
       card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend, labelC, labelP), 'Amount spent (THB)', 'var(--blue)'),
       card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cData.impressions, pData.impressions, labelC, labelP), 'Total ad impressions', 'var(--purple)'),
@@ -1212,33 +1219,6 @@ function renderKPIs() {
       Benchmark ref: E-commerce Industry Average (Thailand) | % Diff คำนวณตาม Filter Comparison
     </div>
   `;
-}
-
-function updateSourceLabel() {
-  const sourceLabel = document.getElementById('dataStatusLabel');
-  if (sourceLabel) {
-    const isSampleOrEmpty = (currentSource === 'ไม่มีข้อมูล' || !currentSource);
-    const color = isSampleOrEmpty ? 'var(--accent)' : 'var(--emerald)';
-    sourceLabel.innerHTML = `<span style="color:${color}">●</span> ${currentSource || 'ไม่มีข้อมูล'}`;
-  }
-}
-
-function formatNum(n) { return new Intl.NumberFormat('th-TH').format(Math.round(n)); }
-function formatCurrency(n) { return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n); }
-
-function renderAll() { 
-  const compFilter = document.getElementById('filterComparison');
-  if(compFilter) {
-      document.querySelectorAll('.kpi-diff, .table-diff-icon, .pyramid-diff-badge').forEach(el => el.style.opacity = '0.5'); 
-  }
-
-  renderKPIs(); 
-  renderFunnel(); 
-  renderSalesSummary();
-  if (currentPlatform === 'facebook') renderCharts(); 
-  renderTrendCharts();
-  renderTopAds();
-  renderTable(); 
 }
 
 function renderFunnel() {
@@ -1320,8 +1300,23 @@ function renderFunnel() {
 }
 
 let currentTopAdSort = 'spend';
+let kwSortCol = 'spend';
+let kwSortAsc = false;
+let kwLimit = 10;
+
 window.updateTopAdSort = function() {
   currentTopAdSort = document.getElementById('topAdSortSelect').value;
+  renderTopAds();
+};
+
+window.handleKwSort = function(col) {
+  if (kwSortCol === col) kwSortAsc = !kwSortAsc;
+  else { kwSortCol = col; kwSortAsc = false; }
+  renderTopAds();
+};
+
+window.changeKwLimit = function(val) {
+  kwLimit = parseInt(val);
   renderTopAds();
 };
 
@@ -1334,112 +1329,189 @@ window.scrollCarousel = function(direction) {
 function renderTopAds() {
   const isGoogle = currentPlatform === 'google';
   let baseData = globalData.filter(r => r.month === currentMonth && matchesCampaign(r));
-  
-  let d = [];
-  if (isGoogle) {
-      let kwData = baseData.filter(r => r.rowType === 'keyword');
-      if (kwData.length > 0) {
-          d = kwData;
-      } else {
-          d = baseData.filter(r => r.rowType === 'campaign');
-      }
-  } else {
-      d = baseData.filter(r => r.rowType === 'campaign');
-  }
-
-  const groupedObj = {};
-  
-  d.forEach(r => {
-    let key = r.ad || 'Unknown Ad';
-    if (!groupedObj[key]) {
-      groupedObj[key] = {
-        name: key, spend: 0, reach: 0, impressions: 0,
-        clicks: 0, lpViews: 0, purchases: 0, convValue: 0,
-        imageUrl: r.imageUrl || '' 
-      };
-    }
-    groupedObj[key].spend += r.spend;
-    groupedObj[key].reach += r.reach;
-    groupedObj[key].impressions += r.impressions;
-    groupedObj[key].clicks += r.clicks;
-    groupedObj[key].lpViews += r.lpViews;
-    groupedObj[key].purchases += r.purchases;
-    groupedObj[key].convValue += r.convValue;
-  });
-
-  let adList = Object.values(groupedObj).map(r => ({
-    ...r,
-    roas: r.spend > 0 ? r.convValue / r.spend : 0
-  }));
-
-  adList.sort((a, b) => b[currentTopAdSort] - a[currentTopAdSort]);
-  const top10 = adList.slice(0, 10);
-  
   const container = document.getElementById('topAdsContainer');
-  if (top10.length === 0) {
-      container.innerHTML = `<div style="width: 100%; text-align: center; color: var(--muted); font-size: 13px; padding: 20px;">ไม่มีข้อมูล ${isGoogle ? 'Keyword' : 'โฆษณา'}</div>`;
-      return;
-  }
+  const btnLeft = document.getElementById('carouselBtnLeft');
+  const btnRight = document.getElementById('carouselBtnRight');
+  
+  if (isGoogle) {
+      if(btnLeft) btnLeft.style.display = 'none';
+      if(btnRight) btnRight.style.display = 'none';
+      container.className = 'table-responsive';
+      container.style.cssText = 'width: 100%; overflow-x: auto; margin: 0; display: block; border: 1px solid var(--border); border-radius: 8px;';
+      
+      let kwData = baseData.filter(r => r.rowType === 'keyword');
+      let d = kwData.length > 0 ? kwData : baseData.filter(r => r.rowType === 'campaign');
 
-  let html = '';
-  top10.forEach((ad, index) => {
-      let imageHtml = '';
-      if (isGoogle) {
-          imageHtml = `<div style="width: 100%; aspect-ratio: 1/1; background: var(--surface); border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); margin-bottom: 4px;"><svg width="40" height="40" stroke="var(--primary)" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>`;
-      } else {
+      const groupedObj = {};
+      d.forEach(r => {
+        let key = (r.ad || 'Unknown Keyword') + '|||' + (r.adset || 'Unknown Ad Group');
+        if (!groupedObj[key]) {
+          groupedObj[key] = {
+            name: r.ad || 'Unknown Keyword',
+            adset: r.adset || 'Unknown Ad Group',
+            spend: 0, impressions: 0, clicks: 0, imprTopAbs: 0
+          };
+        }
+        groupedObj[key].spend += r.spend;
+        groupedObj[key].impressions += r.impressions;
+        groupedObj[key].clicks += r.clicks;
+        groupedObj[key].imprTopAbs += r.impressions * ((r.imprTopPct || 0) / 100);
+      });
+
+      let adList = Object.values(groupedObj).map(r => ({
+        ...r,
+        avgCpc: r.clicks > 0 ? r.spend / r.clicks : 0,
+        ctr: r.impressions > 0 ? (r.clicks / r.impressions) * 100 : 0,
+        imprTopPct: r.impressions > 0 ? (r.imprTopAbs / r.impressions) * 100 : 0
+      }));
+
+      adList.sort((a, b) => {
+        let valA = a[kwSortCol];
+        let valB = b[kwSortCol];
+        if (typeof valA === 'string') return kwSortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+        return kwSortAsc ? valA - valB : valB - valA;
+      });
+
+      const topX = adList.slice(0, kwLimit);
+      
+      if (topX.length === 0) {
+          container.innerHTML = `<div style="width: 100%; text-align: center; color: var(--muted); font-size: 13px; padding: 20px;">ไม่มีข้อมูล Keyword</div>`;
+          return;
+      }
+
+      const getSortIcon = (col) => kwSortCol === col ? (kwSortAsc ? '▲' : '▼') : '';
+
+      let html = `<table style="width: 100%; border-collapse: collapse; min-width: 800px; text-align: left;">
+        <thead>
+          <tr>
+            <th class="sortable" onclick="handleKwSort('name')" style="background:#ececec; padding:12px 16px; border:none; white-space:nowrap; color: #4B5563;">Keyword <span class="sort-icon">${getSortIcon('name')}</span></th>
+            <th class="sortable" onclick="handleKwSort('adset')" style="background:#ececec; padding:12px 16px; border:none; white-space:nowrap; color: #4B5563;">Ad group <span class="sort-icon">${getSortIcon('adset')}</span></th>
+            <th class="sortable" onclick="handleKwSort('spend')" style="background:#ececec; padding:12px 16px; border:none; white-space:nowrap; text-align:right; color: #4B5563;">Cost (฿) <span class="sort-icon">${getSortIcon('spend')}</span></th>
+            <th class="sortable" onclick="handleKwSort('impressions')" style="background:#ececec; padding:12px 16px; border:none; white-space:nowrap; text-align:right; color: #4B5563;">Impr. <span class="sort-icon">${getSortIcon('impressions')}</span></th>
+            <th class="sortable" onclick="handleKwSort('clicks')" style="background:#ececec; padding:12px 16px; border:none; white-space:nowrap; text-align:right; color: #4B5563;">Clicks <span class="sort-icon">${getSortIcon('clicks')}</span></th>
+            <th class="sortable" onclick="handleKwSort('avgCpc')" style="background:#ececec; padding:12px 16px; border:none; white-space:nowrap; text-align:right; color: #4B5563;">Avg. CPC (฿) <span class="sort-icon">${getSortIcon('avgCpc')}</span></th>
+            <th class="sortable" onclick="handleKwSort('ctr')" style="background:#ececec; padding:12px 16px; border:none; white-space:nowrap; text-align:right; color: #4B5563;">CTR <span class="sort-icon">${getSortIcon('ctr')}</span></th>
+            <th class="sortable" onclick="handleKwSort('imprTopPct')" style="background:#ececec; padding:12px 16px; border:none; white-space:nowrap; text-align:right; color: #4B5563;">Impr. (Top) % <span class="sort-icon">${getSortIcon('imprTopPct')}</span></th>
+          </tr>
+        </thead>
+        <tbody>`;
+        
+      topX.forEach((ad, index) => {
+          const bg = index % 2 === 0 ? '#ffffff' : '#f9f9f9';
+          html += `<tr style="background: ${bg}; border-top: 1px solid var(--border); transition: background 0.2s;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='${bg}'">
+            <td style="padding: 12px 16px; color: #111827; font-weight: 500;">${ad.name}</td>
+            <td style="padding: 12px 16px; color: var(--text-secondary); font-size: 12.5px;">${ad.adset}</td>
+            <td style="padding: 12px 16px; color: #111827; text-align:right; font-weight: 600;">฿${formatNum(ad.spend)}</td>
+            <td style="padding: 12px 16px; color: #111827; text-align:right;">${formatNum(ad.impressions)}</td>
+            <td style="padding: 12px 16px; color: #111827; text-align:right;">${formatNum(ad.clicks)}</td>
+            <td style="padding: 12px 16px; color: var(--primary); text-align:right;">฿${ad.avgCpc.toFixed(2)}</td>
+            <td style="padding: 12px 16px; color: #111827; text-align:right;">${ad.ctr.toFixed(2)}%</td>
+            <td style="padding: 12px 16px; color: var(--emerald); text-align:right; font-weight: 600;">${ad.imprTopPct.toFixed(2)}%</td>
+          </tr>`;
+      });
+      html += `</tbody></table>`;
+      
+      // Limit Selection Dropdown
+      html += `
+        <div style="display: flex; justify-content: flex-end; align-items: center; padding: 12px 16px; background: var(--card); border-top: 1px solid var(--border); font-size: 13px; color: var(--text-secondary);">
+            <span style="margin-right: 8px;">จำนวนที่แสดง (Rows per page):</span>
+            <select onchange="changeKwLimit(this.value)" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); outline: none; background: var(--surface); color: var(--text); cursor: pointer; font-family: 'Inter', sans-serif;">
+                ${[10, 20, 30, 40, 50, 100, 200].map(val => `<option value="${val}" ${kwLimit === val ? 'selected' : ''}>${val}</option>`).join('')}
+            </select>
+        </div>
+      `;
+      container.innerHTML = html;
+
+  } else {
+      if(btnLeft) btnLeft.style.display = 'flex';
+      if(btnRight) btnRight.style.display = 'flex';
+      container.className = 'top-ads-carousel';
+      container.style.cssText = ''; 
+      
+      let d = baseData.filter(r => r.rowType === 'campaign');
+      const groupedObj = {};
+      
+      d.forEach(r => {
+        let key = r.ad || 'Unknown Ad';
+        if (!groupedObj[key]) {
+          groupedObj[key] = {
+            name: key, spend: 0, reach: 0, impressions: 0,
+            clicks: 0, lpViews: 0, purchases: 0, convValue: 0,
+            imageUrl: r.imageUrl || '' 
+          };
+        }
+        groupedObj[key].spend += r.spend;
+        groupedObj[key].reach += r.reach;
+        groupedObj[key].impressions += r.impressions;
+        groupedObj[key].clicks += r.clicks;
+        groupedObj[key].lpViews += r.lpViews;
+        groupedObj[key].purchases += r.purchases;
+        groupedObj[key].convValue += r.convValue;
+      });
+
+      let adList = Object.values(groupedObj).map(r => ({
+        ...r, roas: r.spend > 0 ? r.convValue / r.spend : 0
+      }));
+
+      adList.sort((a, b) => b[currentTopAdSort] - a[currentTopAdSort]);
+      const top10 = adList.slice(0, 10);
+      
+      if (top10.length === 0) {
+          container.innerHTML = `<div style="width: 100%; text-align: center; color: var(--muted); font-size: 13px; padding: 20px;">ไม่มีข้อมูลโฆษณา</div>`;
+          return;
+      }
+
+      let html = '';
+      top10.forEach((ad, index) => {
           const adNameSafe = encodeURIComponent(ad.name.trim());
           const imgPath = `./data/${currentPlatform}/picture/${adNameSafe}.jpg`;
           const fallbackPngPath = `./data/${currentPlatform}/picture/${adNameSafe}.png`;
           const defaultSvg = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f1f5f9'/%3E%3Csvg x='150' y='130' width='100' height='100' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpolyline points='21 15 16 10 5 21'/%3E%3C/svg%3E%3Ctext x='50%25' y='270' font-size='18' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%2394a3b8'%3EAd ${index+1}%3C/text%3E%3C/svg%3E`;
-          imageHtml = `<img src="${imgPath}" onerror="if(!this.dataset.pngTried){this.dataset.pngTried='true';this.src='${fallbackPngPath}';}else{this.onerror=null;this.src='${defaultSvg}';}" alt="Ad Image" class="top-ad-img">`;
-      }
-      
-      html += `
-          <div class="top-ad-card">
-              ${imageHtml}
-              <div class="top-ad-title" title="${ad.name}">${index + 1}. ${ad.name}</div>
-              <div class="top-ad-stats">
-                  <div class="top-ad-stat-item">
-                      <span class="top-ad-stat-label">Spend</span>
-                      <span class="top-ad-stat-value">฿${formatNum(ad.spend)}</span>
-                  </div>
-                  ${!isGoogle ? `
-                  <div class="top-ad-stat-item">
-                      <span class="top-ad-stat-label">Reach</span>
-                      <span class="top-ad-stat-value">${formatNum(ad.reach)}</span>
-                  </div>
-                  ` : ''}
-                  <div class="top-ad-stat-item">
-                      <span class="top-ad-stat-label">Impressions</span>
-                      <span class="top-ad-stat-value">${formatNum(ad.impressions)}</span>
-                  </div>
-                  <div class="top-ad-stat-item">
-                      <span class="top-ad-stat-label">${isGoogle ? 'Clicks' : 'Link Clicks'}</span>
-                      <span class="top-ad-stat-value">${formatNum(ad.clicks)}</span>
-                  </div>
-                  ${!isGoogle ? `
-                  <div class="top-ad-stat-item">
-                      <span class="top-ad-stat-label">LP Views</span>
-                      <span class="top-ad-stat-value">${formatNum(ad.lpViews)}</span>
-                  </div>
-                  ` : ''}
-                  <div class="top-ad-stat-item">
-                      <span class="top-ad-stat-label">Purchases</span>
-                      <span class="top-ad-stat-value">${formatNum(ad.purchases)}</span>
-                  </div>
-                  <div class="top-ad-stat-item" style="grid-column: 1 / -1;">
-                      <span class="top-ad-stat-label">${isGoogle ? 'Revenue' : 'Conv. Value'}</span>
-                      <span class="top-ad-stat-value" style="color: var(--emerald);">฿${formatNum(ad.convValue)}</span>
-                  </div>
-                  <div class="top-ad-stat-item" style="grid-column: 1 / -1; padding-top: 4px; border-top: 1px solid var(--border);">
-                      <span class="top-ad-stat-label">ROAS</span>
-                      <span class="top-ad-stat-value" style="color: var(--primary); font-size: 14px;">${ad.roas.toFixed(2)}x</span>
+          let imageHtml = `<img src="${imgPath}" onerror="if(!this.dataset.pngTried){this.dataset.pngTried='true';this.src='${fallbackPngPath}';}else{this.onerror=null;this.src='${defaultSvg}';}" alt="Ad Image" class="top-ad-img">`;
+          
+          html += `
+              <div class="top-ad-card">
+                  ${imageHtml}
+                  <div class="top-ad-title" title="${ad.name}">${index + 1}. ${ad.name}</div>
+                  <div class="top-ad-stats">
+                      <div class="top-ad-stat-item">
+                          <span class="top-ad-stat-label">Spend</span>
+                          <span class="top-ad-stat-value">฿${formatNum(ad.spend)}</span>
+                      </div>
+                      <div class="top-ad-stat-item">
+                          <span class="top-ad-stat-label">Reach</span>
+                          <span class="top-ad-stat-value">${formatNum(ad.reach)}</span>
+                      </div>
+                      <div class="top-ad-stat-item">
+                          <span class="top-ad-stat-label">Impressions</span>
+                          <span class="top-ad-stat-value">${formatNum(ad.impressions)}</span>
+                      </div>
+                      <div class="top-ad-stat-item">
+                          <span class="top-ad-stat-label">Link Clicks</span>
+                          <span class="top-ad-stat-value">${formatNum(ad.clicks)}</span>
+                      </div>
+                      <div class="top-ad-stat-item">
+                          <span class="top-ad-stat-label">LP Views</span>
+                          <span class="top-ad-stat-value">${formatNum(ad.lpViews)}</span>
+                      </div>
+                      <div class="top-ad-stat-item">
+                          <span class="top-ad-stat-label">Purchases</span>
+                          <span class="top-ad-stat-value">${formatNum(ad.purchases)}</span>
+                      </div>
+                      <div class="top-ad-stat-item" style="grid-column: 1 / -1;">
+                          <span class="top-ad-stat-label">Conv. Value</span>
+                          <span class="top-ad-stat-value" style="color: var(--emerald);">฿${formatNum(ad.convValue)}</span>
+                      </div>
+                      <div class="top-ad-stat-item" style="grid-column: 1 / -1; padding-top: 4px; border-top: 1px solid var(--border);">
+                          <span class="top-ad-stat-label">ROAS</span>
+                          <span class="top-ad-stat-value" style="color: var(--primary); font-size: 14px;">${ad.roas.toFixed(2)}x</span>
+                      </div>
                   </div>
               </div>
-          </div>
-      `;
-  });
-  container.innerHTML = html;
+          `;
+      });
+      container.innerHTML = html;
+  }
 }
 
 function renderSalesSummary() {
@@ -1513,11 +1585,8 @@ function renderSalesSummary() {
   `;
 }
 
-const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64748B'];
-
 function renderCharts() {
   if (currentPlatform === 'google') return; 
-  
   const isDark = document.body.classList.contains('dark-mode');
   const textColor = isDark ? '#F8FAFC' : '#111827';
   const d = globalData.filter(r => r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
@@ -1544,11 +1613,7 @@ function renderCharts() {
   const selectedMetricLabel = metricLabels[currentDemoMetric];
   document.getElementById('demoChartSub').textContent = `การวิเคราะห์กลุ่มเป้าหมายแยกตามอายุและเพศ (อิงตาม${metricThLabels[currentDemoMetric]})`;
 
-  const genderColors = {
-    'male': '#3B82F6',   
-    'female': '#EC4899', 
-    'unknown': '#94A3B8' 
-  };
+  const genderColors = { 'male': '#3B82F6', 'female': '#EC4899', 'unknown': '#94A3B8' };
 
   if(charts.demo) charts.demo.destroy();
   charts.demo = new Chart(document.getElementById('demoChart'), {
@@ -1601,97 +1666,89 @@ function renderCharts() {
 }
 
 function renderTable() {
-  const d = globalData.filter(r => r.rowType !== 'keyword' && matchesCampaign(r));
-  
-  const monthlyAgg = {};
-  ALL_MONTHS.forEach((m, idx) => {
-      monthlyAgg[idx] = { spend: 0, reach: 0, impressions: 0, clicks: 0, lpViews: 0, addCart: 0, purchases: 0, convValue: 0 };
+  const isGoogle = currentPlatform === 'google';
+  const metrics = isGoogle ?
+      ['spend', 'impressions', 'clicks', 'addCart', 'purchases', 'convValue', 'roas', 'aov'] :
+      ['spend', 'reach', 'impressions', 'clicks', 'lpViews', 'addCart', 'purchases', 'convValue', 'roas', 'aov'];
+      
+  const metricNames = {
+      spend: 'Spending', reach: 'Reach', impressions: 'Impression',
+      clicks: 'Click', lpViews: 'Landing Page View', addCart: 'Add To cart',
+      purchases: 'Purchase', convValue: 'Revenue', roas: 'ROAS', aov: 'AOV'
+  };
+
+  let tableData = {};
+  metrics.forEach(m => {
+     tableData[m] = { total: 0 };
+     ALL_MONTHS.forEach(mon => tableData[m][mon] = 0);
   });
-  
-  let totalAgg = { spend: 0, reach: 0, impressions: 0, clicks: 0, lpViews: 0, addCart: 0, purchases: 0, convValue: 0 };
+
+  const d = globalData.filter(r => r.rowType !== 'keyword' && matchesCampaign(r));
 
   d.forEach(r => {
-      let mIdx = r.monthIndex;
-      if (monthlyAgg[mIdx]) {
-          monthlyAgg[mIdx].spend += r.spend;
-          monthlyAgg[mIdx].reach += r.reach;
-          monthlyAgg[mIdx].impressions += r.impressions;
-          monthlyAgg[mIdx].clicks += r.clicks;
-          monthlyAgg[mIdx].lpViews += r.lpViews;
-          monthlyAgg[mIdx].addCart += r.addCart;
-          monthlyAgg[mIdx].purchases += r.purchases;
-          monthlyAgg[mIdx].convValue += r.convValue;
-          
-          totalAgg.spend += r.spend;
-          totalAgg.reach += r.reach;
-          totalAgg.impressions += r.impressions;
-          totalAgg.clicks += r.clicks;
-          totalAgg.lpViews += r.lpViews;
-          totalAgg.addCart += r.addCart;
-          totalAgg.purchases += r.purchases;
-          totalAgg.convValue += r.convValue;
+      let mon = r.month;
+      tableData.spend[mon] += r.spend;
+      tableData.impressions[mon] += r.impressions;
+      tableData.clicks[mon] += r.clicks;
+      tableData.addCart[mon] += r.addCart;
+      tableData.purchases[mon] += r.purchases;
+      tableData.convValue[mon] += r.convValue;
+      if (!isGoogle) {
+          tableData.reach[mon] += r.reach;
+          tableData.lpViews[mon] += r.lpViews;
       }
   });
 
-  ALL_MONTHS.forEach((m, idx) => {
-      monthlyAgg[idx].roas = monthlyAgg[idx].spend > 0 ? (monthlyAgg[idx].convValue / monthlyAgg[idx].spend) : 0;
-      monthlyAgg[idx].aov = monthlyAgg[idx].purchases > 0 ? (monthlyAgg[idx].convValue / monthlyAgg[idx].purchases) : 0;
+  ALL_MONTHS.forEach(mon => {
+     tableData.spend.total += tableData.spend[mon];
+     tableData.impressions.total += tableData.impressions[mon];
+     tableData.clicks.total += tableData.clicks[mon];
+     tableData.addCart.total += tableData.addCart[mon];
+     tableData.purchases.total += tableData.purchases[mon];
+     tableData.convValue.total += tableData.convValue[mon];
+     if(!isGoogle){
+         tableData.reach.total += tableData.reach[mon];
+         tableData.lpViews.total += tableData.lpViews[mon];
+     }
+     tableData.roas[mon] = tableData.spend[mon] > 0 ? tableData.convValue[mon]/tableData.spend[mon] : 0;
+     tableData.aov[mon] = tableData.purchases[mon] > 0 ? tableData.convValue[mon]/tableData.purchases[mon] : 0;
   });
-  totalAgg.roas = totalAgg.spend > 0 ? (totalAgg.convValue / totalAgg.spend) : 0;
-  totalAgg.aov = totalAgg.purchases > 0 ? (totalAgg.convValue / totalAgg.purchases) : 0;
 
-  let headerHtml = `<th style="background: #ececec; border: none;"></th>`;
-  ALL_MONTHS.forEach(m => {
-      headerHtml += `<th>${m}</th>`;
-  });
-  headerHtml += `<th class="total-col" style="color: #F43F5E;">Total</th>`;
+  tableData.roas.total = tableData.spend.total > 0 ? tableData.convValue.total/tableData.spend.total : 0;
+  tableData.aov.total = tableData.purchases.total > 0 ? tableData.convValue.total/tableData.purchases.total : 0;
+
+  let headerHtml = `<th style="background:#ececec; border:none; padding:12px 16px;"></th>`;
+  ALL_MONTHS.forEach(mon => headerHtml += `<th style="background:#ececec; border:none; padding:12px 16px; text-align:center; color:#4B5563;">${mon}</th>`);
+  headerHtml += `<th style="background:#ececec; border:none; padding:12px 16px; text-align:center; color:#DC2626;">Total</th>`;
   document.getElementById('tableHeaderRow').innerHTML = headerHtml;
 
-  const metrics = [
-      { key: 'spend', label: 'Spending', format: 'currency' },
-      { key: 'reach', label: 'Reach', format: 'number' },
-      { key: 'impressions', label: 'Impression', format: 'number' },
-      { key: 'clicks', label: 'Click', format: 'number' },
-      { key: 'lpViews', label: 'Landing Page View', format: 'number' },
-      { key: 'addCart', label: 'Add To card', format: 'number' },
-      { key: 'purchases', label: 'Purchase', format: 'number' },
-      { key: 'convValue', label: 'Revenue', format: 'currency' },
-      { key: 'roas', label: 'ROAS', format: 'decimal' },
-      { key: 'aov', label: 'AOV', format: 'currency' }
-  ];
-
-  let tbodyHtml = '';
-  
-  metrics.forEach(metric => {
-      if (currentPlatform === 'google' && metric.key === 'lpViews') return;
-      if (currentPlatform === 'google' && metric.key === 'reach') return; 
-      
-      tbodyHtml += `<tr>`;
-      tbodyHtml += `<td class="metric-col">${metric.label}</td>`;
-      
-      ALL_MONTHS.forEach((m, idx) => {
-          let val = monthlyAgg[idx][metric.key];
-          let formattedVal = '';
-          if (val === 0) formattedVal = '-';
-          else if (metric.format === 'currency') formattedVal = formatNum(val);
-          else if (metric.format === 'number') formattedVal = formatNum(val);
-          else if (metric.format === 'decimal') formattedVal = val.toFixed(2);
-          
-          tbodyHtml += `<td class="num">${formattedVal}</td>`;
+  let bodyHtml = '';
+  metrics.forEach((m, idx) => {
+      const bg = idx % 2 === 0 ? '#ffffff' : '#f9f9f9';
+      bodyHtml += `<tr style="background:${bg};">`;
+      bodyHtml += `<td style="background:#f7f7f7; font-weight:600; padding:12px 16px; text-align:left; border:none; color:#111827;">${metricNames[m]}</td>`;
+      ALL_MONTHS.forEach(mon => {
+         let val = tableData[m][mon];
+         let formatted = formatNum(val);
+         if (m === 'roas') formatted = val.toFixed(2) + 'x';
+         if (m === 'spend' || m === 'convValue' || m === 'aov') formatted = '฿' + formatNum(val);
+         bodyHtml += `<td style="padding:12px 16px; text-align:center; border:none; color:#111827;">${formatted}</td>`;
       });
-      
-      let totalVal = totalAgg[metric.key];
-      let formattedTotal = '';
-      if (totalVal === 0) formattedTotal = '-';
-      else if (metric.format === 'currency') formattedTotal = formatNum(totalVal);
-      else if (metric.format === 'number') formattedTotal = formatNum(totalVal);
-      else if (metric.format === 'decimal') formattedTotal = totalVal.toFixed(2);
-      
-      tbodyHtml += `<td class="num total-col" style="color: #F43F5E;">${formattedTotal}</td>`;
-      tbodyHtml += `</tr>`;
+      let valT = tableData[m].total;
+      let formattedT = formatNum(valT);
+      if (m === 'roas') formattedT = valT.toFixed(2) + 'x';
+      if (m === 'spend' || m === 'convValue' || m === 'aov') formattedT = '฿' + formatNum(valT);
+      bodyHtml += `<td style="padding:12px 16px; text-align:center; border:none; font-weight:700; color:#DC2626;">${formattedT}</td>`;
+      bodyHtml += `</tr>`;
   });
+  document.getElementById('tableBody').innerHTML = bodyHtml;
+}
 
-  document.getElementById('tableBody').innerHTML = tbodyHtml;
+function applyFilters() { renderAll(); }
+function clearFilters() {
+  document.getElementById('filterCampaign').value = '';
+  document.getElementById('filterObjective').value = '';
+  renderAll();
 }
 
 function populateFilters() {
@@ -1701,16 +1758,6 @@ function populateFilters() {
   if (campaigns.includes(currentCamp)) {
       document.getElementById('filterCampaign').value = currentCamp;
   }
-}
-
-function applyFilters() {
-  renderAll();
-}
-
-function clearFilters() {
-  document.getElementById('filterCampaign').value = '';
-  document.getElementById('filterObjective').value = '';
-  renderAll();
 }
 
 function handleManualFileUpload(e) {
@@ -1802,15 +1849,6 @@ if (themeCheckbox) {
     renderTrendCharts();
   });
 }
-
-const settingsBtn = document.getElementById('settingsBtn');
-const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-const settingsDrawer = document.getElementById('settingsDrawer');
-const settingsOverlay = document.getElementById('settingsOverlay');
-settingsBtn?.addEventListener('click', () => { settingsOverlay.classList.add('show'); settingsDrawer.classList.add('open'); });
-const closeDrawer = () => { settingsOverlay.classList.remove('show'); settingsDrawer.classList.remove('open'); };
-closeDrawerBtn?.addEventListener('click', closeDrawer);
-settingsOverlay?.addEventListener('click', closeDrawer);
 </script>
 </body>
 </html>

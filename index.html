@@ -41,7 +41,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter','Noto Sans Thai',sans-serif; min-height: 100vh; line-height: 1.5; }
 
-    /* Header & Navigation */
     .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 32px 0 32px; display: flex; flex-direction: column; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
     .header-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; width: 100%; flex-wrap: wrap; gap: 16px; }
     .logo-area { display: flex; align-items: center; gap: 16px; }
@@ -51,12 +50,12 @@
     .logo-sub { font-size: 13px; color: var(--muted); font-weight: 500; }
     
     .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .header-select { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: 8px 32px 8px 16px; font-size: 14px; font-weight: 600; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; box-shadow: var(--shadow-sm); min-width: 150px; }
+    .header-select { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: 8px 32px 8px 16px; font-size: 14px; font-weight: 600; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; box-shadow: var(--shadow-sm); min-width: 150px; }
     body.dark-mode .header-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
     .header-select:focus { border-color: var(--primary); }
 
     .platform-tabs { display: flex; gap: 24px; }
-    .platform-tab { background: transparent; border: none; font-family: 'Inter', 'Noto Sans Thai', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-secondary); cursor: pointer; padding: 10px 4px; border-bottom: 2px solid transparent; transition: all .2s; display: flex; align-items: center; gap: 6px; }
+    .platform-tab { background: transparent; border: none; font-size: 14px; font-weight: 600; color: var(--text-secondary); cursor: pointer; padding: 10px 4px; border-bottom: 2px solid transparent; transition: all .2s; display: flex; align-items: center; gap: 6px; }
     .platform-tab svg { width: 16px; height: 16px; opacity: 0.7; }
     .platform-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
     .platform-tab.active svg { opacity: 1; }
@@ -70,16 +69,14 @@
     .upload-label:hover { border-color: var(--primary); color: var(--primary); }
     input[type="file"] { display: none; }
 
-    /* Filters (Moved to Header, Size Reduced 10%) */
     .filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end; flex-grow: 1; }
-    .filter-row select { background: var(--card); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 6px 28px 6px 14px; font-size: 11.5px; font-weight: 500; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; box-shadow: var(--shadow-sm); }
+    .filter-row select { background: var(--card); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 6px 28px 6px 14px; font-size: 11.5px; font-weight: 500; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; box-shadow: var(--shadow-sm); }
     body.dark-mode .filter-row select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
     .filter-row select:focus { border-color: var(--primary); }
     .filter-label { font-size: 12.5px; font-weight: 500; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; margin-right: 4px; }
     .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 6px; color: var(--muted); padding: 6px 10px; font-size: 11.5px; font-weight: 500; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; }
     .clear-btn:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
 
-    /* KPIs */
     .kpi-group-label { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; margin-top: 16px; }
     .kpi-grid { display: grid; gap: 16px; margin-bottom: 8px; }
     .kpi-grid.row3 { grid-template-columns: repeat(3,1fr); }
@@ -91,17 +88,16 @@
     .kpi-icon { grid-area: icon; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
     .kpi-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.75; }
     .kpi-label { grid-area: label; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px; }
-    .kpi-value { grid-area: value; font-size: 24px; font-weight: 700; font-family: 'Inter',sans-serif; color: var(--text); line-height: 1.2; margin-bottom: 8px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .kpi-value { grid-area: value; font-size: 24px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
     .kpi-sub { grid-area: sub; font-size: 12px; color: var(--muted); }
     .kpi-benchmark { grid-area: bench; font-size: 11px; color: var(--text-secondary); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-    .kpi-benchmark .bm-val { color: var(--text); font-weight: 600; font-family: 'Inter',sans-serif; }
+    .kpi-benchmark .bm-val { color: var(--text); font-weight: 600; }
     
-    .kpi-diff { font-size: 11px; margin-left: 6px; display: inline-flex; align-items: center; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: help; }
+    .kpi-diff { font-size: 11px; margin-left: 6px; display: inline-flex; align-items: center; padding: 2px 6px; border-radius: 4px; font-weight: 600; cursor: help; }
     .kpi-diff.good { background: rgba(16,185,129,0.1); color: var(--emerald); }
     .kpi-diff.bad { background: rgba(244,63,94,0.1); color: #F43F5E; }
     .kpi-diff.neutral { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
 
-    /* Layout & Charts */
     .dashboard-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 8px; }
     .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-sm); }
@@ -115,7 +111,6 @@
     
     .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
 
-    /* Top Ads Carousel */
     .carousel-wrapper { position: relative; display: flex; align-items: center; margin-top: 16px; }
     .top-ads-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 16px; scroll-behavior: smooth; width: 100%; -ms-overflow-style: none; scrollbar-width: none; }
     .top-ads-carousel::-webkit-scrollbar { display: none; }
@@ -126,51 +121,50 @@
     .top-ad-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 8px; font-size: 11px; }
     .top-ad-stat-item { display: flex; flex-direction: column; }
     .top-ad-stat-label { color: var(--muted); margin-bottom: 2px; }
-    .top-ad-stat-value { font-weight: 600; color: var(--text); font-family: 'Inter', sans-serif; font-size: 12px; }
+    .top-ad-stat-value { font-weight: 600; color: var(--text); font-size: 12px; }
     .carousel-btn { position: absolute; top: 40%; transform: translateY(-50%); background: var(--card); border: 1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; box-shadow: var(--shadow); color: var(--text); transition: all 0.2s; }
     .carousel-btn:hover { color: var(--primary); border-color: var(--primary); }
     .carousel-btn.left { left: -18px; }
     .carousel-btn.right { right: -18px; }
 
-    /* Pyramid Funnel Styles */
-  .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
-  .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
-  .pyramid-step:hover { transform: translateY(-2px); }
-  .pyramid-step-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
-  .pyramid-icon { background: rgba(255,255,255,0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .pyramid-icon svg { width: 18px; height: 18px; stroke: white; }
-  .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; }
-  .pyramid-val { font-size: 18px; font-weight: 700; font-family: 'Inter', sans-serif; flex-shrink: 0; margin-left: 12px; }
-  .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
-  .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
-  
-  .pyramid-diff-badge { font-size: 10px; font-weight: 600; font-family: 'Inter', sans-serif; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 2px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); background: rgba(255, 255, 255, 0.8); }
-  .pyramid-diff-badge.good { color: var(--emerald); }
-  .pyramid-diff-badge.bad { color: #F43F5E; }
-  .pyramid-diff-badge.neutral { color: var(--muted); }
+    .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
+    .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
+    .pyramid-step:hover { transform: translateY(-2px); }
+    .pyramid-step-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .pyramid-icon { background: rgba(255,255,255,0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pyramid-icon svg { width: 18px; height: 18px; stroke: white; }
+    .pyramid-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; }
+    .pyramid-val { font-size: 18px; font-weight: 700; flex-shrink: 0; margin-left: 12px; }
+    .pyramid-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--card); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 4px; z-index: 10; white-space: nowrap; }
+    .pyramid-badge svg { color: inherit; width: 12px; height: 12px; }
+    .pyramid-diff-badge { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 2px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); background: rgba(255, 255, 255, 0.8); }
+    .pyramid-diff-badge.good { color: var(--emerald); }
+    .pyramid-diff-badge.bad { color: #F43F5E; }
+    .pyramid-diff-badge.neutral { color: var(--muted); }
 
-  /* Table */
     .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0; box-shadow: var(--shadow-sm); overflow: hidden; margin-top: 24px; }
     .table-header { padding: 24px 24px 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .table-responsive { width: 100%; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; min-width: 900px; text-align: left; }
-    th { font-size: 12px; font-weight: 600; color: var(--text-secondary); padding: 12px 24px; border-bottom: 1px solid var(--border); background: var(--surface); white-space: nowrap; }
-    td { padding: 16px 24px; font-size: 13px; color: var(--text); border-bottom: 1px solid var(--border); white-space: nowrap; }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: var(--surface); }
-    .sortable { cursor: pointer; user-select: none; transition: color 0.2s; }
-    .sortable:hover { color: var(--primary); }
-    .sort-icon { display: inline-block; width: 12px; margin-left: 4px; font-size: 10px; color: var(--primary); }
-    .num { font-family: 'Inter',sans-serif; font-variant-numeric: tabular-nums; }
-    .cost-cell { font-weight: 600; font-family: 'Inter',sans-serif; color: var(--text); }
+    table { width: 100%; border-collapse: collapse; min-width: 900px; text-align: center; border: none; }
     
-    .table-diff-icon { display: inline-block; margin-left: 6px; font-size: 12px; cursor: help; }
-    .table-diff-icon.good { color: var(--emerald); }
-    .table-diff-icon.bad { color: #F43F5E; }
-
+    /* Table Headers */
+    th { font-size: 13px; font-weight: 600; color: #111827; padding: 12px 16px; background: #ececec; white-space: nowrap; border: none; }
+    th.total-col { font-weight: 700; color: #111827; }
+    
+    /* Table Data Cells */
+    td { padding: 12px 16px; font-size: 13px; color: #111827; white-space: nowrap; border: none; }
+    td.metric-col { font-weight: 600; background: #f7f7f7 !important; text-align: left; }
+    td.total-col { font-weight: 700; }
+    
+    /* Alternating Row Colors (ignoring metric column) */
+    tbody tr:nth-child(odd) td:not(.metric-col) { background: #ffffff; }
+    tbody tr:nth-child(even) td:not(.metric-col) { background: #f9f9f9; }
+    
+    /* Utility class for numbers */
+    .num { font-variant-numeric: tabular-nums; }
+    
     #statusBar { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
 
-    /* Settings Drawer */
     .drawer-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
     .drawer-overlay.show { opacity: 1; visibility: visible; }
     .drawer { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: var(--card); z-index: 1000; box-shadow: -4px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; display: flex; flex-direction: column; border-left: 1px solid var(--border); }
@@ -339,7 +333,7 @@
         <div class="chart-card wide" id="demoChartCard">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 8px;">
             <div class="chart-title" id="demoChartTitle">Demographics by Age & Gender</div>
-            <select id="demoMetricSelect" onchange="updateDemoMetric()" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none;">
+            <select id="demoMetricSelect" onchange="updateDemoMetric()" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; cursor: pointer; outline: none;">
               <option value="spend">Spend (THB)</option>
               <option value="reach">Reach</option>
               <option value="impressions">Impressions</option>
@@ -393,7 +387,7 @@
               <div class="chart-title" id="topAdsTitle">Top Ads Performance</div>
               <div class="chart-sub" id="topAdsSubTitle" style="margin-bottom: 0;">โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)</div>
             </div>
-            <select id="topAdSortSelect" onchange="updateTopAdSort()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none; box-shadow: var(--shadow-sm);">
+            <select id="topAdSortSelect" onchange="updateTopAdSort()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; cursor: pointer; outline: none; box-shadow: var(--shadow-sm);">
               <option value="spend">เรียงตาม Spend (สูงสุด)</option>
               <option value="reach" id="optTopReach">เรียงตาม Reach (สูงสุด)</option>
               <option value="impressions">เรียงตาม Impressions (สูงสุด)</option>
@@ -416,42 +410,29 @@
       </div>
     </div>
 
-    <!-- Data Detail Table (Enabled for both platforms) -->
     <div class="table-card" id="tableCard" style="margin-top:24px;">
       <div class="table-header" style="flex-direction: column; align-items: flex-start;">
         <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
-          <div class="chart-title">Performance Details</div>
-          <div class="chart-sub" id="tableCount" style="margin-bottom:0;"></div>
-        </div>
-        
-        <!-- Table View Tabs -->
-        <div class="platform-tabs" id="tableTabs" style="border-top: none; padding-top: 8px; margin-bottom: 8px; width: 100%;">
-          <button id="tab-table-campaign" class="platform-tab active" onclick="switchTableView('campaign')">Campaign Performance</button>
-          <button id="tab-table-adset" class="platform-tab" onclick="switchTableView('adset')"><span id="tab-adset-text">Ad Set Performance</span></button>
-          <button id="tab-table-ad" class="platform-tab" onclick="switchTableView('ad')"><span id="tab-ad-text">Ad Performance</span></button>
+          <div class="chart-title">Yearly Performance Summary</div>
+          <div class="chart-sub" id="tableCount" style="margin-bottom:0;">รวมผลลัพธ์ทุก Campaign แบบรายเดือนตลอดปี</div>
         </div>
       </div>
       <div class="table-responsive">
-        <table>
-          <thead><tr>
-            <th class="sortable" onclick="handleSort('name')"><span id="th-name-label">Campaign Name</span> <span class="sort-icon" id="sortIcon-name"></span></th>
-            <th class="sortable" onclick="handleSort('spend')">Spend (฿) <span class="sort-icon" id="sortIcon-spend"></span></th>
-            <th class="sortable" onclick="handleSort('reach')">Reach <span class="sort-icon" id="sortIcon-reach"></span></th>
-            <th class="sortable" onclick="handleSort('impressions')">Impressions <span class="sort-icon" id="sortIcon-impressions"></span></th>
-            <th class="sortable" onclick="handleSort('clicks')"><span id="th-clicks-label">Link Clicks</span> <span class="sort-icon" id="sortIcon-clicks"></span></th>
-            <th class="sortable" onclick="handleSort('addCart')">Adds to Cart <span class="sort-icon" id="sortIcon-addCart"></span></th>
-            <th class="sortable" onclick="handleSort('purchases')">Purchases <span class="sort-icon" id="sortIcon-purchases"></span></th>
-            <th class="sortable" onclick="handleSort('convValue')"><span id="th-revenue-label">Conv. Value (฿)</span> <span class="sort-icon" id="sortIcon-convValue"></span></th>
-            <th class="sortable" onclick="handleSort('roas')">ROAS <span class="sort-icon" id="sortIcon-roas"></span></th>
-          </tr></thead>
-          <tbody id="tableBody"></tbody>
+        <table id="monthlySummaryTable">
+          <thead>
+            <tr id="tableHeaderRow">
+              <!-- Injected via JS -->
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Injected via JS -->
+          </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Settings Drawer -->
 <div id="settingsOverlay" class="drawer-overlay"></div>
 <div id="settingsDrawer" class="drawer">
   <div class="drawer-header">
@@ -494,7 +475,6 @@
 </div>
 
 <script>
-// ─── DATA & INIT ──────────────────────────────
 const initialCSVData = `"Reporting starts","Reporting ends","Week","Campaign name","Ad set name","Ad name","Age","Gender","Amount spent (THB)","Cost","Reach","Impressions","Impr.","Link clicks","Clicks","Landing page views","Website adds to cart","Add to cart","Website purchases","Purchase","Website purchases conversion value","Revenue","Image URL"
 "2026-07-01","2026-07-07","W1","Sample Campaign","Sample Adset","Sample Ad","25-34","male","1500","1500","5000","6000","6000","150","150","100","20","20","5","5","15000","15000",""`;
 
@@ -545,9 +525,6 @@ window.switchPlatform = async function(platform) {
   const isGoogle = platform === 'google';
   document.getElementById('demoChartCard').style.display = isGoogle ? 'none' : 'block';
   
-  // ให้ Google Ads กลับมาแสดง Table เหมือน Facebook Ads
-  document.getElementById('tableCard').style.display = 'block'; 
-
   document.getElementById('topAdsTitle').textContent = isGoogle ? 'Keyword Performance' : 'Top Ads Performance';
   document.getElementById('topAdsSubTitle').textContent = isGoogle ? 'คีย์เวิร์ดที่มีประสิทธิภาพสูงสุด (Top 10)' : 'โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)';
   
@@ -556,20 +533,6 @@ window.switchPlatform = async function(platform) {
   if (optReach) optReach.style.display = isGoogle ? 'none' : 'block';
   if (optLpViews) optLpViews.style.display = isGoogle ? 'none' : 'block';
   
-  // อัปเดตข้อความบน Tab ของตาราง
-  document.getElementById('tab-adset-text').textContent = isGoogle ? 'Ad Group Performance' : 'Ad Set Performance';
-  document.getElementById('tab-ad-text').textContent = isGoogle ? 'Keyword Performance' : 'Ad Performance';
-  
-  // อัปเดตหัวคอลัมน์ตารางให้ตรงกับ Platform
-  document.getElementById('th-clicks-label').textContent = isGoogle ? 'Clicks' : 'Link Clicks';
-  document.getElementById('th-revenue-label').textContent = isGoogle ? 'Revenue (฿)' : 'Conv. Value (฿)';
-
-  // Reset Table View กลับไปหน้าแรกเสมอตอนเปลี่ยน Platform
-  currentTableView = 'campaign';
-  document.querySelectorAll('#tableTabs .platform-tab').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-table-campaign').classList.add('active');
-  document.getElementById('th-name-label').textContent = 'Campaign Name';
-
   await switchMonth(currentMonth, true); 
 };
 
@@ -610,7 +573,6 @@ window.switchMonth = async function(month, forceRefresh = false) {
   fetchAllBackground();
 };
 
-// --- SMART PARSER FOR GOOGLE ADS DATA ---
 function processRawArrayData(data2D) {
     let headerIdx = data2D.findIndex(row => {
         if (!Array.isArray(row)) return false;
@@ -671,7 +633,6 @@ async function loadFile(platform, month, w, mIndex) {
 
     const weekName = w.toLowerCase().replace('w', 'week');
     
-    // Load Campaign File
     const csvPath = `./data/${platform}/${platform}-${month}-${weekName}.csv`;
     const xlsxPath = `./data/${platform}/${platform}-${month}-${weekName}.xlsx`;
 
@@ -697,7 +658,6 @@ async function loadFile(platform, month, w, mIndex) {
         }
     } catch(e) {}
 
-    // Load Keyword File for Google Ads
     if (platform === 'google') {
         const kwCsvPath = `./data/google/Keyword/Keyword-${month}-${weekName}.csv`;
         const kwXlsxPath = `./data/google/Keyword/Keyword-${month}-${weekName}.xlsx`;
@@ -738,10 +698,9 @@ async function fetchAllBackground() {
     renderKPIs(); 
     renderFunnel();
     renderSalesSummary();
-    renderTable(); // แสดงตารางทั้ง Facebook และ Google
+    renderTable(); 
 }
 
-// ─── DATE & DATA PARSING ───────────────────
 function safeParseDate(dStr) {
     if (!dStr) return NaN;
     if (dStr.match(/^\d{4}-\d{2}-\d{2}/)) return new Date(dStr);
@@ -799,7 +758,6 @@ function matchesCampaign(r) {
     return true;
 }
 
-// ─── SMART MERGE LOGIC ────────────────────
 function getTrendGroupingMap(data) {
     const weekDateRange = {};
     data.forEach(r => {
@@ -846,7 +804,6 @@ function getTrendGroupingMap(data) {
     return { mergeMap, labelMap };
 }
 
-// ─── COMPARISON LOGIC ───────────────────
 function getComparisonData(targetDataArr = null, specificGroupingKey = null, allowKeyword = false) {
     let rawData = targetDataArr || globalData;
     let baseData = rawData.filter(r => {
@@ -1003,7 +960,6 @@ const getDiffHtml = (currentVal, previousVal, labelCurrent, labelPrevious, rever
     return `<span class="kpi-diff ${colorClass}" title="${titleText}">${sign} ${Math.abs(diff).toFixed(1)}%</span>`;
 };
 
-// ─── TREND CHARTS LOGIC ────────────────────
 function renderTrendCharts() {
     let chartData = globalData.filter(r => r.rowType !== 'keyword' && matchesCampaign(r));
     let labels = [];
@@ -1162,7 +1118,6 @@ function renderTrendCharts() {
     });
 }
 
-// ─── KPIS (With Universal Comparison) ────────────────
 function renderKPIs() {
   const currentMonthData = globalData.filter(r => r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
   
@@ -1211,10 +1166,12 @@ function renderKPIs() {
 
   let overviewKPIs = [];
   let costKPIs = [];
-  let rowClassOverview = 'row3';
-  let rowClassCost = 'row3';
+  let rowClassOverview = '';
+  let rowClassCost = '';
 
   if (currentPlatform === 'facebook') {
+    rowClassOverview = 'row3'; 
+    rowClassCost = 'row3';     
     overviewKPIs = [
       card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend, labelC, labelP), 'Amount spent (THB)', 'var(--blue)'),
       card(iconReach, 'Reach', formatNum(reach), getDiffHtml(cData.reach, pData.reach, labelC, labelP), 'Unique people reached', 'var(--emerald)'),
@@ -1232,6 +1189,8 @@ function renderKPIs() {
       card(iconFreq, 'Frequency', freq.toFixed(2), getDiffHtml(cData.freq, pData.freq, labelC, labelP, true), 'ความถี่เฉลี่ยต่อคน', 'var(--accent)', '1.5 - 3.0')
     ];
   } else if (currentPlatform === 'google') {
+    rowClassOverview = 'row3';
+    rowClassCost = 'row3';
     overviewKPIs = [
       card(iconSpend, 'Spending', formatCurrency(spend), getDiffHtml(cData.spend, pData.spend, labelC, labelP), 'Amount spent (THB)', 'var(--blue)'),
       card(iconImpr, 'Impressions', formatNum(impressions), getDiffHtml(cData.impressions, pData.impressions, labelC, labelP), 'Total ad impressions', 'var(--purple)'),
@@ -1255,7 +1214,6 @@ function renderKPIs() {
   `;
 }
 
-// ─── GENERAL RENDERING ───────────────────────
 function updateSourceLabel() {
   const sourceLabel = document.getElementById('dataStatusLabel');
   if (sourceLabel) {
@@ -1283,7 +1241,6 @@ function renderAll() {
   renderTable(); 
 }
 
-// ─── FUNNEL (CUSTOMER JOURNEY) ─────────────
 function renderFunnel() {
   const isGoogle = currentPlatform === 'google';
   const d = globalData.filter(r => r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
@@ -1362,7 +1319,6 @@ function renderFunnel() {
   document.getElementById('funnelContainer').innerHTML = html;
 }
 
-// ─── TOP ADS PERFORMANCE / KEYWORD ───────────────────
 let currentTopAdSort = 'spend';
 window.updateTopAdSort = function() {
   currentTopAdSort = document.getElementById('topAdSortSelect').value;
@@ -1486,7 +1442,6 @@ function renderTopAds() {
   container.innerHTML = html;
 }
 
-// ─── SALES SUMMARY ─────────────────────────
 function renderSalesSummary() {
   const isGoogle = currentPlatform === 'google';
   const d = globalData.filter(r => r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
@@ -1558,7 +1513,6 @@ function renderSalesSummary() {
   `;
 }
 
-// ─── CHARTS (Demographics Hidden on Google Ads) ────────────────────────────────
 const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64748B'];
 
 function renderCharts() {
@@ -1646,124 +1600,100 @@ function renderCharts() {
   }
 }
 
-// ─── TABLE ─────────────────────────────────
-let currentTableView = 'campaign'; 
-let currentSortCol = 'spend';
-let currentSortAsc = false;
-
-window.switchTableView = function(view) {
-  currentTableView = view;
-  document.querySelectorAll('#tableTabs .platform-tab').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-table-' + view).classList.add('active');
-  const thName = document.getElementById('th-name-label');
-  if(view === 'campaign') thName.textContent = 'Campaign Name';
-  if(view === 'adset') thName.textContent = currentPlatform === 'google' ? 'Ad Group Name' : 'Ad Set Name';
-  if(view === 'ad') thName.textContent = currentPlatform === 'google' ? 'Keyword' : 'Ad Name';
-  renderTable();
-};
-
-window.handleSort = function(col) {
-  if (currentSortCol === col) {
-    currentSortAsc = !currentSortAsc;
-  } else {
-    currentSortCol = col;
-    currentSortAsc = col === 'name' ? true : false;
-  }
-  renderTable();
-};
-
 function renderTable() {
-  const isGoogle = currentPlatform === 'google';
-  const isKeywordView = isGoogle && currentTableView === 'ad';
-
-  const d = globalData.filter(r => {
-    if (isKeywordView) return r.rowType === 'keyword' && r.month === currentMonth && matchesCampaign(r);
-    return r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r);
+  const d = globalData.filter(r => r.rowType !== 'keyword' && matchesCampaign(r));
+  
+  const monthlyAgg = {};
+  ALL_MONTHS.forEach((m, idx) => {
+      monthlyAgg[idx] = { spend: 0, reach: 0, impressions: 0, clicks: 0, lpViews: 0, addCart: 0, purchases: 0, convValue: 0 };
   });
   
-  const groupedObj = {};
-  
+  let totalAgg = { spend: 0, reach: 0, impressions: 0, clicks: 0, lpViews: 0, addCart: 0, purchases: 0, convValue: 0 };
+
   d.forEach(r => {
-    let key = r.campaign || 'Unknown';
-    if (currentTableView === 'adset') key = r.adset || 'Unknown';
-    if (currentTableView === 'ad') key = r.ad || 'Unknown';
-
-    if (!groupedObj[key]) {
-      groupedObj[key] = {
-        name: key, spend: 0, reach: 0, impressions: 0,
-        clicks: 0, addCart: 0, purchases: 0, convValue: 0
-      };
-    }
-    groupedObj[key].spend += r.spend;
-    groupedObj[key].reach += r.reach;
-    groupedObj[key].impressions += r.impressions;
-    groupedObj[key].clicks += r.clicks;
-    groupedObj[key].addCart += r.addCart;
-    groupedObj[key].purchases += r.purchases;
-    groupedObj[key].convValue += r.convValue;
-  });
-
-  let tableData = Object.values(groupedObj).map(r => ({
-    ...r,
-    roas: r.spend > 0 ? r.convValue / r.spend : 0
-  }));
-
-  tableData.sort((a, b) => {
-    let valA = a[currentSortCol];
-    let valB = b[currentSortCol];
-    if (typeof valA === 'string') return currentSortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
-    return currentSortAsc ? valA - valB : valB - valA;
-  });
-
-  const cols = ['name','spend','reach','impressions','clicks','addCart','purchases','convValue','roas'];
-  cols.forEach(c => {
-    const el = document.getElementById(`sortIcon-${c}`);
-    if (el) el.innerHTML = c === currentSortCol ? (currentSortAsc ? '▲' : '▼') : '';
-  });
-
-  const getRowComparison = (rowName) => {
-      let field = 'campaign';
-      if(currentTableView === 'adset') field = 'adset';
-      if(currentTableView === 'ad') field = 'ad';
-      
-      let targetArr = null;
-      let allowKeyword = false;
-      if (isKeywordView) {
-          targetArr = globalData.filter(x => x.rowType === 'keyword');
-          allowKeyword = true;
+      let mIdx = r.monthIndex;
+      if (monthlyAgg[mIdx]) {
+          monthlyAgg[mIdx].spend += r.spend;
+          monthlyAgg[mIdx].reach += r.reach;
+          monthlyAgg[mIdx].impressions += r.impressions;
+          monthlyAgg[mIdx].clicks += r.clicks;
+          monthlyAgg[mIdx].lpViews += r.lpViews;
+          monthlyAgg[mIdx].addCart += r.addCart;
+          monthlyAgg[mIdx].purchases += r.purchases;
+          monthlyAgg[mIdx].convValue += r.convValue;
+          
+          totalAgg.spend += r.spend;
+          totalAgg.reach += r.reach;
+          totalAgg.impressions += r.impressions;
+          totalAgg.clicks += r.clicks;
+          totalAgg.lpViews += r.lpViews;
+          totalAgg.addCart += r.addCart;
+          totalAgg.purchases += r.purchases;
+          totalAgg.convValue += r.convValue;
       }
-      return getComparisonData(targetArr, {field: field, value: rowName}, allowKeyword);
-  };
+  });
 
-  document.getElementById('tableCount').textContent = `แสดง ${tableData.length} รายการ (เฉพาะเดือน ${currentMonth})`;
-  document.getElementById('tableBody').innerHTML = tableData.map(r => {
-    const comp = getRowComparison(r.name);
-    
-    const diffSpend = getDiffHtml(comp.c.spend, comp.p.spend, comp.labels.c, comp.labels.p, true, true);
-    const diffReach = getDiffHtml(comp.c.reach, comp.p.reach, comp.labels.c, comp.labels.p, false, true);
-    const diffImpr = getDiffHtml(comp.c.impressions, comp.p.impressions, comp.labels.c, comp.labels.p, false, true);
-    const diffClicks = getDiffHtml(comp.c.clicks, comp.p.clicks, comp.labels.c, comp.labels.p, false, true);
-    const diffAddCart = getDiffHtml(comp.c.addCart, comp.p.addCart, comp.labels.c, comp.labels.p, false, true);
-    const diffPurchases = getDiffHtml(comp.c.purchases, comp.p.purchases, comp.labels.c, comp.labels.p, false, true);
-    const diffConvVal = getDiffHtml(comp.c.convValue, comp.p.convValue, comp.labels.c, comp.labels.p, false, true);
-    const diffRoas = getDiffHtml(comp.c.roas, comp.p.roas, comp.labels.c, comp.labels.p, false, true);
+  ALL_MONTHS.forEach((m, idx) => {
+      monthlyAgg[idx].roas = monthlyAgg[idx].spend > 0 ? (monthlyAgg[idx].convValue / monthlyAgg[idx].spend) : 0;
+      monthlyAgg[idx].aov = monthlyAgg[idx].purchases > 0 ? (monthlyAgg[idx].convValue / monthlyAgg[idx].purchases) : 0;
+  });
+  totalAgg.roas = totalAgg.spend > 0 ? (totalAgg.convValue / totalAgg.spend) : 0;
+  totalAgg.aov = totalAgg.purchases > 0 ? (totalAgg.convValue / totalAgg.purchases) : 0;
 
-    return `
-    <tr>
-      <td title="${r.name}" style="max-width:240px; overflow: hidden; text-overflow: ellipsis;">${r.name}</td>
-      <td class="cost-cell">฿${formatNum(r.spend)}${diffSpend}</td>
-      <td class="num">${r.reach.toLocaleString()}${diffReach}</td>
-      <td class="num">${r.impressions.toLocaleString()}${diffImpr}</td>
-      <td class="num">${r.clicks.toLocaleString()}${diffClicks}</td>
-      <td class="num">${r.addCart.toLocaleString()}${diffAddCart}</td>
-      <td class="num">${r.purchases.toLocaleString()}${diffPurchases}</td>
-      <td class="num">฿${formatNum(r.convValue)}${diffConvVal}</td>
-      <td class="num" style="color:var(--emerald);font-weight:600;">${r.roas.toFixed(2)}x${diffRoas}</td>
-    </tr>
-  `}).join('');
+  let headerHtml = `<th style="background: #ececec; border: none;"></th>`;
+  ALL_MONTHS.forEach(m => {
+      headerHtml += `<th>${m}</th>`;
+  });
+  headerHtml += `<th class="total-col" style="color: #F43F5E;">Total</th>`;
+  document.getElementById('tableHeaderRow').innerHTML = headerHtml;
+
+  const metrics = [
+      { key: 'spend', label: 'Spending', format: 'currency' },
+      { key: 'reach', label: 'Reach', format: 'number' },
+      { key: 'impressions', label: 'Impression', format: 'number' },
+      { key: 'clicks', label: 'Click', format: 'number' },
+      { key: 'lpViews', label: 'Landing Page View', format: 'number' },
+      { key: 'addCart', label: 'Add To card', format: 'number' },
+      { key: 'purchases', label: 'Purchase', format: 'number' },
+      { key: 'convValue', label: 'Revenue', format: 'currency' },
+      { key: 'roas', label: 'ROAS', format: 'decimal' },
+      { key: 'aov', label: 'AOV', format: 'currency' }
+  ];
+
+  let tbodyHtml = '';
+  
+  metrics.forEach(metric => {
+      if (currentPlatform === 'google' && metric.key === 'lpViews') return;
+      if (currentPlatform === 'google' && metric.key === 'reach') return; 
+      
+      tbodyHtml += `<tr>`;
+      tbodyHtml += `<td class="metric-col">${metric.label}</td>`;
+      
+      ALL_MONTHS.forEach((m, idx) => {
+          let val = monthlyAgg[idx][metric.key];
+          let formattedVal = '';
+          if (val === 0) formattedVal = '-';
+          else if (metric.format === 'currency') formattedVal = formatNum(val);
+          else if (metric.format === 'number') formattedVal = formatNum(val);
+          else if (metric.format === 'decimal') formattedVal = val.toFixed(2);
+          
+          tbodyHtml += `<td class="num">${formattedVal}</td>`;
+      });
+      
+      let totalVal = totalAgg[metric.key];
+      let formattedTotal = '';
+      if (totalVal === 0) formattedTotal = '-';
+      else if (metric.format === 'currency') formattedTotal = formatNum(totalVal);
+      else if (metric.format === 'number') formattedTotal = formatNum(totalVal);
+      else if (metric.format === 'decimal') formattedTotal = totalVal.toFixed(2);
+      
+      tbodyHtml += `<td class="num total-col" style="color: #F43F5E;">${formattedTotal}</td>`;
+      tbodyHtml += `</tr>`;
+  });
+
+  document.getElementById('tableBody').innerHTML = tbodyHtml;
 }
 
-// ─── FILTER & UPLOAD ───────────────────────
 function populateFilters() {
   const campaigns = [...new Set(globalData.map(r=>r.campaign).filter(c=>c))].sort();
   const currentCamp = document.getElementById('filterCampaign').value;
@@ -1850,7 +1780,6 @@ function showStatus(msg) {
   setTimeout(()=>{ bar.style.display='none'; }, 4000);
 }
 
-// ─── UI & SETTINGS ─────────────────────────
 const themeCheckbox = document.getElementById('themeToggleCheckbox');
 function updateThemeIcon() {
   const isDark = document.body.classList.contains('dark-mode');

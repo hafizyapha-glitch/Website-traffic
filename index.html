@@ -1418,6 +1418,12 @@ function renderCharts() {
 
 function renderTrendCharts() {
     let chartData = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && matchesCampaign(r));
+    
+    // Fallback: ถ้าเป็นแท็บ Google Ads และไม่มีข้อมูลแคมเปญ ให้ใช้ข้อมูล Keyword มาทำกราฟ Trend แทน
+    if (chartData.length === 0 && currentPlatform === 'google') {
+        chartData = globalData.filter(r => r.platform === currentPlatform && r.rowType === 'keyword' && matchesCampaign(r));
+    }
+
     let labels = [];
     let aggregated = {};
     let tooltipDates = [];
@@ -1684,16 +1690,16 @@ function renderKeywordTable() {
             groupedObj[key] = {
                 name: key, 
                 adgroup: r.adset || '-',
-                spend: 0, impressions: 0, clicks: 0, estimatedTopImpr: 0
+                spend: 0, impressions: 0, clicks: 0, maxImprTopPct: 0
             };
         }
         groupedObj[key].spend += r.spend;
         groupedObj[key].impressions += r.impressions;
         groupedObj[key].clicks += r.clicks;
         
-        // Impr. (Top) % Weighted Average Calculation
-        if (r.imprTopPct > 0 && r.impressions > 0) {
-            groupedObj[key].estimatedTopImpr += (r.imprTopPct / 100) * r.impressions;
+        // เก็บตัวเลข Impr. (Top) % จริงที่สูงที่สุด โดยไม่ผ่านสูตรคำนวณถ่วงน้ำหนัก
+        if (r.imprTopPct > groupedObj[key].maxImprTopPct) {
+            groupedObj[key].maxImprTopPct = r.imprTopPct;
         }
     });
 
@@ -1701,7 +1707,7 @@ function renderKeywordTable() {
         ...r,
         cpc: r.clicks > 0 ? r.spend / r.clicks : 0,
         ctr: r.impressions > 0 ? (r.clicks / r.impressions) * 100 : 0,
-        imprTopPct: r.impressions > 0 ? (r.estimatedTopImpr / r.impressions) * 100 : 0
+        imprTopPct: r.maxImprTopPct // แสดงค่าที่สูงที่สุด
     }));
 
     adList.sort((a, b) => {

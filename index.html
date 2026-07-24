@@ -142,7 +142,7 @@
     .cost-cell { font-weight: 600; font-family: 'Inter',sans-serif; color: var(--text); }
     
     /* Sticky First Column Styling for Yearly Summary Tables */
-    .yearly-summary-table th, .yearly-summary-table td { border: none !important; text-align: right; color: #111827; }
+    .yearly-summary-table th, .yearly-summary-table td { border: none !important; text-align: right; color: var(--text); }
     .yearly-summary-table th:first-child, .yearly-summary-table td:first-child { 
         text-align: left; 
         font-weight: 600; 
@@ -151,13 +151,12 @@
         z-index: 10; 
         box-shadow: 2px 0 4px -2px rgba(0,0,0,0.15); 
     }
-    .yearly-summary-table thead th:first-child { z-index: 11; background-color: #ececec; }
+    .yearly-summary-table thead th:first-child { z-index: 11; background-color: var(--surface); }
     .yearly-summary-table th.total-col, .yearly-summary-table td.total-col { color: #dc2626; font-weight: 700; }
-    .yearly-summary-table thead th { background-color: #ececec; color: #111827; font-weight: 600; }
-    .yearly-summary-table tbody td:first-child { background-color: #f7f7f7; }
-    .yearly-summary-table tbody tr:nth-child(odd) td:not(:first-child) { background-color: #ffffff; }
-    .yearly-summary-table tbody tr:nth-child(even) td:not(:first-child) { background-color: #f9f9f9; }
-    body.dark-mode .yearly-summary-table th, body.dark-mode .yearly-summary-table td { color: #111827 !important; }
+    .yearly-summary-table thead th { background-color: var(--surface); font-weight: 600; }
+    .yearly-summary-table tbody td:first-child { background-color: var(--card); }
+    .yearly-summary-table tbody tr:nth-child(odd) td:not(:first-child) { background-color: var(--card); }
+    .yearly-summary-table tbody tr:nth-child(even) td:not(:first-child) { background-color: var(--surface); }
 
     #statusBar { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
 
@@ -433,7 +432,6 @@
   </div>
 </div>
 
-<!-- Settings Drawer -->
 <div id="settingsOverlay" class="drawer-overlay"></div>
 <div id="settingsDrawer" class="drawer">
   <div class="drawer-header">
@@ -596,7 +594,7 @@ window.switchMonth = async function(month, forceRefresh = false) {
 };
 
 /* =====================================================================
-   STREAMING_CHUNK:Implementing data parsing and explicit Google Ads mapping...
+   STREAMING_CHUNK:Implementing exact data parsing and explicit mappings...
 ======================================================================== */
 function parseNum(val) {
     if (val === undefined || val === null || val === '') return 0;
@@ -1686,15 +1684,16 @@ function renderKeywordTable() {
             groupedObj[key] = {
                 name: key, 
                 adgroup: r.adset || '-',
-                spend: 0, impressions: 0, clicks: 0, imprTopPctSum: 0, countForAvg: 0
+                spend: 0, impressions: 0, clicks: 0, estimatedTopImpr: 0
             };
         }
         groupedObj[key].spend += r.spend;
         groupedObj[key].impressions += r.impressions;
         groupedObj[key].clicks += r.clicks;
-        if (r.imprTopPct > 0) {
-            groupedObj[key].imprTopPctSum += r.imprTopPct;
-            groupedObj[key].countForAvg += 1;
+        
+        // Impr. (Top) % Weighted Average Calculation
+        if (r.imprTopPct > 0 && r.impressions > 0) {
+            groupedObj[key].estimatedTopImpr += (r.imprTopPct / 100) * r.impressions;
         }
     });
 
@@ -1702,7 +1701,7 @@ function renderKeywordTable() {
         ...r,
         cpc: r.clicks > 0 ? r.spend / r.clicks : 0,
         ctr: r.impressions > 0 ? (r.clicks / r.impressions) * 100 : 0,
-        imprTopPct: r.countForAvg > 0 ? (r.imprTopPctSum / r.countForAvg) : 0
+        imprTopPct: r.impressions > 0 ? (r.estimatedTopImpr / r.impressions) * 100 : 0
     }));
 
     adList.sort((a, b) => {

@@ -14,10 +14,20 @@
 
   <style>
     :root {
-      --primary: #2563EB; --primary-dark: #1D4ED8;
-      --bg: #F3F4F6; --surface: #F9FAFB; --card: #FFFFFF; --border: #E5E7EB;
-      --text: #111827; --text-secondary: #4B5563; --muted: #6B7280;
-      --accent: #F59E0B; --green: #10B981; --blue: #3B82F6; --emerald: #10b981; --purple: #8b5cf6;
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --bg: #F3F4F6;
+      --surface: #F9FAFB;
+      --card: #FFFFFF;
+      --border: #E5E7EB;
+      --text: #111827;
+      --text-secondary: #4B5563;
+      --muted: #6B7280;
+      --accent: #F59E0B;
+      --green: #10B981;
+      --blue: #3B82F6;
+      --emerald: #10b981;
+      --purple: #8b5cf6;
       --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
       --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     }
@@ -53,12 +63,14 @@
     .platform-tab:hover:not(.active) { color: var(--text); }
 
     .main { padding: 18px 64px; max-width: 1440px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+
     .btn-outline { background: var(--surface); border: 1px solid var(--border); color: var(--text); cursor: pointer; transition: all .2s; }
     .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
     .upload-label { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 7px 16px; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text-secondary); transition: all .2s; margin: 0; }
     .upload-label:hover { border-color: var(--primary); color: var(--primary); }
     input[type="file"] { display: none; }
 
+    /* Filters */
     .filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end; flex-grow: 1; }
     .filter-row select { background: var(--card); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 6px 28px 6px 14px; font-size: 11.5px; font-weight: 500; font-family: 'Inter','Noto Sans Thai',sans-serif; outline: none; cursor: pointer; transition: border-color .2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; box-shadow: var(--shadow-sm); }
     body.dark-mode .filter-row select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394A3B8' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
@@ -67,6 +79,7 @@
     .clear-btn { background: transparent; border: 1px solid transparent; border-radius: 6px; color: var(--muted); padding: 6px 10px; font-size: 11.5px; font-weight: 500; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; }
     .clear-btn:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
 
+    /* KPIs */
     .kpi-group-label { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; margin-top: 16px; }
     .kpi-grid { display: grid; gap: 16px; margin-bottom: 8px; }
     .kpi-grid.row3 { grid-template-columns: repeat(3,1fr); }
@@ -79,16 +92,18 @@
     .kpi-sub { grid-area: sub; font-size: 12px; color: var(--muted); }
     .kpi-benchmark { grid-area: bench; font-size: 11px; color: var(--text-secondary); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
     .kpi-benchmark .bm-val { color: var(--text); font-weight: 600; font-family: 'Inter',sans-serif; }
+    
     .kpi-diff { font-size: 11px; margin-left: 6px; display: inline-flex; align-items: center; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: help; }
     .kpi-diff.good { background: rgba(16,185,129,0.1); color: var(--emerald); }
     .kpi-diff.bad { background: rgba(244,63,94,0.1); color: #F43F5E; }
     .kpi-diff.neutral { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
 
+    /* Layout & Charts */
     .dashboard-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 8px; }
     .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-sm); }
     .chart-card.wide { grid-column: span 2; }
-    .chart-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;}
+    .chart-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
     .chart-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; }
     .chart-wrap { position: relative; height: 280px; }
     .chart-summary { margin-top: 16px; padding: 12px 16px; background: rgba(59,130,246,0.05); border: 1px solid rgba(59,130,246,0.1); border-radius: 8px; font-size: 13px; color: var(--text-secondary); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
@@ -96,6 +111,7 @@
     .chart-summary strong { color: var(--text); }
     .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
 
+    /* Top Ads Carousel */
     .carousel-wrapper { position: relative; display: flex; align-items: center; margin-top: 16px; }
     .top-ads-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 16px; scroll-behavior: smooth; width: 100%; -ms-overflow-style: none; scrollbar-width: none; }
     .top-ads-carousel::-webkit-scrollbar { display: none; }
@@ -112,6 +128,7 @@
     .carousel-btn.left { left: -18px; }
     .carousel-btn.right { right: -18px; }
 
+    /* Pyramid Funnel */
     .pyramid-funnel-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 12px; }
     .pyramid-step { display: flex; align-items: center; justify-content: space-between; color: white; padding: 16px 20px; margin-bottom: 18px; border-radius: 8px; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.2s; }
     .pyramid-step:hover { transform: translateY(-2px); }
@@ -127,9 +144,10 @@
     .pyramid-diff-badge.bad { color: #F43F5E; }
     .pyramid-diff-badge.neutral { color: var(--muted); }
 
+    /* Data Tables */
     .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0; box-shadow: var(--shadow-sm); overflow: hidden; margin-top: 24px; }
     .table-header { padding: 24px 24px 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-    .table-responsive { width: 100%; overflow-x: auto; padding-bottom: 8px; }
+    .table-responsive { width: 100%; overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; min-width: 900px; text-align: left; }
     th { font-size: 12px; font-weight: 600; color: var(--text-secondary); padding: 12px 24px; border-bottom: 1px solid var(--border); background: var(--surface); white-space: nowrap; }
     td { padding: 16px 24px; font-size: 13px; color: var(--text); border-bottom: 1px solid var(--border); white-space: nowrap; }
@@ -140,23 +158,23 @@
     .sort-icon { display: inline-block; width: 12px; margin-left: 4px; font-size: 10px; color: var(--primary); }
     .num { font-family: 'Inter',sans-serif; font-variant-numeric: tabular-nums; }
     .cost-cell { font-weight: 600; font-family: 'Inter',sans-serif; color: var(--text); }
-    
-    /* Sticky First Column Styling for Yearly Summary Tables */
-    .yearly-summary-table th, .yearly-summary-table td { border: none !important; text-align: right; color: var(--text); }
-    .yearly-summary-table th:first-child, .yearly-summary-table td:first-child { 
-        text-align: left; 
-        font-weight: 600; 
-        position: sticky; 
-        left: 0; 
-        z-index: 10; 
-        box-shadow: 2px 0 4px -2px rgba(0,0,0,0.15); 
-    }
-    .yearly-summary-table thead th:first-child { z-index: 11; background-color: var(--surface); }
+    .table-diff-icon { display: inline-block; margin-left: 6px; font-size: 12px; cursor: help; }
+    .table-diff-icon.good { color: var(--emerald); }
+    .table-diff-icon.bad { color: #F43F5E; }
+
+    /* Yearly Summary Table Specific Styles (Sticky First Column) */
+    .yearly-summary-table th, .yearly-summary-table td { border: none !important; text-align: right; color: #111827; }
+    .yearly-summary-table th:first-child, .yearly-summary-table td:first-child { text-align: left; font-weight: 600; position: sticky; left: 0; z-index: 2; box-shadow: inset -1px 0 0 var(--border); }
     .yearly-summary-table th.total-col, .yearly-summary-table td.total-col { color: #dc2626; font-weight: 700; }
-    .yearly-summary-table thead th { background-color: var(--surface); font-weight: 600; }
-    .yearly-summary-table tbody td:first-child { background-color: var(--card); }
-    .yearly-summary-table tbody tr:nth-child(odd) td:not(:first-child) { background-color: var(--card); }
-    .yearly-summary-table tbody tr:nth-child(even) td:not(:first-child) { background-color: var(--surface); }
+    
+    .yearly-summary-table thead th { background-color: #ececec; color: #111827; font-weight: 600; }
+    .yearly-summary-table thead th:first-child { background-color: #e2e8f0; }
+    
+    .yearly-summary-table tbody td:first-child { background-color: #f1f5f9; }
+    .yearly-summary-table tbody tr:nth-child(odd) td:not(:first-child) { background-color: #ffffff; }
+    .yearly-summary-table tbody tr:nth-child(even) td:not(:first-child) { background-color: #f9f9f9; }
+    
+    body.dark-mode .yearly-summary-table th, body.dark-mode .yearly-summary-table td { color: #111827 !important; }
 
     #statusBar { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
 
@@ -174,6 +192,7 @@
     .setting-label { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;}
     .setting-desc { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
     
+    /* Theme Switch */
     .theme-switch-wrapper { display: flex; align-items: center; justify-content: space-between; background: var(--surface); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); }
     .theme-switch-text { font-size: 13px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 8px; }
     .switch { position: relative; display: inline-block; width: 44px; height: 24px; flex-shrink: 0; }
@@ -214,7 +233,7 @@
       </div>
     </div>
     <div class="header-right">
-      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;" id="monthSelectWrapper">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
         <select id="monthSelect" class="header-select" onchange="switchMonth(this.value)">
           <option value="January">January</option><option value="February">February</option>
           <option value="March">March</option><option value="April">April</option>
@@ -234,6 +253,7 @@
   </div>
   
   <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 12px; padding-bottom: 12px; gap: 16px;">
+    <!-- Tabs -->
     <div class="platform-tabs" style="border-top: none; padding-top: 0;">
       <button id="tab-facebook" class="platform-tab active" onclick="switchPlatform('facebook')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -244,12 +264,13 @@
         Google Ads
       </button>
       <button id="tab-overall" class="platform-tab" onclick="switchPlatform('overall')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-        Overall (Yearly)
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        Overall
       </button>
     </div>
 
-    <div class="filter-row" id="filterRowControls">
+    <!-- Filters -->
+    <div class="filter-row" id="platformFilters">
       <span class="filter-label">Filter:</span>
       <select id="filterCampaign" onchange="applyFilters()"><option value="">ทุก Campaign</option></select>
       <select id="filterObjective" onchange="applyFilters()">
@@ -267,171 +288,175 @@
 </div>
 
 <div class="main">
-  <div style="padding: 0 32px; margin-top: -8px;" id="innerMain">
+  <!-- ==================== PLATFORM DASHBOARD ==================== -->
+  <div id="platformDashboard" style="padding: 0 32px; margin-top: -8px;">
     <div id="statusBar"></div>
 
-    <!-- Monthly Platform Dashboard (Facebook / Google) -->
-    <div id="platformDashboard">
-      <!-- KPIs -->
-      <div id="kpiSection"></div>
+    <!-- KPIs -->
+    <div id="kpiSection"></div>
 
-      <div class="dashboard-layout">
-        <!-- Funnel & Summary -->
-        <div class="charts-grid">
-          <div class="chart-card">
-            <div class="chart-title">Customer Journey Funnel</div>
-            <div class="chart-sub">พฤติกรรมลูกค้า (Conversion Rate)</div>
-            <div id="funnelContainer"></div>
+    <div class="dashboard-layout">
+      <!-- Funnel & Summary -->
+      <div class="charts-grid">
+        <div class="chart-card">
+          <div class="chart-title">Customer Journey Funnel</div>
+          <div class="chart-sub">พฤติกรรมลูกค้า (Conversion Rate)</div>
+          <div id="funnelContainer"></div>
+        </div>
+        <div class="chart-card" style="display: flex; flex-direction: column;">
+          <div class="chart-title">Sale Performance</div>
+          <div class="chart-sub" style="margin-bottom: 16px;">ข้อมูลการสั่งซื้อและผลตอบแทนแบบรวมศูนย์</div>
+          <div id="salesSummaryContainer" style="flex-grow: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: center;"></div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <!-- Demographics -->
+        <div class="chart-card wide" id="demoChartCard">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 8px;">
+            <div class="chart-title" id="demoChartTitle">Demographics by Age & Gender</div>
+            <select id="demoMetricSelect" onchange="updateDemoMetric()" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none;">
+              <option value="spend">Spend (THB)</option><option value="reach">Reach</option><option value="impressions">Impressions</option>
+              <option value="clicks">Link Clicks</option><option value="lpViews">Landing Page Views</option>
+              <option value="addCart">Adds to Cart</option><option value="purchases">Purchases</option>
+            </select>
           </div>
-          <div class="chart-card" style="display: flex; flex-direction: column;">
-            <div class="chart-title">Sale Performance</div>
-            <div class="chart-sub" style="margin-bottom: 16px;">ข้อมูลการสั่งซื้อและผลตอบแทนแบบรวมศูนย์</div>
-            <div id="salesSummaryContainer" style="flex-grow: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: center;"></div>
+          <div class="chart-sub" id="demoChartSub">การวิเคราะห์กลุ่มเป้าหมายแยกตามอายุและเพศ</div>
+          <div class="chart-wrap"><canvas id="demoChart"></canvas></div>
+          <div id="demoSummary" class="chart-summary" style="display:none;"></div>
+        </div>
+
+        <!-- Trends -->
+        <div class="chart-card wide" style="grid-column: 1 / -1;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div class="chart-title">Performance Trends</div>
+              <div class="chart-sub" id="trendSubTitle" style="margin-bottom: 0;">แนวโน้มประสิทธิภาพโฆษณารายสัปดาห์</div>
+            </div>
+            <div style="display: flex; gap: 4px; background: var(--surface); padding: 4px; border-radius: 8px; border: 1px solid var(--border);">
+              <button id="tab-trend-weekly" style="padding: 6px 16px; border-radius: 6px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s; background: var(--card); box-shadow: var(--shadow-sm); color: var(--primary);" onclick="switchTrendView('weekly')">Weekly</button>
+              <button id="tab-trend-monthly" style="padding: 6px 16px; border-radius: 6px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s; background: transparent; color: var(--text-secondary);" onclick="switchTrendView('monthly')">Monthly</button>
+            </div>
+          </div>
+          <div class="trend-grid">
+            <div><div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">1. Spending vs. Link Clicks</div><div class="chart-wrap" style="height: 250px;"><canvas id="trendChart1"></canvas></div></div>
+            <div><div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">2. Spending vs. CPC</div><div class="chart-wrap" style="height: 250px;"><canvas id="trendChart2"></canvas></div></div>
+            <div><div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">3. Purchases vs. Conversion Rate</div><div class="chart-wrap" style="height: 250px;"><canvas id="trendChart3"></canvas></div></div>
+            <div><div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">4. Conversion Value vs. ROAS</div><div class="chart-wrap" style="height: 250px;"><canvas id="trendChart4"></canvas></div></div>
           </div>
         </div>
 
-        <div class="charts-grid">
-          <!-- Demographics -->
-          <div class="chart-card wide" id="demoChartCard">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 8px;">
-              <div class="chart-title" id="demoChartTitle">Demographics by Age & Gender</div>
-              <select id="demoMetricSelect" onchange="updateDemoMetric()" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none;">
-                <option value="spend">Spend (THB)</option><option value="reach">Reach</option><option value="impressions">Impressions</option>
-                <option value="clicks">Link Clicks</option><option value="lpViews">Landing Page Views</option>
-                <option value="addCart">Adds to Cart</option><option value="purchases">Purchases</option>
+        <!-- Top Ads / Keyword Performance -->
+        <div class="chart-card wide" style="grid-column: 1 / -1; padding-bottom: 32px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div class="chart-title" id="topAdsTitle">Top Ads Performance</div>
+              <div class="chart-sub" id="topAdsSubTitle" style="margin-bottom: 0;">โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)</div>
+            </div>
+            
+            <!-- Ad Sort Select (Hidden in Google Ads mode) -->
+            <select id="topAdSortSelect" onchange="updateTopAdSort()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none; box-shadow: var(--shadow-sm);">
+              <option value="spend">เรียงตาม Spend (สูงสุด)</option>
+              <option value="reach" id="optTopReach">เรียงตาม Reach (สูงสุด)</option>
+              <option value="impressions">เรียงตาม Impressions (สูงสุด)</option>
+              <option value="clicks">เรียงตาม Link Clicks (สูงสุด)</option>
+              <option value="lpViews" id="optTopLpViews">เรียงตาม LP Views (สูงสุด)</option>
+              <option value="purchases">เรียงตาม Purchases (สูงสุด)</option>
+              <option value="convValue">เรียงตาม Conv. Value (สูงสุด)</option>
+              <option value="roas">เรียงตาม ROAS (สูงสุด)</option>
+            </select>
+          </div>
+
+          <!-- Carousel (For FB) -->
+          <div class="carousel-wrapper" id="topAdsCarouselWrapper">
+            <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
+            <div id="topAdsContainer" class="top-ads-carousel"></div>
+            <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
+          </div>
+
+          <!-- Keyword Table (For Google) -->
+          <div id="keywordTableWrapper" style="display:none; width: 100%;">
+            <div class="table-responsive">
+              <table style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th class="sortable" onclick="handleKeywordSort('name')">Keyword <span class="sort-icon" id="kwSortIcon-name"></span></th>
+                    <th class="sortable" onclick="handleKeywordSort('adgroup')">Type <span class="sort-icon" id="kwSortIcon-adgroup"></span></th>
+                    <th class="sortable" onclick="handleKeywordSort('spend')">Cost (฿) <span class="sort-icon" id="kwSortIcon-spend"></span></th>
+                    <th class="sortable" onclick="handleKeywordSort('impressions')">Impr. <span class="sort-icon" id="kwSortIcon-impressions"></span></th>
+                    <th class="sortable" onclick="handleKeywordSort('clicks')">Clicks <span class="sort-icon" id="kwSortIcon-clicks"></span></th>
+                    <th class="sortable" onclick="handleKeywordSort('cpc')">Avg. CPC (฿) <span class="sort-icon" id="kwSortIcon-cpc"></span></th>
+                    <th class="sortable" onclick="handleKeywordSort('ctr')">CTR (%) <span class="sort-icon" id="kwSortIcon-ctr"></span></th>
+                    <th class="sortable" onclick="handleKeywordSort('imprTopPct')">Impr. (Top) % <span class="sort-icon" id="kwSortIcon-imprTopPct"></span></th>
+                  </tr>
+                </thead>
+                <tbody id="keywordTableBody"></tbody>
+              </table>
+            </div>
+            <div style="display:flex; justify-content: flex-end; align-items: center; margin-top: 16px; font-size: 13px; color: var(--text-secondary); gap: 8px;">
+              <span>Rows per page:</span>
+              <select id="keywordLimitSelect" onchange="updateKeywordLimit(this.value)" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); outline:none;">
+                <option value="10">10</option><option value="20">20</option><option value="30">30</option>
+                <option value="40">40</option><option value="50">50</option><option value="100">100</option><option value="200">200</option>
               </select>
             </div>
-            <div class="chart-sub" id="demoChartSub">การวิเคราะห์กลุ่มเป้าหมายแยกตามอายุและเพศ</div>
-            <div class="chart-wrap"><canvas id="demoChart"></canvas></div>
-            <div id="demoSummary" class="chart-summary" style="display:none;"></div>
-          </div>
-
-          <!-- Trends -->
-          <div class="chart-card wide" style="grid-column: 1 / -1;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-              <div>
-                <div class="chart-title">Performance Trends</div>
-                <div class="chart-sub" id="trendSubTitle" style="margin-bottom: 0;">แนวโน้มประสิทธิภาพโฆษณารายสัปดาห์</div>
-              </div>
-              <div style="display: flex; gap: 4px; background: var(--surface); padding: 4px; border-radius: 8px; border: 1px solid var(--border);">
-                <button id="tab-trend-weekly" style="padding: 6px 16px; border-radius: 6px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s; background: var(--card); box-shadow: var(--shadow-sm); color: var(--primary);" onclick="switchTrendView('weekly')">Weekly</button>
-                <button id="tab-trend-monthly" style="padding: 6px 16px; border-radius: 6px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s; background: transparent; color: var(--text-secondary);" onclick="switchTrendView('monthly')">Monthly</button>
-              </div>
-            </div>
-            <div class="trend-grid">
-              <div><div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">1. Spending vs. Link Clicks</div><div class="chart-wrap" style="height: 250px;"><canvas id="trendChart1"></canvas></div></div>
-              <div><div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">2. Spending vs. CPC</div><div class="chart-wrap" style="height: 250px;"><canvas id="trendChart2"></canvas></div></div>
-              <div><div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">3. Purchases vs. Conversion Rate</div><div class="chart-wrap" style="height: 250px;"><canvas id="trendChart3"></canvas></div></div>
-              <div><div style="font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 8px; color: var(--text);">4. Conversion Value vs. ROAS</div><div class="chart-wrap" style="height: 250px;"><canvas id="trendChart4"></canvas></div></div>
-            </div>
-          </div>
-
-          <!-- Top Ads / Keyword Performance -->
-          <div class="chart-card wide" style="grid-column: 1 / -1; padding-bottom: 32px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-              <div>
-                <div class="chart-title" id="topAdsTitle">Top Ads Performance</div>
-                <div class="chart-sub" id="topAdsSubTitle" style="margin-bottom: 0;">โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)</div>
-              </div>
-              
-              <!-- Ad Sort Select (Hidden in Google Ads mode) -->
-              <select id="topAdSortSelect" onchange="updateTopAdSort()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif; cursor: pointer; outline: none; box-shadow: var(--shadow-sm);">
-                <option value="spend">เรียงตาม Spend (สูงสุด)</option>
-                <option value="reach" id="optTopReach">เรียงตาม Reach (สูงสุด)</option>
-                <option value="impressions">เรียงตาม Impressions (สูงสุด)</option>
-                <option value="clicks">เรียงตาม Link Clicks (สูงสุด)</option>
-                <option value="lpViews" id="optTopLpViews">เรียงตาม LP Views (สูงสุด)</option>
-                <option value="purchases">เรียงตาม Purchases (สูงสุด)</option>
-                <option value="convValue">เรียงตาม Conv. Value (สูงสุด)</option>
-                <option value="roas">เรียงตาม ROAS (สูงสุด)</option>
-              </select>
-            </div>
-
-            <!-- Carousel (For FB) -->
-            <div class="carousel-wrapper" id="topAdsCarouselWrapper">
-              <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
-              <div id="topAdsContainer" class="top-ads-carousel"></div>
-              <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
-            </div>
-
-            <!-- Keyword Table (For Google) -->
-            <div id="keywordTableWrapper" style="display:none; width: 100%;">
-              <div class="table-responsive">
-                <table style="width: 100%;">
-                  <thead>
-                    <tr>
-                      <th class="sortable" onclick="handleKeywordSort('name')">Keyword <span class="sort-icon" id="kwSortIcon-name"></span></th>
-                      <th class="sortable" onclick="handleKeywordSort('adgroup')">Type <span class="sort-icon" id="kwSortIcon-adgroup"></span></th>
-                      <th class="sortable" onclick="handleKeywordSort('spend')">Cost (฿) <span class="sort-icon" id="kwSortIcon-spend"></span></th>
-                      <th class="sortable" onclick="handleKeywordSort('impressions')">Impr. <span class="sort-icon" id="kwSortIcon-impressions"></span></th>
-                      <th class="sortable" onclick="handleKeywordSort('clicks')">Clicks <span class="sort-icon" id="kwSortIcon-clicks"></span></th>
-                      <th class="sortable" onclick="handleKeywordSort('cpc')">Avg. CPC (฿) <span class="sort-icon" id="kwSortIcon-cpc"></span></th>
-                      <th class="sortable" onclick="handleKeywordSort('ctr')">CTR (%) <span class="sort-icon" id="kwSortIcon-ctr"></span></th>
-                      <th class="sortable" onclick="handleKeywordSort('imprTopPct')">Impr. (Top) % <span class="sort-icon" id="kwSortIcon-imprTopPct"></span></th>
-                    </tr>
-                  </thead>
-                  <tbody id="keywordTableBody"></tbody>
-                </table>
-              </div>
-              <div style="display:flex; justify-content: flex-end; align-items: center; margin-top: 16px; font-size: 13px; color: var(--text-secondary); gap: 8px;">
-                <span>Rows per page:</span>
-                <select id="keywordLimitSelect" onchange="updateKeywordLimit(this.value)" style="padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); outline:none;">
-                  <option value="10">10</option><option value="20">20</option><option value="30">30</option>
-                  <option value="40">40</option><option value="50">50</option><option value="100">100</option><option value="200">200</option>
-                </select>
-              </div>
-            </div>
           </div>
         </div>
+
       </div>
-    </div> <!-- End platformDashboard -->
+    </div>
 
-    <div id="overallDashboard" style="display: none; padding-top: 16px; display: flex; flex-direction: column; gap: 32px;">
-      
-      <!-- Facebook Yearly Summary -->
-      <div class="table-card" style="margin-top: 0;">
-        <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
-          <div class="chart-title">
-             <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-             1. Facebook Ads - Yearly Performance Summary
-          </div>
-        </div>
-        <div class="table-responsive">
-          <table id="yearlyFacebookTable" class="yearly-summary-table"></table>
-        </div>
+    <!-- Yearly Performance Summary Table (For single platform view) -->
+    <div class="table-card" id="yearlySummaryCard" style="margin-top:24px;">
+      <div class="table-header">
+        <div class="chart-title">Yearly Performance Summary</div>
       </div>
-
-      <!-- Google Yearly Summary -->
-      <div class="table-card" style="margin-top: 0;">
-        <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
-          <div class="chart-title">
-             <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
-             2. Google Ads - Yearly Performance Summary
-          </div>
-        </div>
-        <div class="table-responsive">
-          <table id="yearlyGoogleTable" class="yearly-summary-table"></table>
-        </div>
+      <div class="table-responsive" style="padding-bottom: 8px;">
+        <table id="yearlySummaryTable" class="yearly-summary-table">
+          <!-- Populated via JS -->
+        </table>
       </div>
+    </div>
 
-      <!-- Combined Yearly Summary -->
-      <div class="table-card" style="margin-top: 0;">
-        <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
-          <div class="chart-title">
-             <svg viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2" width="20" height="20"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-             3. Combined (Facebook + Google) - Yearly Performance Summary
-          </div>
-        </div>
-        <div class="table-responsive">
-          <table id="yearlyCombinedTable" class="yearly-summary-table"></table>
-        </div>
+  </div> <!-- End Platform Dashboard -->
+
+  <!-- ==================== OVERALL DASHBOARD ==================== -->
+  <div id="overallDashboard" style="padding: 0 32px; margin-top: -8px; display: none;">
+    <div class="chart-title" style="margin-bottom: 24px; font-size: 20px;">Overall Yearly Performance Summary</div>
+    
+    <!-- Overall: Combined Table -->
+    <div class="table-card" style="margin-top: 0; margin-bottom: 32px; border-color: var(--primary);">
+      <div class="table-header" style="background: rgba(37, 99, 235, 0.05); padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+        <div class="chart-title" style="color: var(--primary);">3. Combined (Facebook + Google)</div>
       </div>
-      
-    </div> <!-- End overallDashboard -->
+      <div class="table-responsive" style="padding-bottom: 8px;">
+        <table id="overallCombinedTable" class="yearly-summary-table"></table>
+      </div>
+    </div>
 
-  </div>
+    <!-- Overall: Facebook Table -->
+    <div class="table-card" style="margin-bottom: 32px;">
+      <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+        <div class="chart-title">1. Facebook Ads Yearly Performance Summary</div>
+      </div>
+      <div class="table-responsive" style="padding-bottom: 8px;">
+        <table id="overallFacebookTable" class="yearly-summary-table"></table>
+      </div>
+    </div>
+
+    <!-- Overall: Google Table -->
+    <div class="table-card" style="margin-bottom: 32px;">
+      <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+        <div class="chart-title">2. Google Ads Yearly Performance Summary</div>
+      </div>
+      <div class="table-responsive" style="padding-bottom: 8px;">
+        <table id="overallGoogleTable" class="yearly-summary-table"></table>
+      </div>
+    </div>
+  </div> <!-- End Overall Dashboard -->
 </div>
 
+<!-- Settings Drawer -->
 <div id="settingsOverlay" class="drawer-overlay"></div>
 <div id="settingsDrawer" class="drawer">
   <div class="drawer-header">
@@ -464,7 +489,7 @@
 
 <script>
 /* =====================================================================
-   STREAMING_CHUNK:Initializing global formatters and state variables...
+   GLOBAL FORMATTERS
 ======================================================================== */
 function formatNum(n) { 
     return new Intl.NumberFormat('th-TH').format(Math.round(n || 0)); 
@@ -473,6 +498,9 @@ function formatCurrency(n) {
     return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n || 0); 
 }
 
+/* =====================================================================
+   GLOBAL VARIABLES
+======================================================================== */
 const initialCSVData = `"Reporting starts","Reporting ends","Week","Campaign name","Ad set name","Ad name","Age","Gender","Amount spent (THB)","Cost","Reach","Impressions","Impr.","Link clicks","Clicks","Landing page views","Website adds to cart","Add to cart","Website purchases","Purchase","Website purchases conversion value","Revenue","Image URL"
 "2026-07-01","2026-07-07","W1","Sample Campaign","Sample Adset","Sample Ad","25-34","male","1500","1500","5000","6000","6000","150","150","100","20","20","5","5","15000","15000",""`;
 
@@ -493,7 +521,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =====================================================================
-   STREAMING_CHUNK:Defining UI controls and platform switching...
+   UI CONTROLS
 ======================================================================== */
 window.updateDemoMetric = function() {
   currentDemoMetric = document.getElementById('demoMetricSelect').value;
@@ -517,41 +545,41 @@ window.switchTrendView = function(mode) {
 
 window.switchPlatform = async function(platform) {
   currentPlatform = platform;
-  
-  // Tab Styling
   document.querySelectorAll('.platform-tab').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-' + platform).classList.add('active');
 
-  const platformDash = document.getElementById('platformDashboard');
-  const overallDash = document.getElementById('overallDashboard');
-  const filterRow = document.getElementById('filterRowControls');
-  const monthSelector = document.getElementById('monthSelectWrapper');
-
   if (platform === 'overall') {
-      platformDash.style.display = 'none';
-      overallDash.style.display = 'flex';
-      filterRow.style.visibility = 'hidden';
-      monthSelector.style.visibility = 'hidden';
-      
+      document.getElementById('platformDashboard').style.display = 'none';
+      document.getElementById('platformFilters').style.display = 'none';
+      document.getElementById('monthSelect').style.display = 'none';
+      document.getElementById('overallDashboard').style.display = 'block';
+      showStatus('กำลังโหลดข้อมูลภาพรวมรายปี...');
       await fetchAllPlatformsData();
-      return; 
+      renderOverallDashboard();
+      showStatus('✅ โหลดข้อมูลภาพรวมเสร็จสิ้น');
   } else {
-      platformDash.style.display = 'block';
-      overallDash.style.display = 'none';
-      filterRow.style.visibility = 'visible';
-      monthSelector.style.visibility = 'visible';
+      document.getElementById('platformDashboard').style.display = 'block';
+      document.getElementById('platformFilters').style.display = 'flex';
+      document.getElementById('monthSelect').style.display = 'block';
+      document.getElementById('overallDashboard').style.display = 'none';
+
+      globalData = [];
+      fetchedFiles.clear();
+      isFetchingAll = false;
+      
+      const isGoogle = platform === 'google';
+      document.getElementById('demoChartCard').style.display = isGoogle ? 'none' : 'block';
+
+      // Toggle Top Ads vs Keyword View
+      document.getElementById('topAdsTitle').textContent = isGoogle ? 'Keyword Performance' : 'Top Ads Performance';
+      document.getElementById('topAdsSubTitle').textContent = isGoogle ? 'สรุปข้อมูลระดับคีย์เวิร์ด' : 'โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)';
+      
+      document.getElementById('topAdSortSelect').style.display = isGoogle ? 'none' : 'block';
+      document.getElementById('topAdsCarouselWrapper').style.display = isGoogle ? 'none' : 'flex';
+      document.getElementById('keywordTableWrapper').style.display = isGoogle ? 'block' : 'none';
+
+      await switchMonth(currentMonth, true); 
   }
-
-  const isGoogle = platform === 'google';
-  document.getElementById('demoChartCard').style.display = isGoogle ? 'none' : 'block';
-  document.getElementById('topAdsTitle').textContent = isGoogle ? 'Keyword Performance' : 'Top Ads Performance';
-  document.getElementById('topAdsSubTitle').textContent = isGoogle ? 'สรุปข้อมูลระดับคีย์เวิร์ด' : 'โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)';
-  
-  document.getElementById('topAdSortSelect').style.display = isGoogle ? 'none' : 'block';
-  document.getElementById('topAdsCarouselWrapper').style.display = isGoogle ? 'none' : 'flex';
-  document.getElementById('keywordTableWrapper').style.display = isGoogle ? 'block' : 'none';
-
-  await switchMonth(currentMonth, true); 
 };
 
 window.switchMonth = async function(month, forceRefresh = false) {
@@ -574,14 +602,12 @@ window.switchMonth = async function(month, forceRefresh = false) {
 
   await Promise.all(promises);
 
-  const hasData = globalData.some(r => r.platform === currentPlatform && r.month === month);
+  const hasData = globalData.some(r => r.month === month && r.platform === currentPlatform);
 
-  if (!hasData && globalData.filter(r => r.platform === currentPlatform).length === 0) {
-      if (currentPlatform === 'facebook') {
-          let data2D = Papa.parse(initialCSVData, {header: false, skipEmptyLines: true}).data;
-          loadManualData(data2D, true, 'ไม่มีข้อมูล', false, 'facebook'); 
-          showStatus(`ℹ️ ไม่พบไฟล์อัตโนมัติ (กำลังแสดงข้อมูลตัวอย่าง)`);
-      }
+  if (!hasData && globalData.length === 0) {
+      let data2D = Papa.parse(initialCSVData, {header: false, skipEmptyLines: true}).data;
+      loadManualData(processRawArrayData(data2D, 'campaign'), true, 'ไม่มีข้อมูล'); 
+      showStatus(`ℹ️ ไม่พบไฟล์อัตโนมัติ (กำลังแสดงข้อมูลตัวอย่าง)`);
   } else {
       currentSource = `โฟลเดอร์ ${currentPlatform}`;
       populateFilters();
@@ -594,7 +620,7 @@ window.switchMonth = async function(month, forceRefresh = false) {
 };
 
 /* =====================================================================
-   STREAMING_CHUNK:Implementing exact data parsing and explicit mappings...
+   DATA PARSING
 ======================================================================== */
 function parseNum(val) {
     if (val === undefined || val === null || val === '') return 0;
@@ -610,89 +636,121 @@ function parsePct(val) {
     return parseFloat(str) || 0;
 }
 
-function parseRawRow(r, month, mIndex, w, isKeyword = false, rowArray = null, platform = 'facebook') {
-    // Exact mapping for Google Ads Keyword Report (Row 4 onwards)
-    if (isKeyword && rowArray && rowArray.length > 0) {
+// Smart Regex Matcher Function
+function processRawArrayData(data2D, fileType = 'campaign', platform = currentPlatform) {
+    let result = [];
+    
+    // ======== GOOGLE ADS KEYWORD SPECIFIC MAPPING (Row 4+, Col B,E,I,J,K,L,M,N) ========
+    if (fileType === 'keyword' && platform === 'google') {
+        // แถวที่ 4 ใน Excel คือ index 3 ใน array
+        for (let i = 3; i < data2D.length; i++) {
+            let row = data2D[i];
+            // ต้องมีอย่างน้อย 14 คอลัมน์ (Index 0-13) และมีข้อมูล Keyword (Col B / Index 1)
+            if (!row || row.length < 14 || !row[1]) continue;
+            
+            let obj = {
+                'Keyword': row[1],
+                'Type': row[4],
+                'Cost': row[8],
+                'Impr.': row[9],
+                'Clicks': row[10],
+                'Avg. CPC': row[11],
+                'CTR': row[12],
+                'Impr. (Top) %': row[13]
+            };
+            result.push(obj);
+        }
+        return result;
+    }
+    
+    // ======== NORMAL CAMPAIGN / GENERAL MAPPING ========
+    let headerIdx = -1;
+    let maxCols = 0;
+    
+    for (let i = 0; i < Math.min(20, data2D.length); i++) {
+        if (Array.isArray(data2D[i]) && data2D[i].length > maxCols) {
+            let rowStr = data2D[i].join(' ').toLowerCase();
+            if (rowStr.includes('cost') || rowStr.includes('spend') || rowStr.includes('ค่าใช้จ่าย') || 
+                rowStr.includes('impr') || rowStr.includes('การแสดงผล') || rowStr.includes('campaign') || 
+                rowStr.includes('แคมเปญ') || rowStr.includes('keyword') || rowStr.includes('คีย์เวิร์ด') || 
+                rowStr.includes('search term') || rowStr.includes('ข้อความค้นหา')) {
+                maxCols = data2D[i].length;
+                headerIdx = i;
+            }
+        }
+    }
+    if (headerIdx === -1) headerIdx = 0;
+    
+    let dates = { start: '', end: '' };
+    for (let i = 0; i < headerIdx; i++) {
+        let rowStr = Array.isArray(data2D[i]) ? data2D[i].join(' ') : data2D[i];
+        let m = rowStr.match(/([a-zA-Z]+\s\d{1,2},\s\d{4})\s*-\s*([a-zA-Z]+\s\d{1,2},\s\d{4})/);
+        if (m) { dates.start = m[1]; dates.end = m[2]; break; }
+    }
+    
+    let headers = data2D[headerIdx] || [];
+    for (let i = headerIdx + 1; i < data2D.length; i++) {
+        let row = data2D[i];
+        if (!row || row.length === 0 || row.every(c => c === '' || c === null || c === undefined)) continue;
+        
+        let firstCellStr = String(row[0] || '').toLowerCase().trim();
+        if (firstCellStr === 'total' || firstCellStr === 'รวม') continue;
+
+        let obj = {};
+        headers.forEach((h, colIdx) => {
+            if (h && typeof h === 'string') { obj[h.trim()] = row[colIdx]; }
+        });
+        
+        if (!obj['Reporting starts'] && !obj['Day'] && !obj['Date'] && dates.start) {
+            obj['Reporting starts'] = dates.start;
+            obj['Reporting ends'] = dates.end;
+        }
+        result.push(obj);
+    }
+    return result;
+}
+
+function parseRawRow(r, month, mIndex, w, rowType) {
+    if (rowType === 'keyword') {
         return {
-            platform: platform,
-            month: month,
-            monthIndex: mIndex,
-            week: w,
-            absWeek: `${String(mIndex).padStart(2, '0')}-${w}`,
-            dateStart: '',
-            dateEnd: '',
-            campaign: 'Google Search Campaign',
-            adset: (rowArray[4] || 'Default Type').toString().trim(), // Column E (Index 4) -> Type
-            ad: (rowArray[1] || 'Unknown Keyword').toString().trim(), // Column B (Index 1) -> Keyword
-            age: 'Unknown',
-            gender: 'Unknown',
-            spend: parseNum(rowArray[8]),        // Column I (Index 8) -> Cost
+            month: month, monthIndex: mIndex, week: w, absWeek: `${String(mIndex).padStart(2, '0')}-${w}`,
+            dateStart: (r['Reporting starts'] || r['Day'] || r['Date'] || '').trim(),
+            dateEnd: (r['Reporting ends'] || r['Day'] || r['Date'] || '').trim(),
+            campaign: 'Unknown Campaign',
+            adset: (r['Type'] || r['Ad group'] || r['กลุ่มโฆษณา'] || 'Unknown Ad Set').trim(),
+            ad: (r['Keyword'] || r['Search term'] || r['ข้อความค้นหา'] || r['คีย์เวิร์ด'] || 'Unknown').toString().trim(),
+            age: 'Unknown', gender: 'Unknown',
+            spend: parseNum(r['Cost']) || parseNum(r['ค่าใช้จ่าย']) || parseNum(r['Spend']) || 0,
             reach: 0,
-            impressions: parseNum(rowArray[9]),  // Column J (Index 9) -> Impr.
-            clicks: parseNum(rowArray[10]),      // Column K (Index 10) -> Clicks
-            lpViews: 0,
-            addCart: 0,
-            purchases: 0,
-            convValue: 0,
-            cpc: parseNum(rowArray[11]),         // Column L (Index 11) -> Avg. CPC
-            ctr: parsePct(rowArray[12]),         // Column M (Index 12) -> CTR
-            imprTopPct: parsePct(rowArray[13]),  // Column N (Index 13) -> Impr. (Top) %
+            impressions: parseNum(r['Impr.']) || parseNum(r['การแสดงผล']) || parseNum(r['Impressions']) || 0,
+            clicks: parseNum(r['Clicks']) || parseNum(r['คลิก']) || 0,
+            lpViews: 0, addCart: 0, purchases: 0, convValue: 0,
+            imprTopPct: parsePct(r['Impr. (Top) %'] || r['Impr. (top) %']),
             imageUrl: '',
             rowType: 'keyword'
         };
     }
-
-    // Standard Fallback parsing for Campaign level files
-    const findVal = (regexes) => {
-        for (let rx of regexes) {
-            const key = Object.keys(r).find(k => k.match(rx));
-            if (key && r[key] !== undefined && r[key] !== null && String(r[key]).trim() !== '') {
-                return r[key];
-            }
-        }
-        return '';
-    };
-
-    let adValue = findVal([/search term/i, /ข้อความค้นหา/i, /search keyword/i, /เกณฑ์การค้นหา/i, /keyword/i, /คีย์เวิร์ด/i, /ad name/i, /ชื่อโฆษณา/i, /^ad$/i]).toString().trim();
-    let campaignValue = findVal([/campaign name/i, /campaign/i, /แคมเปญ/i]).toString().trim();
-    let adsetValue = findVal([/ad group name/i, /ad group/i, /กลุ่มโฆษณา/i, /^type$/i]).toString().trim();
     
-    if (!adValue || adValue === 'Unknown' || adValue === ' --' || adValue === '-') {
-         if (adsetValue && adsetValue !== 'Unknown Ad Set' && adsetValue !== '') {
-             adValue = `[Ad Group] ${adsetValue}`;
-         } else if (campaignValue && campaignValue !== 'Unknown Campaign' && campaignValue !== '') {
-             adValue = `[Campaign] ${campaignValue}`;
-         } else {
-             adValue = 'Unknown';
-         }
-    }
-
-    if (!campaignValue) campaignValue = 'Unknown Campaign';
-    if (!adsetValue) adsetValue = 'Unknown Ad Set';
-
+    // Normal Campaign parsing
     return {
-      platform: platform,
-      month: month,
-      monthIndex: mIndex,
-      week: w,
-      absWeek: `${String(mIndex).padStart(2, '0')}-${w}`,
-      dateStart: findVal([/reporting starts/i, /day/i, /date/i, /วัน/i]).toString().trim(),
-      dateEnd: findVal([/reporting ends/i, /day/i, /date/i, /วัน/i]).toString().trim(),
-      campaign: campaignValue,
-      adset: adsetValue,
-      ad: adValue,
-      age: findVal([/age/i, /อายุ/i]).toString() || 'Unknown',
-      gender: findVal([/gender/i, /เพศ/i]).toString() || 'Unknown',
-      spend: parseNum(findVal([/amount spent/i, /cost/i, /spend/i, /ค่าใช้จ่าย/i])) || 0,
-      reach: parseNum(findVal([/reach/i, /unique users/i, /การเข้าถึง/i])) || 0,
-      impressions: parseNum(findVal([/impressions/i, /impr/i, /การแสดงผล/i])) || 0,
-      clicks: parseNum(findVal([/link clicks/i, /clicks/i, /คลิก/i])) || 0,
-      lpViews: parseNum(findVal([/landing page views/i, /การเข้าชม/i])) || 0,
-      addCart: parseNum(findVal([/adds to cart/i, /add to cart/i, /การเพิ่มลงในรถเข็น/i])) || 0,
-      purchases: parseNum(findVal([/website purchases/i, /conversions/i, /purchase/i, /คอนเวอร์ชัน/i, /การซื้อ/i])) || 0,
-      convValue: parseNum(findVal([/conversion value/i, /conv\. value/i, /revenue/i, /มูลค่าคอนเวอร์ชัน/i, /มูลค่าการซื้อ/i])) || 0,
-      imprTopPct: parsePct(findVal([/impr\. \(top\) %/i, /% การแสดงผล \(บนสุด\)/i])),
-      imageUrl: findVal([/image url/i, /image/i]).toString() || '',
+      month: month, monthIndex: mIndex, week: w, absWeek: `${String(mIndex).padStart(2, '0')}-${w}`,
+      dateStart: (r['Reporting starts'] || r['Day'] || r['Date'] || '').trim(),
+      dateEnd: (r['Reporting ends'] || r['Day'] || r['Date'] || '').trim(),
+      campaign: (r['Campaign name'] || r['Campaign'] || r['แคมเปญ'] || 'Unknown Campaign').trim(),
+      adset: (r['Ad group'] || r['Ad set name'] || r['กลุ่มโฆษณา'] || 'Unknown Ad Set').trim(),
+      ad: (r['Ad name'] || r['Ad'] || r['ชื่อโฆษณา'] || 'Unknown').toString().trim(),
+      age: r['Age'] || 'Unknown',
+      gender: r['Gender'] || 'Unknown',
+      spend: parseNum(r['Amount spent (THB)']) || parseNum(r['Cost']) || parseNum(r['Spend']) || parseNum(r['ค่าใช้จ่าย']) || 0,
+      reach: parseNum(r['Reach']) || parseNum(r['การเข้าถึง']) || 0,
+      impressions: parseNum(r['Impressions']) || parseNum(r['Impr.']) || parseNum(r['การแสดงผล']) || 0,
+      clicks: parseNum(r['Link clicks']) || parseNum(r['Clicks']) || parseNum(r['คลิก']) || 0,
+      lpViews: parseNum(r['Landing page views']) || parseNum(r['การเข้าชมหน้า Landing Page']) || 0,
+      addCart: parseNum(r['Website adds to cart']) || parseNum(r['Add to cart']) || 0,
+      purchases: parseNum(r['Website purchases']) || parseNum(r['Conversions']) || parseNum(r['Purchase']) || parseNum(r['การทำให้เกิด Conversion']) || 0,
+      convValue: parseNum(r['Website purchases conversion value']) || parseNum(r['Conv. value']) || parseNum(r['Revenue']) || parseNum(r['มูลค่า Conversion']) || 0,
+      imprTopPct: 0,
+      imageUrl: r['Image URL'] || r['Image'] || '',
       rowType: 'campaign'
     };
 }
@@ -703,6 +761,8 @@ async function loadFile(platform, month, w, mIndex) {
     fetchedFiles.add(fileKey);
 
     const weekName = w.toLowerCase().replace('w', 'week');
+    
+    // Load Campaign File
     const csvPath = `./data/${platform}/${platform}-${month}-${weekName}.csv`;
     const xlsxPath = `./data/${platform}/${platform}-${month}-${weekName}.xlsx`;
 
@@ -711,8 +771,9 @@ async function loadFile(platform, month, w, mIndex) {
         let res = await fetch(csvPath);
         if (res.ok) {
             let text = await res.text();
-            let data2D = Papa.parse(text, {header: false, skipEmptyLines: false}).data;
-            processArrayDataIntoGlobal(data2D, month, mIndex, w, false, platform);
+            let data2D = Papa.parse(text, {header: false, skipEmptyLines: true}).data;
+            let parsed = processRawArrayData(data2D, 'campaign', platform);
+            parsed.forEach(r => globalData.push({...parseRawRow(r, month, mIndex, w, 'campaign'), platform: platform}));
             loadedMain = true;
         } else {
             res = await fetch(xlsxPath);
@@ -720,12 +781,14 @@ async function loadFile(platform, month, w, mIndex) {
                 let buf = await res.arrayBuffer();
                 let wb = XLSX.read(buf, {type: 'array'});
                 let data2D = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header: 1, defval: ""});
-                processArrayDataIntoGlobal(data2D, month, mIndex, w, false, platform);
+                let parsed = processRawArrayData(data2D, 'campaign', platform);
+                parsed.forEach(r => globalData.push({...parseRawRow(r, month, mIndex, w, 'campaign'), platform: platform}));
                 loadedMain = true;
             }
         }
     } catch(e) {}
 
+    // Load Keyword File for Google Ads
     if (platform === 'google') {
         const kwCsvPath = `./data/google/Keyword/Keyword-${month}-${weekName}.csv`;
         const kwXlsxPath = `./data/google/Keyword/Keyword-${month}-${weekName}.xlsx`;
@@ -733,81 +796,22 @@ async function loadFile(platform, month, w, mIndex) {
             let res = await fetch(kwCsvPath);
             if (res.ok) {
                 let text = await res.text();
-                let data2D = Papa.parse(text, {header: false, skipEmptyLines: false}).data;
-                processArrayDataIntoGlobal(data2D, month, mIndex, w, true, platform);
+                let data2D = Papa.parse(text, {header: false, skipEmptyLines: true}).data;
+                let parsed = processRawArrayData(data2D, 'keyword', platform);
+                parsed.forEach(r => globalData.push({...parseRawRow(r, month, mIndex, w, 'keyword'), platform: platform}));
             } else {
                 res = await fetch(kwXlsxPath);
                 if (res.ok) {
                     let buf = await res.arrayBuffer();
                     let wb = XLSX.read(buf, {type: 'array'});
                     let data2D = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header: 1, defval: ""});
-                    processArrayDataIntoGlobal(data2D, month, mIndex, w, true, platform);
+                    let parsed = processRawArrayData(data2D, 'keyword', platform);
+                    parsed.forEach(r => globalData.push({...parseRawRow(r, month, mIndex, w, 'keyword'), platform: platform}));
                 }
             }
         } catch(e) {}
     }
     return loadedMain;
-}
-
-function processArrayDataIntoGlobal(data2D, month, mIndex, w, isKeywordFile, platform) {
-    if (!data2D || data2D.length === 0) return;
-
-    if (isKeywordFile || (platform === 'google' && isKeywordFile)) {
-        // Strict index mapping from Row 4 (index 3)
-        for (let i = 3; i < data2D.length; i++) {
-            let row = data2D[i];
-            if (!row || row.length < 2) continue;
-            let keywordVal = String(row[1] || '').trim(); // Column B
-            if (!keywordVal || keywordVal.toLowerCase() === 'total' || keywordVal.toLowerCase() === 'รวม') continue;
-
-            let parsed = parseRawRow(null, month, mIndex, w, true, row, platform);
-            globalData.push(parsed);
-        }
-    } else {
-        // Dynamic scan for Campaign level files
-        let headerIdx = data2D.findIndex((row) => {
-            if (!Array.isArray(row)) return false;
-            let rowStr = row.join(' ').toLowerCase();
-            return (rowStr.includes('cost') || rowStr.includes('spend') || rowStr.includes('impr') || rowStr.includes('ค่าใช้จ่าย') || rowStr.includes('การแสดงผล')) &&
-                   (rowStr.includes('campaign') || rowStr.includes('แคมเปญ') || rowStr.includes('ad '));
-        });
-        
-        if (headerIdx === -1) {
-            let maxCols = 0;
-            data2D.forEach((r, idx) => { if(Array.isArray(r) && r.length > maxCols) { maxCols = r.length; headerIdx = idx; }});
-        }
-        if (headerIdx === -1) headerIdx = 0;
-
-        let headers = data2D[headerIdx] || [];
-        for (let i = headerIdx + 1; i < data2D.length; i++) {
-            let row = data2D[i];
-            if (!row || row.length === 0 || row.every(c => c === '' || c == null)) continue;
-            let firstCellStr = String(row[0] || '').toLowerCase().trim();
-            if (firstCellStr === 'total' || firstCellStr === 'รวม') continue;
-
-            let obj = {};
-            headers.forEach((h, colIdx) => {
-                if (h && typeof h === 'string') {
-                    obj[h.trim()] = row[colIdx];
-                }
-            });
-            globalData.push(parseRawRow(obj, month, mIndex, w, false, null, platform));
-        }
-    }
-}
-
-async function fetchAllPlatformsData() {
-    showStatus('กำลังรวบรวมข้อมูลทั้งหมดทุกแพลตฟอร์ม...');
-    const promises = [];
-    for (let m = 0; m < ALL_MONTHS.length; m++) {
-        for (let w = 1; w <= 6; w++) {
-            promises.push(loadFile('facebook', ALL_MONTHS[m], `W${w}`, m));
-            promises.push(loadFile('google', ALL_MONTHS[m], `W${w}`, m));
-        }
-    }
-    await Promise.all(promises);
-    showStatus('✅ รวบรวมข้อมูลเสร็จสิ้น');
-    renderOverallDashboard();
 }
 
 async function fetchAllBackground() {
@@ -820,7 +824,20 @@ async function fetchAllBackground() {
         }
     }
     await Promise.all(promises);
-    if(currentPlatform !== 'overall') renderAll();
+    if(currentPlatform !== 'overall') { renderAll(); }
+}
+
+async function fetchAllPlatformsData() {
+    const promises = [];
+    const platforms = ['facebook', 'google'];
+    for (let p of platforms) {
+        for (let m = 0; m < ALL_MONTHS.length; m++) {
+            for (let w = 1; w <= 6; w++) {
+                promises.push(loadFile(p, ALL_MONTHS[m], `W${w}`, m));
+            }
+        }
+    }
+    await Promise.all(promises);
 }
 
 function safeParseDate(dStr) {
@@ -835,8 +852,8 @@ function safeParseDate(dStr) {
 }
 
 function matchesCampaign(r) {
-    const campaignFilter = document.getElementById('filterCampaign').value;
-    const objectiveFilter = document.getElementById('filterObjective').value.toLowerCase();
+    const campaignFilter = document.getElementById('filterCampaign') ? document.getElementById('filterCampaign').value : '';
+    const objectiveFilter = document.getElementById('filterObjective') ? document.getElementById('filterObjective').value.toLowerCase() : '';
     
     if (campaignFilter && r.campaign !== campaignFilter) return false;
     if (objectiveFilter) {
@@ -847,7 +864,7 @@ function matchesCampaign(r) {
 }
 
 /* =====================================================================
-   STREAMING_CHUNK:Implementing Trend comparisons logic...
+   COMPARISON & TREND LOGIC
 ======================================================================== */
 function getTrendGroupingMap(data) {
     const weekDateRange = {};
@@ -904,7 +921,8 @@ function getComparisonData(targetDataArr = null, specificGroupingKey = null, all
         return matchesCampaign(r);
     });
     
-    const compMode = document.getElementById('filterComparison').value; 
+    const compFilterEl = document.getElementById('filterComparison');
+    const compMode = compFilterEl ? compFilterEl.value : 'wow'; 
     const { mergeMap, labelMap } = getTrendGroupingMap(baseData);
     const mIndex = ALL_MONTHS.indexOf(currentMonth);
 
@@ -1053,7 +1071,7 @@ const getDiffHtml = (currentVal, previousVal, labelCurrent, labelPrevious, rever
 };
 
 /* =====================================================================
-   STREAMING_CHUNK:Rendering KPIs, Funnel and Sale Summaries...
+   MAIN RENDER
 ======================================================================== */
 function renderAll() { 
   if (currentPlatform === 'overall') return;
@@ -1074,6 +1092,8 @@ function renderAll() {
   } else {
       renderTopAdsFB();
   }
+  
+  generateYearlySummaryHtml('yearlySummaryTable', currentPlatform);
 }
 
 function updateSourceLabel() {
@@ -1085,6 +1105,9 @@ function updateSourceLabel() {
   }
 }
 
+/* =====================================================================
+   KPIS & FUNNEL
+======================================================================== */
 function renderKPIs() {
   const currentMonthData = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
   
@@ -1327,12 +1350,12 @@ function renderSalesSummary() {
 }
 
 /* =====================================================================
-   STREAMING_CHUNK:Rendering Demographics and Trend Charts...
+   CHARTS & TRENDS
 ======================================================================== */
 const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64748B'];
 
 function renderCharts() {
-  if (currentPlatform === 'google' || currentPlatform === 'overall') return; 
+  if (currentPlatform === 'google') return; 
   
   const isDark = document.body.classList.contains('dark-mode');
   const textColor = isDark ? '#F8FAFC' : '#111827';
@@ -1417,13 +1440,9 @@ function renderCharts() {
 }
 
 function renderTrendCharts() {
+    // กรองเอาเฉพาะ Row Type ที่ไม่ใช่ Keyword เสมอ (ดึง Primary Campaign เท่านั้น)
     let chartData = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && matchesCampaign(r));
     
-    // Fallback: ถ้าเป็นแท็บ Google Ads และไม่มีข้อมูลแคมเปญ ให้ใช้ข้อมูล Keyword มาทำกราฟ Trend แทน
-    if (chartData.length === 0 && currentPlatform === 'google') {
-        chartData = globalData.filter(r => r.platform === currentPlatform && r.rowType === 'keyword' && matchesCampaign(r));
-    }
-
     let labels = [];
     let aggregated = {};
     let tooltipDates = [];
@@ -1581,7 +1600,7 @@ function renderTrendCharts() {
 }
 
 /* =====================================================================
-   STREAMING_CHUNK:Rendering Facebook Top Ads & Google Keyword Tables...
+   TOP ADS (FB) & KEYWORD TABLE (GOOGLE)
 ======================================================================== */
 let currentTopAdSort = 'spend';
 window.updateTopAdSort = function() {
@@ -1596,7 +1615,7 @@ window.scrollCarousel = function(direction) {
 };
 
 function renderTopAdsFB() {
-  let baseData = globalData.filter(r => r.platform === 'facebook' && r.month === currentMonth && matchesCampaign(r) && r.rowType === 'campaign');
+  let baseData = globalData.filter(r => r.platform === currentPlatform && r.month === currentMonth && matchesCampaign(r) && r.rowType === 'campaign');
   const groupedObj = {};
   
   baseData.forEach(r => {
@@ -1632,9 +1651,10 @@ function renderTopAdsFB() {
 
   let html = '';
   top10.forEach((ad, index) => {
-      const adNameSafe = encodeURIComponent(ad.name.trim().replace(/'/g, "%27"));
-      const imgPath = `./data/facebook/picture/${adNameSafe}.jpg`;
-      const fallbackPngPath = `./data/facebook/picture/${adNameSafe}.png`;
+      const adNameSafe = encodeURIComponent(ad.name.trim()).replace(/'/g, "%27");
+      const imgPath = `./data/${currentPlatform}/picture/${adNameSafe}.jpg`;
+      const fallbackPngPath = `./data/${currentPlatform}/picture/${adNameSafe}.png`;
+      // Use URL Encoded Double Quotes (%22) to prevent SyntaxError with inline onerror
       const defaultSvg = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23f1f5f9%22/%3E%3Csvg x=%22150%22 y=%22130%22 width=%22100%22 height=%22100%22 fill=%22none%22 stroke=%22%2394a3b8%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%222%22 ry=%222%22/%3E%3Ccircle cx=%228.5%22 cy=%228.5%22 r=%221.5%22/%3E%3Cpolyline points=%2221 15 16 10 5 21%22/%3E%3C/svg%3E%3Ctext x=%2250%25%22 y=%22270%22 font-size=%2218%22 font-weight=%22bold%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 fill=%22%2394a3b8%22%3EAd ${index+1}%3C/text%3E%3C/svg%3E`;
       
       html += `
@@ -1657,6 +1677,7 @@ function renderTopAdsFB() {
   container.innerHTML = html;
 }
 
+// Keyword Table Logic
 let keywordSortCol = 'spend';
 let keywordSortAsc = false;
 let keywordRowsLimit = 10;
@@ -1678,7 +1699,6 @@ window.handleKeywordSort = function(col) {
 function renderKeywordTable() {
     let kwData = globalData.filter(r => r.platform === 'google' && r.month === currentMonth && matchesCampaign(r) && r.rowType === 'keyword');
     
-    // Fallback logic
     if (kwData.length === 0) {
         kwData = globalData.filter(r => r.platform === 'google' && r.month === currentMonth && matchesCampaign(r) && r.rowType === 'campaign' && r.ad !== 'Unknown' && r.ad !== '');
     }
@@ -1690,16 +1710,17 @@ function renderKeywordTable() {
             groupedObj[key] = {
                 name: key, 
                 adgroup: r.adset || '-',
-                spend: 0, impressions: 0, clicks: 0, maxImprTopPct: 0
+                spend: 0, impressions: 0, clicks: 0, 
+                imprTopPctMax: 0
             };
         }
         groupedObj[key].spend += r.spend;
         groupedObj[key].impressions += r.impressions;
         groupedObj[key].clicks += r.clicks;
         
-        // เก็บตัวเลข Impr. (Top) % จริงที่สูงที่สุด โดยไม่ผ่านสูตรคำนวณถ่วงน้ำหนัก
-        if (r.imprTopPct > groupedObj[key].maxImprTopPct) {
-            groupedObj[key].maxImprTopPct = r.imprTopPct;
+        // Track the highest (MAX) Impr. Top %
+        if (r.imprTopPct > groupedObj[key].imprTopPctMax) {
+            groupedObj[key].imprTopPctMax = r.imprTopPct;
         }
     });
 
@@ -1707,7 +1728,7 @@ function renderKeywordTable() {
         ...r,
         cpc: r.clicks > 0 ? r.spend / r.clicks : 0,
         ctr: r.impressions > 0 ? (r.clicks / r.impressions) * 100 : 0,
-        imprTopPct: r.maxImprTopPct // แสดงค่าที่สูงที่สุด
+        imprTopPct: r.imprTopPctMax
     }));
 
     adList.sort((a, b) => {
@@ -1748,51 +1769,25 @@ function renderKeywordTable() {
 }
 
 /* =====================================================================
-   STREAMING_CHUNK:Rendering Overall Dashboard and 3 Yearly Tables...
+   YEARLY PERFORMANCE SUMMARY
 ======================================================================== */
-function renderOverallDashboard() {
-    const fbMetrics = [
+function generateYearlySummaryHtml(targetElementId, targetPlatform = 'all') {
+    const isGoogleOnly = targetPlatform === 'google';
+    const metrics = [
         { key: 'spend', label: 'Spending', format: 'currency' },
         { key: 'reach', label: 'Reach', format: 'num' },
-        { key: 'impressions', label: 'Impressions', format: 'num' },
-        { key: 'clicks', label: 'Clicks', format: 'num' },
-        { key: 'lpViews', label: 'Landing Page Views', format: 'num' },
-        { key: 'addCart', label: 'Adds To cart', format: 'num' },
-        { key: 'purchases', label: 'Purchases', format: 'num' },
+        { key: 'impressions', label: 'Impression', format: 'num' },
+        { key: 'clicks', label: 'Click', format: 'num' },
+        { key: 'lpViews', label: 'Landing Page View', format: 'num' },
+        { key: 'addCart', label: 'Add To cart', format: 'num' },
+        { key: 'purchases', label: 'Purchase', format: 'num' },
         { key: 'convValue', label: 'Revenue', format: 'currency' },
         { key: 'roas', label: 'ROAS', format: 'float' },
         { key: 'aov', label: 'AOV', format: 'currency' }
     ];
     
-    const ggMetrics = [
-        { key: 'spend', label: 'Spending', format: 'currency' },
-        { key: 'impressions', label: 'Impressions', format: 'num' },
-        { key: 'clicks', label: 'Clicks', format: 'num' },
-        { key: 'purchases', label: 'Purchases', format: 'num' },
-        { key: 'convValue', label: 'Revenue', format: 'currency' },
-        { key: 'roas', label: 'ROAS', format: 'float' },
-        { key: 'aov', label: 'AOV', format: 'currency' }
-    ];
+    const filteredMetrics = isGoogleOnly ? metrics.filter(m => m.key !== 'lpViews' && m.key !== 'reach') : metrics;
 
-    const combinedMetrics = [
-        { key: 'spend', label: 'Total Spending', format: 'currency' },
-        { key: 'reach', label: 'Total Reach (FB Only)', format: 'num' },
-        { key: 'impressions', label: 'Total Impressions', format: 'num' },
-        { key: 'clicks', label: 'Total Clicks', format: 'num' },
-        { key: 'lpViews', label: 'Total Landing Page Views', format: 'num' },
-        { key: 'addCart', label: 'Total Adds To cart', format: 'num' },
-        { key: 'purchases', label: 'Total Purchases', format: 'num' },
-        { key: 'convValue', label: 'Total Revenue', format: 'currency' },
-        { key: 'roas', label: 'Overall ROAS', format: 'float' },
-        { key: 'aov', label: 'Overall AOV', format: 'currency' }
-    ];
-
-    generateYearlyTable('yearlyFacebookTable', 'facebook', fbMetrics);
-    generateYearlyTable('yearlyGoogleTable', 'google', ggMetrics);
-    generateYearlyTable('yearlyCombinedTable', 'overall', combinedMetrics);
-}
-
-function generateYearlyTable(tableId, targetPlatform, metrics) {
     let monthlyData = {};
     ALL_MONTHS.forEach(m => {
         monthlyData[m] = { spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0 };
@@ -1800,8 +1795,8 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
     
     let totalData = { spend:0, reach:0, impressions:0, clicks:0, lpViews:0, addCart:0, purchases:0, convValue:0 };
 
-    let baseData = globalData.filter(r => r.rowType !== 'keyword');
-    if (targetPlatform !== 'overall') {
+    let baseData = globalData.filter(r => r.rowType !== 'keyword' && matchesCampaign(r));
+    if (targetPlatform !== 'all') {
         baseData = baseData.filter(r => r.platform === targetPlatform);
     }
 
@@ -1828,11 +1823,13 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
     });
 
     let theadHtml = `<thead><tr><th>Metric</th>`;
-    ALL_MONTHS.forEach(m => { theadHtml += `<th>${m}</th>`; });
+    ALL_MONTHS.forEach(m => {
+        theadHtml += `<th>${m}</th>`;
+    });
     theadHtml += `<th class="total-col">Total</th></tr></thead>`;
 
     let tbodyHtml = `<tbody>`;
-    metrics.forEach(metric => {
+    filteredMetrics.forEach(metric => {
         tbodyHtml += `<tr><td>${metric.label}</td>`;
         
         ALL_MONTHS.forEach(m => {
@@ -1855,6 +1852,7 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
             tbodyHtml += `<td>${displayStr}</td>`;
         });
 
+        // Calculate Total
         let tVal = 0;
         if (metric.key === 'roas') {
             tVal = totalData.spend > 0 ? totalData.convValue / totalData.spend : 0;
@@ -1874,15 +1872,21 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
     });
     tbodyHtml += `</tbody>`;
 
-    const tableEl = document.getElementById(tableId);
+    const tableEl = document.getElementById(targetElementId);
     if(tableEl) tableEl.innerHTML = theadHtml + tbodyHtml;
 }
 
+function renderOverallDashboard() {
+    generateYearlySummaryHtml('overallCombinedTable', 'all');
+    generateYearlySummaryHtml('overallFacebookTable', 'facebook');
+    generateYearlySummaryHtml('overallGoogleTable', 'google');
+}
+
 /* =====================================================================
-   STREAMING_CHUNK:Implementing Manual Upload Logic...
+   FILTERS & UPLOAD
 ======================================================================== */
 function populateFilters() {
-  const campaigns = [...new Set(globalData.filter(r => r.platform === currentPlatform).map(r=>r.campaign).filter(c=>c))].sort();
+  const campaigns = [...new Set(globalData.map(r=>r.campaign).filter(c=>c))].sort();
   const currentCamp = document.getElementById('filterCampaign').value;
   document.getElementById('filterCampaign').innerHTML = '<option value="">ทุก Campaign</option>'+campaigns.map(c=>`<option value="${c}">${c}</option>`).join('');
   if (campaigns.includes(currentCamp)) {
@@ -1902,7 +1906,10 @@ function handleManualFileUpload(e) {
   if (!file) return;
   const ext = file.name.split('.').pop().toLowerCase();
   const sourceName = `อัปโหลดเอง (${file.name})`;
+  
+  // Detect if keyword file by filename
   const isKwFile = file.name.toLowerCase().includes('keyword');
+  const fileType = isKwFile ? 'keyword' : 'campaign';
   
   try {
     if (ext === 'xlsx' || ext === 'xls') {
@@ -1912,7 +1919,7 @@ function handleManualFileUpload(e) {
           const wb = XLSX.read(ev.target.result, {type:'array'}); 
           const ws = wb.Sheets[wb.SheetNames[0]]; 
           const data2D = XLSX.utils.sheet_to_json(ws,{header: 1, defval:""});
-          loadManualData(data2D, false, sourceName, isKwFile, currentPlatform); 
+          loadManualData(processRawArrayData(data2D, fileType, currentPlatform), false, sourceName, fileType); 
         } catch(err) {
           showStatus('❌ ไม่สามารถอ่านไฟล์ Excel ได้ หรือไฟล์เสียหาย');
         }
@@ -1921,9 +1928,9 @@ function handleManualFileUpload(e) {
     } else {
       Papa.parse(file, {
         header: false, 
-        skipEmptyLines: false, 
+        skipEmptyLines: true, 
         complete: r => {
-            loadManualData(r.data, false, sourceName, isKwFile, currentPlatform);
+            loadManualData(processRawArrayData(r.data, fileType, currentPlatform), false, sourceName, fileType);
         },
         error: err => showStatus('❌ เกิดข้อผิดพลาดในการอ่านไฟล์ CSV')
       });
@@ -1935,62 +1942,25 @@ function handleManualFileUpload(e) {
 
 document.getElementById('manualFileInput')?.addEventListener('change', handleManualFileUpload);
 
-function loadManualData(data2D, isInitial = false, sourceName = '', isKwFile = false, platform) {
+function loadManualData(rows, isInitial = false, sourceName = '', uploadedFileType = 'campaign') {
   try {
     const mIndex = ALL_MONTHS.indexOf(currentMonth);
-
-    if (isKwFile || (platform === 'google' && isKwFile)) {
-        for (let i = 3; i < data2D.length; i++) {
-            let row = data2D[i];
-            if (!row || row.length < 2) continue;
-            let kwVal = String(row[1] || '').trim();
-            if (!kwVal || kwVal.toLowerCase() === 'total' || kwVal.toLowerCase() === 'รวม') continue;
-            globalData.push(parseRawRow(null, currentMonth, mIndex, 'W1', true, row, platform));
-        }
-    }
-
-    if (!isKwFile) {
-        let headerIdx = data2D.findIndex((row) => {
-            if (!Array.isArray(row)) return false;
-            let rowStr = row.join(' ').toLowerCase();
-            return (rowStr.includes('cost') || rowStr.includes('spend') || rowStr.includes('impr') || rowStr.includes('ค่าใช้จ่าย') || rowStr.includes('การแสดงผล')) &&
-                   (rowStr.includes('campaign') || rowStr.includes('แคมเปญ') || rowStr.includes('ad '));
-        });
-        
-        if (headerIdx === -1) {
-            let maxCols = 0;
-            data2D.forEach((r, idx) => { if(Array.isArray(r) && r.length > maxCols) { maxCols = r.length; headerIdx = idx; }});
-        }
-        if (headerIdx === -1) headerIdx = 0;
-
-        let headers = data2D[headerIdx] || [];
-        for (let i = headerIdx + 1; i < data2D.length; i++) {
-            let row = data2D[i];
-            if (!row || row.length === 0 || row.every(c => c === '' || c == null)) continue;
-            let firstCellStr = String(row[0] || '').toLowerCase().trim();
-            if (firstCellStr === 'total' || firstCellStr === 'รวม') continue;
-
-            let obj = {};
-            headers.forEach((h, colIdx) => {
-                if (h && typeof h === 'string') { obj[h.trim()] = row[colIdx]; }
-            });
-            globalData.push(parseRawRow(obj, currentMonth, mIndex, 'W1', false, null, platform));
-        }
-    }
+    const parsedData = rows.map(r => {
+        let parsed = parseRawRow({...r}, currentMonth, mIndex, r.Week || r.week || 'W1', uploadedFileType);
+        parsed.platform = currentPlatform;
+        return parsed;
+    }).filter(r => r.campaign || r.ad);
+    
+    globalData = parsedData;
 
     if (sourceName) { currentSource = sourceName; } 
     else if (isInitial) { currentSource = 'ไม่มีข้อมูล'; }
 
     populateFilters();
     updateSourceLabel();
+    renderAll();
     
-    if (currentPlatform === 'overall') {
-        renderOverallDashboard();
-    } else {
-        renderAll();
-    }
-    
-    if (!isInitial) showStatus(`✅ โหลดข้อมูลอัปโหลดสำเร็จ`);
+    if (!isInitial) showStatus(`✅ โหลดข้อมูลอัปโหลดสำเร็จ: ${parsedData.length} แถว`);
   } catch(e) { 
     if(!isInitial) showStatus('❌ เกิดข้อผิดพลาดในการอ่านไฟล์: '+e.message); 
   }
@@ -2003,7 +1973,7 @@ function showStatus(msg) {
 }
 
 /* =====================================================================
-   STREAMING_CHUNK:Initializing themes and concluding setup...
+   SETTINGS & THEME
 ======================================================================== */
 const themeCheckbox = document.getElementById('themeToggleCheckbox');
 function updateThemeIcon() {

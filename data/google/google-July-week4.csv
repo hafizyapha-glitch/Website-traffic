@@ -1,9 +1,5 @@
-Campaign report
-"July 21, 2026 - July 27, 2026"
+Campaign report,,,,,,,,,,,,,
+"July 21, 2026 - July 27, 2026",,,,,,,,,,,,,
 Campaign status,Campaign,Budget,Budget name,Budget type,Currency code,Status,Status reasons,Cost,Impr.,Clicks,Add to cart,Purchase,Revenue
-Enabled,4040 | ONN | Performance max | Always On,500.00, --,Daily,THB,Eligible,,2880.33,"27,723","2,288",12.97,4.00,77496.00
-Enabled,4040 | ONN | Search Brand Traffic | Always On,500.00, --,Daily,THB,Eligible (Limited),limited by budget,2435.80,"26,554","3,642",12.00,4.00,74720.00
-Total: Campaigns, --, --, --, --,THB, --,,5316.12,"54,277","5,930",24.97,8.00,152216.00
-Total: Account,,,,,THB,,,5316.12,"54,277","5,930",24.97,8.00,152216.00
-Total: Performance Max,,,,,THB,,,2880.33,"27,723","2,288",12.97,4.00,77496.00
-Total: Search,,,,,THB,,,2435.80,"26,554","3,642",12.00,4.00,74720.00
+Enabled,4040 | ONN | Performance max | Always On,500, --,Daily,THB,Eligible,,2880.33,"27,723","2,288",12.97,4,77496
+Enabled,4040 | ONN | Search Brand Traffic | Always On,500, --,Daily,THB,Eligible (Limited),limited by budget,2435.8,"26,554","3,642",12,4,74720

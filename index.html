@@ -488,7 +488,7 @@
 
 <script>
 /* =====================================================================
-   STREAMING_CHUNK:Initializing global variables...
+   STREAMING_CHUNK:Initializing global variables and formatters...
 ======================================================================== */
 function formatNum(n) { 
     return new Intl.NumberFormat('th-TH').format(Math.round(n || 0)); 
@@ -513,8 +513,19 @@ const fetchedFiles = new Set();
 let isFetchingAll = false;
 
 /* =====================================================================
-   STREAMING_CHUNK:Initializing UI controls...
+   STREAMING_CHUNK:Setting up Smart Data Fallback & UI Controls...
 ======================================================================== */
+
+// ฟังก์ชันหลักที่ดึงข้อมูลไปแสดงในกราฟ (แก้ไขให้สลับไปใช้ Keyword ได้ถ้าไม่มีข้อมูล Campaign)
+function getDashboardData(restrictMonth = true) {
+    let data = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && (!restrictMonth || r.month === currentMonth) && matchesCampaign(r));
+    // Smart Fallback: หากแพลตฟอร์มปัจจุบันไม่มีข้อมูล Campaign เลย ให้อนุญาตเอา Keyword มาแสดงในกราฟและ KPI แทนได้ (เพื่อไม่ให้หน้าว่าง)
+    if (data.length === 0 && currentPlatform === 'google') {
+        data = globalData.filter(r => r.platform === currentPlatform && r.rowType === 'keyword' && (!restrictMonth || r.month === currentMonth) && matchesCampaign(r));
+    }
+    return data;
+}
+
 window.updateDemoMetric = function() {
   currentDemoMetric = document.getElementById('demoMetricSelect').value;
   renderCharts();
@@ -586,7 +597,6 @@ window.switchPlatform = async function(platform) {
       const isGoogle = platform === 'google';
       document.getElementById('demoChartCard').style.display = isGoogle ? 'none' : 'block';
 
-      // Toggle Top Ads vs Keyword View
       document.getElementById('topAdsTitle').textContent = isGoogle ? 'Keyword Performance' : 'Top Ads Performance';
       document.getElementById('topAdsSubTitle').textContent = isGoogle ? 'สรุปข้อมูลระดับคีย์เวิร์ด' : 'โฆษณาที่มีประสิทธิภาพสูงสุดในเดือนนี้ (Top 10)';
       
@@ -618,11 +628,11 @@ window.switchMonth = async function(month, forceRefresh = false) {
 
   await Promise.all(promises);
 
-  const hasData = globalData.some(r => r.month === month && r.platform === currentPlatform);
+  const hasPlatformData = globalData.some(r => r.platform === currentPlatform);
 
-  if (!hasData && globalData.length === 0) {
+  if (!hasPlatformData) {
       let data2D = Papa.parse(initialCSVData, {header: false, skipEmptyLines: true}).data;
-      loadManualData(processRawArrayData(data2D, 'campaign'), true, 'ไม่มีข้อมูล'); 
+      loadManualData(processRawArrayData(data2D, 'campaign', currentPlatform), true, 'ไม่มีข้อมูล', 'campaign'); 
       showStatus(`ℹ️ ไม่พบไฟล์อัตโนมัติ (กำลังแสดงข้อมูลตัวอย่าง)`);
   } else {
       currentSource = `โฟลเดอร์ ${currentPlatform}`;
@@ -641,7 +651,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =====================================================================
-   STREAMING_CHUNK:Initializing data parsing functions...
+   STREAMING_CHUNK:Configuring Data Parsing and Row Extractors...
 ======================================================================== */
 function parseNum(val) {
     if (val === undefined || val === null || val === '') return 0;
@@ -661,9 +671,20 @@ function processRawArrayData(data2D, fileType = 'campaign', platform = currentPl
     let result = [];
     
     if (fileType === 'keyword' && platform === 'google') {
-        for (let i = 3; i < data2D.length; i++) {
+        let kwHeaderIdx = -1;
+        // ยืดหยุ่นการหาบรรทัด Header (เผื่อผู้ใช้ลบแถวบนทิ้ง)
+        for (let i = 0; i < Math.min(10, data2D.length); i++) {
+            let rowStr = (Array.isArray(data2D[i]) ? data2D[i].join(' ') : '').toLowerCase();
+            if (rowStr.includes('keyword') || rowStr.includes('คีย์เวิร์ด') || rowStr.includes('search term') || rowStr.includes('ข้อความค้นหา')) {
+                kwHeaderIdx = i;
+                break;
+            }
+        }
+        
+        let startRow = kwHeaderIdx !== -1 ? kwHeaderIdx + 1 : 3;
+        
+        for (let i = startRow; i < data2D.length; i++) {
             let row = data2D[i];
-            
             if (!row || !row[1] || String(row[1]).trim() === '') continue;
             
             let obj = {
@@ -754,7 +775,7 @@ function parseRawRow(r, month, mIndex, w, rowType) {
       dateEnd: (r['Reporting ends'] || r['Day'] || r['Date'] || '').trim(),
       campaign: (r['Campaign name'] || r['Campaign'] || r['แคมเปญ'] || 'Unknown Campaign').trim(),
       adset: (r['Ad group'] || r['Ad set name'] || r['กลุ่มโฆษณา'] || 'Unknown Ad Set').trim(),
-      ad: (r['Ad name'] || r['Ad'] || r['ชื่อโฆษณา'] || 'Unknown').toString().trim(),
+      ad: (r['Keyword'] || r['Search term'] || r['ข้อความค้นหา'] || r['คีย์เวิร์ด'] || r['Search keyword'] || r['Ad name'] || r['Ad'] || r['ชื่อโฆษณา'] || 'Unknown').toString().trim(),
       age: r['Age'] || 'Unknown',
       gender: r['Gender'] || 'Unknown',
       spend: parseNum(r['Amount spent (THB)']) || parseNum(r['Cost']) || parseNum(r['Spend']) || parseNum(r['ค่าใช้จ่าย']) || 0,
@@ -865,21 +886,28 @@ function safeParseDate(dStr) {
     return new Date(dStr); 
 }
 
+/* =====================================================================
+   STREAMING_CHUNK:Preparing Filters and Comparators...
+======================================================================== */
 function matchesCampaign(r) {
     const campaignFilter = document.getElementById('filterCampaign') ? document.getElementById('filterCampaign').value : '';
     const objectiveFilter = document.getElementById('filterObjective') ? document.getElementById('filterObjective').value.toLowerCase() : '';
     
-    if (campaignFilter && r.campaign !== campaignFilter) return false;
+    if (campaignFilter && r.campaign !== campaignFilter && r.campaign !== 'Unknown Campaign') return false;
+    
     if (objectiveFilter) {
         const campName = r.campaign.toLowerCase();
-        if (!campName.includes(objectiveFilter)) return false;
+        const typeName = (r.adset || '').toLowerCase(); // adset serves as Type for Keywords
+        
+        if (r.rowType === 'keyword') {
+            if (!typeName.includes(objectiveFilter) && typeName !== '-') return false;
+        } else {
+            if (!campName.includes(objectiveFilter)) return false;
+        }
     }
     return true;
 }
 
-/* =====================================================================
-   STREAMING_CHUNK:Initializing trend and comparison logic...
-======================================================================== */
 function getTrendGroupingMap(data) {
     const weekDateRange = {};
     data.forEach(r => {
@@ -926,15 +954,8 @@ function getTrendGroupingMap(data) {
     return { mergeMap, labelMap };
 }
 
-function getComparisonData(targetDataArr = null, specificGroupingKey = null, allowKeyword = false) {
-    let rawData = targetDataArr || globalData;
-    let baseData = rawData.filter(r => {
-        if (r.platform !== currentPlatform) return false;
-        if (!allowKeyword && r.rowType === 'keyword') return false;
-        if (specificGroupingKey && r[specificGroupingKey.field] !== specificGroupingKey.value) return false;
-        return matchesCampaign(r);
-    });
-    
+function getComparisonData() {
+    let baseData = getDashboardData();
     const compFilterEl = document.getElementById('filterComparison');
     const compMode = compFilterEl ? compFilterEl.value : 'wow'; 
     const { mergeMap, labelMap } = getTrendGroupingMap(baseData);
@@ -1085,7 +1106,7 @@ const getDiffHtml = (currentVal, previousVal, labelCurrent, labelPrevious, rever
 };
 
 /* =====================================================================
-   STREAMING_CHUNK:Rendering main layout and elements...
+   STREAMING_CHUNK:Rendering KPIs and Charts...
 ======================================================================== */
 function renderAll() { 
   if (currentPlatform === 'overall') return;
@@ -1120,7 +1141,7 @@ function updateSourceLabel() {
 }
 
 function renderKPIs() {
-  const currentMonthData = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
+  const currentMonthData = getDashboardData();
   
   const spend = currentMonthData.reduce((s,r)=>s+r.spend,0);
   const reach = currentMonthData.reduce((s,r)=>s+r.reach,0);
@@ -1213,7 +1234,7 @@ function renderKPIs() {
 
 function renderFunnel() {
   const isGoogle = currentPlatform === 'google';
-  const d = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
+  const d = getDashboardData();
   
   const impr = d.reduce((s,r)=>s+r.impressions,0);
   const clicks = d.reduce((s,r)=>s+r.clicks,0);
@@ -1291,7 +1312,7 @@ function renderFunnel() {
 
 function renderSalesSummary() {
   const isGoogle = currentPlatform === 'google';
-  const d = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
+  const d = getDashboardData();
   const spend = d.reduce((s,r)=>s+r.spend,0);
   const purchases = d.reduce((s,r)=>s+r.purchases,0);
   const convValue = d.reduce((s,r)=>s+r.convValue,0);
@@ -1360,17 +1381,12 @@ function renderSalesSummary() {
   `;
 }
 
-/* =====================================================================
-   CHARTS & TRENDS
-======================================================================== */
-const COLORS = ['#3B82F6','#10B981','#F59E0B','#8B5CF6','#F43F5E','#06B6D4','#64748B'];
-
 function renderCharts() {
   if (currentPlatform === 'google') return; 
   
   const isDark = document.body.classList.contains('dark-mode');
   const textColor = isDark ? '#F8FAFC' : '#111827';
-  const d = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
+  const d = getDashboardData();
 
   function axisStyle() {
     return { grid:{color:isDark?'rgba(255,255,255,0.05)':'rgba(0,0,0,0.04)'}, ticks:{color:isDark?'#94A3B8':'#6B7280',font:{family:'Inter,Noto Sans Thai',size:11}}, border:{color:'transparent'} };
@@ -1451,7 +1467,7 @@ function renderCharts() {
 }
 
 function renderTrendCharts() {
-    let chartData = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && matchesCampaign(r));
+    let chartData = getDashboardData(false); // get dashboard data across ALL months for trends
     
     let labels = [];
     let aggregated = {};
@@ -1501,13 +1517,13 @@ function renderTrendCharts() {
             return [`Date start: ${startStr}`, `Date end: ${endStr}`];
         });
         
-        var spends = targetKeys.map(k => aggregated[k].spend || 0);
-        var convVals = targetKeys.map(k => aggregated[k].convValue || 0);
-        var purchases = targetKeys.map(k => aggregated[k].purchases || 0);
-        var clicks = targetKeys.map(k => aggregated[k].clicks || 0); 
-        var cpcs = targetKeys.map(k => (aggregated[k].clicks > 0) ? aggregated[k].spend / aggregated[k].clicks : 0);
-        var crs = targetKeys.map(k => (aggregated[k].clicks > 0) ? (aggregated[k].purchases / aggregated[k].clicks)*100 : 0);
-        var roases = targetKeys.map(k => (aggregated[k].spend > 0) ? aggregated[k].convValue / aggregated[k].spend : 0);
+        var spends = targetKeys.map(k => aggregated[k] ? aggregated[k].spend : 0);
+        var convVals = targetKeys.map(k => aggregated[k] ? aggregated[k].convValue : 0);
+        var purchases = targetKeys.map(k => aggregated[k] ? aggregated[k].purchases : 0);
+        var clicks = targetKeys.map(k => aggregated[k] ? aggregated[k].clicks : 0); 
+        var cpcs = targetKeys.map(k => (aggregated[k] && aggregated[k].clicks > 0) ? aggregated[k].spend / aggregated[k].clicks : 0);
+        var crs = targetKeys.map(k => (aggregated[k] && aggregated[k].clicks > 0) ? (aggregated[k].purchases / aggregated[k].clicks)*100 : 0);
+        var roases = targetKeys.map(k => (aggregated[k] && aggregated[k].spend > 0) ? aggregated[k].convValue / aggregated[k].spend : 0);
 
     } else {
         chartData.forEach(r => {
@@ -1610,7 +1626,7 @@ function renderTrendCharts() {
 }
 
 /* =====================================================================
-   TOP ADS (FB) & KEYWORD TABLE (GOOGLE)
+   STREAMING_CHUNK:Rendering Top Ads and Keyword Table...
 ======================================================================== */
 let currentTopAdSort = 'spend';
 window.updateTopAdSort = function() {
@@ -1720,20 +1736,19 @@ function renderKeywordTable() {
                 name: key, 
                 adgroup: r.adset || '-',
                 spend: 0, impressions: 0, clicks: 0, 
-                imprTopPct: 0,
-                latestWeek: ''
+                latestWeek: '', 
+                imprTopPct: 0
             };
         }
         groupedObj[key].spend += r.spend;
         groupedObj[key].impressions += r.impressions;
         groupedObj[key].clicks += r.clicks;
         
-        // Track the absolute LATEST actual value based on Week
         if (!groupedObj[key].latestWeek || r.absWeek > groupedObj[key].latestWeek) {
             groupedObj[key].latestWeek = r.absWeek;
             groupedObj[key].imprTopPct = r.imprTopPct;
         } else if (r.absWeek === groupedObj[key].latestWeek && r.imprTopPct > 0) {
-            groupedObj[key].imprTopPct = r.imprTopPct;
+            groupedObj[key].imprTopPct = r.imprTopPct; // Keep > 0 if same week
         }
     });
 
@@ -1781,7 +1796,7 @@ function renderKeywordTable() {
 }
 
 /* =====================================================================
-   YEARLY PERFORMANCE SUMMARY
+   STREAMING_CHUNK:Preparing Yearly Summary and Overall Tables...
 ======================================================================== */
 function generateYearlySummaryHtml(targetElementId, targetPlatform = 'all') {
     const isGoogleOnly = targetPlatform === 'google';
@@ -1894,7 +1909,7 @@ function renderOverallDashboard() {
 }
 
 /* =====================================================================
-   FILTERS & UPLOAD
+   STREAMING_CHUNK:Finalizing Settings and Manual Upload...
 ======================================================================== */
 function populateFilters() {
   const campaigns = [...new Set(globalData.map(r=>r.campaign).filter(c=>c))].sort();
@@ -1961,7 +1976,9 @@ function loadManualData(rows, isInitial = false, sourceName = '', uploadedFileTy
         return parsed;
     }).filter(r => r.campaign || r.ad);
     
-    globalData = parsedData;
+    // Replace current platform data with newly loaded data
+    globalData = globalData.filter(r => r.platform !== currentPlatform);
+    globalData = [...globalData, ...parsedData];
 
     if (sourceName) { currentSource = sourceName; } 
     else if (isInitial) { currentSource = 'ไม่มีข้อมูล'; }
@@ -1982,9 +1999,6 @@ function showStatus(msg) {
   setTimeout(()=>{ bar.style.display='none'; }, 4000);
 }
 
-/* =====================================================================
-   SETTINGS & THEME
-======================================================================== */
 const themeCheckbox = document.getElementById('themeToggleCheckbox');
 function updateThemeIcon() {
   const isDark = document.body.classList.contains('dark-mode');

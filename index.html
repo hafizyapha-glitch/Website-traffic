@@ -274,7 +274,8 @@
       <span class="filter-label">Filter:</span>
       <select id="filterCampaign" onchange="applyFilters()"><option value="">ทุก Campaign</option></select>
       <select id="filterObjective" onchange="applyFilters()">
-        <!-- Options are populated dynamically via updateObjectiveDropdown -->
+        <option value="">ทุก Objective</option><option value="conversion">Conversion</option>
+        <option value="traffic">Traffic</option><option value="live">Live</option>
       </select>
       <select id="filterComparison" onchange="applyFilters()" style="color: var(--primary);">
         <option value="wow">Week on Week (WoW)</option>
@@ -515,6 +516,10 @@ let currentDemoMetric = 'spend';
 const fetchedFiles = new Set();
 let isFetchingAll = false;
 
+window.addEventListener('DOMContentLoaded', () => {
+    switchMonth(currentMonth); 
+});
+
 /* =====================================================================
    UI CONTROLS
 ======================================================================== */
@@ -538,34 +543,10 @@ window.switchTrendView = function(mode) {
     renderTrendCharts();
 }
 
-function updateObjectiveDropdown(platform) {
-    const objSelect = document.getElementById('filterObjective');
-    if (!objSelect) return;
-    
-    if (platform === 'facebook') {
-        objSelect.innerHTML = `
-            <option value="">ทุก Objective</option>
-            <option value="conversion">Conversion</option>
-            <option value="traffic">Traffic</option>
-            <option value="live">Live</option>
-        `;
-    } else if (platform === 'google') {
-        objSelect.innerHTML = `
-            <option value="">ทุก Objective</option>
-            <option value="search">Search</option>
-            <option value="performance max">Performance Max</option>
-        `;
-    } else {
-        objSelect.innerHTML = `<option value="">ทุก Objective</option>`;
-    }
-}
-
 window.switchPlatform = async function(platform) {
   currentPlatform = platform;
   document.querySelectorAll('.platform-tab').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-' + platform).classList.add('active');
-  
-  updateObjectiveDropdown(platform);
 
   if (platform === 'overall') {
       document.getElementById('platformDashboard').style.display = 'none';
@@ -600,11 +581,6 @@ window.switchPlatform = async function(platform) {
       await switchMonth(currentMonth, true); 
   }
 };
-
-window.addEventListener('DOMContentLoaded', () => {
-    updateObjectiveDropdown(currentPlatform); 
-    switchMonth(currentMonth); 
-});
 
 window.switchMonth = async function(month, forceRefresh = false) {
   currentMonth = month;
@@ -660,40 +636,27 @@ function parsePct(val) {
     return parseFloat(str) || 0;
 }
 
+// Smart Regex Matcher Function
 function processRawArrayData(data2D, fileType = 'campaign', platform = currentPlatform) {
     let result = [];
     
-    // ======== GOOGLE ADS KEYWORD SPECIFIC MAPPING ========
+    // ======== GOOGLE ADS KEYWORD SPECIFIC MAPPING (Row 4+, Col B,E,I,J,K,L,M,N) ========
     if (fileType === 'keyword' && platform === 'google') {
-        let startRow = 3; 
-        
-        // Auto-Detect Header Row
-        for (let i = 0; i < Math.min(10, data2D.length); i++) {
-            if (data2D[i] && data2D[i].length > 1 && typeof data2D[i][1] === 'string') {
-                let colB = data2D[i][1].toLowerCase();
-                if (colB.includes('keyword') || colB.includes('search') || colB.includes('ข้อความค้นหา') || colB.includes('คีย์เวิร์ด')) {
-                    startRow = i + 1;
-                    break;
-                }
-            }
-        }
-
-        for (let i = startRow; i < data2D.length; i++) {
+        // แถวที่ 4 ใน Excel คือ index 3 ใน array
+        for (let i = 3; i < data2D.length; i++) {
             let row = data2D[i];
-            
-            // Relaxed condition: check if row exists and Col B has a value. Don't enforce row.length >= 14
-            if (!row || !row[1] || String(row[1]).trim() === '') continue;
-            if (String(row[1]).toLowerCase() === 'total' || String(row[1]).includes('รวม')) continue;
+            // ต้องมีอย่างน้อย 14 คอลัมน์ (Index 0-13) และมีข้อมูล Keyword (Col B / Index 1)
+            if (!row || row.length < 14 || !row[1]) continue;
             
             let obj = {
-                'Keyword': row[1] || '',
-                'Type': row[4] || '-',
-                'Cost': row[8] || 0,
-                'Impr.': row[9] || 0,
-                'Clicks': row[10] || 0,
-                'Avg. CPC': row[11] || 0,
-                'CTR': row[12] || 0,
-                'Impr. (Top) %': row[13] || 0
+                'Keyword': row[1],
+                'Type': row[4],
+                'Cost': row[8],
+                'Impr.': row[9],
+                'Clicks': row[10],
+                'Avg. CPC': row[11],
+                'CTR': row[12],
+                'Impr. (Top) %': row[13]
             };
             result.push(obj);
         }
@@ -748,13 +711,9 @@ function processRawArrayData(data2D, fileType = 'campaign', platform = currentPl
 }
 
 function parseRawRow(r, month, mIndex, w, rowType) {
-    // Determine sortable week value (e.g. "W1" -> 1) for finding "latest" data
-    let weekNum = parseInt(w.replace(/\D/g, '')) || 1;
-
     if (rowType === 'keyword') {
         return {
             month: month, monthIndex: mIndex, week: w, absWeek: `${String(mIndex).padStart(2, '0')}-${w}`,
-            weekNum: weekNum,
             dateStart: (r['Reporting starts'] || r['Day'] || r['Date'] || '').trim(),
             dateEnd: (r['Reporting ends'] || r['Day'] || r['Date'] || '').trim(),
             campaign: 'Unknown Campaign',
@@ -775,7 +734,6 @@ function parseRawRow(r, month, mIndex, w, rowType) {
     // Normal Campaign parsing
     return {
       month: month, monthIndex: mIndex, week: w, absWeek: `${String(mIndex).padStart(2, '0')}-${w}`,
-      weekNum: weekNum,
       dateStart: (r['Reporting starts'] || r['Day'] || r['Date'] || '').trim(),
       dateEnd: (r['Reporting ends'] || r['Day'] || r['Date'] || '').trim(),
       campaign: (r['Campaign name'] || r['Campaign'] || r['แคมเปญ'] || 'Unknown Campaign').trim(),
@@ -898,11 +856,9 @@ function matchesCampaign(r) {
     const objectiveFilter = document.getElementById('filterObjective') ? document.getElementById('filterObjective').value.toLowerCase() : '';
     
     if (campaignFilter && r.campaign !== campaignFilter) return false;
-    
     if (objectiveFilter) {
-        // Fallback for Google Ads: if rowType is keyword, check 'adset' (Type) instead of 'campaign'
-        const targetStr = (r.rowType === 'keyword' && r.platform === 'google') ? r.adset.toLowerCase() : r.campaign.toLowerCase();
-        if (!targetStr.includes(objectiveFilter)) return false;
+        const campName = r.campaign.toLowerCase();
+        if (!campName.includes(objectiveFilter)) return false;
     }
     return true;
 }
@@ -964,11 +920,6 @@ function getComparisonData(targetDataArr = null, specificGroupingKey = null, all
         if (specificGroupingKey && r[specificGroupingKey.field] !== specificGroupingKey.value) return false;
         return matchesCampaign(r);
     });
-    
-    // SMART FALLBACK: If no campaign data exists for Google Ads, use Keyword data for comparison
-    if (currentPlatform === 'google' && baseData.length === 0) {
-        baseData = rawData.filter(r => r.platform === currentPlatform && r.rowType === 'keyword' && matchesCampaign(r));
-    }
     
     const compFilterEl = document.getElementById('filterComparison');
     const compMode = compFilterEl ? compFilterEl.value : 'wow'; 
@@ -1158,12 +1109,7 @@ function updateSourceLabel() {
    KPIS & FUNNEL
 ======================================================================== */
 function renderKPIs() {
-  let currentMonthData = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
-  
-  // SMART FALLBACK
-  if (currentPlatform === 'google' && currentMonthData.length === 0) {
-      currentMonthData = globalData.filter(r => r.platform === currentPlatform && r.rowType === 'keyword' && r.month === currentMonth && matchesCampaign(r));
-  }
+  const currentMonthData = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
   
   const spend = currentMonthData.reduce((s,r)=>s+r.spend,0);
   const reach = currentMonthData.reduce((s,r)=>s+r.reach,0);
@@ -1256,11 +1202,7 @@ function renderKPIs() {
 
 function renderFunnel() {
   const isGoogle = currentPlatform === 'google';
-  let d = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
-  
-  if (isGoogle && d.length === 0) {
-      d = globalData.filter(r => r.platform === currentPlatform && r.rowType === 'keyword' && r.month === currentMonth && matchesCampaign(r));
-  }
+  const d = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
   
   const impr = d.reduce((s,r)=>s+r.impressions,0);
   const clicks = d.reduce((s,r)=>s+r.clicks,0);
@@ -1338,12 +1280,7 @@ function renderFunnel() {
 
 function renderSalesSummary() {
   const isGoogle = currentPlatform === 'google';
-  let d = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
-  
-  if (isGoogle && d.length === 0) {
-      d = globalData.filter(r => r.platform === currentPlatform && r.rowType === 'keyword' && r.month === currentMonth && matchesCampaign(r));
-  }
-  
+  const d = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && r.month === currentMonth && matchesCampaign(r));
   const spend = d.reduce((s,r)=>s+r.spend,0);
   const purchases = d.reduce((s,r)=>s+r.purchases,0);
   const convValue = d.reduce((s,r)=>s+r.convValue,0);
@@ -1503,12 +1440,8 @@ function renderCharts() {
 }
 
 function renderTrendCharts() {
+    // กรองเอาเฉพาะ Row Type ที่ไม่ใช่ Keyword เสมอ (ดึง Primary Campaign เท่านั้น)
     let chartData = globalData.filter(r => r.platform === currentPlatform && r.rowType !== 'keyword' && matchesCampaign(r));
-    
-    // SMART FALLBACK
-    if (currentPlatform === 'google' && chartData.length === 0) {
-        chartData = globalData.filter(r => r.platform === currentPlatform && r.rowType === 'keyword' && matchesCampaign(r));
-    }
     
     let labels = [];
     let aggregated = {};
@@ -1721,6 +1654,7 @@ function renderTopAdsFB() {
       const adNameSafe = encodeURIComponent(ad.name.trim()).replace(/'/g, "%27");
       const imgPath = `./data/${currentPlatform}/picture/${adNameSafe}.jpg`;
       const fallbackPngPath = `./data/${currentPlatform}/picture/${adNameSafe}.png`;
+      // Use URL Encoded Double Quotes (%22) to prevent SyntaxError with inline onerror
       const defaultSvg = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23f1f5f9%22/%3E%3Csvg x=%22150%22 y=%22130%22 width=%22100%22 height=%22100%22 fill=%22none%22 stroke=%22%2394a3b8%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%222%22 ry=%222%22/%3E%3Ccircle cx=%228.5%22 cy=%228.5%22 r=%221.5%22/%3E%3Cpolyline points=%2221 15 16 10 5 21%22/%3E%3C/svg%3E%3Ctext x=%2250%25%22 y=%22270%22 font-size=%2218%22 font-weight=%22bold%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 fill=%22%2394a3b8%22%3EAd ${index+1}%3C/text%3E%3C/svg%3E`;
       
       html += `
@@ -1765,7 +1699,6 @@ window.handleKeywordSort = function(col) {
 function renderKeywordTable() {
     let kwData = globalData.filter(r => r.platform === 'google' && r.month === currentMonth && matchesCampaign(r) && r.rowType === 'keyword');
     
-    // Fallback: ถ้าตาราง Keyword ไม่มา ให้ดึงชื่อ Ad จาก Campaign มาโชว์แทนชั่วคราว
     if (kwData.length === 0) {
         kwData = globalData.filter(r => r.platform === 'google' && r.month === currentMonth && matchesCampaign(r) && r.rowType === 'campaign' && r.ad !== 'Unknown' && r.ad !== '');
     }
@@ -1778,18 +1711,16 @@ function renderKeywordTable() {
                 name: key, 
                 adgroup: r.adset || '-',
                 spend: 0, impressions: 0, clicks: 0, 
-                imprTopPctLatest: 0,
-                latestWeekNum: -1
+                imprTopPctMax: 0
             };
         }
         groupedObj[key].spend += r.spend;
         groupedObj[key].impressions += r.impressions;
         groupedObj[key].clicks += r.clicks;
         
-        // ดึงเลข Impr. Top % ของสัปดาห์ล่าสุดที่มีข้อมูลมาทับเสมอ
-        if (r.weekNum > groupedObj[key].latestWeekNum && r.imprTopPct > 0) {
-            groupedObj[key].latestWeekNum = r.weekNum;
-            groupedObj[key].imprTopPctLatest = r.imprTopPct;
+        // Track the highest (MAX) Impr. Top %
+        if (r.imprTopPct > groupedObj[key].imprTopPctMax) {
+            groupedObj[key].imprTopPctMax = r.imprTopPct;
         }
     });
 
@@ -1797,7 +1728,7 @@ function renderKeywordTable() {
         ...r,
         cpc: r.clicks > 0 ? r.spend / r.clicks : 0,
         ctr: r.impressions > 0 ? (r.clicks / r.impressions) * 100 : 0,
-        imprTopPct: r.imprTopPctLatest // ใช้ค่าของสัปดาห์ล่าสุด ไม่ต้อง Max ไม่ต้อง Weighted
+        imprTopPct: r.imprTopPctMax
     }));
 
     adList.sort((a, b) => {
@@ -1976,6 +1907,7 @@ function handleManualFileUpload(e) {
   const ext = file.name.split('.').pop().toLowerCase();
   const sourceName = `อัปโหลดเอง (${file.name})`;
   
+  // Detect if keyword file by filename
   const isKwFile = file.name.toLowerCase().includes('keyword');
   const fileType = isKwFile ? 'keyword' : 'campaign';
   

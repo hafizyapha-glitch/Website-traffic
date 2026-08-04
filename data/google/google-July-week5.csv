@@ -1,5 +1,9 @@
 Campaign report,,,,,,,,,,,,,
 "July 28, 2026 - July 31, 2026",,,,,,,,,,,,,
 Campaign status,Campaign,Budget,Budget name,Budget type,Currency code,Status,Status reasons,Cost,Impr.,Clicks,Add to cart,Purchase,Revenue
-Enabled,4040 | ONN | Search Brand Traffic | Always On,500, --,Daily,THB,Eligible (Limited),limited by budget,1542.67,"9,612","1,443",32.76,3.1,82372.77
-Enabled,4040 | ONN | Performance max | Always On,500, --,Daily,THB,Eligible (Limited),most asset groups limited by policy,1547.47,"23,206","2,661",94.22,12.84,266596.06
+Paused,4040 | ONN | Search Brand Traffic | Always On,500, --,Daily,THB,Paused,campaign paused; limited by budget,1908.93,"12,060","1,935",115.41,8.8,105866.3
+Paused,4040 | ONN | Performance max | Always On,500, --,Daily,THB,Paused,campaign paused; most asset groups limited by policy,1951.29,"28,040","3,429",260.99,30.28,539334.6
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,

@@ -1761,17 +1761,28 @@ function renderOverallDashboard() {
         { key: 'purchases', label: 'Purchases', format: 'num' },
         { key: 'convValue', label: 'Revenue', format: 'currency' },
         { key: 'roas', label: 'ROAS', format: 'float' },
-        { key: 'aov', label: 'AOV', format: 'currency' }
+        { key: 'aov', label: 'AOV', format: 'currency' },
+        { key: 'cpr', label: 'CPR (Cost per 1,000 Reach)', format: 'currency' },
+        { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'currency' },
+        { key: 'cpc', label: 'CPC (Cost per Click)', format: 'currency' },
+        { key: 'cplpv', label: 'Cost per Landing Page View', format: 'currency' },
+        { key: 'cpact', label: 'Cost per Add to cart', format: 'currency' },
+        { key: 'cpp', label: 'Cost Per Purchase', format: 'currency' }
     ];
     
     const ggMetrics = [
         { key: 'spend', label: 'Spending', format: 'currency' },
         { key: 'impressions', label: 'Impressions', format: 'num' },
         { key: 'clicks', label: 'Clicks', format: 'num' },
+        { key: 'addCart', label: 'Adds To cart', format: 'num' },
         { key: 'purchases', label: 'Purchases', format: 'num' },
         { key: 'convValue', label: 'Revenue', format: 'currency' },
         { key: 'roas', label: 'ROAS', format: 'float' },
-        { key: 'aov', label: 'AOV', format: 'currency' }
+        { key: 'aov', label: 'AOV', format: 'currency' },
+        { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'currency' },
+        { key: 'cpc', label: 'CPC (Cost per Click)', format: 'currency' },
+        { key: 'cpact', label: 'Cost per Add to cart', format: 'currency' },
+        { key: 'cpp', label: 'Cost Per Purchase', format: 'currency' }
     ];
 
     const combinedMetrics = [
@@ -1835,16 +1846,23 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
     metrics.forEach(metric => {
         tbodyHtml += `<tr><td>${metric.label}</td>`;
         
+        const calculateRatio = (key, dataObj) => {
+            switch(key) {
+                case 'roas': return dataObj.spend > 0 ? dataObj.convValue / dataObj.spend : 0;
+                case 'aov': return dataObj.purchases > 0 ? dataObj.convValue / dataObj.purchases : 0;
+                case 'cpr': return dataObj.reach > 0 ? (dataObj.spend / dataObj.reach) * 1000 : 0;
+                case 'cpm': return dataObj.impressions > 0 ? (dataObj.spend / dataObj.impressions) * 1000 : 0;
+                case 'cpc': return dataObj.clicks > 0 ? dataObj.spend / dataObj.clicks : 0;
+                case 'cplpv': return dataObj.lpViews > 0 ? dataObj.spend / dataObj.lpViews : 0;
+                case 'cpact': return dataObj.addCart > 0 ? dataObj.spend / dataObj.addCart : 0;
+                case 'cpp': return dataObj.purchases > 0 ? dataObj.spend / dataObj.purchases : 0;
+                default: return dataObj[key] || 0;
+            }
+        };
+
         ALL_MONTHS.forEach(m => {
             let mData = monthlyData[m];
-            let val = 0;
-            if (metric.key === 'roas') {
-                val = mData.spend > 0 ? mData.convValue / mData.spend : 0;
-            } else if (metric.key === 'aov') {
-                val = mData.purchases > 0 ? mData.convValue / mData.purchases : 0;
-            } else {
-                val = mData[metric.key];
-            }
+            let val = calculateRatio(metric.key, mData);
             
             let displayStr = '';
             if (val === 0) { displayStr = '-'; }
@@ -1855,14 +1873,7 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
             tbodyHtml += `<td>${displayStr}</td>`;
         });
 
-        let tVal = 0;
-        if (metric.key === 'roas') {
-            tVal = totalData.spend > 0 ? totalData.convValue / totalData.spend : 0;
-        } else if (metric.key === 'aov') {
-            tVal = totalData.purchases > 0 ? totalData.convValue / totalData.purchases : 0;
-        } else {
-            tVal = totalData[metric.key];
-        }
+        let tVal = calculateRatio(metric.key, totalData);
         
         let tDisplayStr = '';
         if (tVal === 0) { tDisplayStr = '-'; }

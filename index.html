@@ -1762,12 +1762,12 @@ function renderOverallDashboard() {
         { key: 'convValue', label: 'Revenue', format: 'currency' },
         { key: 'roas', label: 'ROAS', format: 'float' },
         { key: 'aov', label: 'AOV', format: 'currency' },
-        { key: 'cpr', label: 'CPR (Cost per 1,000 Reach)', format: 'currency' },
-        { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'currency' },
-        { key: 'cpc', label: 'CPC (Cost per Click)', format: 'currency' },
-        { key: 'cplpv', label: 'Cost per Landing Page View', format: 'currency' },
-        { key: 'cpact', label: 'Cost per Add to cart', format: 'currency' },
-        { key: 'cpp', label: 'Cost Per Purchase', format: 'currency' }
+        { key: 'cpr', label: 'CPR (Cost per 1,000 Reach)', format: 'cost' },
+        { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'cost' },
+        { key: 'cpc', label: 'CPC (Cost per Click)', format: 'cost' },
+        { key: 'cplpv', label: 'Cost per Landing Page View', format: 'cost' },
+        { key: 'cpact', label: 'Cost per Add to cart', format: 'cost' },
+        { key: 'cpp', label: 'Cost Per Purchase', format: 'cost' }
     ];
     
     const ggMetrics = [
@@ -1779,10 +1779,10 @@ function renderOverallDashboard() {
         { key: 'convValue', label: 'Revenue', format: 'currency' },
         { key: 'roas', label: 'ROAS', format: 'float' },
         { key: 'aov', label: 'AOV', format: 'currency' },
-        { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'currency' },
-        { key: 'cpc', label: 'CPC (Cost per Click)', format: 'currency' },
-        { key: 'cpact', label: 'Cost per Add to cart', format: 'currency' },
-        { key: 'cpp', label: 'Cost Per Purchase', format: 'currency' }
+        { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'cost' },
+        { key: 'cpc', label: 'CPC (Cost per Click)', format: 'cost' },
+        { key: 'cpact', label: 'Cost per Add to cart', format: 'cost' },
+        { key: 'cpp', label: 'Cost Per Purchase', format: 'cost' }
     ];
 
     const combinedMetrics = [
@@ -1866,7 +1866,8 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
             
             let displayStr = '';
             if (val === 0) { displayStr = '-'; }
-            else if (metric.format === 'currency') { displayStr = formatNum(val); }
+            else if (metric.format === 'currency') { displayStr = '฿' + formatNum(val); }
+            else if (metric.format === 'cost') { displayStr = '฿' + val.toLocaleString('th-TH', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
             else if (metric.format === 'float') { displayStr = val.toFixed(2); }
             else { displayStr = formatNum(val); }
             
@@ -1877,7 +1878,8 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
         
         let tDisplayStr = '';
         if (tVal === 0) { tDisplayStr = '-'; }
-        else if (metric.format === 'currency') { tDisplayStr = formatNum(tVal); }
+        else if (metric.format === 'currency') { tDisplayStr = '฿' + formatNum(tVal); }
+        else if (metric.format === 'cost') { tDisplayStr = '฿' + tVal.toLocaleString('th-TH', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
         else if (metric.format === 'float') { tDisplayStr = tVal.toFixed(2); }
         else { tDisplayStr = formatNum(tVal); }
 

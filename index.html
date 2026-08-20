@@ -1795,7 +1795,12 @@ function renderOverallDashboard() {
         { key: 'purchases', label: 'Total Purchases', format: 'num' },
         { key: 'convValue', label: 'Total Revenue', format: 'currency' },
         { key: 'roas', label: 'Overall ROAS', format: 'float' },
-        { key: 'aov', label: 'Overall AOV', format: 'currency' }
+        { key: 'aov', label: 'Overall AOV', format: 'currency' },
+        { key: 'cpr', label: 'CPR (Cost per 1,000 Reach)', format: 'cost' },
+        { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'cost' },
+        { key: 'cpc', label: 'CPC (Cost per Click)', format: 'cost' },
+        { key: 'cpact', label: 'Cost per Add to cart', format: 'cost' },
+        { key: 'cpp', label: 'Cost Per Purchase', format: 'cost' }
     ];
 
     generateYearlyTable('yearlyFacebookTable', 'facebook', fbMetrics);

@@ -1762,6 +1762,7 @@ function renderOverallDashboard() {
         { key: 'convValue', label: 'Revenue', format: 'currency' },
         { key: 'roas', label: 'ROAS', format: 'float' },
         { key: 'aov', label: 'AOV', format: 'currency' },
+        { key: 'cvr_fb', label: 'Conversion Rate (Purchases / LP Views)', format: 'percent' },
         { key: 'cpr', label: 'CPR (Cost per 1,000 Reach)', format: 'cost' },
         { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'cost' },
         { key: 'cpc', label: 'CPC (Cost per Click)', format: 'cost' },
@@ -1779,6 +1780,7 @@ function renderOverallDashboard() {
         { key: 'convValue', label: 'Revenue', format: 'currency' },
         { key: 'roas', label: 'ROAS', format: 'float' },
         { key: 'aov', label: 'AOV', format: 'currency' },
+        { key: 'cvr_gg', label: 'Conversion Rate (Purchases / Clicks)', format: 'percent' },
         { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'cost' },
         { key: 'cpc', label: 'CPC (Cost per Click)', format: 'cost' },
         { key: 'cpact', label: 'Cost per Add to cart', format: 'cost' },
@@ -1796,6 +1798,7 @@ function renderOverallDashboard() {
         { key: 'convValue', label: 'Total Revenue', format: 'currency' },
         { key: 'roas', label: 'Overall ROAS', format: 'float' },
         { key: 'aov', label: 'Overall AOV', format: 'currency' },
+        { key: 'cvr_combined', label: 'Conversion Rate (Purchases / Clicks)', format: 'percent' },
         { key: 'cpr', label: 'CPR (Cost per 1,000 Reach)', format: 'cost' },
         { key: 'cpm', label: 'CPM (Cost per 1,000 Impr.)', format: 'cost' },
         { key: 'cpc', label: 'CPC (Cost per Click)', format: 'cost' },
@@ -1861,6 +1864,9 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
                 case 'cplpv': return dataObj.lpViews > 0 ? dataObj.spend / dataObj.lpViews : 0;
                 case 'cpact': return dataObj.addCart > 0 ? dataObj.spend / dataObj.addCart : 0;
                 case 'cpp': return dataObj.purchases > 0 ? dataObj.spend / dataObj.purchases : 0;
+                case 'cvr_fb': return dataObj.lpViews > 0 ? (dataObj.purchases / dataObj.lpViews) * 100 : 0;
+                case 'cvr_gg': return dataObj.clicks > 0 ? (dataObj.purchases / dataObj.clicks) * 100 : 0;
+                case 'cvr_combined': return dataObj.clicks > 0 ? (dataObj.purchases / dataObj.clicks) * 100 : 0;
                 default: return dataObj[key] || 0;
             }
         };
@@ -1874,6 +1880,7 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
             else if (metric.format === 'currency') { displayStr = '฿' + formatNum(val); }
             else if (metric.format === 'cost') { displayStr = '฿' + val.toLocaleString('th-TH', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
             else if (metric.format === 'float') { displayStr = val.toFixed(2); }
+            else if (metric.format === 'percent') { displayStr = val.toFixed(2) + '%'; }
             else { displayStr = formatNum(val); }
             
             tbodyHtml += `<td>${displayStr}</td>`;
@@ -1886,6 +1893,7 @@ function generateYearlyTable(tableId, targetPlatform, metrics) {
         else if (metric.format === 'currency') { tDisplayStr = '฿' + formatNum(tVal); }
         else if (metric.format === 'cost') { tDisplayStr = '฿' + tVal.toLocaleString('th-TH', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
         else if (metric.format === 'float') { tDisplayStr = tVal.toFixed(2); }
+        else if (metric.format === 'percent') { tDisplayStr = tVal.toFixed(2) + '%'; }
         else { tDisplayStr = formatNum(tVal); }
 
         tbodyHtml += `<td class="total-col">${tDisplayStr}</td></tr>`;

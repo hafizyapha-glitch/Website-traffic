@@ -1,0 +1,10 @@
+Campaign report,,,,,,,,,,,,
+"August 11, 2026 - August 17, 2026",,,,,,,,,,,,
+Campaign status,Campaign,Budget,Budget name,Budget type,Currency code,Status,Status reasons,Cost,Impr.,Clicks,Purchase,Revenue
+Enabled,job:DM26_0116-avc:Search-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:All-mht:All-kwt:Competitor,142, --,Daily,THB,Eligible (Learning),bidding strategy learning,0.02,40,1,0,0
+Enabled,job:DM26_0116-avc:Demand Gen-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:Retarget,850, --,Daily,THB,Eligible (Limited),most ads limited by policy,635.93,"2,614",24,0,0
+Enabled,job:DM26_0116-avc:Demand Gen-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:New,1100, --,Daily,THB,Eligible (Limited),most ads limited by policy,677.31,"7,934",102,0,0
+Paused,4040 | ONN | Search Brand Traffic | Always On,2000, --,Daily,THB,Paused,campaign paused; limited by budget,12633.21,"40,326","6,281",27.72,1601542.39
+Paused,4040 | ONN | Performance max | Always On,2000, --,Daily,THB,Paused,campaign paused,13289.5,"100,664","12,248",26.91,362972.01
+Enabled,job:DM26_0116-avc:Search-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:All-mht:All-kwt:Generic,267, --,Daily,THB,Eligible,,252.74,"2,447",453,0,0
+Enabled,job:DM26_0116-avc:Search-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:All-mht:All-kwt:Brand,1700, --,Daily,THB,Eligible,,140.32,583,213,2,37681

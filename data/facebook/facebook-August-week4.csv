@@ -1,45 +1,411 @@
 ﻿"Campaign name","Ad set name",Gender,Age,"Ad name","Amount spent (THB)",Reach,Impressions,"Link clicks","Landing page views","Website adds to cart","Website purchases","Website purchases conversion value","Reporting starts","Reporting ends"
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",1198.45648101,6418,32721,456,391,146,3,289977,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",709.37935083,4448,22018,190,159,86,3,45142,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",600.38330458,2564,13489,181,152,41,3,180153,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:Live 19_8_26-adf:Video",572.13485927,15112,15781,17,12,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:Service _ ทองแท้ 96.5-adf:Single",523.91251899,5892,11648,140,127,5,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",510.16635908,3816,13520,193,171,73,1,18743,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:Service _ ทองแท้ 96.5-adf:Single",486.81313056,4263,7530,111,91,18,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",452.93881703,3632,11121,94,87,33,2,14323,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:Live 19_8_26-adf:Video",429.05364405,9355,10039,9,8,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",427.56,3760,10148,96,82,26,5,42086,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",392.4217685,2081,12014,111,68,62,11,384622,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:Service _ ทองแท้ 96.5-adf:Single",389.88449832,2970,5257,107,79,4,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:Service _ ทองแท้ 96.5-adf:Single",376.98424809,4957,10436,113,106,11,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,adn:พระประจำวันเกิด-adf:Single,353.61299128,5234,7866,60,39,6,1,17744,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,adn:พระประจำวันเกิด-adf:Single,351.35943312,3896,5047,61,39,2,1,17592,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",314.70392269,3169,10811,104,88,58,2,57865,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:Live 19_8_26-adf:Video",309.76263088,6356,6554,12,8,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:Service _ ทองแท้ 96.5-adf:Single",306.86461803,2910,5397,89,81,7,1,668,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,adn:พระประจำวันเกิด-adf:Single,299.32099814,4013,5537,38,26,4,1,3249,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,adn:พระประจำวันเกิด-adf:Single,283.32147931,4304,5974,36,24,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,adn:พระประจำวันเกิด-adf:Single,281.33153916,4340,5476,50,29,,1,5198,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",280.82,2001,4954,65,55,15,3,110340,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",280.54930684,5912,10838,114,92,22,1,1155,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:Live 19_8_26-adf:Video",280.23238007,8093,8706,12,7,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",272.44966727,2242,8261,62,56,35,2,41487,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",269.69336165,1753,6019,146,130,20,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:Live 19_8_26-adf:Video",268.30227875,8820,9503,5,4,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:Service _ ทองแท้ 96.5-adf:Single",256.9263745,2733,4642,76,71,9,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,adn:พระประจำวันเกิด-adf:Single,256.06561456,3302,4847,50,34,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",252.34,2759,8094,59,44,26,2,19816,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",247.95621206,1828,5298,41,35,9,2,218957,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",240.07399545,2542,4012,72,56,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",226.68544568,3008,5098,57,51,5,1,18393,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",221.73229998,884,5254,76,56,16,2,143870,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:Live 19_8_26-adf:Video",215.32182878,6488,6688,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",203.5022435,4916,8605,84,65,10,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,35-44,adn:พระประจำวันเกิด-adf:Single,201.66,2534,5426,58,52,14,3,7852,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",199.22,1753,5020,30,28,13,1,1540,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",192.30564102,1209,4241,19,12,5,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,45-54,adn:พระประจำวันเกิด-adf:Single,190.54,1630,3507,57,50,12,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",188.25044266,1249,7136,43,31,11,2,1290844,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",181.56226312,1801,5987,64,51,36,2,72848,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",177.91,1593,2222,51,43,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",167.62062571,2350,3033,19,15,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,adn:พระประจำวันเกิด-adf:Single,165.75952777,2944,5167,36,25,1,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:Live 19_8_26-adf:Video",145.66,4515,4809,7,7,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,adn:พระประจำวันเกิด-adf:Single,141.03575845,1491,2117,18,8,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,adn:พระประจำวันเกิด-adf:Single,138.11460321,1955,3267,25,14,4,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:Live 19_8_26-adf:Video",137.66116919,3586,3837,5,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",137.59763284,459,2210,40,30,7,1,35249,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:Live 19_8_26-adf:Video",137.50116783,4806,5065,4,5,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",132.50735047,217,1385,21,15,22,11,599536,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,25-34,adn:พระประจำวันเกิด-adf:Single,129.87,1565,3320,28,31,10,2,4730,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",127.79810131,1472,1888,16,8,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",126.30631864,1078,1663,51,43,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,adn:พระประจำวันเกิด-adf:Single,124.50625556,1046,1364,14,12,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",119.67149167,1516,4848,51,28,14,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,45-54,adn:พระประจำวันเกิด-adf:Single,118.79226972,797,1496,11,11,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",117.597262,2263,3691,40,27,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:Live 19_8_26-adf:Video",113.76,4320,4622,5,6,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",112.76,1410,1829,26,22,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",110.52,757,1063,29,26,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,35-44,adn:พระประจำวันเกิด-adf:Single,109.87,1575,3467,33,26,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,35-44,adn:พระประจำวันเกิด-adf:Single,107.85021844,1491,2764,25,24,12,2,4198,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",106.80038794,1426,1882,12,10,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:Service _ ทองแท้ 96.5-adf:Single",104.6485233,714,1184,42,38,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",104.49130245,1086,3576,33,26,23,1,17804,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,45-54,adn:พระประจำวันเกิด-adf:Single,101.46,1214,2737,20,13,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:Service _ ทองแท้ 96.5-adf:Single",101.29501956,776,1365,23,18,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",99.4,1436,4296,16,9,11,1,72062,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,adn:พระประจำวันเกิด-adf:Single,97.14730545,764,1162,24,20,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",96.41,1154,3196,23,19,5,1,72351,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",95.99571705,1677,2381,21,16,10,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",90.21956114,746,3001,20,14,7,2,108487,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",89.81657663,1655,2887,42,29,4,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",89.29659645,1858,3429,29,26,7,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,adn:พระประจำวันเกิด-adf:Single,87.68561998,1947,2917,17,12,5,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:บริการ Same Day Delivery-adf:Single",86.9,1446,2450,19,12,5,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",84.86662056,630,2027,16,14,10,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",83.17569166,374,1211,20,15,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:บริการ Same Day Delivery-adf:Single",82.72,1516,2678,22,20,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",82.34523546,194,787,6,5,2,2,88668,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:Live 19_8_26-adf:Video",80.85,2073,2187,1,1,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,35-44,"ปี่เซียะมงคล  11-20 Aug",78.94630112,1102,1301,19,19,10,3,4759,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,adn:พระประจำวันเกิด-adf:Single,76.05771262,1420,1881,13,8,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,adn:พระประจำวันเกิด-adf:Single,74.88333943,636,1098,14,9,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",73.85468175,1307,1807,15,15,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",73.84468112,939,1389,5,3,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,adn:พระประจำวันเกิด-adf:Single,73.49778961,1571,2363,16,12,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",73.46465703,1351,1790,19,15,5,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",65.41026778,1301,1780,19,12,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:บริการ Same Day Delivery-adf:Single",61.63,762,1336,12,9,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:Service _ ทองแท้ 96.5-adf:Single",61.57089433,883,1721,14,12,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:Service _ ทองแท้ 96.5-adf:Single",61.40913345,612,1141,16,12,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",61.23,593,1281,17,10,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",55.72107164,713,1002,15,13,9,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,45-54,"ปี่เซียะมงคล  11-20 Aug",55.5714746,643,726,16,13,5,1,1590,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,25-34,adn:พระประจำวันเกิด-adf:Single,55.07032391,783,1581,15,12,7,1,2049,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",54.97068519,413,1200,33,32,9,1,74497,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",54.78791175,1303,2597,17,14,4,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,25-34,adn:พระประจำวันเกิด-adf:Single,54.65,1110,2568,13,10,4,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:Service _ ทองแท้ 96.5-adf:Single",53.68924239,534,948,12,11,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",53.23,704,1006,11,10,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",53.21,942,1466,9,8,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",52.27,846,1055,11,11,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,55-64,adn:พระประจำวันเกิด-adf:Single,51.58,435,916,16,8,1,1,4905,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,55-64,adn:พระประจำวันเกิด-adf:Single,50.81,469,999,8,6,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",50.63320971,408,512,7,7,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",49.87,517,1459,7,6,1,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:Live 19_8_26-adf:Video",49.71,1262,1308,2,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,adn:พระประจำวันเกิด-adf:Single,48.03855741,1253,2105,14,5,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:Service _ ทองแท้ 96.5-adf:Single",47.4929763,731,1578,10,9,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",45.07329366,926,1281,7,4,5,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:Service _ ทองแท้ 96.5-adf:Single",44.45342582,550,1043,18,14,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:Service _ ทองแท้ 96.5-adf:Single",41.98940749,486,874,7,7,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",41.69379649,766,974,8,6,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",41.48841867,738,1323,17,15,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",41.37564673,852,1113,19,14,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",38.97048576,465,1116,25,20,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",38.37,502,758,9,4,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",37.90589408,615,1067,8,6,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,55-64,adn:พระประจำวันเกิด-adf:Single,37.66706136,110,252,1,1,4,2,107908,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,35-44,adn:พระประจำวันเกิด-adf:Single,37.33699948,604,1146,7,4,4,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",35.9,543,793,8,9,2,1,9382,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",35.69468908,524,793,6,6,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",34.5,359,468,8,7,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",34.10492562,654,953,8,4,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",29.64187904,803,1140,5,4,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",28.83687642,589,1027,5,3,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,35-44,"adn:Live 19_8_26-adf:Video",27.91,870,935,3,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",27.63175162,363,495,3,3,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,45-54,adn:พระประจำวันเกิด-adf:Single,27.57516946,329,675,8,4,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",27.08706596,436,699,11,10,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",27.02021804,201,285,6,5,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",26.52,296,446,3,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:บริการ Same Day Delivery-adf:Single",25.93,255,449,6,4,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:Live 19_8_26-adf:Video",25.72,1108,1174,2,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:บริการ Same Day Delivery-adf:Single",24.11,392,757,4,2,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",24.11,303,435,9,9,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",23.96,194,298,6,6,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,45-54,adn:พระประจำวันเกิด-adf:Single,23.50929297,111,143,1,1,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",23.04871617,463,643,6,3,1,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,35-44,"adn:Live 19_8_26-adf:Video",22.69,661,695,1,1,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",22.43,181,232,3,3,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,35-44,"adn:The Memory Custom Card   13_31 Aug-adf:Single",22.29,197,363,6,6,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",21.68,352,480,6,4,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",21.19117552,43,444,4,2,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:Live 19_8_26-adf:Video",21.1,1013,1053,1,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",20.89773638,238,386,2,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:บริการ Same Day Delivery-adf:Single",20.83,377,775,7,3,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,25-34,"ปี่เซียะมงคล  11-20 Aug",19.98412639,349,435,7,4,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",19.7808664,31,335,2,3,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:Service _ ทองแท้ 96.5-adf:Single",19.67708997,206,376,10,8,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,25-34,adn:พระประจำวันเกิด-adf:Single,19.28361506,337,694,6,5,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,55-64,adn:พระประจำวันเกิด-adf:Single,19.22360381,158,290,4,3,4,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,45-54,"adn:Live 19_8_26-adf:Video",18.17,443,448,1,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",18.14686247,312,436,5,4,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",17.63,106,220,4,3,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,25-34,"adn:Live 19_8_26-adf:Video",17.57,747,793,1,1,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:Live 19_8_26-adf:Video",16.72,623,637,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",16.48,193,273,4,3,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:Service _ ทองแท้ 96.5-adf:Single",16.44976788,174,293,2,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",16.29,286,406,2,1,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",15.95939171,260,426,8,5,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,55-64,"ปี่เซียะมงคล  11-20 Aug",15.59321974,138,160,5,5,1,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,45-54,"adn:Live 19_8_26-adf:Video",15.57,422,435,3,2,5,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:บริการ Same Day Delivery-adf:Single",15.53,246,457,3,2,1,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,25-34,"adn:Live 19_8_26-adf:Video",15,489,522,1,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,25-34,"adn:The Memory Custom Card   13_31 Aug-adf:Single",14.64,182,372,3,1,2,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",14.25,120,168,2,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:บริการ Same Day Delivery-adf:Single",13.8,243,332,2,3,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",13.58,91,112,4,4,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:Live 19_8_26-adf:Video",12.72,378,394,1,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,55-64,"adn:Live 19_8_26-adf:Video",12.14,299,305,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:บริการ Same Day Delivery-adf:Single",11.74,183,223,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:บริการ Same Day Delivery-adf:Single",10.74,181,241,3,3,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",9.5585778,146,198,2,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",9.39355229,262,358,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,35-44,"adn:Live 19_8_26-adf:Video",9.06,344,348,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",9.01,100,126,3,3,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,25-34,"adn:Live 19_8_26-adf:Video",8.79,309,323,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,45-54,"ปี่เซียะมงคล  11-20 Aug",8.3,115,118,3,3,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,35-44,"adn:The Memory Custom Card   13_31 Aug-adf:Single",8.26,74,164,2,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",8.16010171,27,159,1,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,35-44,"ปี่เซียะมงคล  11-20 Aug",7.97164601,144,182,,,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",7.62970919,151,260,1,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,55-64,"adn:The Memory Custom Card   13_31 Aug-adf:Single",7.43,32,61,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:บริการ Same Day Delivery-adf:Single",7.35,107,181,4,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",7.31,101,114,4,3,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",7.22,40,127,1,1,2,1,4776,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,adn:พระประจำวันเกิด-adf:Single,7.16127568,53,92,2,1,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,female,55-64,"adn:Live 19_8_26-adf:Video",6.83,133,141,1,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",6.80257248,122,160,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,45-54,"adn:Live 19_8_26-adf:Video",6.73,218,228,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,25-34,"adn:The Memory Custom Card   13_31 Aug-adf:Single",6.63,76,107,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",6.56,28,64,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",6.5590241,176,236,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,45-54,"ปี่เซียะมงคล  11-20 Aug",6.50134242,87,100,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",6.46,74,98,2,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",6.45,97,111,2,5,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",5.96,113,143,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,35-44,"ปี่เซียะมงคล  11-20 Aug",5.64,105,110,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,25-34,"adn:The Memory Custom Card   13_31 Aug-adf:Single",5.36,57,133,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",5.3,78,121,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,55-64,"adn:Live 19_8_26-adf:Video",5.3,143,145,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",5.21,84,109,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:บริการ Same Day Delivery-adf:Single",5.13,88,112,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,35-44,"adn:Live 19_8_26-adf:Video",5.12,215,226,2,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:บริการ Same Day Delivery-adf:Single",5.03,49,56,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,35-44,adn:พระประจำวันเกิด-adf:Single,4.8608659,81,138,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:บริการ Same Day Delivery-adf:Single",4.82,101,147,1,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,55-64,"adn:The Memory Custom Card   13_31 Aug-adf:Single",4.49,13,40,2,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,35-44,adn:พระประจำวันเกิด-adf:Single,4.0698776,105,139,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",3.98,73,111,4,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",3.76,49,61,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:บริการ Same Day Delivery-adf:Single",3.7,76,93,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",3.65,55,83,2,2,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,25-34,"ปี่เซียะมงคล  11-20 Aug",3.63074969,79,101,2,1,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",3.55,61,89,1,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",3.28,50,76,1,1,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,25-34,"adn:Live 19_8_26-adf:Video",3.25,172,181,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",3.2,74,95,3,3,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",3.11,81,117,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",3.1,75,97,2,2,1,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,55-64,"ปี่เซียะมงคล  11-20 Aug",3.08,24,24,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,35-44,"adn:The Memory Custom Card   13_31 Aug-adf:Single",3.08,5,28,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",3.07,28,73,1,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,35-44,"adn:The Memory Custom Card   13_31 Aug-adf:Single",3.02,54,86,2,1,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",2.75,27,35,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:บริการ Same Day Delivery-adf:Single",2.68,49,59,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",2.67016927,38,51,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",2.67,44,47,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",2.63,32,48,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,45-54,"adn:Live 19_8_26-adf:Video",2.55,96,100,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",2.5,20,28,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,25-34,adn:พระประจำวันเกิด-adf:Single,2.34992933,30,41,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",2.34,23,30,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,45-54,adn:พระประจำวันเกิด-adf:Single,2.34,19,61,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",2.23,34,36,1,,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,55-64,adn:พระประจำวันเกิด-adf:Single,2.18993414,19,23,1,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",2.18012094,21,92,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,35-44,"adn:Service _ ทองแท้ 96.5-adf:Single",2.15968061,30,59,3,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,35-44,adn:พระประจำวันเกิด-adf:Single,2.15,32,67,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,35-44,"adn:Live 19_8_26-adf:Video",2.13001809,46,49,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",2.11,30,37,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",2.1,40,61,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,35-44,adn:พระประจำวันเกิด-adf:Single,2.09039188,14,35,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,25-34,"adn:The Memory Custom Card   13_31 Aug-adf:Single",2.08,26,69,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,45-54,"adn:Service _ ทองแท้ 96.5-adf:Single",2.07997065,18,31,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",2.07013123,46,62,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,35-44,"adn:Service _ ทองแท้ 96.5-adf:Single",2.02997135,21,45,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",1.97,26,38,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",1.90104432,21,46,1,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,"adn:Service _ ทองแท้ 96.5-adf:Single",1.85972497,17,27,1,2,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,45-54,"ปี่เซียะมงคล  11-20 Aug",1.79,40,41,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,45-54,adn:พระประจำวันเกิด-adf:Single,1.76033001,2,15,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,55-64,"ปี่เซียะมงคล  11-20 Aug",1.70035109,20,25,,,3,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",1.68,21,25,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,25-34,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",1.65982021,22,33,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",1.60993864,37,75,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",1.60010143,16,26,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",1.6,24,74,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",1.58,27,42,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",1.55,22,26,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,35-44,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",1.53057881,16,24,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,65+,"ปี่เซียะมงคล  11-20 Aug",1.49030772,23,28,,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",1.46994397,16,30,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,35-44,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",1.46984079,27,35,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,25-34,adn:พระประจำวันเกิด-adf:Single,1.44025656,25,40,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,45-54,"adn:Live 19_8_26-adf:Video",1.41001198,33,33,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,35-44,"ปี่เซียะมงคล  11-20 Aug",1.39,28,28,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",1.37985054,14,24,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",1.33,29,37,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",1.32001645,14,61,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",1.31,24,59,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,45-54,"ปี่เซียะมงคล  11-20 Aug",1.3,32,32,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,male,55-64,"adn:Live 19_8_26-adf:Video",1.3,36,37,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,25-34,"ปี่เซียะมงคล  11-20 Aug",1.29,38,39,,,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",1.29,21,28,2,1,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,25-34,"adn:Live 19_8_26-adf:Video",1.23001045,18,20,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",1.22006768,14,53,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,25-34,"adn:Service _ ทองแท้ 96.5-adf:Single",1.16998349,9,20,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",1.11,14,16,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,65+,"ปี่เซียะมงคล  11-20 Aug",1.10022718,7,11,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,25-34,"adn:บริการ Same Day Delivery-adf:Single",1.04,11,17,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",1.03,21,43,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:The Memory Custom Card   13_31 Aug-adf:Single",1.02,18,22,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",1.01,11,12,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",1,15,22,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,55-64,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",0.97989386,5,13,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,35-44,"ปี่เซียะมงคล  11-20 Aug",0.97,31,35,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,25-34,"adn:Service _ ทองแท้ 96.5-adf:Single",0.939861,17,33,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",0.93,36,59,,,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,35-44,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",0.9,11,19,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,35-44,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.89,15,17,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0.88996608,26,46,2,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,35-44,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0.85987206,18,30,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.85,11,13,2,2,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",0.85,22,25,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.81,18,25,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",0.81,11,16,1,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,65+,"ปี่เซียะมงคล  11-20 Aug",0.78,2,2,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,55-64,"ปี่เซียะมงคล  11-20 Aug",0.74,9,9,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",0.72,16,16,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,45-54,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0.70989438,15,16,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",0.70038475,14,33,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",0.7,14,20,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:Service _ ซื้อทองออนไลน์อย่างมั่นใจ-adf:Single",0.67,14,15,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.66,20,22,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,25-34,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.62,13,19,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",0.62,7,8,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0.6100076,18,27,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,25-34,"ปี่เซียะมงคล  11-20 Aug",0.61,24,26,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,25-34,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",0.60022698,5,7,1,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.59,13,13,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,25-34,"ปี่เซียะมงคล  11-20 Aug",0.58,20,21,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,55-64,"adn:บริการ Same Day Delivery-adf:Single",0.56,3,13,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,female,18-24,"ปี่เซียะมงคล  11-20 Aug",0.55011359,12,14,,,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,45-54,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",0.54,11,44,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,25-34,adn:พระประจำวันเกิด-adf:Single,0.5,12,17,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",0.48,6,7,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",0.47025833,2,4,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,55-64,"ปี่เซียะมงคล  11-20 Aug",0.47,9,9,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,45-54,"ปี่เซียะมงคล  11-20 Aug",0.47,13,15,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,35-44,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.46,18,19,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,25-34,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.45,5,9,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",0.42015889,11,15,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.4,10,10,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.39,13,18,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.39,9,11,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,35-44,"adn:บริการ Same Day Delivery-adf:Single",0.39,8,12,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,55-64,"adn:Service _ ทองแท้ 96.5-adf:Single",0.38994233,7,9,1,1,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,25-34,"adn:Live 19_8_26-adf:Video",0.36,14,14,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,25-34,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0.35994644,8,14,1,1,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,55-64,"ปี่เซียะมงคล  11-20 Aug",0.35,10,10,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,45-54,"ปี่เซียะมงคล  11-20 Aug",0.34007022,5,6,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.34,7,12,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,35-44,"ปี่เซียะมงคล  11-20 Aug",0.33,10,10,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,45-54,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.32,4,4,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,45-54,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",0.32,4,9,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,35-44,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.31,13,19,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,55-64,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.3,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.28,4,4,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",female,25-34,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.27,15,17,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,35-44,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",0.27,4,15,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,35-44,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",0.27,4,6,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,55-64,adn:พระประจำวันเกิด-adf:Single,0.24004276,9,17,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,25-34,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",0.24,5,8,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,55-64,"adn:Service _ ทองแท้ 96.5-adf:Single",0.23999661,2,2,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,55-64,adn:พระประจำวันเกิด-adf:Single,0.23,2,4,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",0.22,8,12,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,65+,"ปี่เซียะมงคล  11-20 Aug",0.22,3,3,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,"adn:บริการ Same Day Delivery-adf:Single",0.22,4,7,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0.21000262,5,5,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,55-64,"adn:Lifestyle _ เลือกทองเหมือนเลือกสไตล์-adf:Single",0.21,1,1,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,35-44,"adn:Live 19_8_26-adf:Video",0.2,9,9,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,45-54,"adn:Live 19_8_26-adf:Video",0.19,4,4,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.18,10,14,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",0.17001078,5,6,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",female,55-64,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.15,9,9,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,55-64,"ปี่เซียะมงคล  11-20 Aug",0.14002891,1,2,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,55-64,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",0.14,2,5,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,35-44,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.13,8,8,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,25-34,"adn:Live 19_8_26-adf:Video",0.13,2,2,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,male,18-24,"ปี่เซียะมงคล  11-20 Aug",0.12002478,6,6,,,1,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,25-34,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",0.12,4,6,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,35-44,"ปี่เซียะมงคล  11-20 Aug",0.12,2,2,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,25-34,"ปี่เซียะมงคล  11-20 Aug",0.11,5,5,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,female,18-24,"ปี่เซียะมงคล  11-20 Aug",0.1,7,7,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,35-44,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.1,2,2,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",male,55-64,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.1,5,5,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,25-34,adn:พระประจำวันเกิด-adf:Single,0.09001688,3,4,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0.09000499,2,3,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.09,2,2,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,35-44,"adn:บริการ Same Day Delivery-adf:Single",0.09,4,13,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0.08999657,4,6,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Retargeting-Conversion,unknown,35-44,"ปี่เซียะมงคล  11-20 Aug",0.08001652,3,3,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,55-64,"adn:Live 19_8_26-adf:Video",0.08000068,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,female,55-64,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.08,5,5,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,25-34,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.08,4,4,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,65+,"ปี่เซียะมงคล  11-20 Aug",0.08,2,2,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",0.08,3,5,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,18-24,"ปี่เซียะมงคล  11-20 Aug",0.07,3,4,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.07,2,2,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",0.07,3,4,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",0.07,5,5,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,45-54,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.06,3,3,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.06,1,3,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,45-54,"ปี่เซียะมงคล  11-20 Aug",0.06,2,2,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,35-44,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",0.05,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,male,55-64,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.04,4,7,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,25-34,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",0.04,1,2,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.04,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,45-54,"adn:บริการ Same Day Delivery-adf:Single",0.04,3,9,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,female,65+,"ปี่เซียะมงคล  11-20 Aug",0.03,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",male,55-64,"adn:Branding _ มากกว่ามูลค่าทอง คือความสุข-adf:Single",0.03,1,1,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,35-44,"adn:Live 19_8_26-adf:Video",0.03,2,2,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,"adn:Live 19_8_26-adf:Video",0.03,5,5,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,unknown,55-64,"ปี่เซียะมงคล  11-20 Aug",0.03,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,55-64,"adn:Branding _ เปลี่ยนโอกาสพิเศษ-adf:Single",0.03,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,55-64,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0.02999554,2,2,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,55-64,"adn:The Memory Gold Laser  13_31 Aug-adf:Single",0.02000757,1,1,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,male,18-24,"ปี่เซียะมงคล  11-20 Aug",0.02,2,2,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All",geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,35-44,"adn:Live 19_8_26-adf:Video",0.02,3,3,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.02,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.01,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,45-54,"adn:The Memory Custom Card   13_31 Aug-adf:Single",0.01,1,1,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Lookalike-Conversion,unknown,55-64,"ปี่เซียะมงคล  11-20 Aug",0.01,1,1,,,,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Campaign",Campaign-Retargeting-Conversion,female,25-34,"Happy Mother Day -  1-12 Aug",0,0,0,,,1,,,2026-08-18,2026-08-24
 "2600 | ONN | website Traffic | Always On",Gold-Broad,female,25-34,"ผ่อนทอง 0% Aug 2026",0,0,0,,,2,,,2026-08-18,2026-08-24
@@ -52,3 +418,10 @@
 "2600 | ONN | website Traffic | Always On",Gold-Broad,male,35-44,"ผ่อนทอง 0% Aug 2026",0,0,0,,,2,,,2026-08-18,2026-08-24
 "2600 | ONN | website Conversion | Always On",Gold-Board-Conversion,male,35-44,"The Memory Custom Card   13-31 Aug",0,0,0,,,1,,,2026-08-18,2026-08-24
 "2600 | ONN | website Traffic | Communication",Traffic-Broad,male,65+,"Branding - เปลี่ยนโอากาสพิเศษ",0,0,0,,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,55-64,"adn:Lifestyle _ ทุกช่วงเวลาสำคัญมีทองที่ใช่เสมอ-adf:Single",0,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,55-64,"adn:บริการ Same Day Delivery-adf:Single",0,1,3,,,,,,2026-08-18,2026-08-24
+"job:DM26_0116-moj:Video View-cpg:AWO-cpn:LIVE-aus:All","geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,55-64,"adn:Live 19_8_26-adf:Video",0,1,1,,,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Traffic-cpg:AWO-cpn:AWO-aus:New,geo:TH-age:25_64-gdr:All-plm:All-aud:Lookalike,unknown,Unknown,"adn:Service _ ทองแท้ 96.5-adf:Single",0,0,0,,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,geo:TH-age:25_64-gdr:All-plm:All-aud:Purchase,unknown,Unknown,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0,0,0,,3,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:Retarget,"geo:TH-age:25_64-gdr:All-plm:All-aud:Website Visit",unknown,Unknown,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0,0,0,,1,,,,2026-08-18,2026-08-24
+job:DM26_0116-moj:Conversion-cpg:AWO-cpn:AWO-aus:New,"geo:TH-age:25_64-gdr:All-plm:All-aud:Engage Page",unknown,Unknown,"adn:ผ่อนทอง 0% Aug 2026.jpg-adf:Single",0,0,0,,1,,,,2026-08-18,2026-08-24

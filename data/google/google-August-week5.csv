@@ -1,0 +1,12 @@
+Campaign report,,,,,,,,,,,,
+"August 25, 2026 - August 31, 2026",,,,,,,,,,,,
+Campaign status,Campaign,Budget,Budget name,Budget type,Currency code,Status,Status reasons,Cost,Impr.,Clicks,Purchase,Revenue
+Enabled,job:DM26_0116-avc:Search-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:All-mht:All-kwt:Brand,933, --,Daily,THB,Eligible,,10813.09,"40,236","15,415",187.77,7072073.35
+Paused,job:DM26_0116-avc:Demand Gen-moj:Conversion-cpg:AWO-cpn:ADHOC Campaign-geo:TH-aus:New,450, --,Daily,THB,Paused,campaign paused; campaign ended; most ads disapproved,923.07,"34,109","1,708",0,0
+Enabled,job:DM26_0116-avc:Performance Max-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:All,1400, --,Daily,THB,Eligible,,0,0,0,0,0
+Enabled,job:DM26_0116-avc:Demand Gen-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:Retarget,200, --,Daily,THB,Ended,campaign ended; most ads limited by policy,2793.17,"189,621","10,292",0,0
+Paused,4040 | ONN | Search Brand Traffic | Always On,2000, --,Daily,THB,Paused,campaign paused,0,0,0,0,0
+Enabled,job:DM26_0116-avc:Demand Gen-moj:Traffic-cpg:AWO-cpn:AWO-geo:TH-aus:New,839, --,Daily,THB,Eligible (Limited),limited by bidding strategy type; bidding strategy learning; some ads limited by policy,3178.49,"358,164","16,906",0,0
+Enabled,job:DM26_0116-avc:Search-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:All-mht:All-kwt:Generic,233, --,Daily,THB,Eligible (Limited),limited by search volume,3137.23,"35,023","6,697",13.79,298074.73
+Paused,job:DM26_0116-avc:Demand Gen-moj:Traffic-cpg:AWO-cpn:AWO-geo:TH-aus:New 2,839, --,Daily,THB,Paused,campaign paused,0,0,0,0,0
+Paused,job:DM26_0116-avc:Search-moj:Conversion-cpg:AWO-cpn:AWO-geo:TH-aus:All-mht:All-kwt:Competitor,142, --,Daily,THB,Paused,campaign paused; campaign ended,580.6,"2,212",90,0,0

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website | Traffic Ads Performance</title>
 
-  <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -157,6 +156,9 @@
     .yearly-summary-table tbody td:first-child { background-color: var(--card); }
     .yearly-summary-table tbody tr:nth-child(odd) td:not(:first-child) { background-color: var(--card); }
     .yearly-summary-table tbody tr:nth-child(even) td:not(:first-child) { background-color: var(--surface); }
+    
+    .overall-section-title { font-size: 22px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 10px; padding-bottom: 12px; border-bottom: 2px solid var(--border); margin-bottom: 24px; }
+    .overall-section-title svg { width: 28px; height: 28px; }
 
     #statusBar { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--green); margin-bottom: 16px; }
 
@@ -386,44 +388,101 @@
       </div>
     </div> <!-- End platformDashboard -->
 
-    <div id="overallDashboard" style="display: none; padding-top: 16px; display: flex; flex-direction: column; gap: 32px;">
+    <div id="overallDashboard" style="display: none; padding-top: 16px; flex-direction: column; gap: 48px;">
       
-      <!-- Facebook Yearly Summary -->
-      <div class="table-card" style="margin-top: 0;">
-        <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
-          <div class="chart-title">
-             <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-             1. Facebook Ads - Yearly Performance Summary
+      <!-- 1. Facebook Ads Overall Section -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div class="overall-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          1. Facebook Ads - Overall (Yearly)
+        </div>
+        
+        <div class="dashboard-layout" style="margin-top: 0;">
+          <div class="charts-grid">
+            <div class="chart-card">
+              <div class="chart-title">Customer Journey Funnel</div>
+              <div class="chart-sub">พฤติกรรมลูกค้า (ยอดรวมทั้งปี)</div>
+              <div id="overallFbFunnelContainer"></div>
+            </div>
+            <div class="chart-card" style="display: flex; flex-direction: column;">
+              <div class="chart-title">Sale Performance</div>
+              <div class="chart-sub" style="margin-bottom: 16px;">ข้อมูลการสั่งซื้อและผลตอบแทน (ยอดรวมทั้งปี)</div>
+              <div id="overallFbSalesContainer" style="flex-grow: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: center;"></div>
+            </div>
           </div>
         </div>
-        <div class="table-responsive">
-          <table id="yearlyFacebookTable" class="yearly-summary-table"></table>
+
+        <div class="table-card" style="margin-top: 0;">
+          <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+            <div class="chart-title">Facebook Ads - Yearly Performance Summary Table</div>
+          </div>
+          <div class="table-responsive">
+            <table id="yearlyFacebookTable" class="yearly-summary-table"></table>
+          </div>
         </div>
       </div>
 
-      <!-- Google Yearly Summary -->
-      <div class="table-card" style="margin-top: 0;">
-        <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
-          <div class="chart-title">
-             <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
-             2. Google Ads - Yearly Performance Summary
+      <!-- 2. Google Ads Overall Section -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div class="overall-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+          2. Google Ads - Overall (Yearly)
+        </div>
+        
+        <div class="dashboard-layout" style="margin-top: 0;">
+          <div class="charts-grid">
+            <div class="chart-card">
+              <div class="chart-title">Customer Journey Funnel</div>
+              <div class="chart-sub">พฤติกรรมลูกค้า (ยอดรวมทั้งปี)</div>
+              <div id="overallGgFunnelContainer"></div>
+            </div>
+            <div class="chart-card" style="display: flex; flex-direction: column;">
+              <div class="chart-title">Sale Performance</div>
+              <div class="chart-sub" style="margin-bottom: 16px;">ข้อมูลการสั่งซื้อและผลตอบแทน (ยอดรวมทั้งปี)</div>
+              <div id="overallGgSalesContainer" style="flex-grow: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: center;"></div>
+            </div>
           </div>
         </div>
-        <div class="table-responsive">
-          <table id="yearlyGoogleTable" class="yearly-summary-table"></table>
+
+        <div class="table-card" style="margin-top: 0;">
+          <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+            <div class="chart-title">Google Ads - Yearly Performance Summary Table</div>
+          </div>
+          <div class="table-responsive">
+            <table id="yearlyGoogleTable" class="yearly-summary-table"></table>
+          </div>
         </div>
       </div>
 
-      <!-- Combined Yearly Summary -->
-      <div class="table-card" style="margin-top: 0;">
-        <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
-          <div class="chart-title">
-             <svg viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2" width="20" height="20"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-             3. Combined (Facebook + Google) - Yearly Performance Summary
+      <!-- 3. Combined Overall Section -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div class="overall-section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          3. Combined (Facebook + Google) - Overall (Yearly)
+        </div>
+
+        <div class="dashboard-layout" style="margin-top: 0;">
+          <div class="charts-grid">
+            <div class="chart-card">
+              <div class="chart-title">Combined Customer Journey Funnel</div>
+              <div class="chart-sub">พฤติกรรมลูกค้าแบบรวมศูนย์ (ยอดรวมทั้งปี)</div>
+              <div id="overallCombinedFunnelContainer"></div>
+            </div>
+            <div class="chart-card" style="display: flex; flex-direction: column;">
+              <div class="chart-title">Combined Sale Performance</div>
+              <div class="chart-sub" style="margin-bottom: 16px;">ข้อมูลการสั่งซื้อและผลตอบแทนแบบรวมศูนย์ (ยอดรวมทั้งปี)</div>
+              <div id="overallCombinedSalesContainer" style="flex-grow: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: center;"></div>
+            </div>
           </div>
         </div>
-        <div class="table-responsive">
-          <table id="yearlyCombinedTable" class="yearly-summary-table"></table>
+
+        <div class="table-card" style="margin-top: 0;">
+          <div class="table-header" style="padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+            <div class="chart-title">Combined - Yearly Performance Summary Table</div>
+          </div>
+          <div class="table-responsive">
+            <table id="yearlyCombinedTable" class="yearly-summary-table"></table>
+          </div>
         </div>
       </div>
       
@@ -467,14 +526,13 @@
    STREAMING_CHUNK:Initializing global formatters and state variables...
 ======================================================================== */
 function formatNum(n) { 
-    return new Intl.NumberFormat('th-TH').format(Math.round(n || 0)); 
+  return new Intl.NumberFormat('th-TH').format(Math.round(n || 0)); 
 }
 function formatCurrency(n) { 
-    return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n || 0); 
+  return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(n || 0); 
 }
 
-const initialCSVData = `"Reporting starts","Reporting ends","Week","Campaign name","Ad set name","Ad name","Age","Gender","Amount spent (THB)","Cost","Reach","Impressions","Impr.","Link clicks","Clicks","Landing page views","Website adds to cart","Add to cart","Website purchases","Purchase","Website purchases conversion value","Revenue","Image URL"
-"2026-07-01","2026-07-07","W1","Sample Campaign","Sample Adset","Sample Ad","25-34","male","1500","1500","5000","6000","6000","150","150","100","20","20","5","5","15000","15000",""`;
+const initialCSVData = ``;
 
 const ALL_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 let currentPlatform = 'facebook';
@@ -577,11 +635,11 @@ window.switchMonth = async function(month, forceRefresh = false) {
   const hasData = globalData.some(r => r.platform === currentPlatform && r.month === month);
 
   if (!hasData && globalData.filter(r => r.platform === currentPlatform).length === 0) {
-      if (currentPlatform === 'facebook') {
-          let data2D = Papa.parse(initialCSVData, {header: false, skipEmptyLines: true}).data;
-          loadManualData(data2D, true, 'ไม่มีข้อมูล', false, 'facebook'); 
-          showStatus(`ℹ️ ไม่พบไฟล์อัตโนมัติ (กำลังแสดงข้อมูลตัวอย่าง)`);
-      }
+      currentSource = 'ไม่มีข้อมูล';
+      populateFilters();
+      updateSourceLabel();
+      renderAll();
+      showStatus(`ℹ️ ไม่พบข้อมูลอัตโนมัติ กรุณาอัปโหลดไฟล์`);
   } else {
       currentSource = `โฟลเดอร์ ${currentPlatform}`;
       populateFilters();
@@ -1053,7 +1111,7 @@ const getDiffHtml = (currentVal, previousVal, labelCurrent, labelPrevious, rever
 };
 
 /* =====================================================================
-   STREAMING_CHUNK:Rendering KPIs, Funnel and Sale Summaries...
+   STREAMING_CHUNK:Rendering KPIs, Monthly Funnel and Sale Summaries...
 ======================================================================== */
 function renderAll() { 
   if (currentPlatform === 'overall') return;
@@ -1748,7 +1806,141 @@ function renderKeywordTable() {
 }
 
 /* =====================================================================
-   STREAMING_CHUNK:Rendering Overall Dashboard and 3 Yearly Tables...
+   STREAMING_CHUNK:Rendering Overall Dashboard Yearly Funnels and Summaries...
+======================================================================== */
+function renderOverallFunnel(data, containerId, platformType) {
+  const isGoogle = platformType === 'google';
+  
+  const impr = data.reduce((s,r)=>s+(r.impressions||0),0);
+  const clicks = data.reduce((s,r)=>s+(r.clicks||0),0);
+  const lpViews = data.reduce((s,r)=>s+(r.lpViews||0),0);
+  const addCart = data.reduce((s,r)=>s+(r.addCart||0),0);
+  const purchases = data.reduce((s,r)=>s+(r.purchases||0),0);
+
+  let steps = [];
+  if (isGoogle) {
+      steps = [
+        { id: 1, name: 'การมองเห็น (Impressions)', val: impr, color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
+        { id: 2, name: 'คลิกลิงก์ (Clicks)', val: clicks, color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
+        { id: 3, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
+        { id: 4, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
+      ];
+  } else {
+      steps = [
+        { id: 1, name: 'การมองเห็น (Impressions)', val: impr, color: '#3B82F6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>' },
+        { id: 2, name: 'คลิกลิงก์ (Link Clicks)', val: clicks, color: '#06B6D4', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>' },
+        { id: 3, name: 'เข้าชมเว็บ (Landing Page Views)', val: lpViews, color: '#8B5CF6', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
+        { id: 4, name: 'หยิบใส่ตะกร้า (Add to Cart)', val: addCart, color: '#EC4899', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' },
+        { id: 5, name: 'สั่งซื้อสำเร็จ (Purchases)', val: purchases, color: '#10B981', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' }
+      ];
+  }
+
+  let html = '<div class="pyramid-funnel-container">';
+  const widths = isGoogle ? [100, 85, 70, 55] : [100, 90, 80, 70, 60];
+
+  steps.forEach((step, index) => {
+    const prevVal = index > 0 ? steps[index - 1].val : step.val;
+    const convRate = prevVal > 0 ? ((step.val / prevVal) * 100).toFixed(2) : '0.00';
+    const stepWidth = widths[index];
+
+    let badgeHtml = '';
+    if (index > 0) {
+      badgeHtml = `
+        <div class="pyramid-badge" style="color: ${step.color}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          ${convRate}%
+        </div>
+      `;
+    }
+
+    html += `
+      <div class="pyramid-step" style="width: ${stepWidth}%; background-color: ${step.color};">
+        ${badgeHtml}
+        <div class="pyramid-step-left">
+          <div class="pyramid-icon">${step.icon}</div>
+          <div class="pyramid-name" title="${step.name}">${step.name}</div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:center;">
+            <div class="pyramid-val" style="margin-left: 0; line-height: 1;">${formatNum(step.val || 0)}</div>
+        </div>
+      </div>
+    `;
+  });
+
+  html += '</div>';
+  const container = document.getElementById(containerId);
+  if(container) container.innerHTML = html;
+}
+
+function renderOverallSalesSummary(data, containerId, platformType) {
+  const isGoogle = platformType === 'google';
+  
+  const spend = data.reduce((s,r)=>s+(r.spend||0),0);
+  const purchases = data.reduce((s,r)=>s+(r.purchases||0),0);
+  const convValue = data.reduce((s,r)=>s+(r.convValue||0),0);
+  const clicks = data.reduce((s,r)=>s+(r.clicks||0),0);
+
+  const aov = purchases > 0 ? convValue / purchases : 0;
+  const roas = spend > 0 ? convValue / spend : 0;
+  const convRate = clicks > 0 ? (purchases / clicks) * 100 : 0;
+
+  let benchmarkStatus = '';
+  if (clicks === 0) {
+    benchmarkStatus = `<span style="color: var(--muted); font-size: 11px;">⚠️ ยังไม่มีข้อมูลทราฟฟิกคลิก</span>`;
+  } else if (convRate >= 3.00) {
+    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 600; font-size: 11px; display: flex; align-items: center; gap: 4px;">🔥 ดีเยี่ยม (สูงกว่าเกณฑ์ทั่วไป > 3.0%)</span>`;
+  } else if (convRate >= 1.00) {
+    benchmarkStatus = `<span style="color: var(--emerald); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">✨ ปกติ (ตามเกณฑ์มาตรฐาน 1.0% - 3.0%)</span>`;
+  } else {
+    benchmarkStatus = `<span style="color: var(--accent); font-weight: 500; font-size: 11px; display: flex; align-items: center; gap: 4px;">⚠️ ต่ำกว่าเกณฑ์เฉลี่ย (ควรเช็กความเร็วเว็บหรือข้อเสนอพิเศษ)</span>`;
+  }
+
+  const purchaseLabel = isGoogle ? 'Purchases' : 'Website Purchases';
+  const revenueLabel = isGoogle ? 'Revenue' : 'Conversion Value';
+
+  const html = `
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">${purchaseLabel}</div>
+      <div style="display:flex; align-items:center;">
+        <div style="color: var(--purple); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">${formatNum(purchases || 0)}</div>
+      </div>
+    </div>
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">${revenueLabel}</div>
+      <div style="display:flex; align-items:center;">
+          <div style="color: var(--emerald); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">฿${formatNum(convValue || 0)}</div>
+      </div>
+    </div>
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">AOV (ยอดซื้อเฉลี่ย)</div>
+      <div style="display:flex; align-items:center;">
+          <div style="color: var(--blue); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">฿${formatNum(aov || 0)}</div>
+      </div>
+    </div>
+    <div style="background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 8px;">ROAS</div>
+      <div style="display:flex; align-items:center;">
+          <div style="color: var(--accent); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">${(roas || 0).toFixed(2)}x</div>
+      </div>
+    </div>
+    <div style="grid-column: 1 / -1; background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="color: var(--text-secondary); font-size: 13px; font-weight: 500; margin-bottom: 4px;">Conversion Rate (Purchases / Clicks)</div>
+      <div style="display:flex; align-items:center; margin-bottom: 6px;">
+          <div style="color: var(--primary); font-size: 28px; font-weight: 700; font-family: 'Inter', sans-serif; line-height: 1;">${(convRate || 0).toFixed(2)}%</div>
+      </div>
+      <div style="font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px; align-items: center;">
+        <div style="font-weight: 500; color: var(--muted)">เกณฑ์เฉลี่ย E-commerce มาตรฐาน: 1.00% - 3.00%</div>
+        <div>สถานะ: ${benchmarkStatus}</div>
+      </div>
+    </div>
+  `;
+  
+  const container = document.getElementById(containerId);
+  if(container) container.innerHTML = html;
+}
+
+/* =====================================================================
+   STREAMING_CHUNK:Rendering Overall Dashboard Yearly Tables...
 ======================================================================== */
 function renderOverallDashboard() {
     const fbMetrics = [
@@ -1806,6 +1998,22 @@ function renderOverallDashboard() {
         { key: 'cpp', label: 'Cost Per Purchase', format: 'cost' }
     ];
 
+    // Get Filtered Data based on Platform for the entire year
+    const fbData = globalData.filter(r => r.platform === 'facebook' && r.rowType !== 'keyword');
+    const ggData = globalData.filter(r => r.platform === 'google' && r.rowType !== 'keyword');
+    const combinedData = globalData.filter(r => r.rowType !== 'keyword');
+
+    // Render Funnels and Summaries (Default handles 0 gracefully)
+    renderOverallFunnel(fbData, 'overallFbFunnelContainer', 'facebook');
+    renderOverallSalesSummary(fbData, 'overallFbSalesContainer', 'facebook');
+    
+    renderOverallFunnel(ggData, 'overallGgFunnelContainer', 'google');
+    renderOverallSalesSummary(ggData, 'overallGgSalesContainer', 'google');
+    
+    renderOverallFunnel(combinedData, 'overallCombinedFunnelContainer', 'combined');
+    renderOverallSalesSummary(combinedData, 'overallCombinedSalesContainer', 'combined');
+
+    // Render Tables
     generateYearlyTable('yearlyFacebookTable', 'facebook', fbMetrics);
     generateYearlyTable('yearlyGoogleTable', 'google', ggMetrics);
     generateYearlyTable('yearlyCombinedTable', 'overall', combinedMetrics);
